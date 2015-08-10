@@ -1,0 +1,42 @@
+<div class="me_mes">
+	<dl>
+		<dt><img src="{yun:}$info.pic{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/></dt>
+		<dd>
+			<div class='nickname'>{yun:}$info.nickname{/yun}</div>
+			{yun:}if $info.uid==$cookie.uid{/yun}
+			<span class="me_mes_edit"><a href="{yun:}url m=friend c=info{/yun}" target="_blank">编辑</a></span>
+			{yun:}/if{/yun}
+			<div class="clear"></div>
+			<p>个性签名：{yun:}$info.description{/yun}</p>
+			<div class="me_fans"><span class="fans{yun:}$info.uid{/yun}" fans="{yun:}$info.fans{/yun}">粉丝<span class="font">{yun:}$info.fans{/yun}</span></span>&nbsp;|
+			<span>关注<font>{yun:}$info.atnnum{/yun}</font></span>
+			{yun:}if $info.uid!=$cookie.uid{/yun}
+			<span class="add_attention user{yun:}$info.uid{/yun}"> 
+				{yun:}if $isatn{/yun}
+				<a class="watch_qxgz" onclick="attention_user('{yun:}$info.uid{/yun}','','{yun:}url m=ask c=friend a=atnuser{/yun}')" href="javascript:void(0)">取消关注</a>
+				{yun:}else{/yun}
+                    {yun:}if $cookie.uid{/yun}
+                    <a class="watch_gz" onclick="attention_user('{yun:}$info.uid{/yun}','','{yun:}url m=ask c=friend a=atnuser{/yun}')" href="javascript:void(0)">关注用户</a>
+                    {yun:}else{/yun}
+                    <a class="watch_gz" onclick="showlogin('');" href="javascript:void(0)">关注用户</a>
+                    {yun:}/if{/yun}  
+                {yun:}/if{/yun} 
+			</span> 
+			<span class="add_attention">
+				<a style="background:#ff7300" {yun:}if $cookie.uid{/yun}onclick="formsg('{yun:}$info.uid{/yun}')"{yun:}else{/yun}onclick="showlogin('')"{yun:}/if{/yun} href="javascript:void(0)">给他留言</a>
+			</span>
+			{yun:}/if{/yun}
+			</div>
+			
+		</dd>
+	</dl>
+</div>
+<div class="clear"></div>
+<div class="wt_list clear">
+	<span {yun:}if $smarty.get.a==''{/yun}class="cur"{yun:}/if{/yun}><a href="{yun:}url m=ask c=friend uid=$info.uid{/yun}">新鲜事</a></span> 
+	<span {yun:}if $smarty.get.a=='myquestion'{/yun}class="cur"{yun:}/if{/yun}><a href="{yun:}url m=ask c=friend a=myquestion uid=$info.uid{/yun}">提问</a></span> 
+	<span {yun:}if $smarty.get.a=='myanswer'{/yun}class="cur"{yun:}/if{/yun}><a href="{yun:}url m=ask c=friend a=myanswer  uid=$info.uid{/yun}">回答</a></span>
+	<span {yun:}if $smarty.get.a=='attenquestion'{/yun}class="cur"{yun:}/if{/yun}><a href="{yun:}url m=ask c=friend a=attenquestion  uid=$info.uid{/yun}">关注的问题</a></span>
+	<span {yun:}if $smarty.get.a=='myatn'{/yun}class="cur"{yun:}/if{/yun}><a href="{yun:}url m=ask c=friend a=myatn  uid=$info.uid{/yun}">关注达人</a></span> 
+	<span {yun:}if $smarty.get.a=='myfans'{/yun}class="cur"{yun:}/if{/yun}><a href="{yun:}url m=ask c=friend a=myfans  uid=$info.uid{/yun}">粉丝</a></span> 
+</div> 

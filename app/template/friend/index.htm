@@ -1,0 +1,151 @@
+{yun:}include file="$friendstyle/header.htm"{/yun}
+<div class="Personals_content">
+<div class="py_cont">
+{yun:}include file="$friendstyle/left2.htm"{/yun} 
+
+<div class="Personals_cont"> 
+  
+  <div class="talk_box_main" >
+	<iframe id="supportiframe"  name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>    
+    <form name="myform" target="supportiframe" id='myform' action="{yun:}url m=friend c=addstate{/yun}" method="post" onsubmit="return submitstate();">
+		<div class="talk-box" style="padding-bottom:10px;">
+			<h1 class="box-header"><span id="title_head">发表状态</span></h1> 
+			<div class="box-body">
+				<textarea id="content" class="Personals-textarea" name="content"  placeholder='有多久没发表状态了？'></textarea>
+			</div>  
+		</div>
+        <input type="submit" name="submit" value="发表" class="input-button"/>
+		</form>
+  </div>
+
+  <div class="clear"></div>
+  <div class="Personals_contmain fl">
+  <div class="feed-new-title">
+   <div class="Personals_may"><strong id="friend-news">最新动态</strong></div> 
+  </div>
+  <div class="Personals_cont_list news_main_list fl" id="addcontent">
+  {yun:}if $list{/yun}
+  {yun:}foreach from=$list item=one{/yun}
+    <!--循环部分-->
+    <div class="Personals_cont_dy {yun:}$one.id{/yun}">
+      <div class="Personals_cont_tx"><img src="{yun:}$one.pic{/yun}"   onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/></div>
+      <div class="Personals_cont_dy_r">
+        <div class="Personals_cont_dy_name">
+			<a href="{yun:}url m=ask c=friend uid='`$one.uid`'{/yun}" target="_blank">{yun:}$one.nickname{/yun}</a></div>
+        <div class="Personals_cont_dy_ss">{yun:}$one.content{/yun}</div>
+		{yun:}if $one.msg_pic{/yun}
+		<div class="Personals_msg_pic"><img src="{yun:}$one.msg_pic{/yun}"></div>
+		{yun:}/if{/yun}
+        <div class="Personals_cont_dy_cz"><span>{yun:}$one.ctime{/yun}</span></div>
+        <!--评论循环部分-->
+        <div id="commentlist_{yun:}$one.id{/yun}"> 
+		{yun:}if $one.reply{/yun}
+			{yun:}foreach from=$one.reply key=rkey item=rlist{/yun}
+			  <div class="Personals_cont_dy_pl " {yun:}if $rkey>3{/yun}style="display:none" name='hide_{yun:}$one.id{/yun}'{yun:}/if{/yun}>
+				<div class="Personals_cont_dy_pl_tx"><img onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);" src="{yun:}$rlist.pic{/yun}" width="28" height="35"/></div>
+				<div class="Personals_cont_dy_pl_user">
+				  <div class="Personals_cont_dy_pl_user_n"><a href="{yun:}$rlist.url{/yun}" target="_blank">{yun:}$rlist.nickname{/yun}</a>: {yun:}$rlist.reply{/yun}</div>
+				  <div class="Personals_cont_dy_pl_user_m">{yun:}$rlist.ctime{/yun}</div>
+				</div>
+			  </div>
+			{yun:}/foreach{/yun} 
+          {yun:}/if{/yun} 
+		  </div>
+        <!--评论循环部分 end-->
+        <!--更多评论 start-->
+       {yun:}if $one.commentnum>3{/yun}
+		  <div class="Personals_cont_dy_pl">
+		  <div class="Personals_cont_dy_pl_user_2" id="onlyreply{yun:}$one.id{/yun}">
+			  <span class="morereply" id='click_{yun:}$one.id{/yun}' onclick="get_allmsg('{yun:}$one.id{/yun}');">查看全部评论</span>
+		  </div>
+		</div>
+		{yun:}/if{/yun}
+        <!--更多评论 end-->
+        <!--评论循环部分 我也说一句-->
+        <div class="Personals_cont_dy_pl" id="comment{yun:}$one.id{/yun}">
+          <div class="Personals_cont_dy_pl_user_1">
+            <div class="pf-bd textinput">
+              <input type="text" onfocus="clicktext({yun:}$one.id{/yun});" class="pl_textarea_1" value="评论..."/>
+            </div>
+          </div>
+        </div>
+        <div class="Personals_cont_dy_pl" style="display:none;" id="comment_{yun:}$one.id{/yun}">
+          <div class="Personals_cont_dy_pl_tx"><img src="{yun:}$member.pic{/yun}" width="30" height="30" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/></div>
+          <div class="Personals_cont_dy_pl_user">
+            <div class="pf-bd textinput">
+              <textarea class="pl_textarea" id="reply_{yun:}$one.id{/yun}" onblur="onblurtext({yun:}$one.id{/yun});" onKeyUp="checkLength('66',{yun:}$one.id{/yun});" maxlength="88"></textarea>
+            </div>
+            <div class="Personals_fb"><span>已输入 <span id="colornum_{yun:}$one.id{/yun}">0</span>/66字</span><a href="javascript:;" onclick="submitreply({yun:}$one.id{/yun},{yun:}$one.uid{/yun},'{yun:}url m=friend c=ajax a=friendreply{/yun}');" style="color:#ffffff;" title="评论">评论</a></div>
+          </div>
+        </div>
+        <!--评论循环部分 我也说一句 end-->
+      </div>
+    </div>
+    <!--循环部分 end-->
+    {yun:}/foreach{/yun}
+    {yun:}else{/yun}
+    <div class="friend_nocon fl">您的好友还没有任何动态！</div>
+    {yun:}/if{/yun}
+    </div>
+    </div>
+  <div id="loadover" style="text-align:center; display:none"><img src="{yun:}$friend_style{/yun}/images/loading.gif"></div>
+</div>
+{yun:}include file="$friendstyle/right.htm"{/yun}
+</div></div>
+<script>
+var page=0;
+$(window).scroll(function(){
+	var pageNum = $('#pageNum').val();
+	// 当滚动到最底部以上100像素时， 加载新内容
+	if ($(document).height() - $(this).scrollTop() - $(this).height()==0) {
+		$('#loadover').show();
+		page=page+1;
+		if(page>pageNum){
+			$('#loadover').html('');
+			return false;
+		}else{
+			loadmore(page,pageNum);
+			return false;
+		}
+	}
+});
+
+//发布动态
+function loadmore(page){
+	$.ajax({
+		type: "POST",
+        global: false,
+        url :"{yun:}url m=friend c=ajax a=statelist{/yun}",
+		data:{page:page},
+		success :function(data){
+			var data=eval("("+data+")");
+			var content = ""; 
+			$.each(data,function(n,value){
+				var reply = comment ="";
+				if(value.reply){
+					$.each(value.reply,function(r,rv){
+						var dis='';
+						if(r>3){
+							dis='style="display:none" name="hide_'+value.id+'"';
+						}
+						reply+='<div class="Personals_cont_dy_pl" '+dis+'><div class="Personals_cont_dy_pl_tx"><img src="'+rv.pic+'" width="28" height="35" onerror="showImgDelay(this,\'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}\',2);"></div><div class="Personals_cont_dy_pl_user"><div class="Personals_cont_dy_pl_user_n"><a href="'+rv.url+'" target="_blank">'+rv.nickname+'</a>: '+rv.reply+'</div><div class="Personals_cont_dy_pl_user_m">'+rv.ctime+'</div></div></div>';
+					});
+				}
+				if(value.commentnum>3){ 
+					comment='<div class="Personals_cont_dy_pl"><div class="Personals_cont_dy_pl_user_2" id="onlyreply'+value.id+'"><span class="morereply" id=\'click_'+value.id+'\' onclick="get_allmsg(\''+value.id+'\');">查看全部评论</span> </div></div>';
+				}
+				content += '<div class="Personals_cont_dy '+value.id+'"><div class="Personals_cont_tx"><img src="'+value.pic+'" onerror="showImgDelay(this,\'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}\',2);"/></div><div class="Personals_cont_dy_r"><div class="Personals_cont_dy_name"><a href="'+value.nickurl+'" target="_blank">'+value.nickname+'</a></div><div class="Personals_cont_dy_ss">'+value.content+'</div><div class="Personals_cont_dy_cz"><span>'+value.ctime+'</span></div><div id="commentlist_'+value.id+'">'+reply+'</div>'+comment+'<div class="Personals_cont_dy_pl" id="comment'+value.id+'"><div class="Personals_cont_dy_pl_user_1"><div class="pf-bd textinput"><input type="text" onfocus="clicktext('+value.id+');" class="pl_textarea_1" value="评论..."/></div></div></div><div class="Personals_cont_dy_pl" style="display:none;" id="comment_'+value.id+'"><div class="Personals_cont_dy_pl_tx"><img src="{yun:}$member.pic{/yun}" width="30" height="30"/></div><div class="Personals_cont_dy_pl_user"><div class="pf-bd textinput"><textarea class="pl_textarea" id="reply_'+value.id+'" onblur="onblurtext('+value.id+');" onKeyUp="checkLength(\'66\','+value.id+');" maxlength="66"></textarea></div><div class="Personals_fb"><span>已输入 <span id="colornum_'+value.id+'">0</span>/66字.</span><a href="javascript:;" onclick="submitreply('+value.id+','+value.uid+',\'{yun:}url m=friend c=ajax a=friendreply{/yun}\');" style="color:#ffffff;">回复</a></div></div></div></div></div>';
+			});
+
+			if(content){
+				$("#addcontent").append(content);
+			}else{
+				$('#loadover').html('');
+			}
+			
+		}
+	});
+}
+</script>
+<input type="hidden" id="pageNum" value="{yun:}$pages{/yun}">
+{yun:}include file="$friendstyle/footer.htm"{/yun}

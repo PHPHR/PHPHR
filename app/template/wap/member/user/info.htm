@@ -1,0 +1,153 @@
+{yun:}include file="$wapstyle/member/header.htm"{/yun} 
+<script src="{yun:}$wap_style{/yun}/js/resume.js" language="javascript"></script> 
+<script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/js/imgareaselect/ajaxfileupload.js"></script>
+<form id="resumeInfo" action="index.php?c=info" method="post" onsubmit="return checkinfo();" enctype="multipart/form-data">
+  <div class="main_member_cot_box"> 
+  <div class="wap_member_comp_h1"><span>基本信息</span></div>
+       <dl class="resume-cont_wate_list">
+        <dt><span class="resume-cont_wate_bj">*</span> 姓 名</dt>
+        <dd>
+          <input type="text" name="name" value="{yun:}$resume.name{/yun}" class="reinputText">
+        </dd>
+      </dl> 
+  <dl class="resume-cont_wate_list">
+        <dt><span class="resume-cont_wate_bj">*</span>  性 别</dt>
+        <dd>
+          <div class="mLeft12 relative">
+            <div class="selectOption" style="width:100%">
+              <select name="sex">
+              {yun:}foreach from=$userdata.user_sex item=v{/yun}
+              <option value="{yun:}$v{/yun}" {yun:}if $resume.sex==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$userclass_name[$v]{/yun}</option>
+              {yun:}/foreach{/yun}
+              </select>
+            </div>
+          </div>
+        </dd>
+      </dl>
+ 
+ <dl class="resume-cont_wate_list">
+        <dt><span class="resume-cont_wate_bj">*</span>  出生年月</dt>
+        <dd>
+          <input type="text" name="birthday" id="birthday" value="{yun:}$resume.birthday{/yun}" class="reinputText" onkeyup="this.value=this.value.replace(/[^0-9-]/g,'')">
+          <div>格式：1988-08-08</div>
+        </dd>
+      </dl>
+
+ <dl class="resume-cont_wate_list">
+        <dt><span class="resume-cont_wate_bj">*</span> 现居住地</dt>
+        <dd>
+          <input type="text" name="living" id="living" value="{yun:}$resume.living{/yun}" class="reinputText">
+        </dd>
+      </dl>
+   <dl class="resume-cont_wate_list">
+        <dt><span class="resume-cont_wate_bj">*</span>  教育程度</dt>
+        <dd>
+          <div class="mLeft12 relative">
+            <div class="selectOption" style="width:100%">
+              <select name="edu">
+              {yun:}foreach from=$userdata.user_edu item=v{/yun}
+              <option value="{yun:}$v{/yun}" {yun:}if $resume.edu==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$userclass_name[$v]{/yun}</option>
+              {yun:}/foreach{/yun}
+              </select>
+            </div>
+          </div>
+        </dd>
+      </dl>
+ <dl class="resume-cont_wate_list">
+        <dt><span class="resume-cont_wate_bj">*</span>  工作经验</dt>
+        <dd>
+          <div class="mLeft12 relative">
+            <div class="selectOption" style="width:100%">
+              <select name="exp">
+              {yun:}foreach from=$userdata.user_word item=v{/yun}
+              <option value="{yun:}$v{/yun}" {yun:}if $resume.exp==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$userclass_name[$v]{/yun}</option>
+              {yun:}/foreach{/yun}
+              </select>
+            </div>
+          </div>
+        </dd>
+      </dl>
+    <dl class="resume-cont_wate_list">
+        <dt><span class="resume-cont_wate_bj">*</span>  手机</dt>
+        <dd>
+          <input type="text" name="telphone" id="telphone" value="{yun:}$resume.telphone{/yun}" class="reinputText">
+          <input type="hidden" id="defmobile" value="{yun:}$resume.telphone{/yun}" />
+        </dd>
+      </dl>
+      <dl class="resume-cont_wate_list">
+        <dt><span class="resume-cont_wate_bj">*</span>  电子邮件</dt>
+        <dd>
+          <input type="text" name="email" id="email" value="{yun:}$resume.email{/yun}"  class="reinputText">
+          <input type="hidden" id="defmail" value="{yun:}$resume.email{/yun}" />
+        </dd>
+      </dl>
+     <div class="resume-cont_wate_xt">以下为选填项</div>
+
+       <dl class="resume-cont_wate_list">
+        <dt>身高（CM）</dt>
+        <dd>
+          <input type="text" name="height" value="{yun:}$resume.height{/yun}" class="reinputText" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')">
+        </dd>
+      </dl>
+      <dl class="resume-cont_wate_list">
+        <dt>民族</dt>
+        <dd>
+          <input type="text" name="nationality" value="{yun:}$resume.nationality{/yun}" class="reinputText">
+        </dd>
+      </dl>
+      <dl class="resume-cont_wate_list">
+        <dt>体重（kg）</dt>
+        <dd>
+          <input type="text" name="weight" value="{yun:}$resume.weight{/yun}" class="reinputText" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')">
+        </dd>
+      </dl>
+     
+      <dl class="resume-cont_wate_list">
+        <dt> 婚姻</dt>
+        <dd>
+          <div class="mLeft12 relative">
+            <div class="selectOption" style="width:100%">
+              <select name="marriage">
+              {yun:}foreach from=$userdata.user_marriage item=v{/yun}
+              <option value="{yun:}$v{/yun}" {yun:}if $resume.marriage==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$userclass_name[$v]{/yun}</option>
+              {yun:}/foreach{/yun}
+              </select>
+            </div>
+          </div>
+        </dd>
+      </dl>
+       <dl class="resume-cont_wate_list">
+        <dt>座机</dt>
+        <dd>
+          <input type="text" name="telhome" value="{yun:}$resume.telhome{/yun}"  class="reinputText" onkeyup="this.value=this.value.replace(/[^0-9-]/g,'')">
+        </dd>
+      </dl>
+      
+     <dl class="resume-cont_wate_list">
+        <dt>户籍所在地</dt>
+        <dd>
+          <input type="text" name="domicile" value="{yun:}$resume.domicile{/yun}" class="reinputText">
+        </dd>
+      </dl>
+      <dl class="resume-cont_wate_list">
+        <dt>详细地址</dt>
+        <dd>
+          <input type="text" name="domicile" value="{yun:}$resume.domicile{/yun}" class="reinputText">
+        </dd>
+      </dl>
+      <dl class="resume-cont_wate_list">
+        <dt>个人主页</dt>
+        <dd>
+          <input type="text" name="homepage" value="{yun:}$resume.homepage{/yun}" class="reinputText">
+        </dd>
+      </dl> 
+ <dl class="resume-cont_wate_list">
+     
+        <dd>
+        	<input type="hidden" name="eid" id="eid" value="{yun:}$smarty.get.eid{/yun}">
+          <input type="submit" name="submit" value="保存" class="reinputText2">
+        </dd>
+      </dl>     
+</div>
+    </form>
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

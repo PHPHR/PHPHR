@@ -1,0 +1,57 @@
+{yun:}include file="$tplstyle/newhead.htm"{/yun}
+<div id="header" class="h70">
+    <div class="header head0">
+        <div class="logo"><b>药师多医药人才网</b><span style="font-size:20px; color:#666;">会员注册</span></div>
+    </div>
+</div>
+<div id="main" class="reg">
+    <div style="background:url({yun:}$config.sy_weburl{/yun}/resource/images/ysd_14.jpg) top center no-repeat; height:390px;"></div>
+    <div class="main">
+        <dl class="m_wrap">
+            <dt><div class="r btn">已有账户？<a href="#"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_15.jpg"></a></div><span>注册账号</span></dt>
+            <dd>
+                <div style="text-align:center; background:#f7f7f7; padding:17px 0;"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_19.jpg"></div>
+                <div class="blank1"></div>
+                <div class="blank2"></div>
+                <div class="slideTxtBox l">
+                    <div class="hd">
+                        <ul><li>微信注册</li><li>注册账号</li></ul>
+                    </div>
+                    <div class="bd">
+                        <div>
+                            <form action="index.php?m=register&c=savereg" method="post">
+                            <ul class="box">
+                                <li><span class="c1">账    号：</span><input type="text" name="username" class="text" placeholder="填写手机号码或者邮箱"></li>
+                                <li><span class="c1">密    码：</span><input type="password" class="text" placeholder="请输入6-16个字符，建议字母加数字的组合"></li>
+                                <li><span class="c1">验证码：</span><input name="vcode" type="text" class="text1"><img id="vcode_img" src="{yun:}$config.sy_weburl{/yun}/app/include/authcode.inc.php" onclick="javascript:check_code();" title="看不清,请点击"></li>
+                                <li><span class="c1"></span><input type="checkbox" class="checkbox"><span class="c2">我已阅读并同意药师多服务条款</span></li>
+                                <li><span class="c1"></span><input type="submit" name="submit" class="submit" value=""></li>
+                            </ul>
+                            </form>
+                        </div>
+                        <div></div>
+                    </div>
+                </div>
+                <script type="text/javascript">$(".slideTxtBox").slide();</script>
+                <div class="l"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_24.jpg"></div>
+                <div class="box1">
+                    <p class="p1">已有药师多帐号</p>
+                    <a href="#"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_25.jpg"></a>
+                    <div class="blank2"></div>
+                    <p class="p1">使用以下帐号直接登录:</p>
+                    <div class="p2">
+                        <a class="ico1" href="#"></a><a class="ico2" href="#"></a><a class="ico3" href="#"></a><a class="ico4" href="#"></a>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </dd>
+        </dl>
+        <div><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_55.jpg"></div>
+        <div style="height:80px;"></div>
+    </div>
+</div>
+<script src="{yun:}$config.sy_weburl{/yun}/js/public.js" language="javascript"></script>
+<script>var weburl="{yun:}$config.sy_weburl{/yun}";</script>
+{yun:}include file="$tplstyle/newfoot.htm"{/yun}
+
+

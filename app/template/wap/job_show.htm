@@ -1,0 +1,110 @@
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+<section>
+  <div class="user_contnet mt10">
+    <div class="user_contnet_box ">
+      <div class="com_show_t1">
+        <h2>{yun:}$job.name{/yun}</h2>
+        <span class="com_show_time">{yun:}$job.lastupdate|date_format:"%Y-%m-%d"{/yun}</span></div>
+      <div class="com_show_t2"><i class="user_map fa fa-map-marker"></i>{yun:}$city_name[$job.provinceid]{/yun}/{yun:}$city_name[$job.cityid]{/yun}<i class="user_map fa fa-jpy" style="margin-left:20px;"></i><span class="com_show_xz cf60">{yun:}$comclass_name[$job.salary]{/yun}</span><span class="com_show_l"><i class="user_map fa fa-eye"></i>{yun:}$job.jobhits{/yun} </span></div>
+        {yun:}if $job.welfare|@count>0{/yun} 
+        <aside class="com_show_fl"> 
+        {yun:}foreach from=$job.welfare item=wlist{/yun} 
+        <span class="com_show_fl_s">{yun:}$comclass_name[$wlist]{/yun}</span> 
+        {yun:}/foreach{/yun} 
+      </aside>
+        {yun:}/if{/yun}
+    </div>
+  </div>
+</section>
+<section>
+  <div class="user_contnet">
+    <div class="user_contnet_box "> <a href="{yun:}url m=wap c=company a=show id=$job.uid{/yun}" class="com_show_firm">
+      <aside class="com_show_firm_name">{yun:}$company.name{/yun}</aside>
+      <span class="user_contnet_info_n">性质：</span>{yun:}$comclass_name[$company.pr]{/yun}<span class="user_contnet_info_n" style="margin-left:30px;">规模：</span>{yun:}$comclass_name[$company.mun]{/yun} <i class="com_show_firm_icon fa fa-angle-double-right"></i> </a> </div>
+  </div>
+</section>
+<section>
+  <div class="user_contnet">
+    <div class="user_contnet_box ">
+      <div class="wap_title"><span class="">基本信息</span></div>
+      <ul class="user_contnet_ul">
+        <li><span class="user_contnet_info_n">工作性质：</span>{yun:}$comclass_name[$job.type]{/yun}</li>
+        <li><span class="user_contnet_info_n">工作经验：</span>{yun:}$comclass_name[$job.exp]{/yun}</li>
+        <li><span class="user_contnet_info_n">学历要求：</span>{yun:}$comclass_name[$job.edu]{/yun} </li>
+        <li><span class="user_contnet_info_n">招聘人数：</span>{yun:}$comclass_name[$job.number]{/yun}</li>
+        <li><span class="user_contnet_info_n">到岗时间：</span>{yun:}$comclass_name[$job.report]{/yun}</li>
+        <li><span class="user_contnet_info_n">年龄要求：</span>{yun:}$comclass_name[$job.age]{/yun}</li>
+        <li><span class="user_contnet_info_n">性别要求：</span>{yun:}$comclass_name[$job.sex]{/yun}</li>
+        <li><span class="user_contnet_info_n">教育程度：</span>{yun:}$comclass_name[$job.edu]{/yun}</li>
+        <li><span class="user_contnet_info_n">婚姻状况：</span>{yun:}$comclass_name[$job.marriage]{/yun}</li>
+        <li><span class="user_contnet_info_n">到期时间: </span>{yun:}$job.edate|date_format:"%Y-%m-%d"{/yun}</li>
+        <li class="com_show_li"><span class="user_contnet_info_n">职位类型：</span>{yun:}$comclass_name[$job.type]{/yun}</li>
+        <li class="com_show_li"><span class="user_contnet_info_n">从事行业：</span>{yun:}$industry_name[$job.hy]{/yun}</li>
+        <li class="com_show_li"><span class="user_contnet_info_n">语言要求：</span> {yun:}foreach from=$job.lang item=wlists{/yun}  
+          {yun:}$comclass_name[$wlists]{/yun}
+          {yun:}/foreach{/yun} </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="user_contnet">
+    <div class="user_contnet_box ">
+      <div class="wap_title"><span class="">职位描述</span></div>
+      {yun:}$job.description{/yun} </div>
+  </div>
+</section>
+<div class="user_contnet">
+  <div class="user_contnet_box ">
+    <div class="wap_title"><span class="">联系方式</span></div>
+    {yun:}if ($config.com_login_link==1 && $smarty.cookies.uid && $smarty.cookies.usertype==1) || $config.com_login_link==0{/yun}
+    <ul class="com_post_msg">
+      <li>[联系人]{yun:}$company.linkman{/yun}</li>
+      <li>[联系电话]{yun:}$company.linkphone{/yun}</li>
+      <li>[联系手机]{yun:}$company.linktel{/yun}</li>
+      <li>[公司地址]{yun:}$company.address{/yun}</li>
+    </ul>
+      {yun:}elseif $smarty.cookies.uid && $smarty.cookies.usertype!=1{/yun}
+      <div class="com_post_login">
+          您不是个人用户，请 <a href="{yun:}url m=wap c=login{/yun}" class="com_s_logoin">登录</a> 个人用户后查看联系方式
+          没有帐号？ <a href="{yun:}url m=wap c=register{/yun}" class="cf60">[免费注册]</a>
+      </div>
+    {yun:}else{/yun}
+    <div class="com_post_login"> 请 <a href="{yun:}url m=wap c=login{/yun}" class="com_s_logoin">登录</a> 后查看联系方式
+      没有帐号？ <a href="{yun:}url m=wap c=register{/yun}" class="cf60">[免费注册]</a> </div>
+    {yun:}/if{/yun} </div>
+</div>
+</section>
+<!--功能条 -->
+
+<div id="yun_cz" class="fn-dbox center">
+ 
+  <div id="resumeBtn" class="deep fn-dbox-flex fn-dbox-flex-flex1" onclick="jobapply('{yun:}$job.id{/yun}');"> <i class="fa fa-send-o"></i> 投递简历 </div>
+  <div id="favBtn" class="light" onclick="jobfav('{yun:}$job.id{/yun}');"> <i class="fa fa-star-o"></i> </div>
+</div>
+<script>
+	function jobapply(jobid){
+		$.get(wapurl+"?c=job&a=view&type=sq&id={yun:}$job.id{/yun}",function(data){
+			var data=eval('('+data+')');
+			if(data.url){
+				if(data.url=='1'){url=location.href;}
+				layermsg(data.msg,2,function(){location.href = data.url;});	
+			}else{
+				//layermsg(msg,2,function(){location.href = url;});	
+				layermsg(data.msg,2);	
+			}
+		});
+	}
+	function jobfav(jobid){
+	$.get(wapurl+"?c=job&a=view&type=fav&id={yun:}$job.id{/yun}",function(data){
+		var data=eval('('+data+')');
+		if(data.url){
+			if(data.url=='1'){url=location.href;}
+			layermsg(data.msg,2,function(){location.href = data.url;});	
+		}else{
+			//layermsg(msg,2,function(){location.href = url;});	
+			layermsg(data.msg,2);	
+		}
+	})};
+</script> 
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

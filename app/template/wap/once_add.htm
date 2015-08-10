@@ -1,0 +1,30 @@
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+
+<section>
+<div class="post_content" style="padding-top:0px;">
+  <div class="resume-cont" style="margin-top:0px;">
+    <div class="resume-cont_zk" style="padding-top:0px; background:#fff; padding:10px;">
+<div class="resume-cont_zk" style="padding-top:0px;">
+	<form action="{yun:}$config_wapdomain{/yun}/index.php?c=once&a=add" method="post" onsubmit="return ckonce(this);">
+    <div class="resume-cont_wate">
+		<dl class="resume-cont_wate_list"> <dt><span class="x_cor">*</span>我想招聘：</dt> <dd><input type="text" name="title" value="{yun:}$row.title{/yun}" class="reinputText"></dd></dl>
+		<dl class="resume-cont_wate_list"> <dt><span class="x_cor">*</span>招聘人数：</dt> <dd><input type="text" name="mans" value="{yun:}$row.mans{/yun}" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" class="reinputText"></dd></dl>
+		<dl class="resume-cont_wate_list"> <dt><span class="x_cor">*</span>店面名称：</dt> <dd><input type="text" name="companyname" value="{yun:}$row.companyname{/yun}"  class="reinputText"></dd></dl> 
+		<dl class="resume-cont_wate_list"> <dt><span class="x_cor">*</span>联系人：</dt> <dd><input type="text" name="linkman" value="{yun:}$row.linkman{/yun}"  class="reinputText"></dd></dl>
+		<dl class="resume-cont_wate_list"> <dt><span class="x_cor">*</span>联系电话：</dt> <dd><input type="text" name="phone" value="{yun:}$row.phone{/yun}"  class="reinputText"></dd></dl> 
+		<dl class="resume-cont_wate_list"> <dt><span class="x_cor">*</span>联系地址：</dt> <dd><input type="text" name="address" value="{yun:}$row.address{/yun}"  class="reinputText"></dd></dl>  
+		<dl class="resume-cont_wate_list"> <dt><span class="x_cor">&nbsp;</span> 联系邮箱：</dt> <dd><input type="text" name="email" value="{yun:}$row.email{/yun}"  class="reinputText"></dd></dl>
+		<dl class="resume-cont_wate_list"> <dt><span class="x_cor">&nbsp;</span> 联系qq：</dt> <dd><input type="text" name="qq" value="{yun:}$row.qq{/yun}"  class="reinputText"></dd></dl>
+		<dl class="resume-cont_wate_list"> <dt><span class="x_cor">*</span>具体要求：</dt> <dd><textarea id="require" class="once_textAreaMsg tip" placeholder="请输入你的招聘要求" name="require">{yun:}$row.require{/yun}</textarea></dd></dl>
+		<dl class="resume-cont_wate_list"> <dt><span class="x_cor">&nbsp;</span>有效期：(以天为单位,例如：30天)</dt> <dd><input type="text" name="edate" value="{yun:}$row.edate{/yun}" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')" maxlength="2" class="reinputText" > </dd></dl>  
+		<dl class="resume-cont_wate_list"><dt><span class="x_cor">*</span>密码：<span class="resume-cont_wate_list_tips">密码修改信息时使用,请牢记！</span></dt>  <dd><input type="password" name="password" onkeyup="this.value=this.value.replace(/^ +| +$/g,'')" class="reinputText"><div style=" margin-left:-12px;"> </div></dd></dl>
+		<input name="id" value="{yun:}$row.id{/yun}" type="hidden"/>
+		<dl class="resume-cont_wate_list mt10"> <input type="submit" name="submit" value="提交" class="inputSubmit"> </dd> </dl>
+	</div>
+	</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

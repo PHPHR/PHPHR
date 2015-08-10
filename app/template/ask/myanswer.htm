@@ -1,0 +1,32 @@
+{yun:}include file="$askstyle/header.htm"{/yun}  
+<div class="answer_con">
+	<div class="content con_answer">
+		<div class="content_hot ">
+			<div class="left left_con">
+				<div class="answer_list hot_list">
+					{yun:}include file="$askstyle/nav.htm"{/yun} 
+					<!--回答开始-->
+                    <div class="ask_anwser fl">
+						{yun:}foreach from=$rows item=alist{/yun}
+						<div class="ask_anwser_items fl">
+						<div class="ask_anwser_title fl"><a href="{yun:}url m=ask c=content id='`$alist.qid`'{/yun}" target="_blank">{yun:}$alist.title{/yun}</a></div>
+						<div class="ask_anwser_on">
+						<div class="ask_anwser_tra"><img src="{yun:}$ask_style{/yun}/images/ask_tra.png" /></div>
+						{yun:}$alist.content{/yun}<font color="#999">{yun:}$alist.add_time|date_format:"%Y-%m-%d"{/yun}</font>
+						</div>
+						</div>
+						{yun:}foreachelse{/yun}  
+						<div class="noresult png" style="width:475px;">暂无数据！</div>
+						{yun:}/foreach{/yun}  
+                    </div>
+                    <!--回答结束-->
+					<div class="clear"></div>
+					<div class="pages">{yun:}$pagenav{/yun}</div> 
+				</div>
+			</div>
+			{yun:}include file="$askstyle/right.htm"{/yun}
+		</div>
+	</div>
+</div>
+<iframe id="supportiframe" name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+{yun:}include file="$askstyle/footer.htm"{/yun}  

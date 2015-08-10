@@ -1,0 +1,32 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^news\.html$ news\.html [L]
+RewriteRule ^index\.html$ index\.html [L]
+RewriteRule ^(.*)/c_(.*)\.html$ $1/index.php?yunurl=c_$2 [L]
+
+RewriteRule ^company/(.*)\.html$ company/index.php?yunurl=$1 [L]
+RewriteRule ^ask/(.*)\.html$ ask/index.php?yunurl=$1 [L]
+RewriteRule ^friend/(.*)\.html$ friend/index.php?yunurl=$1 [L]
+RewriteRule ^once/(.*)\.html$ once/index.php?yunurl=$1 [L]
+
+RewriteRule ^tiny/(.*)\.html$ tiny/index.php?yunurl=$1 [L]
+RewriteRule ^map/(.*)\.html$ map/index.php?yunurl=$1 [L]
+RewriteRule ^evaluate/(.*)\.html$ evaluate/index.php?yunurl=$1 [L]
+RewriteRule ^resume/(.*)\.html$ resume/index.php?yunurl=$1 [L]
+RewriteRule ^lietou/(.*)\.html$ lietou/index.php?yunurl=$1 [L]
+RewriteRule ^train/(.*)\.html$ train/index.php?yunurl=$1 [L]
+RewriteRule ^wap/(.*)\.html$ wap/index.php?yunurl=$1 [L]
+RewriteRule ^zph/(.*)\.html$ zph/index.php?yunurl=$1 [L]
+RewriteRule ^m_(.*)\.html$ index.php?yunurl=m_$1 [L]
+RewriteRule ^c_(.*)\.html$ index.php?yunurl=c_$1 [L]
+RewriteRule ^job/(.*)\.html$ job/index.php?c=comapply&id=$1 [L]
+RewriteRule ^company/company-show-(.*)\.html$ company/index.php?id=$1 [L]
+RewriteRule ^company/(.*)/(.*)\.html$ company/index.php?tp=$1&id=$2 [L]
+
+RewriteRule ^company/(.*)\.html$ company/index.php?id=$1 [L]
+RewriteRule ^lietou/(.*)\.html$ lietou/index.php?c=jobshow&id=$1 [L]
+RewriteRule ^article/(.*)\.html$ index.php?m=article&c=show&id=$1 [L]
+ErrorDocument 404 /Error.php
+</IfModule>

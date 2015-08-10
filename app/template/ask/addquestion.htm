@@ -1,0 +1,54 @@
+{yun:}include file="$askstyle/header.htm"{/yun}  
+<script charset="utf-8" src="{yun:}$config.sy_weburl{/yun}/js/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="{yun:}$plusstyle{/yun}/ask.cache.js"></script>
+<script charset="utf-8" src="{yun:}$config.sy_weburl{/yun}/js/kindeditor/lang/zh_CN.js"></script> 
+<script language="javascript">
+KindEditor.ready(function(K) {
+	K.create('#content', {
+		themeType : 'default',
+		items : [''],
+		afterBlur:function(){this.sync();} 
+	});
+});   
+</script>
+<div class="content ">
+	<div class="quiz">
+		<h2>我要提问</h2>
+		<div class="quiz_con">
+			<iframe id="supportiframe" name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+			<form id='myform' name="myform" target="supportiframe" action="{yun:}url m=ask c=save{/yun}" method="post" onSubmit="return checkform();">
+			<div class="quiz_fl">
+				<input name="title" type="text" placeholder="问题标题" class="quix_txt" />
+				<div class="quiz_chi">
+					<span>选择问题种类</span> 
+                    <div class="quiz_box">
+						<div class="quiz_box_first">
+							<div class="quiz_box_title">选择分类：</div>
+							<ul class="quiz_select">
+								{yun:}qcache  item=qclist{/yun}
+								<li class="qc{yun:}$qclist.id{/yun}"><a href="javascript:void(0)" onclick="getclass('{yun:}$qclist.id{/yun}','{yun:}$qclist.name{/yun}','{yun:}url m=ask c=qclass{/yun}')">{yun:}$qclist.name{/yun}</a></li>
+								{yun:}/qcache{/yun}  
+							</ul>
+							<div class="quiz_select_line"></div>
+						</div>
+						<div class="quiz_box_second">
+							<div class="quiz_box_title">电子产品分类：</div>
+							<ul class="quiz_select"> </ul>
+						</div>
+                    </div> 
+					<input name='cid' type='hidden' value=''>
+				</div>
+			</div>
+			<div class="quiz_nr">
+				<h3>问题补充（选填）：</h3>
+				<textarea name="content" id='content'></textarea>
+				
+			</div> 
+			<div class="affirm">
+				<input name='submit' type="submit" value="确认发起" class="affirm_txt" />
+			</div>
+			</form>
+		</div>
+	</div>
+</div> 
+{yun:}include file="$askstyle/footer.htm"{/yun}   

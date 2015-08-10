@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{yun:}$title{/yun}-{yun:}$config.sy_webname{/yun}</title>
+<link rel="stylesheet" href="{yun:}$friend_style{/yun}/style/css.css" type="text/css"> 
+<script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js" language="javascript"></script> 
+<script src="{yun:}$config.sy_weburl{/yun}/js/layer/layer.min.js" language="javascript"></script>
+    <script src="{yun:}$config.sy_weburl{/yun}/js/public.js" language="javascript"></script>
+<script src="{yun:}$friend_style{/yun}/js/friend.js" language="javascript"></script>
+<script>
+var weburl="{yun:}$config.sy_weburl{/yun}";
+function search_keyword(){
+	var keyword=$("#keyword").val();
+	if(keyword=="搜索好友..."){
+		layer.msg('请输入需要搜索的关键字', 2,8);
+		return false;
+	}
+}
+</script>
+<!--[if IE 6]>
+<script src="{yun:}$config.sy_weburl{/yun}/js/png.js"></script>
+<script>
+  DD_belatedPNG.fix('.png,.adv_cot,.friend_mune .nav-shadow i');
+</script>
+<![endif]-->
+</head>
+<body>
+<div class="top icon3">
+  <div class="top_cot">
+    <div class="top_left fl">欢迎来到{yun:}$config.sy_webname{/yun}！&nbsp;&nbsp;</div>
+           <div class="top_right_re fr">
+     <div class="top_right">
+       <div class="yun_topNav fr"> <a class="yun_navMore" href="javascript:;">网站导航</a>
+            <div class="yun_webMoredown" style="display:none">
+              <div class="yun_top_nav_box"> 
+              {yun:}navmap key=k item=row{/yun}
+                <div class="yun_top_nav_h1"><a href="{yun:}$row.url{/yun}" {yun:}if $row.eject{/yun} target="_blank"{yun:}/if{/yun}>{yun:}$row.name{/yun}</a></div>
+                <ul>
+                  {yun:}foreach from=$row.list item=maplist{/yun}
+                  <li><a href="{yun:}$maplist.url{/yun}" {yun:}if $maplist.eject{/yun} target="_blank"{yun:}/if{/yun}>{yun:}$maplist.name{/yun}</a></li>
+                  {yun:}/foreach{/yun}
+                </ul>
+                {yun:}/navmap{/yun} </div>
+            </div>
+          </div>
+		<SCRIPT LANGUAGE='JavaScript' src='{yun:}$config.sy_weburl{/yun}/index.php?m=ajax&c=RedLoginHead'></SCRIPT>
+    </div>
+  </div>
+  </div>
+</div>
+<div class="friend_header ">
+	<div class="friend_header_c">
+		<div class="friend_logo"><a href="{yun:}$config.sy_weburl{/yun}"><img src="{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_logo{/yun}"  class="png"></a></div> 
+	</div>
+  <div class="friend_mune">
+    <div class="friend_mune_cont">
+      <ul>
+        <li {yun:}if $smarty.get.c==''{/yun}class="answers_current"{yun:}/if{/yun}><a href="{yun:}url m=friend{/yun}">个人中心</a></li>
+        <li {yun:}if $smarty.get.c=='messagelist'{/yun}class="answers_current"{yun:}/if{/yun}><a href="{yun:}url m=friend c=messagelist{/yun}">留言列表</a></li>
+		<li ><a href="{yun:}url m=ask{/yun}">问答</a></li>
+        <li><a href="{yun:}$config.sy_weburl{/yun}">人才网首页</a></li>
+      </ul>
+
+    </div>
+  </div>
+</div>

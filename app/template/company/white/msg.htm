@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{yun:}$title{/yun}</title>
+<meta name=keywords content="{yun:}$keywords{/yun}" />
+<meta name=description content="{yun:}$description{/yun}" />
+<link rel="stylesheet" href="{yun:}$style{/yun}/style/css.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{yun:}$com_style{/yun}/images/style.css" />
+<script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/layer/layer.min.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/public.js" language="javascript"></script>
+<script> var weburl = "{yun:}$config.sy_weburl{/yun}"
+    $(function () {
+        $('.c_top_daoh li').click(function () {
+            $(this).addClass('c_currer').siblings().removeClass('c_currer');
+        });
+    });
+    </script>
+<!--[if IE 6]>
+    <script src="{yun:}$config.sy_weburl{/yun}/js/png.js"></script>
+    <script>
+    DD_belatedPNG.fix('.png,.inter_con .inter_con_new,.vip_pic_xg a,.vip_mes h2 a');
+    </script>
+    <![endif]-->
+</head>
+<body>
+<!--header头部-->
+<div class="wrap">
+  <div class="c_header_top">
+    <div class="c_top_logo fl">
+      <div class="c_logo_ba"> {yun:}if $com.logo{/yun}<img src="{yun:}$com.logo{/yun}" width="185" height="75" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}',2);" />{yun:}else{/yun}<img src="{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}" width="185" height="75" />{yun:}/if{/yun} </div>
+      <div class="wrap_l_name"> <span class="wrap_l_name_n">{yun:}$com.name{/yun}</span> {yun:}if $com.email_status=="1"{/yun} <img src="{yun:}$com_style{/yun}images/rz_yx2.png" alt="邮箱未认证" title="邮箱已认证" class="png" /> {yun:}else{/yun} <img src="{yun:}$com_style{/yun}images/rz_yx.png" alt="邮箱未认证" title="邮箱未认证" class="png" /> {yun:}/if{/yun}
+        {yun:}if $com.moblie_status=="1"{/yun} <img src="{yun:}$com_style{/yun}images/rz_sj2.png" alt="手机未认证" title="手机已认证" class="png" /> {yun:}else{/yun} <img src="{yun:}$com_style{/yun}images/rz_sj.png" alt="手机未认证" title="手机未认证" class="png" /> {yun:}/if{/yun}
+        {yun:}if $com.yyzz_status=="1"{/yun} <img src="{yun:}$com_style{/yun}images/rz_zz2.png" alt="执照未认证" title="执照已认证" class="png" /> {yun:}else{/yun} <img src="{yun:}$com_style{/yun}images/rz_zz.png" alt="执照未认证" title="执照未认证" class="png" /> {yun:}/if{/yun}
+        <div class="wrap_l_name_p"> {yun:}if $usertype=='1'{/yun}
+          {yun:}if $isatn.id{/yun} <a href="javascript:void(0)" onclick="atn('{yun:}$com.uid{/yun}','{yun:}url m=ajax c=atn_company{/yun}')" id='atn_{yun:}$com.uid{/yun}' class="wrap_l_name_gz">取消关注</a> {yun:}else{/yun} <a href="javascript:void(0)" onclick="atn('{yun:}$com.uid{/yun}','{yun:}url m=ajax c=atn_company{/yun}')" id='atn_{yun:}$com.uid{/yun}' class="wrap_l_name_gz">关注</a> {yun:}/if{/yun}
+          {yun:}else{/yun}
+            {yun:}if $uid{/yun}
+            <a href="javascript:void(0)" onclick="layer.msg('只有个人用户才能关注', 2, 3)" class="wrap_l_name_gz">关注</a> 
+            {yun:}else{/yun}
+            <a href="javascript:void(0)" onclick="showlogin('1');" class="wrap_l_name_gz">关注</a> 
+            {yun:}/if{/yun} 
+          {yun:}/if{/yun}
+          已有<span id="antnum{yun:}$com.uid{/yun}">{yun:}$com.ant_num{/yun}</span>人关注 </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="c_top_daoh">
+  <ul>
+    <li><a href="{yun:}url m=company c=show id=$com.uid{/yun}">首页</a></li>
+    <li ><a  href="{yun:}url m=company c=show id=$com.uid{/yun}">关于我们</a></li>
+    <li ><a  href="{yun:}url m=company c=show id=$com.uid{/yun}">招聘职位</a></li>
+    <li  class="c_currer"><a href="#pl">评论留言</a></li>
+    <li ><a  href="{yun:}url m=company c=show id=$com.uid{/yun}">企业环境</a></li>
+    <li ><a  href="{yun:}url m=company c=show id=$com.uid{/yun}">企业新闻</a></li>
+    <li ><a  href="{yun:}url m=company c=show id=$com.uid{/yun}">公司产品</a></li>
+    <li ><a href="{yun:}$config.sy_weburl{/yun}">人才网首页</a></li>
+  </ul>
+</div>
+<div class="clear"></div>
+<div class="c_header">
+  <div class="c_header_pic"><img src="{yun:}$banner.pic{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_banner{/yun}',2);"  width="980" height="300" /></div>
+</div>
+<!--头部结束-->
+<div class="clear"></div>
+<!--内容content-->
+<div class="c_content">
+  <div class="wrap">
+ 
+    <div class="clear"></div>
+    <div class="c_content_chat" id="pl">
+      <div class="c_about_tit"><i></i><span>评论留言</span></div>
+      {yun:}if $msglist{/yun}
+      {yun:}foreach item=v from=$msglist{/yun}
+      <div class="c_chat_ly">
+        <div class="c_chat_cont fl">
+          <div class="c_cont_name fl"><a href="{yun:}url m=resume c=show uid='`$v.uid`'{/yun}" class="fl">{yun:}$v.name{/yun}</a><em class="fr">{yun:}$v.ctime|date_format:"%Y-%m-%d %H:%M"{/yun}</em></div>
+          <div class=" c6">{yun:}$v.content{/yun}</div>
+          {yun:}if $v.reply!=""{/yun}
+          <div class="c_cont_hf c6"><em>企业回复：</em>{yun:}$v.reply{/yun}</div>
+          {yun:}/if{/yun} </div>
+      </div>
+      {yun:}/foreach{/yun}
+      {yun:}else{/yun}
+      <div class="com_index_pl">还未有人评论过该企业，赶快来评论一下吧！！</div>
+      {yun:}/if{/yun} </div>
+    <div class="clear"></div>
+    {yun:}if $usertype!=1{/yun}
+    <div class="Job_user_no" style="padding-top:20px; text-align:center">
+            <div class="Job_ask_bg_login">
+            {yun:}if $uid{/yun}
+            只有个人用户才可以评论
+            {yun:}else{/yun}
+            您还没有登录，请先【<a href="javascript:void(0);" onclick="showlogin('1');">登陆</a>】
+            {yun:}/if{/yun}
+            </div>
+    </div>
+    {yun:}else{/yun}
+    <div class="c_content_fb">
+      <iframe id="supportiframe" name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+      <form action="{yun:}url m=company c=compl id='`$com.uid`'{/yun}" target="supportiframe" method="post" onsubmit="return check_pl();">
+        <input type="hidden" name="id" value="{yun:}$com.uid{/yun}" />
+        <textarea class="c_fb_area" id="content" name="content"></textarea>
+        <input type="submit" name="submit" class="c_fb_button" value="发表评论" />
+      </form>
+    </div>
+    {yun:}/if{/yun}
+    <div class="clear"></div>
+  
+</div>
+<!--内容结束-->
+<div class="clear"></div>
+<!--底部footer--> 
+{yun:}include file="$tplstyle/footer.htm"{/yun} 
+{yun:}include file="$tplstyle/public_search/login.htm"{/yun} 

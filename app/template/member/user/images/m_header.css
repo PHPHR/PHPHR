@@ -1,0 +1,123 @@
+@charset "gb2312";
+*{ margin:0; padding:0}
+body{ font-size:12px; background:url(../images/bg.jpg) repeat; font-family:microsoft yahei,宋体;  overflow-x:hidden;width:100%;height:100%;}
+a{ text-decoration:none;color:#666}
+a:hover{ text-decoration:underline;color:#f60}
+ul,li,ol{ list-style:none;}
+img{border:none;}
+em,i{ font-style:normal}
+.fltL{float:left;}
+.fltR{float:right;}
+.clear{ clear:both}
+.mt10{ margin-top:10px;}
+.mt5{ margin-top:5px;}
+.mt20{ margin-top:20px;}
+.mt12{ margin-top:16px;}
+.w950{width:1000px; margin:0 auto}
+.cblue{color:#1178c3}
+input,textarea{font-family:microsoft yahei,宋体;}
+.re{ position:relative}
+/*头部*/
+.header{width:100%;background:#1178c3; float:left; padding:10px 0;}
+.logo{ width:300px; position:relative}
+.member_logo_fh{width:73px;height:72px; background:url(../images/fh.png) no-repeat; display:block; position:absolute;right:-40px;top:0px;} 
+.logo img{ float:left; max-width:380px; max-height:60px;_width:auto; _height:auto} 
+.header_seach{width:250px; margin-top:15px;}
+.header_seach .he_input{width:174px;height:29px; line-height:29px; border:none;text-indent:10px; font-size:14px; float:left; overflow:hidden; background:url(../images/yon_text.jpg) no-repeat;color:#9ab8e5; font-size:13px;}
+.he_submit{width:36px;height:35px; background:url(../images/bth1.jpg) no-repeat;border:none; float:left; cursor:pointer}
+.header_seach_State{color:#fff; margin-top:15px; font-size:14px;}
+.header_seach_State_news{ display:inline-block; background:url(../images/skin_dark_s.png) no-repeat left center; padding-left:20px; margin-right:5px;}
+.header_seach_State .header_seach_State_a{color:#fff; margin-left:5px;}
+.header_seach_State_name{ display:inline-block; margin-right:5px;margin-left:5px;}
+.top_right_re{width:610px;position: relative;z-index:1000; float:right}
+.top_right {width:600px; position:absolute;right:0px;top:0px;}
+.top_right a {display: inline-block;}
+.top_right a:hover{color:#fff;}
+.yun_topLogin { display: inline; float: left;height: 35px;line-height: 35px;position: relative;text-align: center;width: 80px;}
+.yun_topLogin a {color: #777777;}
+.yun_topLogin a:hover{ text-decoration:none}
+.yun_topLogin a.yun_More { background: url(../images/yun_t_menu1.png) no-repeat  63px 15px;display: block; float: left;  height: 35px; padding-left: 10px; position: relative; text-align: left; width: 70px;z-index: 13;}
+.yun_topLogin a.yun_Morecurrent { background: url(../images/yun_t_menu2.png) no-repeat  63px 15px #FFFFFF; border-left: 1px solid #CCCCCC;border-right: 1px solid #CCCCCC;padding-left: 9px; width: 69px;}
+.yun_Moredown {border:1px solid #ccc;border-top:none;left: 0; position: absolute;top: 35px;z-index: 12; background:#fff}
+.yun_top_nav_box{ width:210px;float:left; padding:10px;}
+.yun_top_nav_h1{width:100%;height:25px; line-height:25px; background:#f8f8f8; font-weight:bold; text-indent:5px; float:left}
+.yun_Moredown li {float: left;line-height: 28px; text-align: center;width: 78px;}
+.yun_Moredown li a {color: #666666;}
+.yun_Moredown li:hover {background-color: #F0F0F0;}
+.yun_topNav {display: inline;height: 35px; line-height: 35px;position: relative;text-align: center; width:78px; margin-top:8px; font-size:14px;}
+.yun_topNav a {color: #fff;}
+.yun_topNav .yun_top_nav_h1 a{color:#666}
+.yun_topNav a:hover{ text-decoration:none}
+.yun_topNav a.yun_navMore { background: url(../images/yun_t_menu1.png) no-repeat  68px 15px #1178c3 ;display: block; float:right; height: 35px;padding-left: 10px; position: relative;text-align: left;width: 70px;z-index: 203;}
+.yun_topNav a.yun_webMorecurrent {background: url(../images/yun_t_menu2.png) no-repeat 68px 15px #FFFFFF;border-left: 1px solid #CCCCCC; border-right: 1px solid #CCCCCC; padding-left: 9px;width: 69px;color:#666;}
+.yun_webMoredown {background-color: #FFFFFF;border: 1px solid #CCCCCC; left: -142px; position: absolute;text-align: left; top: 34px; width: 225px; z-index: 202;}
+.yun_webMoredown ul {float: left;padding-bottom: 5px;padding-top: 5px; padding-left:10px;width:195px;}
+.yun_webMoredown ul li { float: left;height: 25px;line-height: 25px;width:65px;}
+.yun_webMoredown ul li a {color: #666666;}
+.yun_webMoredown ul li a:hover {color: #0095EB;}
+.user_m_line{ font-family:宋体; padding:0px 3px;color:#4da9ed}
+.user_m_fanh{color:#fff;}
+/*左侧*/
+.left_sidebar{width:143px; float:left; background:#fff;border:1px solid #ddd;border-bottom:none; margin-top:12px;}
+.left_sidebar_h2{width:100%;background:#1178c3;border-radius:2px 2px 0px 0px}
+.left_sidebar_h2_span{ font-size:15px; font-weight:bold; line-height:38px; padding-left:28px;color:#fff; }
+.left_sidebar_h2 a{color:#fff}
+.left_sidebar_nav_box{width:100%; float:left; padding:5px 0;background:#fafafa;}
+.left_sidebar_nav { width:123px;padding-left:20px; float:left; background:#fafafa;}
+.left_sidebar_nav li{width:100%; float:left;height:30px; line-height:30px; font-size:14px;}
+.left_sidebar_list_box{width:143px;position:relative; float:left; padding-left:36px;color:#717070;border-bottom:1px solid #ddd; }
+.left_sidebar_h1{width:16px;height:100%;padding:0px 10px; text-align:center; background:#cacad9; font-size:16px;float:left; position:absolute;left:0px;top:0px; float:left;}
+.left_sidebar_h1 span{ width:16px; padding:0px 10px; display:block; position:absolute;left:0px;top:50%;margin-top:-50px;height:100%; }
+.left_sidebar_list_box_cur .left_sidebar_nav_box{width:100%; float:left; padding:5px 0;background:#f3f3f3;}
+.left_sidebar_list_box_cur .left_sidebar_nav{ background:#f3f3f3}
+.left_sidebar_list_box_cur .left_sidebar_h1{width:16px; padding:0 15px; background:#1178c3;color:#fff;left:-10px;}
+.left_sidebar_list_box_cur .left_sidebar_h1 span{ width:16px; padding:0px 15px; display:block; position:absolute;left:0px;top:50%; margin-top:-50px;}
+.left_sidebar_list_box_cur .left_sidebar_nav_cur{background:url(../images/yun_l_icon.jpg) no-repeat 100px center}
+.left_sidebar_list_box_cur .left_sidebar_nav_cur a{color:#1178c3; }
+.left_sidebar_icon{width:36px;height:36px; line-height:30px; text-align:center;color:#fff; background:#79a6cf url(../images/yun_l_icon2.jpg) no-repeat center center; position:absolute;left:0px;bottom:0px; cursor:pointer}
+.left_sidebar_icon1{width:36px;height:36px; line-height:30px; text-align:center;color:#fff; background:#79a6cf url(../images/yun_l_icons.jpg) no-repeat center center; position:absolute;left:0px;bottom:0px; cursor:pointer}
+.left_sidebar_list_box_cur .left_sidebar_icon{ display:none;}
+.left_sidebar_home{ width:36px;height:36px; line-height:30px; text-align:center;color:#fff;position:absolute;left:0px;bottom:3px; cursor:pointer ;background:url(../images/yun_m_i1.jpg) no-repeat center center}
+.left_sidebar_home a{width:100%;height:100%;display:block;_width:36px;_height:36px;}
+.left_sidebar_list_box_cur .left_sidebar_home{background:url(../images/yun_m_i2.png) no-repeat center center;left:-3px;}
+/*ie6兼容问题*/
+.left_sidebar_h1_ie6{_width:36px;_height:40px; _padding:0px}
+.left_sidebar_h2_ie6_icon{}
+.left_sidebar_h2_ie6{_width:36px;_height:160px; _padding:0px;}
+.left_sidebar_h2_ie6 span{_width:26px; _padding:0px; _padding-left:5px; _margin-top:20px;_top:0px;}
+.left_sidebar_h1_span_icon2{_top:0px;}
+.left_sidebar_h3_ie6{_width:36px;_height:130px; _padding:0px;}
+.left_sidebar_list_box_cur .left_sidebar_h2_ie6{_width:46px;_height:250px; _padding:0px;}
+.left_sidebar_list_box_cur  .left_sidebar_h4_ie6{_width:46px;_height:220px; _padding:0px;}
+.left_sidebar_list_box_cur  .left_sidebar_h5_ie6{_width:46px;_height:160px; _padding:0px;}
+/*右侧*/
+.index_mian_right{width:805px; float:right;}
+.mian_right{width:803px; float:right;min-height:725px;_height:725px; background:#fff; padding-bottom:10px;border:1px solid #ddd }
+.foot{ height: 50px;line-height: 50px;margin-top:10px;text-align: center;width: 100%;color:#999}
+.foot a {color: #FFFFFF;}
+.diggg{width:100%; font-weight:normal; text-align:right; padding-top:10px; padding-bottom:10px; float:left}
+.diggg a{ display:inline-block;border:1px solid #ccc; padding:5px 10px; margin-right:10px;color:#666}
+.diggg  .selected{ background:#3281CB;color:#fff; }
+.diggg em{ display:inline-block;border:1px solid #ccc; padding:5px 10px; margin-right:10px;color:#666}
+#bg{background:#000;filter:Alpha(opacity=45);opacity:0.4; bottom: 0;display: none;left: 0;position:fixed;_position:absolute;right: 0;top: 0;width: 100%;height: 100%;z-index: 1001;}
+
+.header_Remind{ display:inline;width:40px;height:30px;  position:relative; float:right}
+.header_Remind_list_a{width:113px;float:left; line-height:22px; padding-left:5px;}
+.header_Remind b{color:#F00}
+.header_Remind_list{width:122px;border:1px solid #ccc; background:#fff; position:absolute;left:0px;top:29px; padding-right:6px; padding-bottom:5px;; z-index:500; padding-top:5px; font-size:12px;}
+.header_Remind_hover{ position:relative;  z-index:9999999;}
+.header_Remind_hover .header_Remind_list_a{  float:left;line-height:23px;color:#666;}
+.header_Remind_hover .header_Remind_list_a a{ display:inline-block;float:left;}
+.header_Remind_hover .header_Remind_list_a a:hover{color:#666}
+.header_Remind_em{ display:inline-block;background: url(../images/yun_t_menu1.png) no-repeat 33px 10px;display: block;float: left;height: 30px;padding-left: 10px;position: relative;text-align: left;width: 40px;z-index:600;cursor:pointer;}
+.header_Remind_em_hover{width:33px;border-left:1px solid #ccc;border-right:1px solid #ccc;background:#fff url(../images/yun_t_menu2.png) no-repeat 33px 10px;color:#666}
+.header_Remind_msg{ display:inline-block;width:17px;height:13px; background:url(../images/xf.gif) no-repeat; margin-top:5px;}
+.header_Remind_em_hover .header_Remind_msg{ background:url(../images/xf_h.gif) no-repeat;}
+.header_Remind_list_r{color:#f60; font-size:14px;}
+.Available_bth{ display:block;width:100px;height:30px; line-height:30px; background:#f60;color:#fff; margin-top:8px; text-align:center; font-size:14px; margin-right:10px;}
+.Available_bth:hover{ background:#f30;color:#fff; text-decoration:none}
+.job_box_div_span{width:40px; display:inline-block; text-align:right}
+.com_info_text_t1{width:180px;height:28px; line-height:28px;border:1px solid #ddd; float:left}
+.job_box_div_span_brh1{width:80px;height:28px; line-height:28px; background:#f60;color:#fff; display:block; float:left; text-align:center}
+.job_box_div_span_brh1:hover{ background:#f30;color:#fff; text-decoration:none}
+

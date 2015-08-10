@@ -1,0 +1,225 @@
+{yun:}include file="$userstyle/header.htm"{/yun}
+<script>
+function Close_ewm(){
+	$(".popWeixin").hide();
+	$("#bg").hide();
+}
+</script> 
+<div class="w950">
+{yun:}include file="$userstyle/left.htm"{/yun}
+<div class="index_mian_right fltR"> 
+  <!--初次注册弹出框-->
+  <div style="position:relative; z-index:1020">
+    <div class="index_no_resume_box" id="yingdao" {yun:}if $resume.name!=""{/yun}style="display:none;"{yun:}/if{/yun}>
+      <div class="index_no_resume_jt png"></div>
+      <div class="index_no_resume_cont">
+        <div class="index_no_resume_h1">请先填写个人基本信息</div>
+        <div class="index_no_resume_p"> 为了更快的找到工作，需填写个人基本信息才能创建简历！</div>
+        <div class="index_no_resume_p2"><a href="javascript:Close_yd();">知道了</a></div>
+      </div>
+    </div>
+  </div>
+  <!--初次注册弹出框 end-->
+  <div class="member_right_box mt12 fltL" style="background:none; margin-top:12px;">
+    <div class="member_right_Information  fltL">
+      <div class="User_avatar  fltL"> <a href="index.php?c=uppic"> <img src=".{yun:}$user_photo{/yun}" border="0" height="100" width="80" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_member_icon{/yun}',2);" /> </a> </div>
+      <div class="member_Information_right fltL">
+        <div class="member_Information_name  fltL"> <span class="member_Information_hello">你好！</span> <span class="member_Information_n">{yun:}$username{/yun}</span> 
+         
+        </div>
+        <div class="member_Information_msg fltL "> 
+        <a href="index.php?c=binding"> 
+        <span class="member_Information_touch fltL {yun:}if $resume.moblie_status=='1'{/yun}member_Information_touch_rz{yun:}/if{/yun}"> {yun:}if $resume.telphone==""{/yun}
+          手机号未验证
+          {yun:}else{/yun}
+          {yun:}$resume.telphone{/yun}
+          {yun:}/if{/yun} 
+          <span class="member_Information_touch_no">{yun:}if $resume.moblie_status!='1'{/yun}未验证{yun:}else{/yun}已验证{yun:}/if{/yun}</span> </span> 
+          <span class="member_Information_email fltL {yun:}if $resume.email_status=='1'{/yun}member_Information_email_rz{yun:}/if{/yun}"> {yun:}if $resume.email==""{/yun}
+          邮箱未验证
+          {yun:}else{/yun}
+          {yun:}$resume.email{/yun}
+          {yun:}/if{/yun} <span class="member_Information_touch_no">{yun:}if $resume.email_status!='1'{/yun}未绑定{yun:}else{/yun}已绑定{yun:}/if{/yun}</span> </span> 
+          
+          <span class="member_Information_sf  fltL {yun:}if $resume.idcard_status=='1'{/yun}member_Information_sf_rz{yun:}/if{/yun}"> {yun:}if $resume.idcard==""{/yun}
+          身份证未验证
+          {yun:}else{/yun}
+          {yun:}$resume.idcard{/yun}<span class="member_Information_touch_no">{yun:}if $resume.idcard_status!='1'{/yun}未验证{yun:}else{/yun}已验证{yun:}/if{/yun}</span>
+          {yun:}/if{/yun}  </span> 
+          </a>
+          
+        </div>
+        <span class="member_Information_xg fltL"> <a href="index.php?c=info">编辑基本信息</a> | <a href="index.php?c=uppic" title="更换形象照"style="margin-left:5px;">更换形象照</a> | <a href="{yun:}url m=ask c=friend id=$statis.uid{/yun}" target="_blank" style="margin-left:5px;">我的个人主页</a></span> </div>
+    </div>
+  </div>
+  <div class="user_m_yue fltL"> <span class="user_m_yue_r fltL"> <span class="user_m_yue_name">我的{yun:}$config.integral_pricename{/yun}：</span> <span class="member_Information_Balance_fold">{yun:}$statis.integral{/yun}</span> <span class=" member_Information_Balance"><a href="index.php?c=pay" class="member_Info_pay">充值</a> <a href="{yun:}url m=redeem{/yun}" class="member_Info_pay">兑换</a> <a href="index.php?c=integral" class="user_m_yue_jf">如何获取{yun:}$config.integral_pricename{/yun}?</a> </span> </span> </div>
+  <div class="member_right_box member_right_box_bor mt10 fltL">
+    <div class="member_right_index_h1 fltL"><span class="member_right_h1_span fltL">求职信息</span> </div>
+    <div class="member_Information_msg fltL mt5 ">
+      <dl class="member_Information_amount">
+        <dd><span class="member_Information_amount_n">{yun:}if $msgnum==""{/yun}0{yun:}else{/yun}{yun:}$msgnum{/yun}{yun:}/if{/yun}</span></dd>
+        <dt><a href="index.php?c=msg">邀请面试</a></dt>
+      </dl>
+      <dl class="member_Information_amount">
+        <dd><span class="member_Information_amount_n">{yun:}$lookNum{/yun}</span></dd>
+        <dt> <a href="index.php?c=look">谁看了我的简历</a></dt>
+      </dl>
+      <dl class="member_Information_amount">
+        <dd><span class="member_Information_amount_n">{yun:}if $statis.sq_jobnum==""{/yun}0{yun:}else{/yun}{yun:}$statis.sq_jobnum{/yun}{yun:}/if{/yun}</span></dd>
+        <dt><a href="index.php?c=job">职位申请记录</a></dt>
+      </dl>
+      <dl class="member_Information_amount member_Information_amount_end">
+        <dd><span class="member_Information_amount_n">{yun:}if $statis.fav_jobnum==""{/yun}0{yun:}else{/yun}{yun:}$statis.fav_jobnum{/yun}{yun:}/if{/yun}</span></dd>
+        <dt><a href="index.php?c=favorite" title="职位收藏">职位收藏记录</a></dt>
+      </dl>
+    </div>
+  </div>
+  <div class="member_right_box member_right_box_bor mt10 fltL">
+    <div class="member_right_index_h1 fltL"> <span class="member_right_h1_span fltL">我的简历</span> </div>
+    <!-----------------------------------------  已有简历状态-----------------------------------> 
+    {yun:}foreach item=resumelist from=$rlist{/yun}
+    <div class="member_index_resume_box" id="resumelist{yun:}$resumelist.id{/yun}" {yun:}if $resumelist.id!=$resume.def_job{/yun}style ="display:none;" {yun:}/if{/yun}>
+      <div class="member_index_resume_t">
+        <div class="member_index_resume_t_left">
+          <div class="member_index_resume_t_name fltL">
+            <div class="member_index_resume_t_name_l fltL"> 简历名称：</div>
+            <div class="index_resume_my_n" id="show_resume" onclick="show_resume('resume_expect{yun:}$resumelist.id{/yun}')"> {yun:}$resumelist.resumelist{/yun} </div>
+            <div class="index_resume_my_ll">被浏览：{yun:}$resumelist.hits{/yun} 次</div>
+          </div>
+          <div class="member_index_resume_t_wz fltL">
+            <div class="member_index_resume_t_name_l fltL"> 简历完整度：</div>
+            <div class="member_index_resume_t_wzd"> <span class="member_index_resume_t_wz_b"> <em class="ember_index_resume_t_wz_c" style="width:{yun:}$resumelist.integrity{/yun}%"></em> </span> <span class="member_index_resume_t_wz_n">{yun:}$resumelist.integrity{/yun}%</span> </div>
+          </div>
+        </div>
+        <div class="member_index_resume_t_cz fltR">
+          <div class="ember_index_resume_t_cz_zt"> <em class="member_right_em fltR">简历状态： <a href="index.php?c=privacy"> {yun:}if $resume.status==2{/yun} <span class="m_u_red">隐藏</span> {yun:}else{/yun}
+            公开
+            {yun:}/if{/yun} </a> <a href="index.php?c=privacy" class="cblue">设置</a> </em> </div>
+          <a href="javascript:void(0)" onclick="resumetop('{yun:}$resumelist.id{/yun}','{yun:}$resumelist.topdate{/yun}')" class="member_index_resume_t_cz_bth ">简历置顶</a> <a href="index.php?c=expect{yun:}if $resume.doc{/yun}q{yun:}/if{/yun}&e={yun:}$resumelist.id{/yun}" class="member_index_resume_t_cz_bth">修改简历</a> <a href="{yun:}url m=resume c=show id=$resumelist.id tmp=$resumelist.tmpid{/yun}" target="_blank" class="member_index_resume_t_cz_bth">预览简历</a> <a onclick="layer_del('确定要刷新？', 'index.php?c=resume&act=refresh&id={yun:}$resumelist.id{/yun}');" href="javascript:void(0)" class="member_index_resume_t_cz_bth">刷新简历</a> </div>
+      </div>
+      {yun:}if ($resumelist.edu==0 || $resumelist.training==0 || $resumelist.skill==0 || $resumelist.work==0 || $resumelist.project==0 || $resumelist.cert==0 || $resumelist.other==0) && !$resumelist.doc{/yun}
+      <div class="member_index_resume_msg">
+        <div class="member_index_resume_msg_l">!</div>
+        <div class="member_index_resume_msg_r">
+          <div class="member_index_resume_msg_r_t"> 您还有以下资料没有填写 <span class="member_index_resume_msg_span">（为了更快的找到工作，建议您立即完善简历！）</span> </div>
+          {yun:}if $resumelist.edu==0{/yun}<a href="index.php?c=expect&e={yun:}$resumelist.id{/yun}" class="member_index_resume_msg_a">教育经历</a>{yun:}/if{/yun}
+          {yun:}if $resumelist.training==0{/yun}<a href="index.php?c=expect&e={yun:}$resumelist.id{/yun}" class="member_index_resume_msg_a">培训经历</a>{yun:}/if{/yun}
+          {yun:}if $resumelist.skill==0{/yun}<a href="index.php?c=expect&e={yun:}$resumelist.id{/yun}" class="member_index_resume_msg_a">专业技能</a>{yun:}/if{/yun}
+          {yun:}if $resumelist.work==0{/yun}<a href="index.php?c=expect&e={yun:}$resumelist.id{/yun}" class="member_index_resume_msg_a">工作经历</a>{yun:}/if{/yun}
+          {yun:}if $resumelist.project==0{/yun}<a href="index.php?c=expect&e={yun:}$resumelist.id{/yun}" class="member_index_resume_msg_a">项目经验</a>{yun:}/if{/yun}
+          {yun:}if $resumelist.cert==0{/yun}<a href="index.php?c=expect&e={yun:}$resumelist.id{/yun}" class="member_index_resume_msg_a">证书</a>{yun:}/if{/yun}
+          {yun:}if $resumelist.other==0{/yun}<a href="index.php?c=expect&e={yun:}$resumelist.id{/yun}" class="member_index_resume_msg_a">附加信息</a>{yun:}/if{/yun} </div>
+      </div>
+      {yun:}/if{/yun} </div>
+    <!-----------------------------------------  没有简历状态-----------------------------------> 
+    {yun:}foreachelse{/yun}
+    <div class="member_index_no_resume">
+      <p class="">你还没有创建简历，无法投递职位</p>
+      <a href="index.php?c=expect&add={yun:}$uid{/yun}" class="member_index_no_resume_a">创建简历</a> </div>
+    {yun:}/foreach{/yun} </div>
+  <div class="member_right_box  member_right_box_bor mt10 fltL">
+    <div class="member_right_index_h1 fltL"><span class="member_right_h1_span fltL">职位搜索器</span></div>
+    <div class="index_Job_Finder_box">
+      <ul class="index_Job_Finder_ul fltL">
+        {yun:}foreach from=$finder item=flist{/yun}
+        <li class="index_Job_Finder fltL"> <i class="index_Job_Finder_icon fltL png"></i>
+          <div class="index_Job_Finder_cont fltL">
+            <div class="index_Job_Finder_cont_name"><a href="{yun:}$flist.url{/yun}" target='_blank' class="index_Job_Finder_cont_name_a">{yun:}if $flist.name{/yun}{yun:}$flist.name{/yun}{yun:}else{/yun}未命名{yun:}/if{/yun}</a></div>
+            <div>搜索条件：{yun:}$flist.findername{/yun}</div>
+            <div class="index_Job_Finder_cont_search"><a href="{yun:}$flist.url{/yun}" class="index_Job_Finder_cont_search_a" target='_blank'>立即搜索</a></div>
+          </div>
+          <div class="index_Job_Finder_Operating fltL"><a href="index.php?c=finder&act=edit&id={yun:}$flist.id{/yun}">修改</a> | <a onclick="layer_del('确定要删除？', 'index.php?c=finder&act=del&id={yun:}$flist.id{/yun}');" href="javascript:void(0)">删除</a></div>
+        </li>
+        {yun:}foreachelse{/yun}
+        <div class="index_no_Job_Finder">您还没有个人搜索器。</div>
+        {yun:}/foreach{/yun}
+      </ul>
+      <div class="index_Job_Finder_bot fltL"> 共可创建{yun:}$config.user_finder{/yun}个，还可创建{yun:}$findernum{/yun}个搜索器
+        {yun:}if $findernum>0{/yun} <a href="index.php?c=finder&act=edit" class="cblue" style="margin-left:5px; text-decoration:underline">+新增搜索器</a> {yun:}/if{/yun} </div>
+    </div>
+  </div>
+  <div class="member_right_box member_right_box_bor  mt10 fltL">
+    <div class="member_right_index_h1 fltL"> <span class="member_right_h1_span fltL">合适的工作</span> {yun:}if $rlist{/yun}
+      <div class="index_resume_my_n index_resume_my_n_sh fltR" onclick="show_resume('resume_expect');"> <font id="resume_name" onclick="show_resume('resume_expect');">{yun:}$expect_name{/yun}</font>
+        <div class="index_resume_my_n_list" id="resume_expect" style="display:none">
+          <ul>
+            {yun:}foreach item=v from=$rlist{/yun}
+            <li><a href="javascript:check_resume('{yun:}$v.id{/yun}','{yun:}$v.name{/yun}');">{yun:}$v.name{/yun}</a></li>
+            {yun:}/foreach{/yun}
+          </ul>
+        </div>
+      </div>
+      {yun:}/if{/yun} </div>
+    {yun:}if empty($rlist){/yun} 
+    <!--     没创建简历------------------------------------------------------------------------>
+    <div class="member_right_no_job">
+      <div class="member_right_no_job_box ">
+        <div class="member_right_no_jobl">！ </div>
+        <div class="member_right_no_jobr"> 创建简历以后，系统会根据您的简历，<br>
+          通过后台算法为您匹配最适合您的招聘职位<br>
+          <a href="index.php?c=expect&add={yun:}$uid{/yun}" class="cblue" style="text-decoration:underline">创建简历</a> </div>
+      </div>
+    </div>
+    <!--   创建简历------------------------------------------------------------------------> 
+    {yun:}else{/yun}
+    <div class="member_right_job_box">
+      <ul id="joblist">
+        {yun:}joblist jobwhere='auto.jobwhere' namelen=8 comlen=13  limit=16 item=blist{/yun}
+        <li> <a href="{yun:}$blist.job_url{/yun}" class="member_right_job_box_name cblue">{yun:}$blist.name_n{/yun}</a> <span class="member_right_job_xz">{yun:}$blist.job_salary{/yun}</span> <a href="{yun:}$blist.com_url{/yun}">{yun:}$blist.com_n{/yun}</a> </li>
+        {yun:}joblistelse{/yun}
+        <div class="member_right_no_job">
+          <div class="member_right_no_job_box ">
+            <div class="member_right_no_jobl">！ </div>
+            <div class="member_right_no_jobr" style="margin-top:30px; font-size:22px;"> 没有适合的职位 </div>
+          </div>
+        </div>
+        {yun:}/joblist{/yun}
+      </ul>
+    </div>
+    {yun:}/if{/yun} </div>
+</div>
+<div class="clear"></div>
+<div id="bg" {yun:}if $resume.name==""{/yun}style="display:block"{yun:}/if{/yun}></div>
+
+<script>
+    function Close_yd() {
+        $("#yingdao").hide();
+        $("#bg").hide();
+    }
+    function show_resume(id) {
+        if($(".index_resume_my_n #" + id).is(':hidden')){
+            $(".index_resume_my_n #" + id).css('display', 'block');
+        }else{
+            $(".index_resume_my_n #" + id).css('display', 'none');
+        }
+    }
+    function check_resume(id, name) {
+        $("#resume_name").html(name);
+        $("#resume_expect").hide();
+        $.post("index.php?act=getjob", { id: id }, function (data) {
+            if ($.trim(data)) {
+                $("#joblist").html(data);
+            } else {
+                $("#joblist").html('<div class="member_right_no_job">' +
+    '<div class="member_right_no_job_box ">' +
+        '<div class="member_right_no_jobl">！ </div>' +
+        '<div class="member_right_no_jobr" style="margin-top:30px; font-size:22px;">' +
+            '没有适合的职位' +
+        '</div>' +
+    '</div>' +
+'</div>');
+            }
+        })
+    }
+    $(function () {
+        $('#show_resume').delegate('span', 'click', function () {
+            $(this).parent().click();
+        })
+    });
+    function check_select_resume(id) {
+        $(".member_index_resume_box").hide();
+        $("#resumelist" + id).show();
+        $("#resume_expect" + id).hide();
+    }
+</script>
+{yun:}include file="$userstyle/footer.htm"{/yun}

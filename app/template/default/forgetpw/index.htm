@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{yun:}$title{/yun}</title>
+<META name="keywords" content="{yun:}$keywords{/yun}">
+<META name="description" content="{yun:}$description{/yun}">
+<link rel="stylesheet" href="{yun:}$style{/yun}/style/css.css" type="text/css">
+<!--[if IE 6]>
+<script src="{yun:}$config.sy_weburl{/yun}/js/png.js"></script>
+<script>
+DD_belatedPNG.fix('.png');
+</script>
+<![endif]-->
+<script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/layer/layer.min.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/lazyload.min.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/public.js" language="javascript"></script>
+<script src="{yun:}$style{/yun}/js/forgetpw.js" language="javascript"></script>
+</head>
+<body>
+{yun:}include file="$tplstyle/header.htm"{/yun} 
+
+<!--内容部分-->
+<div class="yun_content">
+  <div class="password_content_cont fl m15">
+    <div class="password_content_cpd">
+      <div class="password_content_h1"><i class="password_content_h1_i"></i><span class="password_content_h1_span">找回密码</span></div>
+      <div class="password">
+        <div class="flowsteps">
+          <ul>
+            <li class="flowsfrist"><span><i>1.</i><em>输入账户名</em></span></li>
+            <li class="" id="nav2"><span><i>2.</i><em>验证身份</em></span></li>
+            <li class="" id="nav3"><span><i>3.</i><em>重置密码</em></span></li>
+            <li class="" id="nav4"><span><i>4.</i><em>密码修改成功</em></span></li>
+          </ul>
+        </div>
+        <div class="clear"></div>
+        <!--step1-->
+        <div class="password_cont" id="step1">
+          <div class="password_list m15 fl">
+            <div class="password_list_left">账户名：</div>
+            <input type="text" id="username" class="password_list_text">
+            <div class="password_list_r">忘记会员名？就使用手机号或邮箱吧！</div>
+          </div>
+          <div class="password_list fl m15">
+            <div class="password_list_left">验证码：</div>
+            <input type="text" id="authcode" class="password_list_text password_list_textw110">
+            <img id="vcode_img"  src="{yun:}$config.sy_weburl{/yun}/app/include/authcode.inc.php">
+            <div class="password_list_r">看不清？<a href="javascript:check_code();" class="registe_a">换一张</a></div>
+          </div>
+          <div class="password_list fl m15">
+            <div class="password_list_left">&nbsp;</div>
+            <input type="submit" value="下一步" class="password_list_bth" onclick="forgetpw();">
+          </div>
+        </div>
+        <!--step2--完成-------------------------------------->
+        <div class="password_cont " style="display:none;" id="step2">
+          <div class="password_list fl mt20">
+            <div class="password_list_left">&nbsp;</div>
+            <div class="password_list_s"> 您正在找回密码的账号为：<span id="username_halt"></span>，请选择重置密码方式： </div>
+          </div>
+          <div class="password_list fl mt10" id="checkemail">
+            <div class="password_list_left">&nbsp;</div>
+            <div class="password_list_s">
+              <input type="radio" value="email" name="sendtype" class="password_list_radio">
+              选择密保邮箱 <span id="email_halt"></span></div>
+          </div>
+          <div class="password_list fl mt10" id="checkmoblie">
+            <div class="password_list_left">&nbsp;</div>
+            <div class="password_list_s">
+              <input type="radio" value="moblie" name="sendtype" class="password_list_radio">
+              选择绑定手机号 <span id="moblie_halt"></span></div>
+          </div>
+          <div class="password_list fl mt10">
+            <div class="password_list_left">&nbsp;</div>
+            <div class="password_list_s"> 若您无法使用上述方法找回，请联系客服{yun:}$config.sy_webtel{/yun}</div>
+          </div>
+          <div class="password_list fl mt20">
+            <div class="password_list_left">&nbsp;</div>
+            <input name="uid" type="hidden" value="" />
+            <input type="submit" value="下一步" class="password_list_bth" onclick="send_str();">
+          </div>
+        </div>
+        
+        <!--step2--发送邮件-------------------------------------->
+        
+        <div class="password_cont " style="display:none;" id="step3_email">
+          <div class="password_list fl m10">
+            <div class="password_list_left">&nbsp;</div>
+            <div class="password_list_s"> 我们已经向您的注册邮箱<span id="step3_email_halt"></span>发送验证码邮件</div>
+          </div>
+          <div class="password_list fl m10">
+            <div class="password_list_left">验证码：</div>
+            <input type="text" value="" placeholder="请输入邮箱验证码" class="password_list_text password_list_textw110" name="code_email">
+            <div class="password_list_r step3_email_timer"><a href="javascript:;" class="input_btn ">点击免费获取</a></div>
+          </div>
+          <div class="password_list fl m15">
+            <div class="password_list_left">&nbsp;</div>
+            <input type="submit" value="下一步" class="password_list_bth" onclick="checksendcode();">
+          </div>
+        </div>
+        <div class="password_cont " style="display:none;" id="step3_moblie">
+          <div class="password_list fl m10">
+            <div class="password_list_left">&nbsp;</div>
+            <div class="password_list_s"> 我们将向您的绑定手机<span id="step3_moblie_halt"></span>发送验证码短信</div>
+          </div>
+          <div class="password_list fl m10">
+            <div class="password_list_left">验证码：</div>
+            <input type="text" value="" placeholder="请输入邮箱验证码" class="password_list_text password_list_textw110" name="code_moblie">
+            <div class="password_list_r step3_moblie_timer"><a href="javascript:;" class="input_btn ">点击免费获取</a></div>
+          </div>
+          <div class="password_list fl m15">
+            <div class="password_list_left">&nbsp;</div>
+            <input type="submit" value="下一步" class="password_list_bth" onclick="checksendcode();">
+          </div>
+        </div>
+        
+        <!--step3--重置密码------------------------------------>
+        <div class="password_cont " style="display:none;" id="step4">
+          <div class="password_list fl m15">
+            <div class="password_list_left">输入新的密码：</div>
+            <input type="password" value="" class="password_list_text" name="password" id="password">
+          </div>
+          <div class="password_list fl m15">
+            <div class="password_list_left">确认新的密码：</div>
+            <input type="password" value="" class="password_list_text" name="passwordconfirm" id="passwordconfirm">
+          </div>
+          <div class="password_list fl m15">
+            <div class="password_list_left">&nbsp;</div>
+            <input type="submit" value="提交修改" class="password_list_bth" onclick="editpw();">
+          </div>
+        </div>
+        <div class="clear"></div>
+        <!--step4--完成------------------------------------>
+        <div class="password_cont  " style="display:none;" id="step5">
+          <div class="password_cont_success ">
+            <div class="password_cont_success_p">恭喜您！密码重置成功！</div>
+            <div class="password_contm-row"> <a href="{yun:}url m=login{/yun}" class="password_input_btn">立即登录</a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{yun:}include file="$tplstyle/footer.htm"{/yun}

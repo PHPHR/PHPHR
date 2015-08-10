@@ -1,0 +1,27 @@
+{yun:}include file="$userstyle/header.htm"{/yun}
+<div class="w950"> {yun:}include file="$userstyle/left.htm"{/yun}
+  <div class="mian_right fltR mt12">
+    <div class="member_right_h1 fltL"><span class="member_right_span fltL">消费{yun:}$config.integral_pricename{/yun}</span></div>
+    <div class="integral_cont">
+      <ul class="integral_cont_list">
+        <li> <span class="integral_cont_list_span">简历置顶</span> <span class="integral_cont_list_span_c" style="border:none"> 消费 <b>{yun:}$config.integral_resume_top{/yun}</b> {yun:}$config.integral_pricename{/yun} / 天 </span> </li>
+        {yun:}if $config.integral_question_type==2{/yun}
+        <li> <span class="integral_cont_list_span">发布问题</span> <span class="integral_cont_list_span_c" style="border:none">消费 <b>{yun:}$config.integral_question{/yun}</b>{yun:}$config.integral_pricename{/yun}</span></li>
+        {yun:}/if{/yun}
+        {yun:}if $config.integral_answer_type==2{/yun}
+        <li> <span class="integral_cont_list_span">回答问题</span> <span class="integral_cont_list_span_c" style="border:none">消费 <b>{yun:}$config.integral_answer{/yun}</b>{yun:}$config.integral_pricename{/yun}</span></li>
+        {yun:}/if{/yun}
+        {yun:}if $config.integral_answerpl_type==2{/yun}
+        <li> <span class="integral_cont_list_span">评论回答</span> <span class="integral_cont_list_span_c" style="border:none">消费 <b>{yun:}$config.integral_answerpl{/yun}</b>{yun:}$config.integral_pricename{/yun}</span></li>
+        {yun:}/if{/yun}
+        {yun:}if $config.integral_friend_msg_type==2{/yun}
+        <li> <span class="integral_cont_list_span">朋友圈留言</span> <span class="integral_cont_list_span_c" style="border:none">消费 <b>{yun:}$config.integral_friend_msg{/yun}</b>{yun:}$config.integral_pricename{/yun}</span></li>
+        {yun:}/if{/yun}
+        {yun:}if $config.integral_friend_reply_type==2{/yun}
+        <li> <span class="integral_cont_list_span">朋友圈回复</span> <span class="integral_cont_list_span_c" style="border:none">消费 <b>{yun:}$config.integral_friend_reply{/yun}</b>{yun:}$config.integral_pricename{/yun}</span></li>
+        {yun:}/if{/yun}
+      </ul>
+    </div>
+  </div>
+</div>
+{yun:}include file="$userstyle/footer.htm"{/yun}

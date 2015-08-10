@@ -1,0 +1,41 @@
+
+<div class="Personals_right">
+  <div class="clear"></div>
+  <div class="Personals_items fl" style="padding-bottom:10px;">
+  <div class="Personals_may"><strong>可能感兴趣的人</strong></div> 
+  {yun:}foreach from=$addlist item=row{/yun} 
+  <div class="Personals_may_firend atn{yun:}$row.uid{/yun}">
+    <div class="Personals_may_firend_img"><img src="{yun:}$row.pic{/yun}" width="32" height="40" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/></div>
+    <a href="{yun:}url m=ask c=friend uid='`$row.uid`'{/yun}" class="Personals_may_fangk" title="{yun:}$row.nickname{/yun}">{yun:}$row.nickname{/yun}</a> 
+	<a href="javascript:;" onclick="addfriend('{yun:}$row.uid{/yun}','{yun:}url m=ask c=friend a=atnuser{/yun}');" class="Personals_may_submit addfriend{yun:}$row.uid{/yun}">关注</a> 
+	</div>
+  {yun:}foreachelse{/yun}
+   <div class="friend_right_no fl">你暂时没有感兴趣的人</div>
+  {yun:}/foreach{/yun}
+  </div>
+  <div class="Personals_items fl" >
+  <div class="Personals_may"><strong>热门问答</strong> <a target="_blank" href="{yun:}url m=ask{/yun}">更多>></a></div>
+	<ul class="Personals_py_wd">
+	{yun:}qlist item=qlist order=visit t_len=20 limit=8{/yun}
+	<li><a href="{yun:}$qlist.url{/yun}" title="{yun:}$qlist.title{/yun}" target="_blank"><span class="dot"></span>{yun:}$qlist.title{/yun}</a></li>
+	{yun:}/qlist{/yun}
+	</ul>
+   </div>
+   <div class="Personals_items fl"> 
+  <div class="Personals_may"><strong>最近访客</strong> </div> 
+   {yun:}if $myfoot{/yun}
+  <div class="Personals_may_list"> 
+  <div class="Personals_right_size "> 
+  {yun:}foreach from=$myfoot item=ftlist{/yun}
+    <dl>
+      <dt><img src="{yun:}$ftlist.pic{/yun}" width="44" height="55" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/></dt>
+      <dd><a href="{yun:}url m=ask c=friend uid='`$ftlist.uid`'{/yun}" class="my_fangk" title="{yun:}$ftlist.nickname{/yun}">{yun:}$ftlist.nickname{/yun}</a></dd>
+    </dl>
+    {yun:}/foreach{/yun} 
+	</div>
+    </div>
+	{yun:}else{/yun}
+	  <div class="friend_right_no fl">你暂时没有访客！</div>
+	  {yun:}/if{/yun} 
+    </div>
+</div>

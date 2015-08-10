@@ -1,0 +1,73 @@
+{yun:}include file="$comstyle/header.htm"{/yun}
+<div class="w1000">
+  <div class="admin_mainbody">
+    <style>
+.my_table_msg th{ text-align:right}
+</style>
+    {yun:}include file="$comstyle/left.htm"{/yun}
+    <div class=right_box>
+      <div class=admincont_box>
+        <div class="com_tit"><span class="com_tit_span"> 获取{yun:}$config.integral_pricename{/yun}</span></div>
+        <div class="com_body">
+          <div class="integral_cont">
+            <ul class="integral_cont_list">
+              <li> <span class="integral_cont_list_span">完成注册信息</span> <span class="integral_cont_list_span_c"> 新用户完善信息，可获得<b>{yun:}$config.integral_reg{/yun}</b>{yun:}$config.integral_pricename{/yun} </span> <span class="integral_cont_list_span_r"></span> </li>
+              <li> <span class="integral_cont_list_span">完善基本资料</span> <span class="integral_cont_list_span_c"> 完善基本资料，可获得<b>{yun:}$config.integral_userinfo{/yun}</b>{yun:}$config.integral_pricename{/yun} </span> <span class="integral_cont_list_span_r"> {yun:}if $statusList.baseInfo{/yun}
+                已完善 
+                {yun:}else{/yun} <a href="index.php?c=info" 
+						target="_blank" class="integral_cont_list_a">立即完善</a> {yun:}/if{/yun} </span> </li>
+              <li> <span class="integral_cont_list_span">上传企业logo</span> <span class="integral_cont_list_span_c"> 上传头像，可获得<b>{yun:}$config.integral_avatar{/yun}</b>{yun:}$config.integral_pricename{/yun} </span> <span class="integral_cont_list_span_r"> {yun:}if $statusList.logo{/yun}
+                已上传 
+                {yun:}else{/yun} <a href="index.php?c=uppic" 
+							target="_blank"  class="integral_cont_list_a">上传logo</a> {yun:}/if{/yun} </span> </li>
+              <li> <span class="integral_cont_list_span">邀请朋友注册</span> <span class="integral_cont_list_span_c"> 邀请朋友注册，可获得<b>{yun:}$config.integral_invite_reg{/yun}</b>{yun:}$config.integral_pricename{/yun} </span> <span class="integral_cont_list_span_r"><a href="{yun:}url m=invitereg{/yun}"
+					target="_blank" class="integral_cont_list_a">现在就邀请</a></span> </li>
+              <li> <span class="integral_cont_list_span">每天第一次登录</span> <span class="integral_cont_list_span_c"> 每天第一次登录，可获得 <b>{yun:}$config.integral_login{/yun}</b>{yun:}$config.integral_pricename{/yun} </span> </li>
+              <li> <span class="integral_cont_list_span">认证电子邮箱</span> <span class="integral_cont_list_span_c"> 认证电子邮箱，可获得 <b>{yun:}$config.integral_emailcert{/yun}</b>{yun:}$config.integral_pricename{/yun} </span> <span class="integral_cont_list_span_r"> {yun:}if $statusList.emailChecked{/yun}
+                已验证
+                {yun:}else{/yun} <a href="index.php?c=binding" 
+							target="_blank"  class="integral_cont_list_a">邮箱认证</a> {yun:}/if{/yun} </span> </li>
+              <li> <span class="integral_cont_list_span">认证手机号码</span> <span class="integral_cont_list_span_c"> 认证手机号码，可获得 <b>{yun:}$config.integral_mobliecert{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"> {yun:}if $statusList.phoneChecked{/yun}
+                已验证
+                {yun:}else{/yun} <a href="index.php?c=binding" 
+							target="_blank"  class="integral_cont_list_a">手机验证</a> {yun:}/if{/yun} </span> </li>
+              <li> <span class="integral_cont_list_span">设置企业地图</span> <span class="integral_cont_list_span_c"> 设置企业地图，可获得 <b>{yun:}$config.integral_map{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"> {yun:}if $statusList.map{/yun}
+                已设置
+                {yun:}else{/yun} <a href="index.php?c=map" 
+							target="_blank"  class="integral_cont_list_a">设置地图</a> {yun:}/if{/yun} </span> </li>
+              <li> <span class="integral_cont_list_span">上传企业横幅</span> <span class="integral_cont_list_span_c"> 上传企业横幅，可获得 <b>{yun:}$config.integral_banner{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"> {yun:}if $statusList.banner{/yun}
+                已上传
+                {yun:}else{/yun} <a href="index.php?c=banner" 
+							target="_blank" class="integral_cont_list_a">上传横幅</a></span> {yun:}/if{/yun} </li>
+              <li> <span class="integral_cont_list_span">认证营业执照</span> <span class="integral_cont_list_span_c"> 认证营业执照，可获得 <b>{yun:}$config.integral_comcert{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"> {yun:}if $statusList.yyzz{/yun}
+                已验证
+                {yun:}else{/yun} <a href="index.php?c=binding" 
+							target="_blank" class="integral_cont_list_a">认证营业执照</a> {yun:}/if{/yun} </span> </li>
+              {yun:}if $config.integral_question_type==1{/yun}
+              <li> <span class="integral_cont_list_span">发布问题</span> <span class="integral_cont_list_span_c"> 发布问题，可获得 <b>{yun:}$config.integral_question{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"><a href="{yun:}url m=ask c=addquestion {/yun}" 
+					target="_blank"  class="integral_cont_list_a">发布问题</a></span> </li>
+              {yun:}/if{/yun}
+              {yun:}if $config.integral_answer_type==1{/yun}
+              <li> <span class="integral_cont_list_span">回答问题</span> <span class="integral_cont_list_span_c"> 回答问题，可获得 <b>{yun:}$config.integral_answer{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"><a href="{yun:}url m=ask {/yun}#last-question" 
+					target="_blank"  class="integral_cont_list_a">回答问题</a></span> </li>
+              {yun:}/if{/yun}
+              {yun:}if $config.integral_answerpl_type==1{/yun}
+              <li> <span class="integral_cont_list_span">评论回答</span> <span class="integral_cont_list_span_c"> 评论回答，可获得 <b>{yun:}$config.integral_answerpl{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"><a href="{yun:}url m=ask {/yun}#last-question" 
+					target="_blank"  class="integral_cont_list_a">评论回答</a></span> </li>
+              {yun:}/if{/yun}
+              {yun:}if $config.integral_friend_msg_type==1{/yun}
+              <li> <span class="integral_cont_list_span">朋友圈留言</span> <span class="integral_cont_list_span_c"> 朋友圈留言，可获得 <b>{yun:}$config.integral_friend_msg{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"><a href="{yun:}url m=friend {/yun}#friend-news" 
+					target="_blank" class="integral_cont_list_a">去留言</a></span> </li>
+              {yun:}/if{/yun}
+              {yun:}if $config.integral_friend_reply_type==1{/yun}
+              <li> <span class="integral_cont_list_span">朋友圈回复</span> <span class="integral_cont_list_span_c"> 朋友圈回复，可获得 <b>{yun:}$config.integral_friend_reply{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"><a href="{yun:}url m=friend c=messagelist{/yun}" 
+					target="_blank"  class="integral_cont_list_a">去回复</a></span> </li>
+              {yun:}/if{/yun}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{yun:}include file="$comstyle/footer.htm"{/yun}

@@ -1,0 +1,38 @@
+{yun:}include file="$comstyle/header.htm"{/yun}
+<div class="w1000">
+  <div class="admin_mainbody"> 
+  {yun:}include file="$comstyle/left.htm"{/yun} 
+
+    <div class=right_box>
+    <div class=admincont_box>
+    <div class="com_tit"><span class="com_tit_span">套餐使用情况</span></div>
+ <div class="com_body">
+ <div class="com_body_tc_zt">您当前是：<span class="com_body_tc_zt_n">{yun:}$statis.rating_name{/yun}</span> {yun:}if $statis.type=='2'{/yun}(时间会员){yun:}else{/yun}(套餐会员){yun:}/if{/yun}</div>
+  <div class="com_body_tc_zt">到期时间：{yun:}if $statis.vip_etime==0{/yun}永久{yun:}elseif $statis.vip_etime<time(){/yun}已过期{yun:}else{/yun}{yun:}$statis.vip_etime|date_format:'%Y-%m-%d'{/yun}{yun:}/if{/yun}</div>
+<div class="com_body_paty_cont">
+<div class="com_body_pay_list">
+<span class="com_body_pay_list_s1">发布职位</span>      
+<span class="com_body_pay_list_s2">剩余<strong>{yun:}$statis.job_num{/yun}</strong>份    </span> 
+</div>
+<div class="com_body_pay_list">
+<span class="com_body_pay_list_s1">下载简历</span>      
+<span class="com_body_pay_list_s2">剩余<strong>{yun:}$statis.down_resume{/yun}</strong>份    </span> 
+</div>
+<div class="com_body_pay_list">
+<span class="com_body_pay_list_s1">邀请面试</span>      
+<span class="com_body_pay_list_s2">剩余<strong>{yun:}$statis.invite_resume{/yun}</strong>份    </span>  
+</div>
+<div class="com_body_pay_list">
+<span class="com_body_pay_list_s1">修改职位</span>      
+<span class="com_body_pay_list_s2">剩余<strong>{yun:}$statis.editjob_num{/yun}</strong>份    </span>  
+</div>
+<div class="com_body_pay_list">
+<span class="com_body_pay_list_s1">刷新职位</span>      
+<span class="com_body_pay_list_s2">剩余<strong>{yun:}$statis.breakjob_num{/yun}</strong>份    </span>
+</div>
+
+</div>
+  </div> 
+  </div></div>  
+</div>  
+{yun:}include file="$comstyle/footer.htm"{/yun} 

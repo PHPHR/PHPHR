@@ -1,0 +1,47 @@
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+<section>
+  <div class="warp_content clear">
+    <form method="get" action="{yun:}$config_wapdomain{/yun}/index.php">
+      <input type="hidden" name="c" value="tiny" />
+      <div class="formFiled">
+               
+        <input type="text" name="keyword" value="{yun:}$smarty.get.keyword{/yun}"  class="input_search" placeholder="请输入关键字" />
+        <input type="submit" value="搜索" class="input_btn">
+      </div>
+    </form>
+    <div class="job_list_content"> {yun:}tiny item=wres  islt=4 ispage=1 limit=20 keyword='auto.keyword' {/yun}
+      <div class="tiny_list"> <a href="{yun:}url m=wap c=tiny a=show id=$wres.id{/yun}">
+        <div class="tiny_list_top">
+          <div class="tiny_r">
+            <h3><span class="c288">{yun:}$wres.username{/yun} </span><em class="user_xinx"><span class="user_line">/</span>{yun:}$wres.sex_name{/yun}<span class="user_line"></span></em></h3>
+            <aside class="user_list_p"> 
+                <em class="user_p_p1">
+					<!--<i class="user_map fa fa-map-marker"></i>-->
+                <span class="user_city_n">{yun:}$userclass_name[$wres.exp]{/yun}</span></em> 
+                <em class="user_p_ov"><span class="user_list_n">求职：</span>
+                <span class="user_list_yx_w">{yun:}$wres.job{/yun}</span>
+                </em> 
+              </aside>
+            <span class="tiny_list_date">{yun:}$wres.time|date_format:"%Y-%m-%d"{/yun}</span> </div>
+        </div>
+        <div class="tiny_box">
+          <div class="tiny_box_tit">自我介绍：</div>
+          {yun:}$wres.production{/yun} </div>
+        </a> </div>
+      {yun:}/tiny{/yun} </div>
+  </div>
+</section>
+{yun:}if $total<=0{/yun}
+  {yun:}if $smarty.get.keyword!="" {/yun} 
+  <div class="wap_member_no">没有搜索到微简历</div>
+  {yun:}else{/yun}
+  <div class="wap_member_no">暂无微简历</div>
+  {yun:}/if{/yun}
+  {yun:}else{/yun}
+  <div class="pages">{yun:}$pagenav{/yun}</div>
+  {yun:}/if{/yun}
+<!--功能条 -->
+<div id="yun_cz" class="fn-dbox center">
+  <div id="resumeBtn" class="deep fn-dbox-flex fn-dbox-flex-flex1"> <a href="###" onclick="location.href='{yun:}url m=wap c=tiny a=add{/yun}'"  class="once_t_fb"> <i class="fa fa-pencil-square-o"></i> 发布微简历</a></div>
+</div>
+{yun:}include file="$wapstyle/footer.htm"{/yun}

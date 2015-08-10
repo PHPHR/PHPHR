@@ -1,0 +1,134 @@
+{yun:}include file="$comstyle/header.htm"{/yun}
+<div class="w1000">
+<div class="admin_mainbody"> {yun:}include file="$comstyle/left.htm"{/yun}
+  <link href="{yun:}$comstyle{/yun}/images/index_style.css" type=text/css rel=stylesheet>
+  <div class=right_box>
+    <div class=admincont_box>
+      <div class="com_tit">
+       <span class="com_tit_span">申请职位的人才</span>
+      </div>
+      <div class="com_body">
+        <div class=admin_textbox_04>
+          <iframe id="supportiframe"  name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+          <div class="hr_tip_box">
+          <div class="hr_subMetx">
+			<span class="hr_subMetx_span fltL">招聘职位：</span>
+			<div class="text_seclet text_seclet_cur2 re">
+                <input id="qypr" class="SpFormLBut text_seclet_w250" type="button" onclick="search_show('job_qypr');" {yun:}if $current.id{/yun}value="{yun:}$current.name{/yun}"{yun:}else{/yun}value="全部职位"{yun:}/if{/yun}>
+                <div id="job_qypr" class="cus-sel-opt-panel " style="display: none;">
+                  	<ul class="Search_Condition_box_list">
+                    	<li><a href="index.php?c=hr&state={yun:}$smarty.get.state{/yun}">全部职位</a></li>
+                  		{yun:}foreach from=$JobList item=one{/yun}
+                        <li> <a href="index.php?c=hr&jobid={yun:}$one.id{/yun}&state={yun:}$smarty.get.state{/yun}">{yun:}$one.name{/yun}</a> </li>
+						{yun:}/foreach{/yun}
+					</ul>
+                </div>
+              </div>
+			</div>
+            <div class="hr_subMetx"> <span class="hr_subMetx_span fltL">简历状态：</span> 
+                <a href="index.php?c=hr&jobid={yun:}$smarty.get.jobid{/yun}" class="hr_subMetx_a {yun:}if $smarty.get.state==''{/yun}hr_subMetx_cur{yun:}/if{/yun}">不限</a>
+                {yun:}foreach from=$StateList item=one{/yun}
+                <a {yun:}if $smarty.get.state==$one.id{/yun}class="hr_subMetx_cur"{yun:}/if{/yun} href="index.php?c=hr&jobid={yun:}$smarty.get.jobid{/yun}&state={yun:}$one.id{/yun}">{yun:}$one.name{/yun}</a>
+                {yun:}/foreach{/yun}
+            </div>
+			<div class="hr_subMetx">
+			<form action="index.php" method="get" >
+				<span class="hr_subMetx_span fltL">关 键 字：</span>
+				 <div class="hr_subMetx_se">
+				  <input name="c" type="hidden" value="hr">
+				  <input name="keyword" type="text"class="news_text" value="请输入姓名查找" onblur="if(this.value==''){this.value='请输入姓名查找'}" onclick="if(this.value=='请输入姓名查找'){this.value=''}">
+				  <input type="submit"  class="news_bth" value=" ">
+				</div>
+			</form>
+          </div>     
+		  </div>
+          <div class="clear"></div>
+          <form action="{yun:}$now_url{/yun}&act=hrset" target="supportiframe" method="post" id='myform'> 
+              <div class="clear"></div>
+              
+              <div class="job_news_list job_news_list_h1 mt10"> 
+                <span class="job_news_list_span job_w30">&nbsp;</span> 
+                 <span class="job_news_list_span job_w80" style="text-align:left">姓名</span> 
+                 <span class="job_news_list_span job_w160">求职意向</span> 
+                 <span class="job_news_list_span job_w100">工作经验</span> 
+                <span class="job_news_list_span job_w100">期望薪资</span> 
+                <span class="job_news_list_span job_w155">申请的职位</span> 
+                <span class="job_news_list_span job_w100" style="width:140px;text-align:center">操作</span> 
+                </div>
+                {yun:}if $rows{/yun}
+                {yun:}foreach item=v from=$rows{/yun}
+              <div class="job_news_list" style="padding-bottom:18px;"> 
+              <span class="job_news_list_span job_w30" style="padding-right:6px;">
+           <input type="checkbox" name="delid[]" value="{yun:}$v.id{/yun}">
+                  </span>
+                  <span class="job_news_list_span job_w80" style="text-align:left"><a href="{yun:}url m=resume c=show id='`$v.eid`'{/yun}"  target="_blank" class="com_Release_name">{yun:}$v.name{/yun}&nbsp;</a></span>
+                  <span class="job_news_list_span job_w160">{yun:}$v.jobname{/yun}   &nbsp;</span>  
+                   <span class="job_news_list_span job_w100">{yun:}$v.exp{/yun} &nbsp;</span> 
+                   <span class="job_news_list_span job_w100">{yun:}$v.salary{/yun}&nbsp;</span> 
+                   <span class="job_news_list_span job_w155"><a href="{yun:}url m=job c=comapply id='`$v.job_id`'{/yun}" target="_blank" class="uesr_name_a">{yun:}$v.job_name{/yun}</a></span> 
+                 <span class="job_news_list_span job_w100" style="width:140px;text-align:right;">  
+                 {yun:}if $v.userid_msg==1{/yun} 
+				
+                	<font color="red">已邀请</font> 
+					{yun:}else{/yun} 
+					<a href="javascript:void(0);" uid="{yun:}$v.uid{/yun}" username="{yun:}$v.name{/yun}"  class="sq_resume uesr_name_a" >邀请面试</a>
+					{yun:}/if{/yun}
+                    <span class="com_m_line">|</span>
+					<a href="javascript:void(0)" onclick="layer_del('屏蔽该用户，并删除该条信息？', 'index.php?c=job&act=opera&p_uid={yun:}$v.uid{/yun}'); " class="uesr_name_a">屏蔽/删除</a>
+             </span>
+                 <div class="clear"></div>
+                 <div class="com_mem_hr_list_b_b">
+                 <span style="padding-left:30px;color:#999">申请时间：{yun:}$v.datetime|date_format:'%Y-%m-%d'{/yun}</span>
+					<span class="com_mem_hr_list_b_c9 ">状态：</span>
+                    <span class="com_mem_hr_list_bj {yun:}if $v.is_browse=='1'{/yun}com_mem_hr_list_bj_cur{yun:}/if{/yun}" name='{yun:}$v.id{/yun}' browse='1'> 未查看<i class="com_mem_hr_no_icon"></i></span>
+                    <span class="com_mem_hr_list_bj {yun:}if $v.is_browse=='2'{/yun}com_mem_hr_list_bj_cur{yun:}/if{/yun}" name='{yun:}$v.id{/yun}' browse='2'> 已查看</span>
+				   <span class="com_mem_hr_list_bj {yun:}if $v.is_browse=='4'{/yun}com_mem_hr_list_bj_cur{yun:}/if{/yun}" name='{yun:}$v.id{/yun}' browse='4'> 条件不符</span>     
+				   <span class="com_mem_hr_list_bj {yun:}if $v.is_browse=='5'{/yun}com_mem_hr_list_bj_cur{yun:}/if{/yun}" name='{yun:}$v.id{/yun}' browse='5'> 无法联系 </span>     
+				   <span class="com_mem_hr_list_bj {yun:}if $v.is_browse=='3'{/yun}com_mem_hr_list_bj_cur{yun:}/if{/yun}" name='{yun:}$v.id{/yun}' browse='3'> 等待通知  </span>    
+                </div> 
+                   </div>
+              
+              
+        
+                {yun:}/foreach{/yun}
+                <div class="com_Release_job_bot"> <span class="com_Release_job_qx">
+                  <input id='checkAll'  type="checkbox" onclick='m_checkAll(this.form)' class="com_Release_job_qx_check">
+                  全选</span>
+                  <INPUT class="c_btn_02" type="button" name="subdel" value="批量删除" onclick="return really('delid[]');">
+                  <INPUT class='c_btn_02' type="button" name="subdel" value="批量阅读" onclick="return really_read('delid[]');" style="margin-left:10px;">
+                </div>
+                {yun:}else{/yun}
+                <div class="msg_no">{yun:}if $smarty.get.keyword!="" {/yun}没有搜索申请记录。{yun:}else{/yun}您还没有相关申请的记录，<a href="{yun:}url m=resume{/yun}" class="cblue">我要主动找人才</a>。{yun:}/if{/yun}</div>
+                {yun:}/if{/yun} </div>
+           
+            <div class="diggg mt10 fltR">{yun:}$pagenav{/yun}</div>
+          </form>
+          <div  class="clear"></div>
+          {yun:}if $rows{/yun}
+          <div class="job_list_tip"> <span class="job_list_tip_span">共有（<span class="f60">{yun:}$total{/yun}</span>）份简历申请贵公司发布的职位</span><a href="{yun:}url m=resume{/yun}" class="fb_Com_xz"  target="_blank" style="text-align:center; line-height:25px;">找人才</a> </div>
+          {yun:}/if{/yun}
+          <div  class="clear"></div> 
+		  <div class="wxts_box wxts_box_mt30">
+			<div class="wxts">温馨提示：</div>
+			1.对与求职者来说即使是被拒绝，也胜过毫无音讯的等待。<br>
+			2.请邀约或者设置为不合适给求职者投递的简历，做一个回馈<br>
+			</div>
+		</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+	$(".com_mem_hr_list_bj").click(function(){
+		var browse=$(this).attr('browse');
+		var id=$(this).attr('name');
+		$.post("index.php?c=hr&act=hrset",{id:id,browse:browse},function(data){
+			location.reload();
+		});
+	});
+});
+</script>
+{yun:}include file="$comstyle/yqms.htm"{/yun}
+{yun:}include file="$comstyle/footer.htm"{/yun}

@@ -1,0 +1,50 @@
+{yun:}include file="$wapstyle/member/cheader.htm"{/yun} 
+<section class="wap_member">
+<div class="wap_member_comp_h1"><span>申请职位的人才</span></div>
+<div class="wap_member_Receive">
+{yun:}foreach item=v from=$rows{/yun}
+<div class="com_member_hr">
+<div class="com_member_hr_name">申请职位：<span class="com_member_hr_cblue">{yun:}$v.job_name{/yun} </span> <span class="com_member_hr_date">{yun:}$v.datetime|date_format:"%Y-%m-%d"{/yun}</span></div>
+<div class="com_member_user_box">
+<a href="{yun:}url m=wap c=resume a=show id=$v.eid{/yun}" class="wap_member_com_name com_member_hr_cblue">{yun:}$v.name{/yun}</a> / {yun:}$v.sex{/yun}
+{yun:}if $v.is_browse=='1'{/yun}
+<span class="wap_member_post_list_zt">未查看 </span>
+{yun:}elseif $v.is_browse=='2'{/yun}
+<span class="wap_member_post_list_zt ap_member_post_list_zt_gq">已查看 </span>
+{yun:}elseif $v.is_browse=='3'{/yun}
+<span class="wap_member_post_list_zt ap_member_post_list_zt_zt">等待通知 </span>
+{yun:}elseif $v.is_browse=='4'{/yun}
+<span class="wap_member_post_list_zt ap_member_post_list_zt_bf">条件不符</span> 
+{yun:}elseif $v.is_browse=='5'{/yun}
+<span class="wap_member_post_list_zt ap_member_post_list_zt_no">无法联系</span>
+{yun:}/if{/yun}
+<div class="com_member_hr_p1">意向职位：{yun:}$v.jobname{/yun}</div>
+<div class="com_member_hr_p1">
+	<span class="member_c9">经验：</span>{yun:}$v.exp{/yun}   &nbsp;&nbsp;&nbsp;
+	<span class="member_c9">期望薪资：</span>
+	<span class="wap_member_msg_p1_cf">{yun:}$v.salary{/yun}</span>
+</div>
+<div class="com_member_hr_cz"><em><a href="javascript:void(0)" onclick="layer_del('确定要删除？','index.php?c=delhr&id={yun:}$v.id{/yun}')" class="wap_member_msg_date">删除</a></em>   
+标记状态：
+<span class="com_member_hr_cz_zt">
+<select onchange="layer_del('', 'index.php?c=hrset&id={yun:}$v.id{/yun}&browse=' + this.value);">
+	<option value="1" {yun:}if $v.is_browse=='1'{/yun}selected{yun:}/if{/yun}>未查看</option> 
+    <option value="2" {yun:}if $v.is_browse=='2'{/yun}selected{yun:}/if{/yun}>已查看  </option> 
+    <option value="3" {yun:}if $v.is_browse=='3'{/yun}selected{yun:}/if{/yun}>等待通知</option>   
+    <option value="4" {yun:}if $v.is_browse=='4'{/yun}selected{yun:}/if{/yun}>条件不符</option>  
+    <option value="5" {yun:}if $v.is_browse=='5'{/yun}selected{yun:}/if{/yun}>无法联系</option> 
+</select>
+</span></div>
+</div>
+
+</div>
+
+{yun:}foreachelse{/yun}
+<div class="wap_member_no">您暂时还没有申请职位的人才</div>
+{yun:}/foreach{/yun}
+
+</div>
+<!--没有职位提示-->
+</section>
+<div class="pages"> {yun:}$pagenav{/yun}</div>
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

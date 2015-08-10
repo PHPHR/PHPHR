@@ -1,0 +1,38 @@
+{yun:}include file="$askstyle/header.htm"{/yun}  
+<div class="answer_con">
+	<div class="content con_answer">
+
+		<div class="content_hot ">
+			<div class="left left_con">
+				<div class="answer_list hot_list">
+					{yun:}include file="$askstyle/nav.htm"{/yun} 
+					<!--回答开始-->
+                    <div class="ask_anwser fl">
+                    <div class="ask_focus_size">
+					{yun:}foreach from=$rows item=alist{/yun}
+                    <dl class="focus_items atn{yun:}$alist.sc_uid{/yun}">
+						<dt><a href="{yun:}$alist.url{/yun}" target="_blank"><img src="{yun:}$alist.pic{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/></a></dt>
+						<dd class="user{yun:}$alist.sc_uid{/yun}">
+						<div class="focus_name fans{yun:}$alist.sc_uid{/yun}"  fans='{yun:}$alist.fans{/yun}'><a href="{yun:}$alist.url{/yun}" target="_blank">{yun:}$alist.nickname{/yun}</a> <span>{yun:}$alist.fans{/yun}</span>人关注</div>
+						{yun:}if $cookie.uid==$info.uid{/yun}
+						<a class="watch_gz" href="javascript:void(0)" onclick="attention_user('{yun:}$alist.sc_uid{/yun}','remove','{yun:}url m=ask c=friend a=atnuser{/yun}')">取消关注</a> {yun:}/if{/yun}
+						<div class="focus_anwser">提问{yun:}$alist.ask{/yun}  丨 回答{yun:}$alist.answer{/yun}</div>
+						</dd>
+                    </dl>
+					{yun:}foreachelse{/yun}  
+					<div class="noresult" style="width:475px;">暂无数据！</div>
+					{yun:}/foreach{/yun} 
+                   
+                     </div> 
+                    </div>
+                    <!--回答结束-->
+					<div class="clear"></div>
+					<div class="pages">{yun:}$pagenav{/yun}</div>
+				</div>
+			</div>
+			{yun:}include file="$askstyle/right.htm"{/yun}
+		</div>
+	</div>
+</div>
+<iframe id="supportiframe" name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+{yun:}include file="$askstyle/footer.htm"{/yun}   

@@ -1,0 +1,27 @@
+{yun:}include file="$userstyle/header.htm"{/yun}
+<div class="w950">
+    {yun:}include file="$userstyle/left.htm"{/yun}
+    <div class="mian_right fltR mt12">
+        <div class="member_right_h1 fltL"><span class="member_right_span fltL">留言反馈</span></div>
+        <div class="message_content">
+            <div id="">
+                
+                <form name="MyForm" onsubmit="return Showsub();" target="supportiframe" action='' method="post">
+                    <div class="remindbox01 mt10">
+                        <ul class="message_box">
+                            <li>
+                                <span>反馈内容：</span>
+                                <textarea id="content" name="content" cols="60" rows="6" class="message_box_text"></textarea>
+                            </li>
+                            <li>
+                                <span>&nbsp;</span>
+                                <input type="submit" name="add_message" class="inputbtn01" value="发送">
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{yun:}include file="$userstyle/footer.htm"{/yun}

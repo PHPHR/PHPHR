@@ -1,0 +1,52 @@
+<div class="Personals_left">
+<div class="friend_items fl" style="background:#f9f9f9;" >
+  <dl class="Personals_hy">
+    <dt><a href="{yun:}url m=friend c=photo{/yun}"><img src="{yun:}$member.pic{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);" width="40" height="50"/></a></dt>
+    <dd>用户名：<strong><a href="{yun:}url m=friend c=info{/yun}">{yun:}$member.nickname{/yun}</a></strong> 
+    </dd>
+  </dl>
+  <div class="friend_user fl">
+   {yun:}if $member.description{/yun}
+    	<a href="{yun:}url m=friend c=info{/yun}" title="{yun:}$member.description{/yun}">{yun:}$member.description|mb_substr:0:80:'gbk'{/yun}</a>
+    {yun:}else{/yun}
+    	<a href="{yun:}url m=friend c=info{/yun}">亲，还没填写个性签名?</a>
+    {yun:}/if{/yun} 
+  
+  </div>
+ </div>  
+  
+  <div class="clear"></div>
+   <div class="friend_items fl" >
+  <div class="Personals_left_h1"> 我的应用 </div>
+  <ul class="Personals_left_list">
+    <li {yun:}if $class==1{/yun}class="selected"{yun:}/if{/yun}><a class="app" href="{yun:}url m=friend{/yun}"> <img class="png" src="{yun:}$friend_style{/yun}/images/icons_01.png"> 全部动静 </a> </li> 
+    <li {yun:}if $class==2{/yun}class="selected"{yun:}/if{/yun}><a class="app" href="{yun:}url m=friend c=messagelist{/yun}"><img class="png" src="{yun:}$friend_style{/yun}/images/icons_02.png"> 留言板 </a></li>
+    <li {yun:}if $class==4{/yun}class="selected"{yun:}/if{/yun}><a class="app" href="{yun:}url m=friend c=info{/yun}"> <img class="png" src="{yun:}$friend_style{/yun}/images/icons_03.png"> 修改资料 </a></li>
+    <li><a class="app" href="{yun:}$config.sy_weburl{/yun}/ask" target="_blank"> <img class="png" src="{yun:}$friend_style{/yun}/images/icons_04.png"> 问答 </a></li>
+    <li><a class="app" href="{yun:}$config.sy_weburl{/yun}/member" target="_blank"> <img class="png" src="{yun:}$friend_style{/yun}/images/icons_05.png"> 会员中心</a></li>
+  </ul>
+  </div>
+  {yun:}if $member.usertype==1{/yun}
+  <div class="friend_items fl" >
+  <div class="Personals_left_h1"> 最新职位</div>
+  <ul class="Personals_left_list">
+    {yun:}joblist namelen=15  item=jlist limit=10{/yun}
+    <li><a class="app" target="_blank" href="{yun:}$jlist.job_url{/yun}"> {yun:}$jlist.name_n{/yun} </a> </li>
+    {yun:}/joblist{/yun}
+  </ul>
+  </div>
+  {yun:}elseif $member.usertype==2{/yun}
+  <div class="friend_items fl" >
+  <div class="Personals_left_h1"> 最新人才 </div>
+  <ul class="friend_newperson fl">
+    {yun:}userlist post_len=8 item=puserlist limit=10{/yun}
+    <li>
+    <a  href="{yun:}url m=resume c=show id='`$puserlist.id`'{/yun}"  target="_blank"> {yun:}$puserlist.username_n{/yun} </a>
+    <div class="friend_new_want fl">意向：{yun:}$puserlist.job_post_n{/yun}</div>
+    <div class="friend_new_want fl">经验：<span class="friend_new_year">{yun:}$puserlist.exp_n{/yun}</span></div>
+     </li>
+    {yun:}/userlist{/yun}
+  </ul>
+  </div>
+  {yun:}/if{/yun}
+  </div>

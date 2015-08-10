@@ -1,0 +1,158 @@
+{yun:}include file="$askstyle/header.htm"{/yun}  
+<div class="content ">
+	<div class="content_hot">
+		<div class="left left_con">
+			<div class="left ans_me">
+				<div class="answer_list ">
+					<div class="response">
+						<h2 class="res_title">{yun:}$show.title{/yun} </h2>
+						<p class="res_con">{yun:}$show.content{/yun}</p>
+						<div class="watchful q{yun:}$show.id{/yun}">
+							<span class="org_time answers_feed-meta" style="float:left;"><a class="answers_feed-meta_jb" onclick="get_show('{yun:}$show.id{/yun}');" href="javascript:void(0)">举报</a></span>&nbsp;
+							<span class="org_time">发布时间：{yun:}$show.add_time|date_format:"%Y-%m-%d"{/yun}</span>&nbsp;
+							<span class="num{yun:}$show.id{/yun}">{yun:}$show.atnnum{/yun}人关注</span>&nbsp;
+							{yun:}if $show.useratn!='2'{/yun}
+								{yun:}if $show.qatn=='1'{/yun}
+									<a href="javascript:void(0)"  onclick="attention('{yun:}$show.id{/yun}','1','{yun:}url m=ask c=friend a=attention{/yun}');" class="watch_qxgz">取消关注</a>
+								{yun:}else{/yun}
+                                    {yun:}if $uid{/yun}
+                                    <a href="javascript:void(0)"  onclick="attention('{yun:}$show.id{/yun}','1','{yun:}url m=ask c=friend a=attention{/yun}');" class='watch_gz'>关注问题</a>
+                                    {yun:}else{/yun}
+                                    <a href="javascript:void(0);" onclick="showlogin('');" class="watch_gz">关注问题</a>
+                                    {yun:}/if{/yun} 
+								{yun:}/if{/yun}
+							{yun:}/if{/yun} 
+						</div>
+						<div class="clear"></div>
+						{yun:}if $show.useratn!='2'{/yun}
+						<div class="discuss">
+						<iframe id="supportiframe" name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+						<form name="myform" target="supportiframe"  action="{yun:}url m=ask c=answer{/yun}" method="post" onSubmit="return checkanswer('{yun:}$uid{/yun}');">
+							<textarea name="content" id="content" class="dis_txt" placeholder="这里输入您的回答"></textarea>
+							<div class="dis_put">
+								<input name='id' type='hidden' value='{yun:}$show.id{/yun}'/>
+								<input name="add" type="submit" value="提交回答" />
+							</div>
+							</form>
+							<div class="clear"></div>
+						</div>
+						{yun:}/if{/yun}
+					</div>
+					<div class="ans_tit">
+						<span>{yun:}$total{/yun}个回答</span>
+						<div class="ans_disc"><a href="{yun:}url m=ask c=content id='`$show.id`'{/yun}" {yun:}if $smarty.get.orderby!='support'{/yun}class="cur"{yun:}/if{/yun}>按评论时间</a>&nbsp;|&nbsp;<a href="{yun:}url m=ask c=content id='`$show.id`'  orderby=support{/yun}" {yun:}if $smarty.get.orderby=='support'{/yun}class="cur"{yun:}/if{/yun}>按赞同数</a></div>
+					</div>
+					<div class="comment">
+						{yun:}foreach from=$answer item=list{/yun}
+						<div class="review">
+							<dl>
+								<dt><img src="{yun:}$list.pic{/yun}" width='48' height='48' onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/></dt>
+								<dd>
+									<div class="title">
+										<a href="{yun:}url m=ask c=friend uid='`$list.uid'{/yun}" target="_blank" >{yun:}$list.nickname{/yun}</a>
+										<span>{yun:}$list.description|mb_substr:0:43:'gbk'{/yun}</span>
+									</div>
+									<div class="clear"></div>
+									<p>{yun:}$list.content{/yun}</p>
+									<div class="praise">
+										<span class="praise_time">{yun:}$list.add_time|date_format:"%Y-%m-%d %H:%M"{/yun}</span>
+										<div class="criticism"> 
+											<a href="javascript:void(0)" onclick="support('{yun:}$list.id{/yun}','{yun:}url m=ask c=forsupport{/yun}')" class="crit_dz png"><span id="support_num_{yun:}$list.id{/yun}">{yun:}$list.support{/yun}</span></a>
+											<i>|</i>
+											<a class="crit_pl" href="javascript:void(0)" onclick="get_comment('{yun:}$list.id{/yun}','0','{yun:}url m=ask c=getcomment{/yun}');"><span id="com_num_{yun:}$list.id{/yun}">{yun:}$list.comment{/yun}</span>条评论</a>
+										</div>
+									</div>
+								</dd>
+							</dl>
+							<div class="pl_menu review{yun:}$list.id{/yun}" style="display:none">
+								<div class="menu_ico"><img src="{yun:}$ask_style{/yun}/images/icon10.jpg" /></div>
+								<div class="menu_con">
+									<div class="menu_con_p1">
+										<div class="menu_p1_tx">
+											<img src="{yun:}$myinfo.pic{/yun}" width='31' height='31' onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/>
+										</div>
+										<div class="menu_p1_nr"> 
+											<input id="comment_{yun:}$list.id{/yun}" type="text" class="menu_dis" placeholder="写下你的评论"/>
+											<div class="menu_p1_nrtj">
+												<span aid='{yun:}$list.id{/yun}'>取消</span>
+												<input onclick="for_comment('{yun:}$list.id{/yun}','{yun:}$show.id{/yun}','{yun:}url m=ask c=forcomment{/yun}','{yun:}url m=ask c=getcomment{/yun}');" type="button" value="发布" class="issue" />
+											</div>  
+										</div>
+									</div>
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+						</div>
+						{yun:}/foreach{/yun} 
+					</div> 
+                    {yun:}if $total{/yun}
+                    <div class="pages">{yun:}$pagenav{/yun} </div>
+                    {yun:}else{/yun}
+                 	<div class="noresult png" style="width:475px;">   还没有人回答该问题。</div>
+                    {yun:}/if{/yun}
+					<div class="clear"></div> 
+				</div> 
+			</div>
+		</div>
+		<div class="right right_rem">
+			<div class="recom_expert">
+				<div class="org_name">发起人</div>
+				<div class="org">
+					<div class="org_pho"><img src="{yun:}$userinfo.pic{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/></div>
+					<div class="org_mes">
+						<span><a href="{yun:}url m=ask c=friend uid='`$userinfo.uid`'{/yun}">{yun:}$userinfo.nickname{/yun}</a></span>
+					</div>
+                    <p class="org_mes_p">{yun:}$userinfo.description{/yun}</p>
+				</div> 
+				<div class="watchful watchful_per user{yun:}$userinfo.uid{/yun}"> 
+					{yun:}if $userinfo.useratn!='2'{/yun}
+						{yun:}if $userinfo.useratn=='1'{/yun}
+							<a href="javascript:void(0)"  onclick="attention_user('{yun:}$userinfo.uid{/yun}','','{yun:}url m=ask c=friend a=atnuser{/yun}')" class="watch_qxgz">取消关注</a>
+						{yun:}else{/yun}
+                        	{yun:}if $uid{/yun}
+							<a href="javascript:void(0)"  onclick="attention_user('{yun:}$userinfo.uid{/yun}','','{yun:}url m=ask c=friend a=atnuser{/yun}')" class='watch_gz'>关注用户</a>
+                            {yun:}else{/yun}
+                            <a href="javascript:void(0)"  onclick="showlogin('');" class='watch_gz'>关注用户</a>
+                            {yun:}/if{/yun}
+						{yun:}/if{/yun}
+					{yun:}/if{/yun} 
+                    <span class="fans{yun:}$userinfo.uid{/yun}" fans='{yun:}$userinfo.fans{/yun}'><span>{yun:}$userinfo.fans{/yun}</span>人关注</span>&nbsp;
+				</div>
+			</div>
+            <div class="recom_expert">
+            <div class="ask_relate_title">相关问题</div>
+             <ul class="ask_relate_list">
+			 {yun:}qlist item=aboutlist t_len=20 cid=$show.cid noid=$show.id limit=5{/yun}
+             <li>
+             <div class="ask_relate_top"><a class="ask_relate_name" href="{yun:}$aboutlist.userurl{/yun}" target="_blank" style="float:left; display:block;width:138px;">{yun:}$aboutlist.nickname{/yun}</a><div class="ask_relate_time" style="float:right">{yun:}$aboutlist.add_time|date_format:"%Y-%m-%d"{/yun}</div></div> 
+			 <a class="ask_relate_con" href="{yun:}$aboutlist.url{/yun}" target="_blank" title="{yun:}$aboutlist.title{/yun}">{yun:}$aboutlist.title{/yun}</a>
+             </li>
+			 {yun:}/qlist{/yun} 
+             </ul>
+			 {yun:}if $aboutlist.id==''{/yun} 
+				<div class="friend_right_no fl">暂无数据！</div>
+				{yun:}/if{/yun}
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div> 
+<div id="TB_window" style=" display: none;" class="ask_report"> 
+	<div id="TB_ajaxContent" class="ask_report_cont">
+    <div style="padding:10px 20px; font-size:14px;">举报该问题</div>
+		<div class="ask_report_top" style="padding:0px 20px;">
+			<select name="reason" id='reason' style="width:290px; padding:5px 0; ">
+				{yun:}foreach from=$reason item=rlist{/yun}
+				<option value='{yun:}$rlist.id{/yun}'>{yun:}$rlist.name{/yun}</option>
+				{yun:}/foreach{/yun}
+			</select>
+		</div>
+        <div class="clear"></div>
+		<div class="ask_report_top_sub" style="width:100%; padding-top:20px">
+			<input type='button' value="提交" onclick="reason('{yun:}url m=ask c=qrepost{/yun}')" style="width:90px;height:30px;color:#fff; background:#06F;border:none; margin-left:110px;"/> 
+			<input type='hidden' value="" id='eid' name='eid'> 
+		</div>
+	</div>
+</div>
+{yun:}include file="$askstyle/footer.htm"{/yun}

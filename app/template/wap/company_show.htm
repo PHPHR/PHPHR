@@ -1,0 +1,58 @@
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+<section>
+  <div class="company-info" style="background:url({yun:}$config.sy_weburl{/yun}/app/template/wap/images/beijing.jpg) no-repeat center center;background-size: cover;"><img class="avatar" src="{yun:}if $row.logo{/yun}{yun:}$config.sy_weburl{/yun}/{yun:}$row.logo{/yun}{yun:}else{/yun}{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}{yun:}/if{/yun}"  onerror="if($(this).attr('load')!='1'){$(this).attr('load',1);this.src='{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}';}">
+    <div class="firm_name">{yun:}$row.name{/yun}</div>
+    <div class="firm_t_city"><i class="user_map fa fa-map-marker"></i>{yun:}$city_name[$row.provinceid]{/yun}/{yun:}$city_name[$row.cityid]{/yun} <i class="user_map fa fa-calendar" style="margin-left:10px;"></i>{yun:}$row.lastupdate{/yun}</div>
+  </div>
+</section>
+<section>
+  <div class="user_contnet mt10">
+    <div class="user_contnet_box ">
+      <div class="wap_title"><span class="">基本信息</span></div>
+      <ul class="user_contnet_ul">
+        <li><span class="user_contnet_info_n">企业性质：</span>{yun:}$comclass_name[$row.pr]{/yun}</li>
+        <li><span class="user_contnet_info_n">注册资金：</span>{yun:}$row.money{/yun}万元</li>
+        <li><span class="user_contnet_info_n">公司规模：</span>{yun:}$comclass_name[$row.mun]{/yun}</li>
+        <li class="com_show_li"><span class="user_contnet_info_n">所属行业：</span>{yun:}$industry_name[$row.hy]{/yun}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="user_contnet">
+    <div class="user_contnet_box ">
+      <div class="wap_title"><span class="">公司简介</span></div>
+      {yun:}$row.content{/yun} </div>
+  </div>
+</section>
+<section>
+  <div class="user_contnet">
+    <div class="user_contnet_box ">
+      <div class="wap_title"><span class="">联系方式</span></div>
+      {yun:}if ($config.com_login_link==1 && $cookie.uid && $cookie.usertype==1) || $config.com_login_link==0{/yun}
+      <ul class="user_contnet_ul">
+        <li><span class="user_contnet_info_n">联系人：</span>{yun:}$row.linkman{/yun}</li>
+        <li><span class="user_contnet_info_n">联系电话：</span>{yun:}$row.linkphone{/yun}</li>
+        <li><span class="user_contnet_info_n">公司地址：</span>{yun:}$row.address{/yun}</li>
+      </ul>
+      {yun:}else{/yun}
+      <div class="com_post_login"> 请 <a href="{yun:}url m=wap c=login{/yun}" class="com_s_logoin">登录</a> 后查看联系方式
+      没有帐号？ <a href="{yun:}url m=wap c=register{/yun}" class="cf60">[免费注册]</a> </div>
+      {yun:}/if{/yun} </div>
+  </div>
+</section>
+<section>
+  <div class="user_contnet">
+    <div class="index_warp_content">
+      <div class="wap_title"><span class="">正在招聘的职位</span></div>
+      {yun:}assign var=uid value=$row.uid{/yun}
+      {yun:}joblist namelen=8 comlen=12 ispage=0 uid='@row.uid' limit=5 islt=4 item=job_list name=joblist1{/yun}
+      <div class="job_list_box" style="border:0px;border-bottom:1px solid #cdd7de; margin-top:0px; padding:5px 0;"> <a href="{yun:}url m=wap c=job a=view id=$job_list.id{/yun}" class="job_list">
+        <h3>{yun:}$job_list.name_n{/yun}{yun:}if $job.urgent_time>time(){/yun}<i class="urgent">急招</i>{yun:}/if{/yun}</h3>
+        <aside class="job_qy_name">{yun:}$job_list.job_city_one{/yun}-{yun:}$job_list.job_city_two{/yun}<em class="line">|</em>{yun:}$job_list.com_name{/yun}</aside>
+        <aside class="job_pay"><strong>{yun:}$job_list.job_salary{/yun}</strong><span class="job_date">{yun:}$job_list.time{/yun}</span></aside>
+        </a> </div>
+      {yun:}/joblist{/yun} </div>
+  </div>
+</section>
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

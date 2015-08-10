@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>{yun:}$title{/yun}</title>
+    <link rel="stylesheet" type="text/css" href="{yun:}$com_style{/yun}/images/style.css" />
+    <script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js" language="javascript"></script>
+    <script src="{yun:}$config.sy_weburl{/yun}/js/layer/layer.min.js" language="javascript"></script>
+    <script src="{yun:}$config.sy_weburl{/yun}/js/public.js" language="javascript"></script>
+    <script> var weburl = "{yun:}$config.sy_weburl{/yun}"</script>
+</head>
+<body>
+    <!--header头部-->
+    <div class="c_w_header">
+        <div class="c_header_tou01">
+            <div class="wrap">
+                <div class="c_tou01_huany">
+                    <div class="c_huany_xt fl">{yun:}$com.name{/yun}欢迎您！</div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="c_header_zj02">
+            <div class="wrap">
+                <div class="c_zj02_logo fl">
+                    <div class="c_logo_bao">{yun:}if $com.logo{/yun}<img src="{yun:}$com.logo{/yun}" width="185" height="75" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}',2);" />{yun:}else{/yun}<img src="{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}" width="185" height="75" />{yun:}/if{/yun}</div>
+                </div>
+                <div class="c_zj02_list fr">
+                    <ul>
+                       <li class="c_zj02_curr"><a href="{yun:}url m=company c=show id=$com.uid{/yun}#about">关于我们</a></li>
+                        <li><a href="{yun:}url m=company c=show id=$com.uid{/yun}#job">招聘职位</a></li>
+                        <li><a href="{yun:}url m=company c=show id=$com.uid{/yun}#pl">评论留言</a></li>
+                        <li><a href="{yun:}url m=company c=show id=$com.uid{/yun}#show">企业环境</a></li>
+                        <li><a href="{yun:}url m=company c=show id=$com.uid{/yun}#news">企业新闻</a></li>
+                        <li><a href="{yun:}url m=company c=show id=$com.uid{/yun}#cp">产品展示</a></li>
+                        <li><a href="{yun:}$config.sy_weburl{/yun}">人才网首页</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="c_header_db03"><div class="com_banner2"><img src="{yun:}$banner.pic{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_banner{/yun}',2);" width="980" height="300" /></div></div>
+        <div class="com_rz">
+            <div class="com_banner2">
+                <span class="com_g_name">{yun:}$com.name{/yun}</span>
+               {yun:}if $com.email_status=="1"{/yun} <img src="{yun:}$com_style{/yun}images/rz_yx2.png" alt="邮箱未认证" title="邮箱已认证" class="png" /> {yun:}else{/yun} <img src="{yun:}$com_style{/yun}images/rz_yx.png" alt="邮箱未认证" title="邮箱未认证" class="png" /> {yun:}/if{/yun}
+        {yun:}if $com.moblie_status=="1"{/yun} <img src="{yun:}$com_style{/yun}images/rz_sj2.png" alt="手机未认证" title="手机已认证" class="png" /> {yun:}else{/yun} <img src="{yun:}$com_style{/yun}images/rz_sj.png" alt="手机未认证" title="手机未认证" class="png" /> {yun:}/if{/yun}
+        {yun:}if $com.yyzz_status=="1"{/yun} <img src="{yun:}$com_style{/yun}images/rz_zz2.png" alt="执照未认证" title="执照已认证" class="png" /> {yun:}else{/yun} <img src="{yun:}$com_style{/yun}images/rz_zz.png" alt="执照未认证" title="执照未认证" class="png" /> {yun:}/if{/yun}
+        <div class="wrap_l_name_p"> {yun:}if $usertype=='1'{/yun}
+          {yun:}if $show.id{/yun} <a href="javascript:void(0)" onclick="atn('{yun:}$com.uid{/yun}','{yun:}url m=ajax c=atn_company{/yun}')" id='atn_{yun:}$com.uid{/yun}' class="wrap_l_name_gz">取消关注</a> {yun:}else{/yun} <a href="javascript:void(0)" onclick="atn('{yun:}$com.uid{/yun}','{yun:}url m=ajax c=atn_company{/yun}')" id='atn_{yun:}$com.uid{/yun}' class="wrap_l_name_gz">关注</a> {yun:}/if{/yun}
+          {yun:}else{/yun}
+            {yun:}if $uid{/yun}
+            <a href="javascript:void(0)" onclick="layer.msg('只有个人用户才能关注', 2, 3)" class="wrap_l_name_gz">关注</a> 
+            {yun:}else{/yun}
+            <a href="javascript:void(0)" onclick="showlogin('1');" class="wrap_l_name_gz">关注</a> 
+            {yun:}/if{/yun} 
+          {yun:}/if{/yun}
+          已有<span id="antnum{yun:}$com.uid{/yun}">{yun:}$com.ant_num{/yun}</span>人关注 </div>
+
+            </div>
+        </div>
+    </div>
+    <!--头部结束-->
+    <div class="clear"></div>
+    <!--内容content-->
+    <div class="c_content">
+        <div class="wrap">
+            <div class="c_content_bao01">
+                <div class="c_content_about">
+                    <div class="c_about_title01" id="about">企业新闻</div>
+                     <div class="blue_p_h1"> {yun:}$NewsInfo.title{/yun}</div>
+                    <div class="c_about_nr"> {yun:}$NewsInfo.body{/yun} </div>
+                </div>                                                
+            </div>            
+        </div>
+    </div>
+    <!--内容结束-->
+    <div class="clear"></div>
+    <!--底部footer-->
+    <div class="c_footer c_footer01">
+        <div class="wrap">
+            <div class="c_footer_bq c6">{yun:}$config.sy_webcopyright{/yun}{yun:}$config.sy_webrecord{/yun}</div>
+            <div class="c_footer_dz c6">地址:{yun:}$config.sy_webadd{/yun} 电话(Tel):{yun:}$config.sy_webtel{/yun} EMAIL:{yun:}$config.sy_webemail{/yun}</div>
+        </div>
+    </div>
+</body>
+</html>
+{yun:}include file="$tplstyle/public_search/login.htm"{/yun} 

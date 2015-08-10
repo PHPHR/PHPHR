@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{yun:}$title{/yun}</title>
+<META name="keywords" content="{yun:}$keywords{/yun}">
+<META name="description" content="{yun:}$description{/yun}">
+<link rel="stylesheet" href="{yun:}$style{/yun}/style/css.css" type="text/css">
+<!--[if IE 6]>
+<script src="{yun:}$config.sy_weburl{/yun}/js/png.js"></script>
+<script>
+DD_belatedPNG.fix('.png');
+</script>
+<![endif]--> 
+<script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/layer/layer.min.js" language="javascript"></script> 
+<script src="{yun:}$config.sy_weburl{/yun}/js/public.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/lazyload.min.js" language="javascript"></script><script src="{yun:}$style{/yun}/js/special.js" language="javascript"></script>
+<link rel="stylesheet" type="text/css" href="{yun:}$style{/yun}/special/css/css.css">
+</head>
+<script language="javascript">
+var pricename='{yun:}$config.integral_pricename{/yun}'; 
+</script>
+<body>
+{yun:}include file="$tplstyle/header.htm"{/yun}
+<div class="clear"></div>
+<!--header头部-->
+<div class="c_g_header">
+<div class="c_g_banner"><img src="{yun:}$style{/yun}/special/images/z_banner.png" width="100%" height="469"/></div>
+</div>
+
+<!--header头部结束-->
+
+
+<!--内容content-->
+<div class="c_g_content">
+<div class="wrap" style="position:relative">
+{yun:}if !$isapply{/yun}
+<div style="width:100%; float:left; position:relative">
+<input type='button' value="我要报名" onclick="comapply('{yun:}$info.id{/yun}','{yun:}$info.integral{/yun}','{yun:}url m=special c=apply{/yun}')" class="c_z_head_btn" style="top:-160px;left:300px;">
+</div>{yun:}/if{/yun}
+    <div class="c_bao_ba02">
+    <div class="c_ba02_senior">
+        <div class="c_sen_dian01"></div>
+        <div class="c_sen_dian02"></div>
+        <div class="c_sen_dian03"></div>
+        <div class="c_sen_dian04"></div>
+        <div class="c_sen_gaoji"><span class="c_st_zb01 fl"></span><em class="fl">高级人才</em><span class="c_st_zb02 fr"></span></div>
+    </div>
+    <div class="clear"></div>
+    <div class="c_sen_list">
+    <div class="c_sen_list01">
+    <ul>
+	{yun:}specialcom sid='auto.id' namelen=10 jobnamelen=6 item=clist{/yun}
+    <li>
+		<div class="c_list_tupian"><a href="{yun:}$clist.comurl{/yun}" target="_blank"><img src="{yun:}$clist.logo{/yun}" width="225" height="139" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}',2);"/></a></div>
+		<div class="c_list_zw02">
+			<div class="c_list_zw">
+			{yun:}foreach from=$clist.jobs key=key item=jlist{/yun}
+				{yun:}if $key<3{/yun}
+				<div class="c_zw_gy"><a href="{yun:}$jlist.joburl{/yun}" target="_blank">{yun:}$jlist.name_n{/yun}</a></div>
+				{yun:}/if{/yun}	
+			{yun:}/foreach{/yun}  
+			</div>
+			<div class="c_list_zhaop"><div class="fl f14"><span>{yun:}$clist.jobnum{/yun}</span>   个在招职位</div><span class="fr"><a href="{yun:}url m=company c=show id='`$clist.uid`'{/yun}#job" target="_blank">更多>></a></span></div>
+			<div class="clear"></div> 
+			<!--div class="c_list_fuli">
+				<span style="margin-right:8px;p">年底双薪</span><span>带薪年假</span>
+			</div-->
+		</div>
+    </li>
+    {yun:}/specialcom{/yun}  
+    </ul>
+    </div>
+    <div class="clear"></div>    
+    </div>    
+    <div class="c_bao_more"><a href="{yun:}url m=job{/yun}" target="_blank">查看更多职位 >></a></div>    
+    <div class="clear"></div>    
+    </div>
+</div>
+<div class="clear"></div>
+</div>
+{yun:}include file="$tplstyle/footer.htm"{/yun}

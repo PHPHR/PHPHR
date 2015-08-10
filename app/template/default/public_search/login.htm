@@ -1,0 +1,61 @@
+<!---当前登录--->
+<link rel="stylesheet" href="{yun:}$style{/yun}/style/tck_logoin.css" type="text/css">
+<div style="display:none" id="onlogin">
+  <div class="logoin_tck_left" style="margin-top: 25px;padding-left: 25px;">
+    <div class="logoin_tck_text" > <i class="logoin_tck_text_icon"></i>
+      <input type="text" id="login_username" placeholder="请输入用户名" tabindex="1" name="username" class="logoin_tck_text_t1">
+    </div>
+    <div class="logoin_tck_text" style="margin-top:20px;"> <i class="logoin_tck_text_icon logoin_tck_text_icon_p"></i>
+      <input type="password" id="login_password" tabindex="2" name="password" placeholder="请输入密码"class="logoin_tck_text_t1">
+    </div>
+    <div class="logoin_tck_text logoin_tck_text_yzm" style="margin-top:20px;"> <i class="logoin_tck_text_icon logoin_tck_text_icon_y"></i>
+      <input id="login_authcode" type="text" tabindex="3"  maxlength="4" name="authcode" class="logoin_tck_text_t1" placeholder="请输入验证码"  style="width:80px;">
+    </div>
+    <div class=" logoin_tck_text_yzm_r" style="margin-top: 20px;"> <img id="vcode_img" src="{yun:}$config.sy_weburl{/yun}/app/include/authcode.inc.php" onclick="check_code()" style="margin-right:5px; margin-left:5px;cursor:pointer;">&nbsp;<a href="javascript:void(0);" onclick="check_code()">看不清?</a> </div>
+    <div class="Pop-up_logoin_list">
+      <div id="msg"></div>
+    
+    <input type="hidden" id="login_usertype" />
+    <input id="loginsubmit" class="logoin_tck_bth_sub" type="button" name="loginsubmit" onclick="checkajaxlogin()" value="登录" ></div>
+  </div>
+  <div class="logoin_tck_right" style="margin-top: 35px;padding-left: 20px;">
+    <div class="logoin_tck_reg">还没没有账号？<a href="" id="onregister" class="Orange">立即注册</a></div>
+  </div>
+</div>
+<script>
+function showlogin(usertype){
+	$("#login_usertype").val(usertype);
+	if(usertype==1 || usertype==""){
+		var url='{yun:}url m=register usertype=1{/yun}';
+	}else if(usertype==2){
+		var url='{yun:}url m=register usertype=2{/yun}';
+	}
+	$("#onregister").attr("href",url);
+	$.layer({
+		type : 1,
+		title :'快速登录', 
+		closeBtn : [0 , true],
+		border : [10 , 0.3 , '#000', true],
+		area : ['480px','300px'],
+		page : {dom :"#onlogin"}
+	});
+}
+function checkajaxlogin(){
+	var username = $.trim($("#login_username").val());
+	var password = $.trim($("#login_password").val());
+	var authcode = $.trim($("#login_authcode").val());
+	var usertype = $.trim($("#login_usertype").val());
+	if(username == "" || password=="" || authcode==""){
+		layer.closeAll();
+		layer.msg('请完整填写用户名，密码，验证码！', 2, 8,function(){showlogin(usertype);});return false;
+	}
+	$.post("{yun:}url m=login c=loginsave{/yun}",{comid:1,username:username,password:password,authcode:authcode,usertype:usertype},function(data){
+		var data=eval('('+data+')');
+		if(data.error==1){
+			location.reload();
+		}else{
+			layer.msg(data.msg, 2, 8);return false;
+		}
+	});
+}
+</script>

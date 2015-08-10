@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /api/
+Disallow: /data/
+Disallow: /config/
+Disallow: /install/
+Disallow: /member/
+Disallow: /app/
+Disallow: /im/
+Disallow: /js/
+Disallow: /weixin/

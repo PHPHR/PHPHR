@@ -1,0 +1,54 @@
+{yun:}include file="$userstyle/header.htm"{/yun} 
+<div class="w950"> 
+{yun:}include file="$userstyle/left.htm"{/yun}
+<script>
+$(document).ready(function(){	
+	var proportion={yun:}$config.integral_proportion{/yun};
+	$("#price").keyup(function(){
+		var price=$(this).val();
+		var num=proportion*price;
+		$(".payintegral").html(num);
+	});  
+});
+function pay_form(){
+	var price=$("#price").val();
+	if(Number(price)<1){
+		layer.msg('请填正确填写支付金额！', 2, 8);return false;  
+	}
+}
+</script>
+<div class="mian_right fltR mt12">
+ <div class="member_right_h1 fltL"><span class="member_right_span fltL">立即充值</span></div>
+  <div class="clear"></div>
+  <div id="">
+    
+    <form name="alipayment" target="supportiframe" action="index.php?c=pay&act=dingdan" method="post" onsubmit="return pay_form();">
+      <div class="passwd_list mt10">
+        <ul>
+          <li>支付金额：<input type="text" id="price" name="price" style="width:100px"class="pass_text" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/> 元<span class="proportion">当前{yun:}$config.integral_pricename{/yun}兑换比为1元={yun:}$config.integral_proportion{/yun}{yun:}$config.integral_pricename{/yun}</span></li>
+		  <li>可得{yun:}$config.integral_pricename{/yun}：<span class="payintegral">0</span>{yun:}$config.integral_priceunit{/yun}</li>
+			<!--li>你的姓名：<input type="text" class="pass_text" /> </li>
+            <li>联系方式：<input type="text" class="pass_text" /></li-->
+          
+          <li>备　　注：<textarea name="remark" id="remark" cols="40" style="width:340px;height:80px; vertical-align:middle;border:1px solid #ddd; font-size:14px; font-family:微软雅黑"></textarea>
+         </li>
+          <li>
+            <input type="submit" name="submit" class="passwd_btn" value="去付款">
+          </li>
+        </ul>
+      </div>
+    </form>
+    <div style="padding:10px;">
+    <div class="" style="padding:5px; float:left;color:#999; line-height:23px;">
+<div class="wxts">温馨提示：</div>
+
+1.银行付款界面尽量使用ie浏览器<br>
+2.过程中请勿按浏览器“后退”键<br>
+3.提交支付后，将转入银行的网站，请根据页面提示操作<br>
+4.如果提交后在银行页面打不开，可以尝试过3分钟后再刷新页面,清理IE缓存,卸载3721或google工具条,换个浏览器或换个上网环境 
+</div>
+</div>  </div>
+</div>
+</div>
+
+{yun:}include file="$userstyle/footer.htm"{/yun}

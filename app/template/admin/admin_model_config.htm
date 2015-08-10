@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK">
+<link href="images/reset.css" rel="stylesheet" type="text/css" />
+<link href="images/system.css" rel="stylesheet" type="text/css" />
+<link href="images/table_form.css" rel="stylesheet" type="text/css" />
+<script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/layer/layer.min.js" language="javascript"></script>
+<script src="js/admin_public.js" language="javascript"></script>
+<title>后台管理</title>
+<script>
+
+function tip(id){
+
+	layer.tips('关闭模块后请在导航设置中对相应导航作隐藏或删除处理！', '#'+id,{time:2,guide: 2,style: ['background-color:#F26C4F; color:#fff;top:-7px', '#F26C4F']});
+}
+</script>
+</head>
+<body class="body_ifm">
+<div class="infoboxp">
+<div class="infoboxp_top_bg"></div>
+<div class="admin_Prompt">
+        <div class="admin_Prompt_span">
+           提示：如果关闭模块，请对系统->导航管理里面删除或取消显示！
+        </div>
+        <div class="admin_Prompt_close"></div>
+    </div>
+<div id="subboxdiv" style="width:100%;height:100%;display:none;position:absolute;"></div>
+<div class="infoboxp_top infoboxp_topIjf">
+    <span class="infoboxp_top_span">模块设置</span>
+</div>
+<div class="main_tag">
+<div class="clear"></div>
+<div class="tag_box">
+<div>
+<table width="100%" class="table_form">
+  <tr class="admin_table_trbg">
+          <th width="220">参数说明：</th>
+          <td width="220">参数值</td>
+		  <td width="280">二级域名（无需http，未绑定则留空）</td>
+		  <td width="280">指向目录（不填写,则使用自带链接）</td>
+          <td width="330">参数变量</td>
+		  <td width="330">URL变量</td>
+    </tr>
+    <tr class="admin_com_td_bg">
+		<th width="220">找工作：</th>
+		<td>
+          <input type="radio" name="sy_job_web" value="1" id="sy_job_web1" {yun:}if $config.sy_job_web=="1"{/yun}checked{yun:}/if{/yun}>
+          <label for="sy_job_web1">开启</label>&nbsp;
+          <input type="radio" name="sy_job_web" value="2" id="sy_job_web2" {yun:}if $config.sy_job_web=="2"{/yun}checked{yun:}/if{/yun} onclick="tip('sy_job_web2');">
+          <label for="sy_job_web2">关闭</label>
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_jobdomain{/yun}" class="input-text" size="40" name="sy_jobdomain">
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_jobdir{/yun}" class="input-text" size="20" name="sy_jobdir">
+        </td>
+        <td width="280">sy_job_web</td>
+		<td width="280">sy_jobdomain</td>
+	</tr>
+    <tr class="admin_com_td_bg">
+		<th width="220">找人才：</th>
+		<td>
+          <input type="radio" name="sy_resume_web" value="1" id="sy_resume_web1" {yun:}if $config.sy_resume_web=="1"{/yun}checked{yun:}/if{/yun}>
+          <label for="sy_resume_web1">开启</label>&nbsp;
+          <input type="radio" name="sy_resume_web" value="2" id="sy_resume_web2" {yun:}if $config.sy_resume_web=="2"{/yun}checked{yun:}/if{/yun}  onclick="tip('sy_resume_web2');">
+          <label for="sy_resume_web2">关闭</label>
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_resumedomain{/yun}" class="input-text" size="40" name="sy_resumedomain">
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_resumedir{/yun}" class="input-text" size="20" name="sy_resumedir">
+        </td>
+        <td width="280">sy_resume_web</td>
+		<td width="280">sy_resumedomain</td>
+	</tr>
+    <tr class="admin_com_td_bg">
+		<th width="220">找企业：</th>
+		<td>
+          <input type="radio" name="sy_company_web" value="1" id="sy_company_web1" {yun:}if $config.sy_company_web=="1"{/yun}checked{yun:}/if{/yun}>
+          <label for="sy_company_web1">开启</label>&nbsp;
+          <input type="radio" name="sy_company_web" value="2" id="sy_company_web2" {yun:}if $config.sy_company_web=="2"{/yun}checked{yun:}/if{/yun}  onclick="tip('sy_company_web2');">
+          <label for="sy_company_web2">关闭</label>
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_companydomain{/yun}" class="input-text" size="40" name="sy_companydomain">
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_companydir{/yun}" class="input-text" size="20" name="sy_companydir">
+        </td>
+        <td width="280">sy_company_web</td>
+		<td width="280">sy_companydomain</td>
+	</tr>
+    <tr class="admin_com_td_bg">
+		<th width="220">职场资讯：</th>
+		<td>
+          <input type="radio" name="sy_article_web" value="1" id="sy_article_web1" {yun:}if $config.sy_article_web=="1"{/yun}checked{yun:}/if{/yun}>
+          <label for="sy_article_web1">开启</label>&nbsp;
+          <input type="radio" name="sy_article_web" value="2" id="sy_article_web2" {yun:}if $config.sy_article_web=="2"{/yun}checked{yun:}/if{/yun} onclick="tip('sy_article_web2');">
+          <label for="sy_article_web2">关闭</label>
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_articledomain{/yun}" class="input-text" size="40" name="sy_articledomain">
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_articledir{/yun}" class="input-text" size="20" name="sy_articledir">
+        </td>
+        <td width="280">sy_article_web</td>
+		<td width="280">sy_articledomain</td>
+	</tr>
+    <tr>
+		<th width="220">WAP：</th>
+		<td>
+          <input type="radio" name="sy_wap_web" value="1" id="sy_wap_web1" {yun:}if $config.sy_wap_web=="1"{/yun}checked{yun:}/if{/yun}>
+          <label for="sy_wap_web1">开启</label>&nbsp;
+          <input type="radio" name="sy_wap_web" value="2" id="sy_wap_web2" {yun:}if $config.sy_wap_web=="2"{/yun}checked{yun:}/if{/yun}  onclick="tip('sy_wap_web2');">
+          <label for="sy_wap_web2">关闭</label>
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_wapdomain{/yun}" class="input-text" size="40" name="sy_wapdomain">
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_wapdir{/yun}" class="input-text" size="20" name="sy_wapdir">
+        </td>
+        <td width="280">sy_wap_web</td>
+		<td width="280">sy_wapdomain</td>
+	</tr>
+    <tr class="admin_com_td_bg">
+		<th width="220">朋友圈：</th>
+		<td>
+          <input type="radio" name="sy_friend_web" value="1" id="sy_friend_web1" {yun:}if $config.sy_friend_web=="1"{/yun}checked{yun:}/if{/yun}>
+          <label for="sy_friend_web1">开启</label>&nbsp;
+          <input type="radio" name="sy_friend_web" value="2" id="sy_friend_web2" {yun:}if $config.sy_friend_web=="2"{/yun}checked{yun:}/if{/yun}   onclick="tip('sy_friend_web2');">
+          <label for="sy_friend_web2">关闭</label>
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_frienddomain{/yun}" class="input-text" size="40" name="sy_frienddomain">
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_frienddir{/yun}" class="input-text" size="20" name="sy_frienddir">
+        </td>
+        <td width="280">sy_friend_web</td>
+		<td width="280">sy_frienddomain</td>
+	</tr>
+    <tr>
+		<th width="220">问答：</th>
+		<td>
+          <input type="radio" name="sy_ask_web" value="1" id="sy_ask_web1" {yun:}if $config.sy_ask_web=="1"{/yun}checked{yun:}/if{/yun}>
+          <label for="sy_ask_web1">开启</label>&nbsp;
+          <input type="radio" name="sy_ask_web" value="2" id="sy_ask_web2" {yun:}if $config.sy_ask_web=="2"{/yun}checked{yun:}/if{/yun}   onclick="tip('sy_ask_web2');">
+          <label for="sy_ask_web2">关闭</label>
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_askdoamin{/yun}" class="input-text" size="40" name="sy_askdoamin">
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_askdir{/yun}" class="input-text" size="20" name="sy_askdir">
+        </td>
+        <td width="280">sy_ask_web</td>
+		<td width="280">sy_askdoamin</td>
+	</tr>
+
+    <tr class="admin_com_td_bg">
+		<th width="220">招聘会：</th>
+		<td>
+          <input type="radio" name="sy_zph_web" value="1" id="sy_zhp_web1" {yun:}if $config.sy_zph_web=="1"{/yun}checked{yun:}/if{/yun}>
+          <label for="sy_zhp_web1">开启</label>&nbsp;
+          <input type="radio" name="sy_zph_web" value="2" id="sy_zhp_web2" {yun:}if $config.sy_zph_web=="2"{/yun}checked{yun:}/if{/yun}  onclick="tip('sy_zhp_web2');">
+          <label for="sy_zhp_web2">关闭</label>
+        </td>
+        <td>
+          <input type="text" value="{yun:}$config.sy_zphdomain{/yun}" class="input-text" size="40" name="sy_zphdomain">
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_zphdir{/yun}" class="input-text" size="20" name="sy_zphdir">
+        </td>
+        <td width="280">sy_zph_web</td>
+		<td width="280">sy_zph_domain</td>
+	</tr>
+    <tr>
+		<th width="220">微招聘：</th>
+		<td>
+          <input type="radio" name="sy_once_web" value="1" id="sy_wzp_web1" {yun:}if $config.sy_once_web=="1"{/yun}checked{yun:}/if{/yun}>
+          <label for="sy_wzp_web1">开启</label>&nbsp;
+          <input type="radio" name="sy_once_web" value="2" id="sy_wzp_web2" {yun:}if $config.sy_once_web=="2"{/yun}checked{yun:}/if{/yun}  onclick="tip('sy_wzp_web2');">
+          <label for="sy_wzp_web2">关闭</label>
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_oncedomain{/yun}" class="input-text" size="40" name="sy_oncedomain">
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_oncedir{/yun}" class="input-text" size="20" name="sy_oncedir">
+        </td>
+        <td width="280">sy_once_web</td>
+		<td width="280">sy_once_domain</td>
+	</tr>
+    <tr class="admin_com_td_bg">
+		<th width="220">微简历：</th>
+		<td>
+          <input type="radio" name="sy_tiny_web" value="1" id="sy_tiny_web1" {yun:}if $config.sy_tiny_web=="1"{/yun}checked{yun:}/if{/yun}>
+          <label for="sy_tiny_web1">开启</label>&nbsp;
+          <input type="radio" name="sy_tiny_web" value="2" id="sy_tiny_web2" {yun:}if $config.sy_tiny_web=="2"{/yun}checked{yun:}/if{/yun}   onclick="tip('sy_tiny_web2');">
+          <label for="sy_tiny_web2">关闭</label>
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_tinydomain{/yun}" class="input-text" size="40" name="sy_tinydomain">
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_tinydir{/yun}" class="input-text" size="20" name="sy_tinydir">
+        </td>
+        <td width="280">sy_tiny_web</td>
+		<td width="280">sy_tiny_domain</td>
+	</tr>
+    <tr>
+		<th width="220">工具箱：</th>
+		<td>
+          <input type="radio" name="sy_hr_web" value="1" id="sy_gjx_web1" {yun:}if $config.sy_hr_web=="1"{/yun}checked{yun:}/if{/yun}>
+          <label for="sy_gjx_web1">开启</label>&nbsp;
+          <input type="radio" name="sy_hr_web" value="2" id="sy_gjx_web2" {yun:}if $config.sy_hr_web=="2"{/yun}checked{yun:}/if{/yun} onclick="tip('sy_gjx_web2');">
+          <label for="sy_gjx_web2">关闭</label>
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_hrdomain{/yun}" class="input-text" size="40" name="sy_hrdomain">
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_hrdir{/yun}" class="input-text" size="20" name="sy_hrdir">
+        </td>
+        <td width="280">sy_hr_web</td>
+		<td width="280">sy_hr_domain</td>
+	</tr>
+		<tr class="admin_com_td_bg">
+		<th width="220">积分商城：</th>
+		<td>
+          <input type="radio" name="sy_redeem_web" value="1" id="sy_redeem_web1" {yun:}if $config.sy_redeem_web=="1"{/yun}checked{yun:}/if{/yun}>
+          <label for="sy_redeem_web1">开启</label>&nbsp;
+          <input type="radio" name="sy_redeem_web" value="2" id="sy_redeem_web2" {yun:}if $config.sy_redeem_web=="2"{/yun}checked{yun:}/if{/yun}  onclick="tip('sy_redeem_web2');">
+          <label for="sy_redeem_web2">关闭</label>
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_redeemdomain{/yun}" class="input-text" size="40" name="sy_redeemdomain">
+        </td>
+		<td>
+          <input type="text" value="{yun:}$config.sy_redeemdir{/yun}" class="input-text" size="20" name="sy_redeemdir">
+        </td>
+        <td width="280">sy_redeem_web</td>
+		<td width="280">sy_redeem_domain</td>
+	</tr>
+    <tr>
+        <th width="220">测评：</th>
+        <td>
+            <input type="radio" name="sy_evaluate_web" value="1" id="sy_evaluate_web1" {yun:}if $config.sy_evaluate_web=="1"{/yun}checked{yun:}/if{/yun}>
+            <label for="sy_evaluate_web1">开启</label>&nbsp;
+            <input type="radio" name="sy_evaluate_web" value="2" id="sy_evaluate_web2" {yun:}if $config.sy_evaluate_web=="2"{/yun}checked{yun:}/if{/yun}  onclick="tip('sy_evaluate_web2');">
+            <label for="sy_evaluate_web2">关闭</label>
+        </td>
+        <td>
+            <input type="text" value="{yun:}$config.sy_evaluatedomain{/yun}" class="input-text" size="40" name="sy_evaluatedomain">
+        </td>
+        <td>
+            <input type="text" value="{yun:}$config.sy_evaluatedir{/yun}" class="input-text" size="20" name="sy_evaluatedir">
+        </td>
+        <td width="280">sy_evaluate_web</td>
+        <td width="280">sy_evaluate_domain</td>
+    </tr>
+        <tr class="admin_com_td_bg">
+        <th width="220">地图：</th>
+        <td>
+            <input type="radio" name="sy_map_web" value="1" id="sy_map_web1" {yun:}if $config.sy_map_web=="1"{/yun}checked{yun:}/if{/yun}>
+            <label for="sy_map_web1">开启</label>&nbsp;
+            <input type="radio" name="sy_map_web" value="2" id="sy_map_web2" {yun:}if $config.sy_map_web=="2"{/yun}checked{yun:}/if{/yun}  onclick="tip('sy_map_web2');">
+            <label for="sy_map_web2">关闭</label>
+        </td>
+        <td>
+            <input type="text" value="{yun:}$config.sy_mapdomain{/yun}" class="input-text" size="40" name="sy_mapdomain">
+        </td>
+        <td>
+            <input type="text" value="{yun:}$config.sy_mapdir{/yun}" class="input-text" size="20" name="sy_mapdir">
+        </td>
+        <td width="280">sy_map_web</td>
+        <td width="280">sy_map_domain</td>
+    </tr>
+    <input type="hidden" value="company"  name="sy_companydir">
+    <tr>
+		<td colspan="3" align="center">
+        <input class="admin_submit4" id="integral" type="button" name="config" value="提交" />&nbsp;&nbsp;
+        <input class="admin_submit4" type="reset" value="重置" /></td>
+	</tr>
+</table>
+</div>
+</div>
+</div>
+</div>
+<input type="hidden" name="pytoken" id='pytoken' value="{yun:}$pytoken{/yun}">
+<script>
+$(function(){
+	$("#integral").click(function(){
+		$.post("index.php?m=model_config&c=save",{
+		    config: $("#integral").val(),
+            
+			sy_zph_web: $("input[name=sy_zph_web]:checked").val(),
+			sy_zphdomain: $("input[name=sy_zphdomain]").val(),
+			sy_zphdir: $("input[name=sy_zphdir]").val(),
+            
+			sy_once_web: $("input[name=sy_once_web]:checked").val(),
+			sy_oncedomain: $("input[name=sy_oncedomain]").val(),
+			sy_oncedir: $("input[name=sy_oncedir]").val(),
+            
+			sy_tiny_web: $("input[name=sy_tiny_web]:checked").val(),
+			sy_tinydomain: $("input[name=sy_tinydomain]").val(),
+			sy_tinydir: $("input[name=sy_tinydir]").val(),
+            
+			sy_hr_web: $("input[name=sy_hr_web]:checked").val(),
+			sy_hrdomain: $("input[name=sy_hrdomain]").val(),
+			sy_hrdir: $("input[name=sy_hrdir]").val(),
+            
+			sy_redeem_web: $("input[name=sy_redeem_web]:checked").val(),
+			sy_redeemdomain: $("input[name=sy_redeemdomain]").val(),
+			sy_redeemdir: $("input[name=sy_redeemdir]").val(),
+            
+			sy_wap_web: $("input[name=sy_wap_web]:checked").val(),
+			sy_wapdomain: $("input[name=sy_wapdomain]").val(),
+			sy_wapdir: $("input[name=sy_wapdir]").val(),
+            
+			sy_friend_web: $("input[name=sy_friend_web]:checked").val(),
+			sy_frienddomain: $("input[name=sy_frienddomain]").val(),
+			sy_frienddir: $("input[name=sy_frienddir]").val(),
+            
+			sy_ask_web: $("input[name=sy_ask_web]:checked").val(),
+			sy_askdoamin: $("input[name=sy_askdoamin]").val(),
+			sy_askdir: $("input[name=sy_askdir]").val(),
+		    
+			sy_job_web: $("input[name=sy_job_web]:checked").val(),
+			sy_jobdomain: $("input[name=sy_jobdomain]").val(),
+			sy_jobdir: $("input[name=sy_jobdir]").val(),
+		    
+			sy_resume_web: $("input[name=sy_resume_web]:checked").val(),
+			sy_resumedomain: $("input[name=sy_resumedomain]").val(),
+			sy_resumedir: $("input[name=sy_resumedir]").val(),
+            
+			sy_company_web: $("input[name=sy_company_web]:checked").val(),
+			sy_companydomain: $("input[name=sy_companydomain]").val(),
+			sy_companydir: $("input[name=sy_companydir]").val(),
+            
+			sy_article_web: $("input[name=sy_article_web]:checked").val(),
+			sy_articledomain: $("input[name=sy_articledomain]").val(),
+			sy_articledir: $("input[name=sy_articledir]").val(),
+		    
+			sy_evaluate_web: $("input[name=sy_evaluate_web]:checked").val(),
+			sy_evaluatedomain: $("input[name=sy_evaluatedomain]").val(),
+			sy_evaluatedir: $("input[name=sy_evaluatedir]").val(),
+		
+			sy_map_web: $("input[name=sy_map_web]:checked").val(),
+			sy_mapdomain: $("input[name=sy_mapdomain]").val(),
+			sy_mapdir: $("input[name=sy_mapdir]").val(),
+			pytoken : $("#pytoken").val()
+		},function(data,textStatus){
+			config_msg(data);
+		});
+	});
+})
+</script>
+</body>
+</html>

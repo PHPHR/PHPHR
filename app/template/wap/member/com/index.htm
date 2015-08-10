@@ -1,0 +1,69 @@
+{yun:}include file="$wapstyle/member/cheader.htm"{/yun} 
+<div class="index_header">
+<div class="com_header_img"><div class="com_header_bg"><img src="{yun:}$config.sy_weburl{/yun}/{yun:}$company.logo{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}',2);"></div></div> 	
+<div class="member_header_info" style="padding-left:135px;">
+<div class="m_user_name">你好！{yun:}$username{/yun} <a href="index.php?c=info" class="m_infor_bj"><i class="m_icon_bj fa fa-pencil-square-o"></i> 编辑</a></div>
+<div class="">{yun:}$company.name{/yun}</div>
+
+</div>
+
+</div>
+<section>
+<div class="m_index_msg">
+<dl class="m_index_msg_list">
+<a href="index.php?c=job">
+<dt>{yun:}$jobnum{/yun}</dt>
+<dd>职位管理</dd>
+</a>
+</dl>
+<dl class="m_index_msg_list">
+<a href="index.php?c=hr">
+<dt>{yun:}$sqnum{/yun}</dt>
+<dd>应聘简历</dd>
+</a>
+</dl>
+<dl class="m_index_msg_list">
+<a href="index.php?c=talent_pool">
+<dt>{yun:}$talent_pool_num{/yun}</dt>
+<dd>收藏记录</dd>
+</a>
+</dl>
+</div>
+</section>
+
+<section class="wap_member">
+<div class="wap_member_mrecord wap_member_mrecord_mt5">
+<a href="{yun:}url m=wap c=resume{/yun}" class="wap_member_mrecord_list" style="border:none"><i class="m_icon  fa fa-graduation-cap"></i>找人才</a>
+</div>
+</section>
+<section class="wap_member">
+<div class="wap_member_mrecord">
+<a href="index.php?c=info" class="wap_member_mrecord_list"><i class="m_icon  fa fa-file-text"></i>完善基本资料</a>
+<a href="index.php?c=job" class="wap_member_mrecord_list"><i class="m_icon  fa fa-suitcase"></i>职位管理</a>
+<a href="index.php?c=com" class="wap_member_mrecord_list"><i class="m_icon  fa fa-credit-card"></i>账户管理</a>
+
+</div>
+
+</section>
+<section class="wap_member">
+<div class="wap_member_mrecord">
+<a  href="index.php?c=hr" class="wap_member_mrecord_list"><i class="m_icon  fa fa-fax"></i>应聘简历</a>
+<a href="index.php?c=invite" class="wap_member_mrecord_list"><i class="m_icon  fa fa-tty"></i>已邀请的简历</a>
+
+<a href="index.php?c=look_resume" class="wap_member_mrecord_list"><i class="m_icon fa fa-users"></i>我浏览过的简历</a>
+<a href="index.php?c=look_job" class="wap_member_mrecord_list"><i class="m_icon  fa fa-eye"></i>被浏览记录</a>
+<a href="index.php?c=talent_pool" class="wap_member_mrecord_list"><i class="m_icon  fa fa-star"></i>收藏的人才</a>
+</div>
+
+</section>
+<section class="wap_member">
+<div class="wap_member_mrecord">
+<a href="index.php?c=password" class="wap_member_mrecord_list "><i class="m_icon  fa fa-unlock-alt"></i>更改密码</a>
+
+<a href="javascript:;" onclick="islogout('{yun:}url m=wap c=loginout{/yun}','确认退出吗？');" class="wap_member_mrecord_list" style="border:none"><i class="m_icon fa fa-power-off"></i>退出登录</a>
+</div>
+</section>
+
+
+
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

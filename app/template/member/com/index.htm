@@ -1,0 +1,202 @@
+{yun:}include file="$comstyle/header.htm"{/yun}
+<script>
+function Close(id){
+	$("#"+id).hide();
+	$("#bg").hide();
+}
+function Next(){
+	$("#one_tip").hide();
+	$("#two_tip").show();
+}
+function break_job(num){
+	if(num=='0'){ 
+		layer.confirm('每个正常职位将扣除{yun:}$config.integral_jobefresh{/yun}{yun:}$config.integral_pricename{/yun}，确定要刷新？',function(){
+			layer.load('执行中，请稍候...',0);
+			$.post("{yun:}$config.sy_weburl{/yun}/member/index.php?m=ajax&c=Refresh_job",{},function(data){
+				layer.closeAll();
+				if(data==1){
+					layer.msg("职位刷新成功！",2,9,function(){location.reload();});
+				}else{
+					layer.msg(data,2,8);
+				}
+			})
+		}); 
+	}else{
+		layer.load('执行中，请稍候...',0);
+		$.post("{yun:}$config.sy_weburl{/yun}/member/index.php?m=ajax&c=Refresh_job",{},function(data){
+			layer.closeAll();
+			if(data==1){
+				layer.msg("职位刷新成功！",2,9,function(){location.reload();});
+			}else{
+				layer.msg(data,2,8);
+			}
+		})
+	}
+	
+}
+</script>
+<section>
+<div class="w1000"> 
+<div style="position:relative; z-index:1005">
+  <div class="Description_Layer"> 
+    <div class="Tip_Information" id="one_tip" {yun:}if $company.hy!=""{/yun}style="display:none"{yun:}/if{/yun}>
+      <div>
+        <div class="Tip_Information_k"></div>
+        <div class="Tip_Information_jt"></div>
+      </div>
+      <div class="Tip_Information_cont">
+        <div class="re">
+          <div class="Tip_Information_close" onclick="Close('one_tip');"></div>
+        </div>
+        <div class="Tip_Information_p">
+          <p><span>请先完善企业资料：</span>先完善企业信息才能发布职位需求哦！</p>
+        </div>
+        <div class="Tip_Information_bot"><a href="javascript:Next();" class="Tip-next">下一步</a> </div>
+      </div>
+    </div> 
+    <div class="Recruitment_Layer" id="two_tip"  style="display:none">
+      <div class="Tip_Information">
+        <div>
+          <div class="Tip_Information_gl"></div>
+          <div class="Tip_Information_jt2"></div>
+          <div class="Recruitment_fb"></div>
+        </div>
+        <div class="Tip_Information_cont">
+          <div class="re">
+            <div class="Tip_Information_close" onclick="Close('two_tip');"></div>
+          </div>
+          <div class="Tip_Information_p">明确招聘需求，细化招聘条件，精准锁定人才！ </div>
+          <div class="Tip_Information_bot"><a href="javascript:Close('two_tip');" class="Tip-next">知道了</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>    </div> 
+
+<div class="index_admin_mainbody">
+  {yun:}include file="$comstyle/left.htm"{/yun}
+  <div class="m_index_right_box">
+  	{yun:}if !$company.name{/yun}        
+  	<div class="com_index_Prompt fltL">
+  		<span class="com_index_Prompt_tip fltL">您公司的资料还未填写完整，暂时还不可以发职位哦</span>
+		<a href="{yun:}$config.sy_weburl{/yun}/member/?c=info" class="com_index_Prompt_ws cblue fltR">完善资料>></a>
+	</div>
+    {yun:}/if{/yun}
+    {yun:}if $company.yyzz_status!="1"{/yun}
+   	<div class="com_index_Prompt fltL">
+   		<span class="com_index_Prompt_tip fltL">您公司还没进行营业执照认证，可能会影响您的招聘效果哦</span>
+        <a href="{yun:}$config.sy_weburl{/yun}/member/?c=binding" class="com_index_Prompt_ws cblue fltR">立即认证>></a>
+   	</div>
+    {yun:}/if{/yun}
+  <div class="com_index_box com_index_f1 fltL">
+ <div class="com_index_f1_left fltL">
+ <div class="com_index_f1_left_logo">
+ <img src=".{yun:}$company.logo{/yun}" width="185" height="75" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}','2')"/>
+ <a href="index.php?c=uppic" class="com_index_no_for_logo">修改企业LOGO</a>
+ <div class="com_log_bg"></div>
+ </div>
+   <div class="com_index_f1_left_p">上次登录时间：{yun:}$member.login_date|date_format:'%Y-%m-%d %H:%M'{/yun} </div>  
+ </div>
+  <div class="com_index_f1_right fltL">
+        <div class="com_index_f1_name">
+         <span class="come_name">{yun:}if $company.name{/yun}
+       {yun:}$company.name{/yun}{yun:}else{/yun}
+        <a href="index.php?c=info" style="color:#f60; text-decoration:underline">您还未完善企业信息，点击完善！</a>
+        {yun:}/if{/yun}&nbsp;&nbsp;&nbsp;</span>
+		<a href="index.php?c=info" class="com_index_f1_bj cblue">编辑</a><span class="come_line cblue">|</span><a href="{yun:}url  m=company c=show id='`$uid`'{/yun}" target="_blank" class="com_index_f1_l cblue">预览主页</a>
+        </div>
+        <div class="com_index_r_num">被浏览次数：<span class="f60">{yun:}$company.hits{/yun}</span> 次 <span class="come_line ">|</span> 被关注次数：<span class="f60">{yun:}$company.ant_num{/yun}</span> 次</div>
+        <div class="com_index_renz">{yun:}if $company.email_status=="1"{/yun} 
+	   <a title="邮件已验证" href="index.php?c=binding" class="index_data_rz"><span class="sjyz sjyz_rx png fltL"></span> <em class="fl">已验证</em></a>
+		{yun:}else{/yun}  
+		<a title="邮件未验证" href="index.php?c=binding" class="index_data_rz"> <span class="sjyzw sjyz_rx png fltL"></span> <em class="fl">未验证</em></a>
+		{yun:}/if{/yun}
+		{yun:}if $company.moblie_status=="1"{/yun} 
+		<a title="手机已验证" href="index.php?c=binding" class="index_data_rz"><span class="maileyz sjyz_rx png fltL"></span> <em class="fl">已验证</em></a>
+		{yun:}else{/yun} 
+		<a title="手机未验证" href="index.php?c=binding" class="index_data_rz"><span class="maileyzw sjyz_rx png fltL"></span> <em class="fl">未验证</em></a>
+		{yun:}/if{/yun}
+		{yun:}if $company.yyzz_status=="1"{/yun} 
+		<a title="营业执照已验证" href="index.php?c=binding" id="biza" class="index_data_rz"><span id="bizicon" class="zzyz  sjyz_rx png fltL"></span> <em class="fl">已验证</em></a> {yun:}else{/yun} 
+		<a title="营业执照未验证" href="index.php?c=binding" id="biza" class="index_data_rz"><span id="bizicon" class="zzyzw sjyz_rx png fltL"></span> <em class="fl">未验证</em></a> {yun:}/if{/yun} </div>
+        <a href="index.php?c=comtpl" class="com_index_shz">设置企业模板</a>
+  </div>
+  <div class="com_index_right_Funds fltL mt10">
+ 
+<span class="com_index_right_Funds_span">	
+	我的{yun:}$config.integral_pricename{/yun}：
+	<span class="f60 bold">{yun:}$statis.integral{/yun}</span> 
+	{yun:}$config.integral_priceunit{/yun}  
+	<a href='index.php?c=pay&type=integral' class="com_index_right_Funds_bth cblue" target="_blank">充值</a>
+	<a href="index.php?c=paylog&consume=ok" class="com_index_right_Funds_bth cblue">明细</a>
+	<a href="index.php?c=integral" class="cblue"> 如何获取{yun:}$config.integral_pricename{/yun}？</a> 
+</span>
+<span class="com_index_right_Funds_span">当前是：
+<span class="f60 bold">  
+[{yun:}$statis.rating_name{/yun}] 
+ </span>
+   {yun:}if $company_rating.type=='2'&&$days{/yun} 
+		到期天数：<span class="f60 bold">{yun:}$days{/yun}天</span>
+		到期时间：<span class="f60 bold">{yun:}$statis.vip_etime|date_format:'%Y-%m-%d'{/yun} </span>
+	{yun:}/if{/yun}
+  
+   <a href="index.php?c=right" class="com_index_right_Funds_sj">升级</a>  
+   </span>
+   </div>
+  </div>
+  
+    <div class="com_index_box com_index_f2 mt15 fltL">
+     <div class="com_tit"><span class="com_tit_span">招聘管理</span></div>
+     <div class="com_index_rec fltL">
+     <div class="com_index_rec_tie">未查看简历</div>
+     <div class="com_index_rec_num"><span class="com_index_rec_n cblue">{yun:}$de_resume{/yun}</span>份</div>
+     <div class="com_index_rec_bot"> 已收到简历：<span class="com_index_rec_bot_n f60">{yun:}$des_resume{/yun}</span> 份<a href="index.php?c=hr" class="com_index_rec_bot_bth" >详细>></a></div>
+     </div>
+     <div class="com_index_rec fltL">
+     <div class="com_index_rec_tie">已下载简历</div>
+   <div class="com_index_rec_num"><span class="com_index_rec_n cblue ">{yun:}$down_resume{/yun}</span>份</div>
+   <div class="com_index_rec_bot"> 还可下载简历：<span class="com_index_rec_bot_n f60">{yun:}if $statis.vip_etime>time()||$statis.vip_etime=="0"{/yun}{yun:}if $statis.rating_type==1{/yun}{yun:}$statis.down_resume{/yun}{yun:}else{/yun}无限{yun:}/if{/yun}{yun:}else{/yun}0{yun:}/if{/yun}</span>  </span>份<a href="index.php?c=down" class="com_index_rec_bot_bth" >详细>></a> </div>
+     </div>
+     <div class="com_index_rec  com_index_recend fltL">
+     <div class="com_index_rec_tie">招聘中的职位</div>
+    <div class="com_index_rec_num"><span class="com_index_rec_n cblue">{yun:}$normal_job_num{/yun}</span>份</div>
+    <div class="com_index_rec_bot">还可发布职位数 <span class="funds_cor ">{yun:}if $statis.vip_etime>time()||$statis.vip_etime=="0"{/yun}{yun:}if $statis.rating_type==1{/yun}{yun:}$statis.job_num{/yun}{yun:}else{/yun}无限{yun:}/if{/yun}{yun:}else{/yun}0{yun:}/if{/yun}</span> 条  </span>
+		{yun:}if $addjobnum=='0'{/yun}
+		<a href="javascript:void(0)" onclick="layer.msg('发布数量已用完，请购买！', 2, 8);" class="com_index_rec_bot_bth" >发布职位>></a>
+		{yun:}elseif $addjobnum=='1'{/yun}
+		<a href="index.php?c=jobadd"  class="com_index_rec_bot_bth" >发布职位>></a>
+		{yun:}elseif $addjobnum=='2'{/yun}
+		<a href="javascript:void(0)" onclick="layer.confirm('发布数量已用完，继续操作将会扣除{yun:}$config.integral_pricename{/yun}，是否继续？', function(){location.href='index.php?c=jobadd';})"  class="com_index_rec_bot_bth" >发布职位>></a>
+		{yun:}/if{/yun}
+		</div>
+     </div>
+     </div>
+     
+      <div class="com_index_box com_index_f3 mt15 fltL">
+		 <div class="com_tit"><span class="com_tit_span">简历速配</span><a href="index.php?c=attention_me" class="com_tit_more" target="_blank">查看关注我公司的人才>></a></div>
+		  {yun:}userlist hy='auto.hy' cityid='auto.cityid' limit=9 item=ulist{/yun}
+		 <div class="com_index_rue_list fltL mt10">
+			<dl>
+			<dt>            
+            {yun:}if $ulist.photo{/yun}
+            <img src="{yun:}$config.sy_weburl{/yun}/{yun:}$ulist.photo{/yun}" width="24" height="32"/>
+             {yun:}else{/yun} 
+            <img src="{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_member_icon{/yun}" width="24" height="32"/>
+             {yun:}/if{/yun}             
+			</dt>
+			 <dd>
+			 <strong><a class="cblue blod" href="{yun:}url m=resume c=show id='`$ulist.id`'{/yun}" target="_blank" title="{yun:}$ulist.username_n{/yun}">{yun:}$ulist.username_n{/yun}</a></strong>
+			 <div class="com_index_rue_list_js"><span class="com_index_rue_listspan">薪资：</span><em class="com_index_rue_list_xz f60">面议</em>   <span class="com_index_rue_listspan">经验：</span>{yun:}$ulist.exp_n{/yun}</div>
+			 </dd>
+			 </dl>
+			 <div class="com_index_rue_list_yx"><span class="com_index_rue_listspan">意向职位：</span>{yun:}$ulist.job_post|mb_substr:0:14:'gbk'{/yun}</div>
+		</div> 
+		   {yun:}/userlist{/yun}
+		   {yun:}if empty($ulist){/yun}
+			 <div class="msg_no">暂时未匹配到合适的简历 </div> 
+		   {yun:}/if{/yun} 
+		</div>   
+            </div>
+          </div>  
+         </div> 
+    </section>
+{yun:}include file="$comstyle/footer.htm"{/yun}

@@ -1,0 +1,33 @@
+{yun:}include file="$wapstyle/member/header.htm"{/yun} 
+<div class="main_member_cot_box">
+<div class="wap_member_comp_h1 "><span>申请的职位</span></div>
+<div class="wap_member_post_list">
+{yun:}foreach item=v from=$rows{/yun}
+<div class="wap_member_post_list_b">
+<h3><a href="{yun:}url m=wap c=job a=view id=$v.job_id{/yun}" class="wap_m_post_user">{yun:}$v.job_name{/yun}</a></h3>
+<aside>{yun:}$v.com_name{/yun}&nbsp;&nbsp;<span class="member_c9">[{yun:}$v.city{/yun}]</span></aside>
+<i >{yun:}$v.datetime|date_format:"%Y-%m-%d"{/yun}</i>
+ 
+<div class="user_Browse">
+{yun:}if $v.is_browse=='1'{/yun}
+<span class="wap_member_post_list_hr wap_member_post_list_hr_n">未查看</span> 
+{yun:}elseif $v.is_browse=='2'{/yun}
+<span class="wap_member_post_list_hr">已查看</span>  
+{yun:}elseif $v.is_browse=='3'{/yun}
+<span class="wap_member_post_list_hr wap_member_post_list_hr_tz">等待通知 </span> 
+{yun:}elseif $v.is_browse=='4'{/yun}
+<span class="wap_member_post_list_hr wap_member_post_list_hr_tj">条件不符 </span> 
+{yun:}/if{/yun}
+<a href="javascript:void(0)" class="wap_member_msg_date" onclick="layer_del('确定要删除？','index.php?c=delsq&id={yun:}$v.id{/yun}')">删除</a>
+</div>
+</div>
+{yun:}foreachelse{/yun}
+<div class="wap_member_no">暂无申请记录</div>
+
+{yun:}/foreach{/yun}
+
+</div>
+</div>
+<div class="pages"> {yun:}$pagenav{/yun}</div>
+</div>
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

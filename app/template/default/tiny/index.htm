@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{yun:}$title{/yun}</title>
+<META name="keywords" content="{yun:}$keywords{/yun}">
+<META name="description" content="{yun:}$description{/yun}">
+<link rel="stylesheet" href="{yun:}$style{/yun}/style/css.css" type="text/css">
+<link href="{yun:}$style{/yun}/style/Micro_resume.css" rel="stylesheet" type="text/css" />
+<!--[if IE 6]>
+<script src="{yun:}$config.sy_weburl{/yun}/js/png.js"></script>
+<script>
+DD_belatedPNG.fix('.png');
+</script>
+<![endif]-->
+<script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/layer/layer.min.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/lazyload.min.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/public.js" language="javascript"></script>
+<script>var integral_pricename='{yun:}$config.integral_pricename{/yun}';var weburl="{yun:}$config.sy_weburl{/yun}"; </script>
+<script src="{yun:}$style{/yun}/js/fast.js" language="javascript"></script>
+</head>
+<body>
+{yun:}include file="$tplstyle/header.htm"{/yun}
+<div class="micro_resume_bg">
+  <div class="micro_resume">
+    <div class="micro_resume_cont">
+        <div class="current_Location  com_current_Location png"><div class="fl">您当前的位置：<a href="{yun:}$config.sy_weburl{/yun}">首页</a> > <a href="{yun:}url m=tiny{/yun}">微简历</a></div></div>
+      <div class="resume_ban">
+        <div class="resume_banner"> <img src="{yun:}$style{/yun}/images/resume_banner.jpg" width="1000" height="213px"/> </div>
+        <div class="resume_con">
+          <div class="resume_con_tit"><b>微简历</b>求职<b>新风尚</b>，让我们一起躁动起来</div>
+          <div class="resume_con_fb">
+           <a href='javascript:void(0);' {yun:}if $num{/yun}onclick="showfabu1()"{yun:}else{/yun}onclick="layer.msg('每天最多可发布{yun:}$config.sy_tiny{/yun}份微简历！',2,8)"{yun:}/if{/yun} title="发布微简历" class="res_con_fb" style="margin-left:80px;">发布微简历</a> 
+          <!-- <a href="#" class="res_con_wx">用微信发布</a>--> </div>
+        </div>
+      </div>
+      <script type="text/javascript">
+$(function(){
+	$(".res_time").hover(function(){
+		$(this).addClass("res_time_det");
+		$(this).find("#res_menu").show();
+		
+	},function(){
+		$(this).removeClass("res_time_det");
+		$(this).find("#res_menu").hide();		
+	});
+});
+function selects(val,name){
+	$("#add_time").val(val);	
+	$('#add_times').html(name)
+	$("#res_menu").hide();
+}
+</script>
+      <div class="res_search">
+        <div class="res_search_con ">
+          <form action="{yun:}if !$config.sy_tinydir{/yun}index.php{yun:}else{/yun}{yun:}url m=tiny{/yun}{yun:}/if{/yun}"   method="get" onsubmit="return search_keyword(this);">  
+            <div class="res_time "> 
+              <div class="res_time_con"> <span id="add_times">{yun:}if $smarty.get.add_time{/yun}{yun:}$add_time[$smarty.get.add_time]{/yun}{yun:}else{/yun}不限{yun:}/if{/yun}</span> <i></i> </div>
+			  {yun:}if  !$config.sy_tinydir{/yun}<input type="hidden" value="tiny" name="m" />{yun:}/if{/yun} 
+              <input type="hidden" name="add_time" id="add_time" value="{yun:}$getinfo.val{/yun}" />
+              <ul style="display:none;" id="res_menu">     
+              {yun:}foreach item=v key=key from=$add_time{/yun}                      
+                <li onclick="selects('{yun:}$key{/yun}','{yun:}$v{/yun}');"><a href="javascript:;"> {yun:}$v{/yun}</a></li>
+              {yun:}/foreach{/yun}
+              </ul> 
+            </div>
+            <div class="res_key">
+              <input id="key_word" class="res_key_txt" type="text" value="请输入简历关键字，例如：会计" name="keyword" onclick="if(this.value=='请输入简历关键字，例如：会计'){this.value=''}" placeholder="请输入简历关键字，例如：会计" onblur="if(this.value==''){this.value='请输入简历关键字，例如：会计'}">
+              <input type="submit"  value="搜索" id="search_button" class="res_key_btn"/>
+            </div>
+          </form>
+          <div class="res_hot" style="width:470px;"> 热门搜索：
+            {yun:}key limit=8 type=13 item=keylist{/yun} <a href="{yun:}$keylist.url{/yun}"> {yun:}$keylist.key_name{/yun}</a> {yun:}/key{/yun} </div>
+        </div>
+      </div>
+      <div class="decline"> {yun:}tiny add_time='auto.add_time' item=wres ispage=1 limit=20 keyword='auto.keyword' {/yun}
+		
+		<div class="decline_connet">
+			<div class="dec_det">
+				<div class="dec_det_con">
+					<div class="mini_tit">
+						<span class="mini_tit_h1"><a href="{yun:}url m=tiny c=show id=$wres.id{/yun}">{yun:}$wres.job|mb_substr:0:30:'gbk'{/yun}</a></span>
+						<span class="mini_tit_time">{yun:}$wres.time{/yun}</span>
+					</div>
+					<div class="mini_det">
+						{yun:}$wres.username{/yun} <i>/</i>
+						{yun:}$wres.sex_name{/yun} <i>/</i>
+						{yun:}$wres.exp_name{/yun} <i>/</i>
+						{yun:}if $config.user_wjl_link==1 && $cookie.uid<=0{/yun} 
+              <span>登录查看更多信息<a href="javascript:void(0);" onclick="showlogin('');" class="tiny_login">登录</a></span>
+              {yun:}else{/yun}
+              {yun:}$wres.mobile{/yun}<i>/</i>{yun:}$wres.qq{/yun}
+              {yun:}/if{/yun} 
+						
+					</div>
+					<div class="mini_con">{yun:}$wres.production|mb_substr:0:100:gbk{/yun}</div>
+				</div>
+			</div>
+		</div>
+		
+        
+        {yun:}/tiny{/yun} </div>
+      <div class="clear"></div>
+      {yun:}if $total!=0{/yun}
+      <div class="pages"> {yun:}$pagenav{/yun}</div>
+      {yun:}/if{/yun}
+      {yun:}if $total==0{/yun}
+      <div class="seachno" style="background:#FFF; width:525px;">
+        <div class="seachno_left"> <img src="{yun:}$style{/yun}/images/search-no.gif" width="144" height="102"></div>
+        <div class="listno-content" style="margin-left:30px;"> <strong>很抱歉，没有找到满足条件的简历</strong><br>
+          <span> 建议您：<br>
+          1、适当减少已选择的条件<br>
+          2、适当删减或更改搜索关键字<br>
+          </span> </div>
+      </div>
+      {yun:}/if{/yun} </div>
+  </div>
+</div>
+<div class="" style="display:none;width:460px" id="fabufast1">
+  <div >
+    <iframe id="supportiframe"  name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+    <form  method="post" action="{yun:}url m=tiny{/yun}" onSubmit="return check_resume_tiny()" target="supportiframe">
+      <ul class="micro_resume_release_list">
+        <li><span><font color="#FF3300">*</font> 姓名：</span>
+          <input  type="text" value="{yun:}$onshow.username{/yun}" name="username" id="username" class="micro_resume_release_text">
+          {yun:}foreach from=$userdata.user_sex key=j item=v{/yun}
+          <input type="radio" name="sex" id="sex{yun:}$v{/yun}" value="{yun:}$v{/yun}" checked="checked" class="micro_resume_release_radio" style="margin-left:5px;"/>
+          <em>{yun:}$userclass_name[$v]{/yun}{yun:}$onshow.sex{/yun}</em> {yun:}/foreach{/yun} </li>
+        <li><span><font color="#FF3300">*</font> 工作年限：</span>
+          <div class="micro_resume_text1" style="border:1px solid #ccc; padding:2px;">
+            <select id="exp" name="exp">
+            {yun:}foreach from=$userdata.user_word key=j item=v{/yun}
+              <option value='{yun:}$v{/yun}' {yun:}if $onshow.exp==$v{/yun}selected{yun:}/if{/yun}>{yun:}$userclass_name[$v]{/yun}</option>
+            {yun:}/foreach{/yun}
+            </select>
+          </div>
+        </li>
+        <li><span><font color="#FF3300">*</font> 意向职位：</span>
+          <input type="text" id="job" name="job" value="{yun:}$onshow.job{/yun}" class="micro_resume_release_text"/>
+        </li>
+        <li><span><font color="#FF3300">*</font> 手机：</span>
+          <input type="text" name="mobile" id="mobile" value="{yun:}$onshow.mobile{/yun}" class="micro_resume_release_text" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
+        </li>
+        <li><span><font color="#FF3300">*</font> 联系QQ：</span>
+          <input type="text" id="qq" name="qq" value="{yun:}$onshow.qq{/yun}" class="micro_resume_release_text" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"/>
+        </li>
+        <li><span><font color="#FF3300">*</font> 自我介绍：</span>
+          <textarea id="production" name="production" style="width:300px; height:70px;border:1px solid #ccc; font-size:12px;color:#666">{yun:}$onshow.production{/yun}</textarea>
+        </li>
+        <li class="add"><span><font color="#FF3300">*</font> 密码：</span>
+          <input type="password" name="password" id="password" value="" class="micro_resume_release_text" style='width:100px' onkeyup="this.value=this.value.replace(/^ +| +$/g,'')"/>
+          <em style="line-height:28px; display:inline-block; margin-left:5px;">密码修改信息时使用,<font color="#FF3300">请牢记！</font></em> </li>
+        <li class="add"><span><font color="#FF3300">*</font> 验证码：</span>
+          <input type="text" id="authcode" name="authcode" class="micro_resume_release_text micro_resume_release_text2" />
+          <a href="javascript:check_code();"><img id="vcode_img" src="{yun:}$config.sy_weburl{/yun}/app/include/authcode.inc.php"></a> 
+          <!--a href="javascript:check_code();">换一张</a--> 
+        </li>
+        <li><span>&nbsp; </span>
+          <input type="hidden" name="id" id="id" value="{yun:}$onshow.id{/yun}"/>
+          <input class="fast_submit" type="submit" value="发布" id="botton" name="submit" >
+        </li>
+        <li class="micro_resume_prompt">
+          <p>1.您当前的IP是：{yun:}$ip{/yun}，请不要发布虚假、违法信息！</br>
+            2.请妥善保存密码，密码可用于刷新/修改/删除信息！</p>
+        </li>
+      </ul>
+    </form>
+  </div>
+</div>
+<div style="display:none;" id="postpw">
+  <div>
+    <ul class="micro_resume_release_list">
+      <li><span><font color="#FF3300">*</font> 密码：</span>
+        <input id="pw" type="password" value="" class="micro_resume_release_text" style='width:100px'/>
+        <em style="line-height:28px; display:inline-block; margin-left:5px;">请输入添加时的密码。</em> </li>
+      <li><span><font color="#FF3300">*</font> 验证码：</span>
+        <input type="text" id="code" class="micro_resume_release_text micro_resume_release_text2" style='width:100px'/>
+        <a href="javascript:check_codes();"><img id="vcode_imgs" src="{yun:}$config.sy_weburl{/yun}/app/include/authcode.inc.php"></a> 
+        <!--a href="javascript:check_codes();">换一张</a--> 
+      </li>
+      <li><span>&nbsp; </span>
+        <input type="hidden" id="tid"/>
+        <input type="hidden" id="type"/>
+        <input class="fast_submit" type="button" value="提交" onclick="post_password();">
+      </li>
+    </ul>
+  </div>
+</div>
+{yun:}include file="$tplstyle/footer.htm"{/yun}
+{yun:}include file="$tplstyle/public_search/login.htm"{/yun} 

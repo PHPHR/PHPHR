@@ -1,0 +1,130 @@
+
+{yun:}include file="$askstyle/header.htm"{/yun}  
+<div class="content">
+	<div>
+		<div class="left">
+			<div class="hot">
+            <div class="hot_size">
+				{yun:}qcache limit=6 son=1 item=qindex{/yun}
+				<div class="hot_class {yun:}if $key=='2'||$key=='5'{/yun}hot_cla2{yun:}/if{/yun} {yun:}if $key>2{/yun}hot_cla3{yun:}/if{/yun}">
+					<div class="hot_class_con">
+						<div class="hot_cla01">
+							<div class="hot_cla_pho">
+							<img class="" src="{yun:}$config.sy_weburl{/yun}/{yun:}$qindex.pic{/yun}" /> 
+							<div class="png_yuan png"></div>
+							</div>
+							<h3><a href="{yun:}url m=ask c=topic pid='`$qindex.id`'{/yun}"  target="_blank">{yun:}$qindex.name{/yun}</a></h3>
+						</div>
+						<div class="clear"></div>
+						{yun:}if $qindex.son{/yun}
+                        
+						<div class="hot_cla02">
+							{yun:}foreach from=$qindex.son item=slist{/yun}
+							<a href="{yun:}url m=ask c=search cid='`$slist.id`'{/yun}" target="_blank">{yun:}$slist.name{/yun}</a>
+							{yun:}/foreach{/yun} 
+						</div>
+                        
+						{yun:}/if{/yun}
+					</div>
+				</div>
+				{yun:}/qcache{/yun} 
+              </div>  
+			</div>
+			<div class="hotimg">
+				{yun:}adlist classid=48 limit=1 item=adlist_48{/yun}{yun:}$adlist_48.html{/yun}{yun:}/adlist{/yun} 
+			</div>
+			<div class="answer">
+				<div class="answer_tit"><h3 id="last-question">最新问题</h3></div>
+				<div class="answer_list">
+					{yun:}qlist item=list name=list ispage=1 t_len=20  limit=10{/yun}
+					<div class="answer_det">
+						<h4>
+							<p><a href="{yun:}$list.url{/yun}" target="_blank" title="{yun:}$list.title{/yun}">{yun:}$list.title{/yun}</a></p>
+							<span class="attention q{yun:}$list.id{/yun}">
+								{yun:}if $list.isatn!='2'{/yun}
+									{yun:}if in_array($list.id,$my_atten){/yun}
+									<a href="javascript:void(0);"  onclick="attention('{yun:}$list.id{/yun}','1','{yun:}url m=ask c=friend a=attention{/yun}');" class="watch_qxgz">取消关注</a>
+									{yun:}else{/yun}
+                                        {yun:}if $uid{/yun}
+                                        <a href="javascript:void(0);" onclick="attention('{yun:}$list.id{/yun}','1','{yun:}url m=ask c=friend a=attention{/yun}');" class="watch_gz png" title="关注问题">关注问题</a>
+                                        {yun:}else{/yun}
+                                        <a href="javascript:void(0);" onclick="showlogin('');" class="watch_gz png" title="关注问题">关注问题</a>
+                                        {yun:}/if{/yun} 
+                                    {yun:}/if{/yun} 
+								{yun:}/if{/yun}
+							</span>
+						</h4>
+						<dl>
+							<dt><img src="{yun:}$list.pic{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);" /></dt>
+							<dd>
+								<p>{yun:}$list.content|strip_tags|mb_substr:0:100:'gbk'{/yun}</p> 
+								<div class="answer_on">
+									<span><a href="{yun:}$list.userurl{/yun}" target="_blank">{yun:}$list.nickname|mb_substr:0:8:'gbk'{/yun}</a>发起了话题 </span>&middot;
+									<span><font class="index_num{yun:}$list.id{/yun}">{yun:}$list.atnnum{/yun}</font>人关注 </span>&middot;
+									<span><font>{yun:}$list.answer_num{/yun}</font>个回答 </span>&middot;
+									<span><font>{yun:}$list.visit{/yun}</font>次浏览 </span>&middot;
+									<span>{yun:}$list.add_time|date_format:"%Y-%m-%d %H:%M"{/yun}</span>
+								</div>
+							</dd>
+							<div class="clear"></div>
+						</dl>
+					</div>
+					{yun:}/qlist{/yun}  
+					<div class="clear"></div>
+				</div>
+				{yun:}if $total==0{/yun}
+				<div class="noresult png" style="width:460px; margin-left:15px; margin-bottom:10px;">您还没有任何问题，抓紧提问吧！</div>
+				{yun:}else{/yun} 
+				<div class="pages">{yun:}$pagenav{/yun}</div> 
+				{yun:}/if{/yun}  
+			</div>
+		</div>
+		<div class="right">
+			<div class="hot_pro">
+				<h3>热门问题</h3>
+				<ul>
+					{yun:}qlist item=hlist key=hkey hot=30 order=answernum order=visit t_len=20  limit=6{/yun}
+					<li>
+						<span class="{yun:}if $hkey>2{/yun}hot_cur{yun:}/if{/yun}">{yun:}$hkey+1{/yun}</span> 
+						<p><a href="{yun:}$hlist.url{/yun}" target="_blank">{yun:}$hlist.title{/yun}</a></p>
+					</li>
+					{yun:}/qlist{/yun} 
+					{yun:}if $hlist.id==''{/yun} 
+					<div class="friend_right_no fl">暂无数据！</div>
+					{yun:}/if{/yun}
+					<div class="clear"></div>
+				</ul>
+			</div>
+			<div class="hot_user">
+				<h3>热门标签</h3>
+				<div class="hot_tag_con">
+					{yun:}foreach from=$hotclass key=key item=hclist{/yun}
+					<a href="{yun:}url m=ask c=search cid='`$key`'{/yun}" target="_blank">{yun:}$hclist{/yun}</a>
+					{yun:}/foreach{/yun} 
+				</div>
+			</div>
+			<div class="hot_user">
+				<h3> 本月答人</h3>
+				{yun:}foreach from=$hotuser item=hulist{/yun}
+				<div class="hot_userdet">
+					<div class="user_det1">
+						<div class="user_mes">
+							<div class="user_pho">
+								<img src="{yun:}$hulist.pic{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/>
+							</div>
+							<div class="user_name">
+								<p><a href="{yun:}url m=ask c=friend uid='`$hulist.uid`'{/yun}" target="_blank">{yun:}$hulist.nickname{/yun}</a></p>
+								<span><font>{yun:}$hulist.num{/yun}</font>个回答，<font>{yun:}$hulist.support{/yun}</font>次赞同</span>
+							</div>
+						</div>
+						{yun:}if $hulist.description{/yun}<div class="user_tag">签名：{yun:}$hulist.description|mb_substr:0:32:'gbk'{/yun}</div>{yun:}/if{/yun}
+					</div> 
+				</div> 
+				{yun:}foreachelse{/yun} 
+					<div class="friend_right_no fl">暂无数据！</div>
+				{yun:}/foreach{/yun} 
+			</div>
+		</div>
+	</div>
+</div> 
+{yun:}include file="$askstyle/footer.htm"{/yun}

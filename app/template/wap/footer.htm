@@ -1,0 +1,21 @@
+<footer>
+<div class="footer">
+<div class="footer_t">
+{yun:}if !$cookie.username{/yun} 
+<a href="{yun:}url m=wap c=register {/yun}">注册</a><em class="line">|</em><a href="{yun:}url m=wap c=login {/yun}">登录</a> 
+{yun:}else{/yun}
+<span class="footer_member_span_a">你好！</span><span class="footer_member_span">{yun:}$cookie.username{/yun}</span><a href="{yun:}url m=wap{/yun}/member" class="footer_member">进入用户中心>></a><a href="javascript:;" onclick="islogout('{yun:}url m=wap c=loginout{/yun}','确认退出吗？');" class="footer_member_out">退出</a> 
+{yun:}/if{/yun}
+<a href="#"><div class="footer_top"><i class="fa fa-angle-up"></i></div></a></div>
+<div class="footer_bot">{yun:}$config.sy_webcopyright{/yun}{yun:}$config.sy_webrecord{/yun} <br></div>
+</div>
+</footer> 
+{yun:}if $layer{/yun}
+<input id="layermsg" value="{yun:}$layer.msg{/yun}" type="hidden">
+<input id="layerurl" value="{yun:}$layer.url{/yun}" type="hidden">
+<script>window.onload=islayer(); </script>
+{yun:}/if{/yun}
+<script>wapurl="{yun:}url m=wap{/yun}";</script>  
+<script>var weburl="{yun:}$config.sy_weburl{/yun}"</script>
+</body>
+</html>

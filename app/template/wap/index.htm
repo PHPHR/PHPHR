@@ -1,0 +1,118 @@
+{yun:}include file="$wapstyle/header.htm"{/yun}
+<script src="{yun:}$config.sy_weburl{/yun}/js/slides.jquery.js" type="text/javascript"></script>
+<script src="{yun:}$wap_style{/yun}/js/flickity-docs.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{yun:}$wap_style{/yun}/css/normalize.css" />
+<link rel="stylesheet" href="{yun:}$wap_style{/yun}/css/flickity-docs.css" media="screen" />
+<section>
+    <div class="example">        
+        <div class="example__demo">
+            <div class="gallery gallery--images-loaded-demo js-flickity"
+                 data-flickity-options='{ "imagesLoaded": true,"autoPlay": true }'>
+                <!-- images from unsplash.com -->
+                {yun:}adlist classid=50 item="lunbo" key=key{/yun}
+                <img src="{yun:}$lunbo.pic{/yun}" />
+                {yun:}/adlist{/yun}
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+  <div class="index_warp_content clear">
+     <form method="get" action="{yun:}$config_wapdomain{/yun}/index.php">
+      <input type="hidden" name="c" value="job" />
+      <div class="index_formFiled">
+        <input type="text" value="" name="keyword" class="index_input_search" placeholder="请输入关键字，如：会计">
+        <input type="submit" value="搜职位" class="index_input_btn">
+      </div>
+    </form>
+    <nav>
+      <dl class="nav_list">
+        <a href="{yun:}url m=wap c='job'{/yun}">
+        <dt class="cor_1"><i class="nav_icon fa fa-briefcase"></i></dt>
+        <dd>找职位</dd>
+        </a>
+      </dl>
+      <dl class="nav_list">
+        <a href="{yun:}url m=wap c='resume'{/yun}">
+        <dt class="cor_2"><i class="nav_icon fa fa-graduation-cap"></i></dt>
+        <dd>找人才</dd>
+        </a>
+      </dl>
+      <dl class="nav_list">
+        <a href="{yun:}url m=wap c='company'{/yun}">
+        <dt class="cor_3"><i class="nav_icon fa fa-building-o"></i></dt>
+        <dd>找企业</dd>
+        </a>
+      </dl>
+      <dl class="nav_list">
+        <a href="{yun:}url m=wap c='job' rec=1{/yun}">
+        <dt class="cor_4"><i class="nav_icon fa fa-thumbs-up"></i></dt>
+        <dd>职位推荐</dd>
+        </a>
+      </dl>
+           <dl class="nav_list">
+        <a href="{yun:}url m=wap c='map'{/yun}">
+        <dt class="cor_5"><i class="nav_icon fa fa-map-marker"></i></dt>
+        <dd>附近职位</dd>
+        </a>
+      </dl> <dl class="nav_list">
+        <a href="{yun:}url m=wap c='once'{/yun}">
+        <dt class="cor_6"><i class="nav_icon fa fa-tasks"></i></dt>
+        <dd>微招聘</dd>
+        </a>
+      </dl>
+      <dl class="nav_list">
+        <a href="{yun:}url m=wap c='tiny'{/yun}">
+        <dt class="cor_7"><i class="nav_icon fa fa-users"></i></dt>
+        <dd>微简历</dd>
+        </a>
+      </dl>
+      <dl class="nav_list">
+        <a href="{yun:}url m=wap c='article'{/yun}">
+        <dt class="cor_8"><i class="nav_icon fa fa-newspaper-o"></i></dt>
+        <dd>看资讯</dd>
+        </a>
+      </dl>
+
+    </nav>
+  </div>
+</section>
+{yun:}if !$cookie.username{/yun} 
+<section>
+  <div class="index_warp_content mt10">
+    <div class="index_login">
+      <div class="index_login_p">您尚未登录，马上登录轻松管理信息</div>
+      <div class="index_logoin_sub"><a href="{yun:}url m=wap c=login{/yun}" class="index_logoin_bth">登录</a><a href="{yun:}url m=wap c=register{/yun}" class="index_logoin_bth index_reg_bth">注册</a></div>
+    </div>
+  </div>
+</section>
+{yun:}/if{/yun}
+<div class="clear"></div>
+<section>
+  <div  class="index_hotlist"> {yun:}key  limit=16 type=3 recom=1 item=keylist iswap=1{/yun} <a href="{yun:}$keylist.url{/yun}"><span>{yun:}$keylist.key_name{/yun}</span></a> {yun:}/key{/yun} </div>
+</section>
+<div class="clear"></div>
+<section>
+  <div class="index_warp_content mt10">
+    <div class="wap_title"><span class="">职位推荐</span><a href="{yun:}url m=wap c=job rec=1{/yun}" class="more">更多>></a></div>
+    {yun:}joblist limit=5 rec=1 item=job{/yun}
+    <div class="job_list_box"> <a href="{yun:}url m=wap c=job a=view id=$job.id{/yun}" class="job_list">
+      <h3>{yun:}$job.name|mb_substr:0:12:'gbk'{/yun}{yun:}if $job.urgent_time>time(){/yun}<i class="urgent">急招</i>{yun:}/if{/yun}</h3>
+      <aside class="job_qy_name">{yun:}$job.job_city_one{/yun}-{yun:}$job.job_city_two{/yun}<em class="line">|</em>{yun:}$job.com_name|mb_substr:0:12:'gbk'{/yun}</aside>
+      <aside class="job_pay"><strong>{yun:}$job.job_salary{/yun}</strong><span class="job_date">{yun:}$job.lastupdate{/yun}</span></aside>
+      </a> </div>
+    {yun:}/joblist{/yun} </div>
+</section>
+<style>
+    .previous, .next, .flickity-page-dots {
+        display: none;
+    }
+    .example,.gallery {margin-bottom:0px !important;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        $(".example__demo img").width($(document.body).width());
+    }); 
+</script>
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

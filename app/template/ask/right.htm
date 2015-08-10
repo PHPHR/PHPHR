@@ -1,0 +1,33 @@
+<div class="right right_rem"> 
+	<div class="recom_expert learve"> 
+		<h2>最近访客</h2>
+		{yun:}if $myfoot{/yun} 
+		<div class="recom_con">
+			<ul>
+			{yun:}foreach from=$myfoot item=flist{/yun}
+				<li>
+					<a href="{yun:}$flist.url{/yun}" target="_blank"><img src="{yun:}$flist.pic{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/>
+					<div class="recom_con_name">{yun:}$flist.nickname{/yun}</div>
+					</a>
+				</li>
+			{yun:}/foreach{/yun} 
+			</ul>
+		</div>
+		{yun:}else{/yun}
+		 <div class="friend_right_no fl">你暂时没有访客</div>
+		{yun:}/if{/yun}
+	</div> 
+	<div class="recom_expert">
+		<div class="ask_relate_title">最新问题</div>
+		<ul class="ask_relate_list">
+			{yun:}qlist item=list limit=8{/yun}
+			<li>
+				<div class="ask_relate_top"><a class="ask_relate_con" href="{yun:}$list.url{/yun}" target="_blank">{yun:}$list.title{/yun}</a></div>
+              <span class="ask_relate_twr"> 提问人:</span> <a class="ask_relate_name" href="{yun:}$list.userurl{/yun}" target="_blank">{yun:}$list.nickname|mb_substr:0:8:'gbk'{/yun}</a><span class="ask_relate_last_time">&nbsp;&nbsp;&nbsp;&nbsp;{yun:}$list.add_time|date_format:"%Y-%m-%d"{/yun}</span>
+				
+			</li>
+			{yun:}/qlist{/yun} 
+		</ul>
+	</div> 
+</div>
+<div class="clear"></div>

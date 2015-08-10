@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<link href="images/reset.css" rel="stylesheet" type="text/css" />
+<link href="images/system.css" rel="stylesheet" type="text/css" />
+<link href="images/table_form.css" rel="stylesheet" type="text/css" />
+<script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js"></script>
+<script charset="utf-8" src="../data/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="../data/kindeditor/lang/zh_CN.js"></script>
+<link rel="stylesheet" href="../data/kindeditor/themes/default/default.css" />
+<script src="{yun:}$config.sy_weburl{/yun}/js/layer/layer.min.js" language="javascript"></script>
+<script src="js/admin_public.js" language="javascript"></script>
+<script src="js/show_pub.js"></script>
+<script language="javascript" type="text/javascript">
+<!---->
+<!--将[分组][试卷标题]、描述、评语 全部返回页面-->
+<!---->
+function checkform(myform){
+	//验证分组是否选择 OK
+	if($("#selectgroup").val()=="0"){ parent.layer.msg('请选择试卷分组！',2,2,function(){$("#selectgroup").focus();}); return false; };
+	
+	//验证试卷标题是否填写 ok
+	if($.trim($("#examtitle").val())==""){ parent.layer.msg('请填写试卷名称！',2,2,function(){$("#examtitle").focus();});  return false; };
+	
+	//验证描述是否填写 OK
+	if($.trim($("textarea[name='description']").val()) =="" ){ parent.layer.msg('请填写描述！',2,2,function(){$("textarea[name='description']").focus();});  return false; };
+	
+	//验证 分数 和 评语 是否填写 OK
+	var fromscoreArray = getFromScore();
+	var toscoreArray = getToScore();
+	var commentArray = getComment();
+	if(fromscoreArray.length!=toscoreArray.length || fromscoreArray.length!=commentArray.length || toscoreArray.length!=commentArray.length){
+		parent.layer.msg('请刷新该页面！',2,2);
+		return false;
+	}
+	for(var i=0; i<fromscoreArray.length; i++){
+		if(fromscoreArray[i].value==""){parent.layer.msg('请填写分数！', 2,2,function(){fromscoreArray[i].focus();});return false;}
+		if(toscoreArray[i].value==""){parent.layer.msg('请填写分数！', 2,2,function(){toscoreArray[i].focus();});return false;}
+		if(commentArray[i].value==""){parent.layer.msg('请填写评语！', 2,2,function(){commentArray[i].focus();});return false;}
+		//检测分数顺序
+		if(Number(fromscoreArray[i].value)>Number(toscoreArray[i].value)){parent.layer.msg('分数有误！', 2,2,function(){toscoreArray[i].focus();});return false;}
+	}
+
+	//验证排序是否填写 ok
+	if($.trim($("input[name='sort']").val()) == ""){ parent.layer.msg('请填写排序！',2,2,function(){$("input[name='sort']").focus();}); return false; }
+	
+	//验证问题、选项是否为空 ok
+	var tableArray = $("table[name^='tQuestion']"); 
+	for(var t=0; t<tableArray.length; t++){ 
+		//表格编号
+		var tableNameId = Number($(tableArray[t]).attr("name").match(/\d+/g)); 
+		//验证问题是否为空 OK
+		var question = $("textarea[name='question["+tableNameId+"]']")[0].value.trim();
+		if(question == ""){ parent.layer.msg('请填写问题！',2,2,function(){ $("textarea[name='question["+tableNameId+"]']")[0].focus();}); return false;}
+
+		//验证选项是否为空 ok ；因为 选项个数==分数个数，可以在一个循环中完成验证
+		//验证分数是否为空 ok
+		var optionArray = $("input[name='option["+tableNameId+"][]']");
+		var scoreArray = $("input[name='score["+tableNameId+"][]']");
+		for(var p=0; p<optionArray.length; p++){
+			if(optionArray[p].value.trim() == ""){ parent.layer.msg('请填写选项！',2,2,function(){ optionArray[p].focus();}); return false;}
+			if(scoreArray[p].value.trim() == ""){  parent.layer.msg('请填写分数！',2,2,function(){ scoreArray[p].focus();}); return false;}
+		}
+	}//end tableArray
+}/*end checkform*/
+
+/*获取 问题 选项 和 分值 控件*/
+function getQuestionEle(){ var question=$("textarea[name^='question']");return question;}
+function getOptionEle(){	var options=$("input[name^='option']");	return options;}
+function getScoreEle(){	var scores=$("input[name^='score']");	return scores;}
+
+//添加选项 按钮
+function createOption(tableNameId){
+	var oTr=
+		'<tr>'
+			+'<th>选　　项：</th>'
+			+'<td><input type="text" name="option['+tableNameId+'][]" size="110"/>分值：<input type="text" name="score['+tableNameId+'][]" style="height: 20px; width: 30px; font-size: 20px; line-height: 20px; text-align: center;" autocomplete="off"/></td>'
+		+'</tr>'
+	$("#actionTr"+tableNameId).before(oTr);
+}
+
+//删除选项 按钮
+function delOption(tableNameId){
+	var optionArray = $("input[name='option["+tableNameId+"][]']");
+	var scoreArray = $("input[name='score["+tableNameId+"][]']")
+	if(optionArray.length==scoreArray.length && optionArray.length > 1){
+		$("#actionTr"+tableNameId).prev().remove();
+		refreshScore();
+	}
+}
+
+
+$(document).ready(function() {
+	/*点击 添加问题*/
+    $("#showAddQuestionBtn").click(function(){
+		var tableNameId=Number(($("#divSeparat").prev().attr("name")).match(/\d+/g))+1;
+		//alert(tableNameId);
+		var tpl=
+		'<table name="tQuestion['+tableNameId+']" class="table_form" width="100%" style="border: 1px solid;">'
+      		+'<tr>'
+            	+'<th width="160" name="th_que_id">问　　题 <span name="span_que_id">'+tableNameId+'</span>：</th>'
+                +'<td>'
+                	+'<textarea name="question['+tableNameId+']" rows="2" cols="100"></textarea> '
+                    +'<input id="createOption'+tableNameId+'" type="button" name="createOption'+tableNameId+'" value="添加选项" class="admin_submit4" onclick="createOption('+tableNameId+')"/> '
+                	+'<input id="delOption'+tableNameId+'" type="button" name="delOption'+tableNameId+'" value="删除选项" class="admin_submit4" onclick="delOption('+tableNameId+')"/> '
+                +'</td>'
+            +'</tr>'
+            +'<tr>'
+            	+'<th>选　　项：</th>'
+                +'<td><input type="text" name="option['+tableNameId+'][]" size="110"/>分值：<input type="text" name="score['+tableNameId+'][]" style="height: 20px; width: 30px; font-size: 20px; line-height: 20px; text-align: center;" autocomplete="off"/></td>'
+            +'</tr>'
+             +'<tr>'
+            	+'<th>选　　项：</th>'
+                +'<td><input type="text" name="option['+tableNameId+'][]" size="110"/>分值：<input type="text" name="score['+tableNameId+'][]" style="height: 20px; width: 30px; font-size: 20px; line-height: 20px; text-align: center;" autocomplete="off""/></td>'
+            +'</tr>'
+            +'<tr id="actionTr'+tableNameId+'">'
+        	+'</tr>'
+         +'</table>';
+		 
+		 $("#divSeparat").before(tpl);
+		 
+		//刷新右下角提示信息
+		var questionNum = getQuestionEle().length;
+		$("#questNum").html(questionNum+"道");
+		refreshScore();
+
+		
+		 
+
+	});/*end 添加问题*/
+	
+	/*点击 删除问题*/
+	$("#delQuestionBtn").click(function() {
+		var questNum = (getQuestionEle()).length;
+		if(questNum > 1){
+        	$("#divSeparat").prev().remove();
+			$("#questNum").html((questNum-1)+"道");
+			/*计算试卷分数*/
+			refreshScore();
+		}
+    });
+	
+	/*限制 分值 为数字*/
+	$("input[name^='score']").live("keyup",function(){
+		setNumber(this);
+		refreshScore();
+	});
+	
+	/*选择分组*/
+	$("#selectgroup").change(function(){
+		$("#pleaseselectgroup").remove();		/*移除第一项*/		
+		$("table[name='tDescripAndComment']").show();/*描述和评语*/
+		$("table[name^='tQuestion']").show();	/* 问题表格*/
+		$("table[name^='tAddAndSave']").show(); /* 保存 按钮*/
+	});
+	
+	/*添加评语*/
+	$("input[name='newcomment']").click(function(){
+		var newtr = '<tr>'
+				+'<th>'
+				+'<input type="text" name="fromscore[]" style="height: 20px; width: 34px; font-size: 20px; text-align: center; line-height: 20px;" autocomplete="off"/>分到'
+                +'<input type="text" name="toscore[]" style="height: 20px; width: 34px; font-size: 20px; text-align: center; line-height: 20px;" autocomplete="off"/>分'
+				+'&nbsp;&nbsp;评语：'
+				+'</th>'
+            	+'<td><textarea name="comment[]" cols="100" rows="3"></textarea></td></tr>';
+		$("#newCommentTr").before(newtr);
+		$("input[name='delcomment']").css({opacity: "1",filter: "alpha(opacity=100)"});
+	});
+	
+	/*删除评语*/
+	$("input[name='delcomment']").click(function(){
+		var commentSet=getFromScore();
+		if(commentSet.length<=1){
+			$("input[name='delcomment']").css({opacity: "0.4",filter: "alpha(opacity=40)"});
+		}else{
+			$("#newCommentTr").prev().remove();
+		}
+	});
+	/*限制 分数、排序 为数字*/
+	$("input[name='fromscore[]']").live("keyup",function(){setNumber(this);});
+	$("input[name='toscore[]']").live("keyup",function(){setNumber(this);	});
+	$("input[name='sort']").live("keyup",function(){ this.value = this.value.replace(/([\D]+)|^([0].+)/igm,"");});
+
+	
+});/*end $(document).ready()*/
+
+function getFromScore(){var fromscoreArray = $("input[name='fromscore[]']");return fromscoreArray;}
+function getToScore(){var toscoreArray = $("input[name='toscore[]']");return toscoreArray;}
+function getComment(){var commentArray = $("textarea[name='comment[]']");return commentArray;}
+/*设置分值为三位正整数*/
+function setNumber(obj){
+	obj.value = obj.value.replace(/([\D]+)|^([0].+)|([\d]{4,})/igm,"");
+}
+
+//计算试卷分数
+function refreshScore(){
+	var Num=Number(($("#divSeparat").prev().attr("name")).match(/\d+/g));
+	var examScore = 0;
+	var temp = 0;
+	for(var q=0; q<Num; q++){
+		var scoreEle = $("input[name='score["+(q+1)+"][]']");
+		
+		for(var ts=0; ts<scoreEle.length; ts++ ){
+			if(Number(scoreEle[ts].value) > temp){
+				temp = Number(scoreEle[ts].value);
+			}
+		}
+		examScore += temp;
+		temp = 0;
+	}
+	//alert(examScore);
+	$("#examScore").html(examScore+"分");
+}
+
+$(document).ready(function(){
+	/*保存试卷*/
+	$("#subquestion").click(function(){
+		$("form[name='myform']").submit();
+	});
+});
+
+/*验证图片类型*/
+function checkimage(){
+	var extArray = new Array(".jpg",".jpeg",".gig");
+	var file = document.forms['myform'].upImg.value;
+	var isImage = false;
+	if (!file){
+		return false;
+	}
+	while (file.indexOf("\\") != -1){
+		file = file.slice(file.indexOf("\\") + 1);
+	}
+	var ext = file.slice(file.indexOf(".")).toLowerCase();
+	for (var i = 0; i < extArray.length; i++) {
+		if (extArray[i] == ext){
+			isImage = true;
+			break;
+		}
+	}
+	if (isImage){
+	}else{
+		alert("只能上传以下格式的图片:"+ (extArray.join("")) + "\n请重新选择图片.");
+	}
+}
+</script>
+<title>后台管理</title>
+</head>
+<body class="body_ifm">
+
+<div class="infoboxp">
+<div class="infoboxp_top_bg"></div>
+
+  <div class="infoboxp_top">
+     <span class="admin_title_span">添加测评试卷</span>
+        <a href="index.php?m=admin_evaluate" class="admin_infoboxp_nav admin_infoboxp_gl">测评列表</a>
+          <em class="admin-tit_line"></em>
+        <a href="index.php?m=admin_evaluate&c=group" class="admin_infoboxp_nav admin_infoboxp_lb">类别管理</a>
+  </div>
+  <div class="clear"></div>
+  <div class="admin_table_border">
+    <iframe id="supportiframe"  name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+   
+    <form name="myform" target="supportiframe" action="index.php?m=admin_evaluate&c=examsave" method="post" enctype="multipart/form-data" onsubmit="return checkform(this);">
+      <table name="tableTitle" width="100%" class="table_form"  style="background:#fff;">
+        <tr>
+          <th width="160">测评试卷分组：</th>
+          <td style="position:relative;">
+          	<select name="selectgroup"  id="selectgroup" style="width: 160px;">
+                    <option id="pleaseselectgroup" value="0" selected="selected">——请选择分组——</option>
+                    {yun:}foreach item=v from=$group_all{/yun}
+                    <option value="{yun:}$v.id{/yun}" gdata="0">{yun:}$v.name{/yun}</option>
+                    {yun:}/foreach{/yun}
+            </select>          </td>
+        </tr>
+         <tr>
+          <th width="160"> 试卷名称：</th>
+          <td style="position:relative;">
+          	 <input type="text" id="examtitle" name="examtitle" style="width: 250px; height: 23px;"/>
+          </td>
+        </tr>
+        
+      </table>      
+      
+      <!--由导航打开，选择分组后显示描述、评语输入框，该功功能尚未实现-->
+      <table name="tDescrip" class="table_form" width="100%" style="display:;">
+          <tr>
+              <th  width="160">描　　述：</th>
+              <td style="position: relative;"><textarea name="description" cols="100" rows="3"></textarea></td>
+          </tr>
+      </table>
+      <!--评语-->
+      <table name="tComment" class="table_form" width="100%">
+              <tr>
+          <th>分数：</th>
+          <td> <input type="text" name="fromscore[]" style="height: 20px; width: 84px; font-size: 20px; text-align: center; line-height: 20px;" autocomplete="off" value="0"/> 分<span style="padding:0px 10px">到</span><input type="text" name="toscore[]" style="height: 20px; width: 84px; font-size: 20px; text-align: center; line-height: 20px;" autocomplete="off"/> 分</td>
+          </tr>
+          
+          <tr>
+              <th width="160">
+              评语：</th>
+              <td>
+              	<textarea name="comment[]" cols="100" rows="3"></textarea>
+               
+              </td>
+          </tr>
+     <tr>
+          <th width="160">&nbsp;</th>
+          <td> <input id="newcommentbtn" type="button" value="添加评语" name="newcomment" class="admin_submit4"/>
+                <input style="display: ;" id="delcommentbtn" value=" 删除评语" name="delcomment" class="admin_submit4" type="button"></td>
+           </tr>
+          
+          <tr id="newCommentTr"></tr>
+      </table>
+      
+      <table class="table_form" width="100%">
+      		<tr>
+            	<th width="160">试卷排序：</th>
+                <td><input type="text" name="sort" value="0" style="height: 20px; width: 50px; font-size: 20px; text-align: center; line-height: 20px;"/></td>
+                	<tr>
+                	</tr>
+                      <th width="160">缩略图：</th>
+                <td >大图404x211：<input id="upImg" class="input-text" type="file" name="upImg"  accept="image/jpeg,image/gif" onChange="checkimage()"/>小图162x136：<input id="samll_upImg" class="input-text" type="file" name="small_upImg" accept="image/jpeg,image/gif" onChange="checkimage()"/></td>
+            </tr>
+      </table>
+      
+      <table class="table_form" width="100%">
+      		<tr>
+            	<th width="160">试卷属性：</th>
+                <td>
+                	<input type="checkbox" name="top" value="1"/> 首页幻灯&nbsp;&nbsp;
+                    <input type="checkbox" name="hot" value="1"/> 热门评测&nbsp;&nbsp;
+                    <input type="checkbox" name="recommend" value="1"/> 测评推荐
+                </td>
+            </tr>
+      </table>
+      
+      <!--添加问题 区域-->
+      <table name="tQuestion[1]" class="table_form" width="100%" >
+      		<tr>
+            	<th width="160" name="th_que_id">问　　题 <span name="span_que_id">1</span>：</th>
+                <td>
+                	<textarea name="question[1]" rows="2" cols="100"></textarea>
+                   
+                </td>
+            </tr>
+             <tr>
+            	<th>&nbsp;</th>
+                <td> <input id="createOption1" type="button" name="createOption1" value="＋添加选项" class="admin_submit4" onclick="createOption(1)"/>
+                	<input id="delOption1" type="button" name="delOption1" value="－删除选项" class="admin_submit4" onclick="delOption(1)"/></td>
+            </tr>
+            <tr>
+            	<th>选　　项：</th>
+                <td><input type="text" name="option[1][]" size="110"/><span style="padding-left:10px;">分值：</span><input type="text" name="score[1][]" style="height: 20px; width: 30px; font-size: 20px; line-height: 20px; text-align: center;" autocomplete="off"/></td>
+            </tr>
+             <tr>
+            	<th>选　　项：</th>
+                <td><input type="text" name="option[1][]" size="110"/><span style="padding-left:10px;">分值：</span><input type="text" name="score[1][]" style="height: 20px; width: 30px; font-size: 20px; line-height: 20px; text-align: center;" autocomplete="off"/></td>
+            </tr>
+            <tr id="actionTr1">
+        	</tr>
+      </table>
+      <div id="divSeparat"></div>
+      
+      <table name="tAddAndSave" class="table_form" width="100%"  height="100px" >
+        <tr id="actionTr" class="admin_table_trbg">
+          		<td colspan="2" align="center">
+                	<!--<input class="admin_submit4" name="subquestion" value="&nbsp;保 存&nbsp;" type="submit">-->
+                    <!--<input class="admin_submit4" name="closeQuestion" value="&nbsp;重 置 &nbsp;" type="reset">-->
+                    <input type="hidden" name="subquestion" value="subquestion"/>
+                </td>
+        	</tr>
+      </table>
+      <input id="pytoken" type="hidden" name="pytoken" value="{yun:}$pytoken{/yun}">
+      <input type="hidden" name="lasturl" value="{yun:}$lasturl{/yun}">
+  </form>    
+  </div>
+</div>
+
+<div id="divExamInfo" style="position: fixed; text-align: center; bottom: 85px; right: 40px; font-size: 14px; border: 2px solid red; padding:5px; background-color: white; width:84px;">
+    <table>
+    	<tr><td>问题：</td><th id="questNum">1道</th></tr>
+        <tr><td>总分：</td><th id="examScore">0分</th></tr>
+        <tr><td colspan="2"><input id="showAddQuestionBtn" class="admin_submit4" name="newquestion" value="&nbsp;+ 添加问题&nbsp;" type="button"></td></tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+        <tr><td colspan="2"><input id="delQuestionBtn" class="admin_submit4" name="delquestion" value="&nbsp;－ 删除问题&nbsp;" type="button"></td></tr>
+        <tr><td colspan="2">&nbsp;</td></tr>
+        <tr><td colspan="2"><input id="subquestion" class="admin_submit4" name="subquestion" value="&nbsp;保 存&nbsp;" type="button"></td></tr>
+        
+    </table>
+</div>
+
+</body>
+</html>

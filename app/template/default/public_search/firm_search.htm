@@ -1,0 +1,73 @@
+<div class="content_firm">
+    <div class="firm_left">
+        <div class="firm_left_close">            
+            {yun:}if $smarty.get.hy || $smarty.get.pr || $smarty.get.mun || $smarty.get.keyword||$smarty.get.cityid{/yun}
+            <div class="firm_left_close_con">
+                <div class="firm_left_h1"><span>已选择</span> <a href="{yun:}url m=company{/yun}">清空条件</a></div>
+                <div class="clear"></div>
+				{yun:}if $smarty.get.cityid{/yun}
+                <span class="firm_left_close_span"><i>所在城市：{yun:}$city_name[$smarty.get.cityid]{/yun}</i><a href="{yun:}searchurl m=company untype='cityid'{/yun}"><em></em></a></span>
+                {yun:}/if{/yun}
+                {yun:}if $smarty.get.hy{/yun}
+                <span class="firm_left_close_span"><i>从事行业：{yun:}$industry_name[$smarty.get.hy]{/yun}</i><a href="{yun:}searchurl m=company untype='hy,page'{/yun}"><em></em></a></span>
+                {yun:}/if{/yun}
+                {yun:}if $smarty.get.pr{/yun}
+                <span class="firm_left_close_span"><i>企业性质：{yun:}$comclass_name[$smarty.get.pr]{/yun}</i><a href="{yun:}searchurl m=company untype='pr,page'{/yun}"><em></em></a></span>
+                {yun:}/if{/yun}
+                {yun:}if $smarty.get.mun{/yun}
+                <span class="firm_left_close_span"><i>企业规模：{yun:}$comclass_name[$smarty.get.mun]{/yun}</i><a href="{yun:}searchurl m=company untype='mun,page'{/yun}"><em></em></a></span>
+                {yun:}/if{/yun}
+                {yun:}if $smarty.get.keyword{/yun}
+                <span class="firm_left_close_span"><i>关键字：{yun:}$smarty.get.keyword{/yun}</i><a href="{yun:}searchurl m=company untype='keyword,page'{/yun}"><em></em></a></span>
+                {yun:}/if{/yun}
+            </div>
+            {yun:}/if{/yun}
+        </div>
+        <div class="firm_left_cont">
+            <div class="firm_seach_top_list">
+                <div class="{yun:}if $smarty.get.hy{/yun}firm_seach_top_s{yun:}else{/yun}firm_seach_top_l{yun:}/if{/yun}" id="job_hy_click" onclick="check_type('job_hy');">从事行业</div>
+                <div class="firm_seach_top_r" id="job_hy" {yun:}if $smarty.get.hy{/yun}style="display:none;"{yun:}/if{/yun}>
+                {yun:}foreach from=$industry_index key=j item=v{/yun}
+                <a href="{yun:}searchurl m=company untype='hy,page' hy=$v{/yun}" {yun:}if $smarty.get.hy==$v{/yun} class="firm_a_atc" {yun:}/if{/yun}>{yun:}$industry_name[$v]{/yun}</a>
+                {yun:}/foreach{/yun}
+            </div>
+        </div>
+        <div class="firm_seach_top_list">
+            <div class="{yun:}if $smarty.get.pr{/yun}firm_seach_top_s{yun:}else{/yun}firm_seach_top_l{yun:}/if{/yun}" id="job_pr_click" onclick="check_type('job_pr');">企业性质</div>
+            <div class="firm_seach_top_r" id="job_pr" {yun:}if $smarty.get.pr{/yun}style="display:none;"{yun:}/if{/yun}>
+            {yun:}foreach from=$comdata.job_pr key=j item=v{/yun}
+            <a href="{yun:}searchurl m=company untype='pr,page' pr=$v{/yun}" {yun:}if $smarty.get.pr==$v{/yun} class="firm_a_atc" {yun:}/if{/yun}>{yun:}$comclass_name[$v]{/yun}</a>
+            {yun:}/foreach{/yun}
+        </div>
+    </div>
+    <div class="firm_seach_top_list">
+        <div class="{yun:}if $smarty.get.mun{/yun}firm_seach_top_s{yun:}else{/yun}firm_seach_top_l{yun:}/if{/yun}" id="job_mun_click" onclick="check_type('job_mun');">企业规模</div>
+        <div class="firm_seach_top_r" id="job_mun" {yun:}if $smarty.get.mun{/yun}style="display:none;"{yun:}/if{/yun}>
+        {yun:}foreach from=$comdata.job_mun key=j item=v{/yun}
+        <a href="{yun:}searchurl m=company  untype='mun,page' mun=$v{/yun}" {yun:}if $smarty.get.mun==$v{/yun} class="firm_a_atc" {yun:}/if{/yun}>{yun:}$comclass_name[$v]{/yun}</a>
+        {yun:}/foreach{/yun}
+    </div>
+</div>
+  </div>
+</div>
+</div>
+<script>
+    function check_type(id){
+        $("#" + id).toggle();
+		var style=$("#"+id+"_click").attr("class");
+		if(style=="firm_seach_top_l"){
+			style=$("#"+id+"_click").attr("class","firm_seach_top_s");
+		}else{
+			style=$("#"+id+"_click").attr("class","firm_seach_top_l");
+		}
+    }
+</script>
+<!--职位类别start-->
+<div class="sPopupDiv" id="jobdiv" style="display:none; float:left;"></div>
+<!--职位类别end-->
+<!--工作地点start-->
+<div class="sPopupDiv" id="citydiv" style="display:none"></div>
+<!--工作地点end-->
+<!--行业类别start-->
+<div class="sPopupDiv" id="industrydiv" style="display:none"></div>
+<!--行业类别end--> 

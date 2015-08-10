@@ -1,0 +1,171 @@
+{yun:}include file="$friendstyle/header.htm"{/yun}
+<link rel="stylesheet" href="{yun:}$config.sy_weburl{/yun}/js/imgareaselect/imgareaselect.css" type="text/css">
+<script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/js/imgareaselect/jquery.imgareaselect.js"></script>
+<script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/js/imgareaselect/ajaxfileupload.js"></script>
+<div class="Personals_content">
+<div class="py_cont">
+{yun:}include file="$friendstyle/left2.htm"{/yun}
+    <div class="Personals_cont_photo">
+    <div class="Personals_my_all">资料修改 </div>
+    <div class="Personals_my_good_h1">
+    <ul>
+    <li><a href="{yun:}url m=friend c=info{/yun}">基本信息</a></li>
+    <li class="Personals_my_on">头像管理</li>
+    </ul>
+    </div>
+    <div class="remindbox01"> 
+         <dl class="remindbox01_img">
+        <dd><img src="{yun:}$rom.pic_big{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);" width='80' height='100'></dd>
+        </dl>
+     </div>
+    	<div class="remindbox01">  
+		<a class="a-upload" href="javascript:void(0)"><input  id="image" onchange="ajaxfile();" type="file" name="image"  class="friend_photo_look">点击这里上传文件</a> 
+		<div class="clear"></div>
+		<div class="uppic_flash" style="display:none;" id='uppic_flash'>
+			<div class="uppic_big_zx">
+				<img src="" style="float: left; margin-right: 10px;" id="thumbnail" />
+			</div>
+			<div style="width:100px; float:left"> 
+				<div id="preview1" class="uppic_previ1" style="margin-top:0px;">
+					<img id="preview1_img" src="" style="position: relative;" />
+				</div>
+			</div>     
+			<div style="width:80px; float:left"> 
+				<div id="preview2" class="uppic_previ1" style="margin-top:0px;">
+					<img id="preview2_img" src="" style="position: relative;" />
+				</div>
+			</div>    
+			<div class="uppic_pb">
+				<form name="form1" id="form1">
+					<input name="sizeit" id="sizeit" type="submit" value="保存头像" class="uppic_pb_bth" />
+				</form>
+			</div>
+		</div>
+    </div>
+<script>
+    function ajaxfile() {
+        if ($("#image").val() != '') {
+            layer.load('图片上传中，请稍候....', 0);
+            $.ajaxFileUpload ({
+			   url: '{yun:}url m=friend c=ajaxfileupload{/yun}', //用于文件上传的服务器端请求地址
+			   secureuri: false, //是否需要安全协议，一般设置为false
+			   fileElementId: 'image', //文件上传域的ID
+			   dataType: 'json', //返回值类型 一般设置为json
+			   success: function (data, status)  //服务器成功响应处理函数
+			   {
+				   layer.closeAll();
+				   if (data.s_thumb) {
+					   layer.msg(data.s_thumb, 2, 8);
+					  // setTimeout(function () { location.href = ''; }, 2000);
+				   } else {
+					   hideLoading(data.url);
+				   }
+			   }
+		   })
+        }
+    }
+   var size1 = {
+        width: 80,
+        height: 100
+    }
+    $('#preview1').width(size1.width);
+    $('#preview1').height(size1.height);
+    var size2 = {
+        width: 40,
+        height: 50
+    }
+    $('#preview2').width(size2.width);
+    $('#preview2').height(size2.height);
+    function hideLoading(pic) {
+        $("#thumbnail").attr({ 'src': pic });
+        $("#preview1_img").attr({ 'src': pic });
+        $("#thumbnai2").attr({ 'src': pic });
+        $("#preview2_img").attr({ 'src': pic });
+        $('#uppic_flash').show();
+        var ias = $('#thumbnail')
+		.imgAreaSelect({
+		    aspectRatio: '4:5', //长宽1:1的比例，在等待剪裁的图像上呈现出正方形的选择框
+		    onSelectChange: lis, //把用户当前的选择状态传给lis函数
+		    onInit: function () {
+		        var _opt = ias.getOptions();
+		        render($('#preview1_img'), $("#thumbnail")[0], {
+		            height: _opt.y2 - _opt.y1,
+		            width: _opt.x2 - _opt.x1,
+		            x1: _opt.x1,
+		            x2: _opt.x2,
+		            y1: _opt.y1,
+		            y2: _opt.y2
+		        }, size1);
+		    },
+		    instance: true,
+		    keys: true,
+		    x1: 40, //选择框在图片里的初始位置，这里默认是图片左上角，宽度和高度都是200px，符合size1
+		    y1: 50,
+		    x2: size1.width,
+		    y2: size1.height
+		});
+    }
+    function lis(img, sel) {
+        render($('#preview1 img'), img, sel, size1);
+        render($('#preview2 img'), img, sel, size2);
+    }
+    function render(target, img, sel, size) {
+        var scale = size.width / sel.width;
+        target.css({
+            width: Math.round(scale * $(img).width()),
+            height: Math.round(scale * $(img).height())
+        });
+        target.css({
+            marginLeft: '-' + Math.round(scale * sel.x1) + 'px',
+            marginTop: '-' + Math.round(scale * sel.y1) + 'px'
+        });
+        target.data('scale', scale);
+        target.data('width', sel.width);
+        target.data('height', sel.height);
+        target.data('x', sel.x1);
+        target.data('y', sel.y1);
+    }
+    //ajax提交表单
+    $(function () {
+        $('#form1').submit(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var preview1 = $('#preview1 img');
+            var preview2 = $('#preview2 img');
+            $.post("{yun:}url m=friend c=savethumb{/yun}", {
+                sizeit: true,
+                count: 2,
+                /*图1*/
+                width1: preview1.data('width'),
+                height1: preview1.data('height'),
+                x1: preview1.data('x'),
+                y1: preview1.data('y'),
+                img1: $('#preview1_img').attr('src'),
+                scale1: preview1.data('scale'),
+                /*图2*/
+                width2: preview2.data('width'),
+                height2: preview2.data('height'),
+                x2: preview2.data('x'),
+                y2: preview2.data('y'),
+                img2: $('#preview2_img').attr('src'),
+                scale2: preview2.data('scale')
+            }, function (res) {
+                var _n = parseInt(res);
+                if (_n == 1) {
+                    layer.msg('头像设置成功！', 2, 9);
+                    setTimeout(function () { location.href = ''; }, 2000);
+                } else {
+                    layer.msg('头像设置失败！', 2, 8);
+                    setTimeout(function () { location.href = ''; }, 2000);
+                }
+            });
+        });
+    });
+</script> 
+    <div class="clear"></div>
+      <div><div class="pages">{yun:}$pagenav{/yun}</div></div>
+   </div>
+      {yun:}include file="$friendstyle/right.htm"{/yun}  
+    </div> 
+    </div>
+{yun:}include file="$friendstyle/footer.htm"{/yun}

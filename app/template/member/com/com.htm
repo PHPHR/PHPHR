@@ -1,0 +1,98 @@
+{yun:}include file="$comstyle/header.htm"{/yun}
+<script>
+$(document).ready(function(){ 
+	$(".status").click(function(){
+		$("#paylog_id").val($(this).attr("id"));
+		$("#alertcontent").val($(this).attr("remark"));
+		$.layer({
+			type : 1,
+			title :'备注', 
+			closeBtn : [0 , true],
+			border : [10 , 0.3 , '#000', true],
+			area : ['320px','200px'],
+			page : {dom :"#infobox"}
+		});
+	});
+});
+</script>
+<div class="w1000">
+  <div class="admin_mainbody"> {yun:}include file="$comstyle/left.htm"{/yun}
+    <div class=right_box>
+      <div class=admincont_box>
+          <div class="com_tit">
+       <span class="com_tit_span">账户中心</span></div>
+        <div class="clear"></div>
+          <div class="com_body">
+        <div class="Available_Balance">
+        <div class="Available_h1">可用{yun:}$config.integral_pricename{/yun}</div>
+        <div class="Available_bal"><span class="Available_blod">{yun:}$statis.integral{/yun}</span> {yun:}$config.integral_priceunit{/yun} 
+        <a class="Available_bth"  href="index.php?c=pay&type=integral" title="账户充值">充值</a>
+        <a href="index.php?c=right" title="查看特权"  class="Available_bth Available_bth_c"> 查看特权</a> 
+        </div>
+        <div class="Available_Balance_bot"> 
+         消费{yun:}$config.integral_pricename{/yun}：<span class="Available_je">{yun:}$integral{/yun}</span> {yun:}$config.integral_priceunit{/yun} 　　  
+		 </div>  
+        </div>
+        <div class="clear"></div>
+        <div class="com_job_box">
+        <div class="index_Management_box_h1"><span class="index_Management_box_h1_span"><caption> 最新订单记录 </caption></span></div>
+      <div class="com_job_box_p">
+      {yun:}if !empty($rows){/yun}
+          <div class="job_news_list job_news_list_h1">
+                <span class="job_news_list_span job_w160" style="padding-left:10px;">充值单号</span>
+                 <span class="job_news_list_span job_w150" style="text-align:center">充值时间</span>
+                  <span class="job_news_list_span job_w80">充值金额</span>
+                  <span class="job_news_list_span job_w120">支付类型</span>
+                  <span class="job_news_list_span job_w80">状态</span>
+                  <span class="job_news_list_span job_w100">操作</span>
+              </div>
+          {yun:}foreach item=log from=$rows{/yun}  
+          {yun:}assign var="state" value=$log.order_state{/yun}          
+          <div class="job_news_list">
+            <span class="job_news_list_span job_w160" style="padding-left:10px;">{yun:}$log.order_id{/yun}</span>
+            <span class="job_news_list_span job_w150" style="text-align:center">{yun:}$log.order_time|date_format:'%Y-%m-%d %H:%M:%S'{/yun}</span>
+            <span class="job_news_list_span job_w80">{yun:}$log.order_price{/yun}</span>
+            <span class="job_news_list_span job_w120">{yun:}if $type{/yun}{yun:}$arr_data.pay.$type{/yun}{yun:}else{/yun}手动{yun:}/if{/yun}</span>
+            <span class="job_news_list_span job_w80">{yun:}$arr_data.paystate.$state{/yun}</span>
+            <span class="job_news_list_span job_w120">{yun:}if $log.order_type=='bank'&&$log.order_state!='2'{/yun} 
+            <a href="javascript:;" id="{yun:}$log.id{/yun}" class="status" remark="{yun:}$log.order_remark{/yun}">备注修改</a>
+            {yun:}/if{/yun} 
+              {yun:}if $log.order_state=='1' && $log.order_type!='bank'{/yun} <a href="index.php?c=payment&id={yun:}$log.id{/yun}" >去付款</a> |
+              <a href="javascript:void(0)" onclick="del_pay({yun:}$log.id{/yun})">取消充值</a> {yun:}else{/yun}
+              {yun:}$arr_data.paystate.$state{/yun}
+              {yun:}/if{/yun}
+
+			  </span>
+            <div class="job_news_list_bot">备注：{yun:}$log.order_remark{/yun}</div>
+          </div>
+          {yun:}/foreach{/yun}
+          {yun:}else{/yun}
+          <div class="msg_no">
+          您还没有订单记录。
+          </div>
+          {yun:}/if{/yun}
+        </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+          <div class="diggg">{yun:}$pagenav{/yun}</div>
+    </div>
+  </div> 
+</div>
+ <iframe id="supportiframe"  name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+	<div class="infoboxp22" id="infobox" style="display:none; ">
+      <div>
+        <form action="index.php?c=paylog" method="post" id="formstatus" target="supportiframe" onsubmit="return paylog_remark();">
+          <div class="jb_infobox" style="width: 100%;">
+            <input name="id" id='paylog_id' type="hidden"> 
+			 <textarea id="alertcontent" style="width:310px;margin:5px;height:100px" name="order_remark" cols="30" rows="9" class="hr_textarea"></textarea>
+          </div>
+          <div class="jb_infobox" style="width: 100%;">
+            <button type="submit" name='submit' value='1' class="submit_btn" style="margin-left:80px;">确认</button>
+            &nbsp;&nbsp;
+            <button type="button"   class="cancel_btn">取消</button>
+          </div>
+        </form>
+      </div>
+    </div>
+{yun:}include file="$comstyle/footer.htm"{/yun}

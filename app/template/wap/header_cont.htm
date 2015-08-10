@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<meta http-equiv="Cache-Control" content="no-cache"/>
+<title>{yun:}$title{/yun} -  手机人才网</title>
+<meta http-equiv="keywords" content="{yun:}$keywords{/yun},wap" />
+<meta http-equiv="description" content="{yun:}$description{/yun}" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-compatible"content="IE=edge">
+<meta name="viewport" content="width=device-width" initial-scale="1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="format-detection" content="telephone=no,email=no"/>
+<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0, user-scalable=no, width=device-width">
+<link rel="stylesheet" href="{yun:}$config.sy_weburl{/yun}/app/template/wap/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="{yun:}$config.sy_weburl{/yun}/app/template/wap/css/css.css" type="text/css">
+<link rel="stylesheet" href="{yun:}$config.sy_weburl{/yun}/app/template/wap/css/job.css" type="text/css">
+<link rel="stylesheet" href="{yun:}$config.sy_weburl{/yun}/app/template/wap/js/prefixfree.min.js">
+<script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/app/template/wap/js/layer/layer.m.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/app/template/wap/js/public.js" language="javascript"></script>
+<script type="text/javascript">
+function show(obj){
+var obj=document.getElementById(obj);  //获得id为b的容器
+  //如果下面的内容显示的话就隐藏
+  if(obj.style.display=="block"){
+     obj.style.display="none";
+  }else 
+  obj.style.display="block";
+}
+</script>
+</head>
+<body>
+<div id="wrapper">
+<div class="mobile">
+
+<!-- Checkbox to toggle the menu -->
+<input type="checkbox" id="tm" />
+<!-- The menu -->
+<div class="sidenav"> 
+{yun:}if !$cookie.username{/yun} 
+   <!--     登录前-->
+   <div class="nav_loin" style="display:block"><a href="{yun:}url m=wap c=login{/yun}" class="nav_loin_a">登录</a><a href="{yun:}url m=wap c=register{/yun}"class="nav_loin_a nav_loin_zc">注册</a></div>
+   {yun:}else{/yun} 
+   <!--     登录后-->
+   <div class="nav_loin" style="display:block"> {yun:}if $cookie.usertype=="1"{/yun}
+    <div class="nav_login_after">
+       <div class="nav_header_img">
+        <div class="nav_header_bg"> <img src="{yun:}$config.sy_weburl{/yun}/{yun:}$rightinfo.photo{/yun}"  onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_member_icon{/yun}',2);"></div>
+      </div>
+       <a href="{yun:}$config_wapdomain{/yun}/member/" class="nav_loin_a">用户中心</a><a href="javascript:;" onclick="islogout('{yun:}url m=wap c=loginout{/yun}','确认退出吗？');" class="nav_loin_a nav_loin_zc">退出</a> </div>
+    <div class="nav_header_info_box">
+       <dl class="nav_header_info">
+        <a href="{yun:}url m=wap{/yun}/member/index.php?c=invite">
+         <dt>{yun:}$rightinfo.msgnum{/yun}</dt>
+         <dd>面试邀请</dd>
+         </a>
+      </dl>
+       <dl class="nav_header_info">
+        <a href="{yun:}url m=wap{/yun}/member/index.php?c=resume">
+         <dt>{yun:}$rightinfo.expectnum{/yun}</dt>
+         <dd>简历管理</dd>
+         </a>
+      </dl>
+     </div>
+    {yun:}elseif $cookie.usertype=="2"{/yun}
+    <div class="nav_login_after">
+       <div class="nav_header_img">
+        <div class="nav_header_bg"><img src="{yun:}$config.sy_weburl{/yun}/{yun:}$rightinfo.logo{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}',2);" ></div>
+      </div>
+       <a href="{yun:}url m=wap{/yun}/member" class="nav_loin_a">用户中心</a><a href="javascript:;" onclick="islogout('{yun:}url m=wap c=loginout{/yun}','确认退出吗？');" class="nav_loin_a nav_loin_zc">退出</a> </div>
+    <div class="nav_header_info_box">
+       <dl class="nav_header_info">
+        <a href="{yun:}url m=wap{/yun}/member/index.php?c=hr">
+         <dt>{yun:}$rightinfo.sqnum{/yun}</dt>
+         <dd>应聘简历</dd>
+         </a>
+      </dl>
+       <dl class="nav_header_info">
+        <a href="{yun:}url m=wap{/yun}/member/index.php?c=job">
+         <dt>{yun:}$rightinfo.jobnum{/yun}</dt>
+         <dd>职位管理</dd>
+         </a>
+      </dl>
+     </div>
+    {yun:}/if{/yun} </div>
+   {yun:}/if{/yun}
+   <div style="clear:both"></div>
+   <ul>
+    <li><a href="{yun:}url m=wap{/yun}" class="side_nav_a"><i class="nav_fa fa fa-home"></i><b>首页</b></a></li>
+    <li><a href="{yun:}url m=wap c=job{/yun}" class="side_nav_a"><i class="nav_fa fa fa-briefcase"></i><b>找职位</b></a></li>
+    <li><a href="{yun:}url m=wap c=resume{/yun}" class="side_nav_a"><i class="nav_fa fa fa-graduation-cap"></i><b>找人才</b></a></li>
+    <li><a href="{yun:}url m=wap c=company{/yun}" class="side_nav_a"><i class="nav_fa fa fa-building-o"></i><b>找企业</b></a></li>
+    <li><a href="{yun:}url m=wap c=once{/yun}" class="side_nav_a"><i class="nav_fa fa fa-tasks"></i><b>微招聘</b></a></li>
+    <li><a href="{yun:}url m=wap c=tiny{/yun}" class="side_nav_a"><i class="nav_fa fa fa-users"></i><b>微简历</b></a></li>
+    <li><a href="{yun:}url m=wap c=article{/yun}" class="side_nav_a"><i class="nav_fa fa fa-newspaper-o"></i><b>找资讯</b></a></li>
+    <li><a href="{yun:}url m=wap c=map{/yun}" class="side_nav_a"><i class="nav_fa fa fa-map-marker"></i><b>附近职位</b></a></li>
+  </ul>
+ </div>
+<!-- Content area -->
+<div class="body_wap">
+<header>
+   <div class="header">
+    <div class="header_bg"> <a class="hd-lbtn" href="javascript:history.back();"><i class="header_top_l fa fa-chevron-left"></i></a>
+       <div class="header_h1">{yun:}$headertitle{/yun}</div>
+       <label for="tm" class="label"><i class="header_top_r fa fa-th "></i></label>
+     </div>
+  </div>
+ </header>

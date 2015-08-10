@@ -1,0 +1,57 @@
+{yun:}include file="$userstyle/header.htm"{/yun}
+<div class="w950"> {yun:}include file="$userstyle/left.htm"{/yun}
+  <div class="mian_right fltR mt12">
+    <div class="member_right_h1 fltL"><span class="member_right_span fltL">获取{yun:}$config.integral_pricename{/yun}</span></div>
+    <div class="integral_cont">
+      <ul class="integral_cont_list">
+        <li> <span class="integral_cont_list_span">完成注册信息</span> <span class="integral_cont_list_span_c"> 新用户完善信息，可获得<b>{yun:}$config.integral_reg{/yun}</b>{yun:}$config.integral_pricename{/yun} </span> <span class="integral_cont_list_span_r"></span> </li>
+        <li> <span class="integral_cont_list_span">完善基本资料</span> <span class="integral_cont_list_span_c"> 完善基本资料，可获得<b>{yun:}$config.integral_userinfo{/yun}</b>{yun:}$config.integral_pricename{/yun} </span> <span class="integral_cont_list_span_r"> {yun:}if $statusList.baseInfo{/yun}
+          已完善
+          {yun:}else{/yun} <a href="index.php?c=info" 
+								target="_blank" class="integral_cont_list_a">立即完善</a> {yun:}/if{/yun} </span> </li>
+        <li> <span class="integral_cont_list_span">上传头像</span> <span class="integral_cont_list_span_c"> 上传头像，可获得<b>{yun:}$config.integral_avatar{/yun}</b>{yun:}$config.integral_pricename{/yun} </span> <span class="integral_cont_list_span_r"> {yun:}if $statusList.photo{/yun}
+          已上传
+          {yun:}else{/yun} <a href="index.php?c=uppic" 
+							target="_blank"  class="integral_cont_list_a">上传头像</a> {yun:}/if{/yun} </span> </li>
+        <li> <span class="integral_cont_list_span">邀请朋友注册</span> <span class="integral_cont_list_span_c"> 邀请朋友注册，可获得<b>{yun:}$config.integral_invite_reg{/yun}</b>{yun:}$config.integral_pricename{/yun} </span> <span class="integral_cont_list_span_r"> <a href="{yun:}url m=invitereg{/yun}"
+							target="_blank" class="integral_cont_list_a">现在就邀请</a> </span> </li>
+        <li> <span class="integral_cont_list_span">每天第一次登录</span> <span class="integral_cont_list_span_c"> 每天第一次登录，可获得 <b>{yun:}$config.integral_login{/yun}</b>{yun:}$config.integral_pricename{/yun} </span> </li>
+        <li> <span class="integral_cont_list_span">认证电子邮箱</span> <span class="integral_cont_list_span_c"> 认证电子邮箱，可获得 <b>{yun:}$config.integral_emailcert{/yun}</b>{yun:}$config.integral_pricename{/yun} </span> <span class="integral_cont_list_span_r"> {yun:}if $statusList.emailChecked{/yun}
+          已验证
+          {yun:}else{/yun} <a href="index.php?c=binding" 
+								target="_blank"  class="integral_cont_list_a">邮箱认证</a> {yun:}/if{/yun} </span> </li>
+        <li> <span class="integral_cont_list_span">认证手机号码</span> <span class="integral_cont_list_span_c"> 认证手机号码，可获得 <b>{yun:}$config.integral_mobliecert{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"> {yun:}if $statusList.phoneChecked{/yun}
+          已验证
+          {yun:}else{/yun} <a href="index.php?c=binding" 
+							target="_blank"  class="integral_cont_list_a">手机验证</a> {yun:}/if{/yun} </span> </li>
+        <li> <span class="integral_cont_list_span">发布简历</span> <span class="integral_cont_list_span_c"> 发布简历，可获得 <b>{yun:}$config.integral_add_resume{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"><a href="index.php?c=expect" 
+					target="_blank" class="integral_cont_list_a">现在去发布</a></span> </li>
+        <li> <span class="integral_cont_list_span">上传身份验证</span> <span class="integral_cont_list_span_c"> 上传身份验证，可获得 <b>{yun:}$config.integral_identity{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"> {yun:}if $statusList.identification{/yun}
+          已验证
+          {yun:}else{/yun} <a href="index.php?c=binding" 
+							target="_blank"  class="integral_cont_list_a">现在去验证</a> {yun:}/if{/yun} </span> </li>
+        {yun:}if $config.integral_question_type==1{/yun}
+        <li> <span class="integral_cont_list_span">发布问题</span> <span class="integral_cont_list_span_c"> 发布问题，可获得 <b>{yun:}$config.integral_question{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"><a href="{yun:}url m=ask c=addquestion {/yun}" 
+					target="_blank"  class="integral_cont_list_a">发布问题</a></span> </li>
+        {yun:}/if{/yun}
+        {yun:}if $config.integral_answer_type==1{/yun}
+        <li> <span class="integral_cont_list_span">回答问题</span> <span class="integral_cont_list_span_c"> 回答问题，可获得 <b>{yun:}$config.integral_answer{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"><a href="{yun:}url m=ask {/yun}#last-question" 
+					target="_blank"  class="integral_cont_list_a">回答问题</a></span> </li>
+        {yun:}/if{/yun}
+        {yun:}if $config.integral_answerpl_type==1{/yun}
+        <li> <span class="integral_cont_list_span">评论回答</span> <span class="integral_cont_list_span_c"> 评论回答，可获得 <b>{yun:}$config.integral_answerpl{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"><a href="{yun:}url m=ask {/yun}#last-question" 
+					target="_blank"  class="integral_cont_list_a">评论回答</a></span> </li>
+        {yun:}/if{/yun}
+        {yun:}if $config.integral_friend_msg_type==1{/yun}
+        <li> <span class="integral_cont_list_span">朋友圈留言</span> <span class="integral_cont_list_span_c"> 朋友圈留言，可获得 <b>{yun:}$config.integral_friend_msg{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"><a href="{yun:}url m=friend {/yun}#friend-news" 
+					target="_blank" class="integral_cont_list_a">去留言</a></span> </li>
+        {yun:}/if{/yun}
+        {yun:}if $config.integral_friend_reply_type==1{/yun}
+        <li> <span class="integral_cont_list_span">朋友圈回复</span> <span class="integral_cont_list_span_c"> 朋友圈回复，可获得 <b>{yun:}$config.integral_friend_reply{/yun}</b>{yun:}$config.integral_pricename{/yun}</span> <span class="integral_cont_list_span_r"><a href="{yun:}url m=friend c=messagelist{/yun}" 
+					target="_blank"  class="integral_cont_list_a">去回复</a></span> </li>
+        {yun:}/if{/yun}
+      </ul>
+    </div>
+  </div>
+</div>
+{yun:}include file="$userstyle/footer.htm"{/yun}

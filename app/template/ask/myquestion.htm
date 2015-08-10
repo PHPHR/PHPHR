@@ -1,0 +1,41 @@
+{yun:}include file="$askstyle/header.htm"{/yun}  
+<div class="answer_con">
+	<div class="content con_answer"> 
+		<div class="content_hot ">
+			<div class="left left_con">
+				<div class="answer_list hot_list"> 
+					{yun:}include file="$askstyle/nav.htm"{/yun} 
+					<div class="wt_content">
+						<ul>
+							{yun:}qlist item=list uid='auto.uid' ispage=1 t_len=20  limit=10{/yun}
+							<li>
+								<p><a href="{yun:}$list.url{/yun}" target="_blank" title="{yun:}$list.title{/yun}">{yun:}$list.title{/yun}</a></p>
+								<div class="wt_jl">
+									{yun:}if $cookie.uid==$list.uid{/yun}
+									<span class="friend_delect" style="float:right"><a href="javascript:void(0)" onclick="layer_del('确定要删除该提问？','{yun:}url m=ask c=friend a=delask id=$list.id{/yun}')">删除</a></span>
+									{yun:}/if{/yun}<span class="gz_icon"><font>{yun:}$list.atnnum{/yun}</font>人关注</span>
+									<span class="hd_icon"><font>{yun:}$list.answer_num{/yun}</font>个回答</span>
+									<span class="ll_icon"><font>{yun:}$list.visit{/yun}</font>次浏览</span>
+									<span class="time_icon">{yun:}$list.add_time|date_format:"%Y-%m-%d %H:%M"{/yun}</span>
+									
+								</div>
+							</li>
+							{yun:}/qlist{/yun}   
+						</ul>
+						{yun:}if $total==0{/yun}
+                        <div class="noresult png">
+							 暂时没有提问。 <br>
+							{yun:}if $info.uid==$cookie.uid{/yun}<span><a href="{yun:}url m=ask c=addquestion{/yun}">抓紧提问吧!</a></span>{yun:}/if{/yun} 
+						</div>
+						{yun:}else{/yun} 
+						<div class="pages">{yun:}$pagenav{/yun}</div> 
+						{yun:}/if{/yun} 
+					</div>
+				</div>
+			</div>
+			{yun:}include file="$askstyle/right.htm"{/yun}
+		</div>
+	</div>
+</div>  
+<iframe id="supportiframe" name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+{yun:}include file="$askstyle/footer.htm"{/yun}   

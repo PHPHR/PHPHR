@@ -1,0 +1,33 @@
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+<section>
+  <div class="warp_content clear">
+    <form  action="{yun:}$config_wapdomain{/yun}/index.php" method="get">
+      <div class="formFiled ">
+        <input type="hidden" name="c" value="once" />
+        <input type="text" name="keyword" value="{yun:}$smarty.get.keyword{/yun}" class="input_search"  placeholder="请输入关键字" />
+        <input type="submit" value="搜索" class="input_btn">
+      </div>
+    </form>
+    {yun:}fast item=once ispage=1 limit=20 keyword='auto.keyword' islt=4 {/yun}
+    <div class="list_once_box"> <a href="{yun:}url m=wap c=once a=show id=$once.id{/yun}">
+      <div class="list_once_name">{yun:}$once.title{/yun}</div>
+      <div class="list_once_name_P">{yun:}$once.require|mb_substr:0:100:gbk{/yun}</div>
+      <div class="list_once_name_P"> 联系电话：{yun:}$once.phone{/yun}</div>
+      <div class="list_once_name_P"> 联&nbsp; 系&nbsp;人：{yun:}$once.linkman{/yun} </div>
+      </a> </div>
+    {yun:}/fast{/yun} 
+    {yun:}if $total<=0{/yun}
+    {yun:}if $smarty.get.keyword!="" {/yun}
+    <div class="wap_member_no">没有搜索到微招聘</div>
+    {yun:}else{/yun}
+    <div class="wap_member_no">暂无微招聘</div>
+    {yun:}/if{/yun}
+    {yun:}else{/yun}
+    <div class="pages">{yun:}$pagenav{/yun}</div>
+    {yun:}/if{/yun} </div>
+</section>
+<!--功能条 -->
+<div id="yun_cz" class="fn-dbox center">
+  <div id="resumeBtn" class="deep fn-dbox-flex fn-dbox-flex-flex1"> <a href="###" class="once_t_fb" onclick="location.href='{yun:}url m=wap c=once a=add{/yun}'"> <i class="fa fa-pencil-square-o"></i> 发布微招聘</a></div>
+</div>
+{yun:}include file="$wapstyle/footer.htm"{/yun}

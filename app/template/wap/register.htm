@@ -1,0 +1,114 @@
+{yun:}include file="$wapstyle/header_cont.htm"{/yun} 
+<script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js"></script> 
+<script>
+    function checkRegUsertype1(target_form) {
+        var username=target_form.username.value;
+	    if(username==""){ 
+			layermsg("用户名不能为空！");return false;
+	    }else if(username.length<2||username.length>16){
+			layermsg("用户名长度应在2-16位！");return false; 
+	    } 
+        var password = target_form.password.value;
+	    if(password==""){
+			layermsg("密码不能为空！");return false;  
+	    }else if(password.length<6||password.length>20){
+			layermsg("密码长度应在6-20位！");return false;   
+	    }
+	    post2ajax(target_form);
+	    return false;
+    }
+    function checkRegUsertype2(target_form) {
+        var username = target_form.username.value;
+        if (username == "") {
+			layermsg("用户名不能为空！");return false; 
+        } else if (username.length < 2 || username.length > 16) {
+			layermsg("用户名长度应在2-16位！");return false;  
+        } 
+        var password = target_form.password.value;
+        if (password == "") {
+			layermsg("密码不能为空！");return false;  
+        } else if (password.length < 6 || password.length > 20) {
+			layermsg("密码长度应在6-20位！");return false;   
+        }
+        post2ajax(target_form);
+        return false;
+    }
+</script>
+<section class="list">
+  <article>
+    <div class="regform">
+      <ul class="regtab">
+        <li class="yh_reg_tit_qh current">个人注册</li>
+        <li class="yh_reg_tit_qh">企业注册</li>
+      </ul>
+      <form method="post" action="{yun:}$config_wapdomain{/yun}/?c=register" onsubmit="return checkRegUsertype1(this);" style="display:none;">
+        <input name="usertype" type="hidden" value="1"/>
+        <dl class="forminputitem">
+          <dd>
+            <div class="c inputitem_w ico_email">
+              <input class="inputitemtxt"  placeholder="填写邮箱地址" name="email" id="email" type="text">
+            </div>
+          </dd>
+          <dd id="usernamewrap" style="display: block;">
+            <div class="c ico_name inputitem_w">
+              <input class="inputitemtxt" placeholder="填写用户名" name="username" id="username" type="text">
+            </div>
+          </dd>
+          <dd>
+            <div class="c ico_pwd2 inputitem_w">
+              <input class="inputitemtxt" onfocus="this.type='password'" placeholder="填写密码" name="password" id="password" type="text">
+              <em class="viewpwd" onclick="viewPwd2();"></em></div>
+          </dd>
+          <dd><span class="photochk" style="width:100%">
+            <input id="chkAgress" type="checkbox" name="chkAgress" checked="" class="inputChk">
+            <em style="width:100%">同意<a href="/reg/services/">人才网用户服务协议</a></em></span></dd>
+          <dd>
+            <input type="submit" name="submit" value="提交" class="inputSubmit">
+            <a id="reg_url_1" href="{yun:}url m=wap c=register usertype=1{/yun}" class="index_logoin_submit2"></a> <a id="reg_url_2" href="{yun:}url m=wap c=register usertype=2{/yun}" class="index_logoin_submit2" style="display:none"></a> </dd>
+        </dl>
+      </form>
+      <form method="post" action="" onsubmit="return checkRegUsertype2(this);" style="display:none;">
+        <input name="usertype" type="hidden" value="2"/>
+        <dl class="forminputitem">
+          <dd>
+            <div class="c inputitem_w ico_email">
+              <input class="inputitemtxt"  placeholder="填写邮箱地址" name="email" id="email" type="text">
+            </div>
+          </dd>
+          <dd id="usernamewrap" style="display: block;">
+            <div class="c ico_name inputitem_w">
+              <input class="inputitemtxt" placeholder="填写用户名" name="username" id="username" type="text">
+            </div>
+          </dd>
+          <dd>
+            <div class="c ico_pwd2 inputitem_w">
+              <input class="inputitemtxt" onfocus="this.type='password'" placeholder="填写密码" name="password" id="password" type="text">
+              <em class="viewpwd" onclick="viewPwd2();"></em></div>
+          </dd>
+          <dd><span class="photochk" style="width:100%">
+            <input id="chkAgress" type="checkbox" name="chkAgress" checked="" class="inputChk">
+            <em style="width:100%">同意<a href="/reg/services/">人才网用户服务协议</a></em></span></dd>
+          <dd>
+            <input type="submit" name="submit" value="提交" class="inputSubmit">
+          </dd>
+        </dl>
+      </form>
+    </div>
+  </article>
+</section>
+<script>
+	$(function(){
+		if('{yun:}$smarty.get.usertype{/yun}'=='2'){
+			$('form:eq(1)').show();
+		}else{
+			$('form:eq(0)').show();
+		}
+		$('.regtab').delegate('.yh_reg_tit_qh','click',function(){
+			$('.regtab .yh_reg_tit_qh').removeClass('current');
+			$(this).addClass('current');
+			$('form').hide();
+			$('form:eq('+$(this).index()+')').show();
+		});
+	});
+</script> 
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

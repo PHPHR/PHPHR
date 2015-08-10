@@ -1,0 +1,31 @@
+@charset "gb2312";
+/* CSS Document */
+
+/*µ¯³öµÇÂ½¿ò*/
+.logoin_tck{width:480px;height:250px; background:#fff; font-family:Î¢ÈíÑÅºÚ }
+input{ font-family:Î¢ÈíÑÅºÚ }
+.logoin_tck_left{width:300px; float:left;border-right:1px dashed #dbdbdb; margin-top:25px; padding-left:25px;}
+.logoin_tck_text{width:258px;height:38px;border:1px solid #d2d2d2;  float:left; overflow:hidden}
+.logoin_tck_text_icon{width:38px; display:inline-block;height:38px; background:#f5f5f5 url(../images/yun_logoin_tck_icon1.jpg) no-repeat center center; float:left;}
+.logoin_tck_text_icon_p{background:#f5f5f5 url(../images/yun_logoin_tck_icon2.jpg) no-repeat center center;}
+.logoin_tck_text_icon_y{background:#f5f5f5 url(../images/yun_logoin_tck_icon3.jpg) no-repeat center center;}
+.logoin_tck_text_t1{width:210px;height:36px; line-height:36px; float:left;color:#999;border:1px solid #fff;}
+.logoin_tck_p{width:258px; padding-top:15px; padding-bottom:15px; float:left}
+.logoin_tck_p_chek{width:13px;height:13px; overflow:hidden; vertical-align:middle; margin-right:5px;}
+.logoin_tck_fot{ float:right;color:#3767b0}
+.logoin_tck_fl{ float:left;color:#948989}
+.logoin_tck_bth_sub{width:258px;height:43px; background:#0180cf;border:none;color:#fff; font-size:16px; cursor:pointer}
+.logoin_tck_text_yzm{width:130px;}
+.logoin_tck_text_yzm_r{width:; float:left; margin-top:20px;}
+.logoin_tck_right{width:120px; float:left; margin-top:35px; padding-left:20px; font-size:14px;color:#a09797}
+.logoin_tck_reg{ padding-top:10px; padding-bottom:20px;}
+.logoin_tck_reg a{width:80px;height:28px; line-height:28px; text-align:center; background:#7aa822; display:block;color:#fff; margin-top:20px;}
+.logoin_tck_reg a:hover{ background:#648f11;color:#fff; text-decoration:none}
+.logoin_tck_other{ margin-top:30px;}
+.logoin_tck_other_img{ margin-top:13px;}
+.logoin_tck_other_img a{ display:inline-block;width:35px;height:35px;border:1px solid #ddd;border-radius:50%; text-align:center; margin-right:5px;}
+.logoin_tck_other_img a:hover{border:1px solid #0180cf}
+.logoin_tck_other_img .logoin_tck_other_wx:hover{border:1px solid #39bd04}
+.logoin_tck_other_img .logoin_tck_other_xl:hover{border:1px solid #e5480a}
+.logoin_tck_other_img img{ margin-top:8px;}
+.Pop-up_logoin_list{width:100%; float:left; margin-top:20px;}

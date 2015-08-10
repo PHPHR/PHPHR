@@ -1,0 +1,17 @@
+<?php 
+define("UC_CONNECT","mysql"); 
+define("UC_DBHOST","localhost"); 
+define("UC_DBUSER","root"); 
+define("UC_DBPW",""); 
+define("UC_DBNAME","discuz"); 
+define("UC_DBCHARSET","gbk"); 
+define("UC_DBTABLEPRE","`discuz`.pre_ucenter_"); 
+define("UC_DBCONNECT","0"); 
+define("UC_KEY","asasdasdasd"); 
+define("UC_API","http://localhost/discuz/uc_server"); 
+define("UC_CHARSET","gbk"); 
+define("UC_IP",""); 
+define("UC_APPID","2"); 
+define("UC_APP","20"); 
+define("pytoken","0945e861cff0"); 
+$ucinfo=array("UC_CONNECT"=>"mysql","UC_DBHOST"=>"localhost","UC_DBUSER"=>"root","UC_DBPW"=>"","UC_DBNAME"=>"discuz","UC_DBCHARSET"=>"gbk","UC_DBTABLEPRE"=>"`discuz`.pre_ucenter_","UC_DBCONNECT"=>"0","UC_KEY"=>"asasdasdasd","UC_API"=>"http://localhost/discuz/uc_server","UC_CHARSET"=>"gbk","UC_IP"=>"","UC_APPID"=>"2","UC_APP"=>"20","pytoken"=>"0945e861cff0"); 

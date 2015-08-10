@@ -1,0 +1,94 @@
+{yun:}include file="$friendstyle/header.htm"{/yun}
+<div class="Personals_content">
+<div class="py_cont">
+{yun:}include file="$friendstyle/left2.htm"{/yun}
+    <div class="Personals_cont_photo ">
+      <div class="talk-box">
+        <div class="mess_title"> <span>我的留言板</span> </div> 
+        
+      </div>
+      <div class="clear"></div>
+        {yun:}foreach from=$mlist item=row{/yun}
+        <div class="Personals_cont_dy  news_main_list">
+          <div class="Personals_cont_tx"><img src="{yun:}if $row.fid==$cookie.uid{/yun}{yun:}$row.pic{/yun}{yun:}else{/yun}{yun:}$row.fpic{/yun}{yun:}/if{/yun}" width="40" height="50" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/></div>
+          <div class="Personals_cont_dy_r">
+            <div class="Personals_cont_dy_name"> 
+			{yun:}if $row.fid==$cookie.uid{/yun} 
+			<a style="float:left;" href="{yun:}url m=ask c=friend uid='`$row.uid`'{/yun}" title="{yun:}$row.nickname{/yun}" target="_blank">{yun:}$row.nickname{/yun}</a>
+			{yun:}else{/yun}
+			<span style="float:left;">给<a  target="_blank" href="{yun:}url m=ask c=friend uid='`$row.fid`'{/yun}" title="{yun:}$row.fname{/yun}">{yun:}$row.fname{/yun}</a>的留言</span>
+			{yun:}/if{/yun}
+            <span style="float:right;padding-right:16px; color:#336699"> 
+			{yun:}if $row.fid==$cookie.uid{/yun}
+			<a onclick="reply_msg('{yun:}$row.id{/yun}','{yun:}$row.uid{/yun}','{yun:}$row.nickname{/yun}');" href="javascript:void(0)" title="回复">回复</a>
+			{yun:}/if{/yun}
+			<a class="del" href="javascript:void(0)" onclick="layer_del('确定要删除该留言？', '{yun:}url m=friend c=del id=$row.id{/yun}');" title="删除">删除</a> 
+            </span>
+			
+            </div>
+            <div class="Personals_cont_dy_ss" style="width:100%; float:left">
+            {yun:}$row.content{/yun}
+            </div>
+            <div class="Personals_cont_dy_cz"><span class="messagetime" style="color:#999; float:left">{yun:}$row.ctime{/yun}</span></div>
+				<div id="msg_{yun:}$row.id{/yun}">
+				{yun:}if $row.reply{/yun} 
+					{yun:}foreach from=$row.reply key=key item=reply{/yun}
+					<div id="commentlist_{yun:}$reply.id{/yun}" {yun:}if $key>=4{/yun} name="hide_{yun:}$row.id{/yun}" style="display:none"{yun:}/if{/yun}> 
+						<div class="Personals_cont_dy_pl">
+						  <div class="Personals_cont_dy_pl_tx">
+							<img src="{yun:}$reply.pic{/yun}" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"></div>
+						  <div class="Personals_cont_dy_pl_user">
+							<div class="Personals_cont_dy_pl_user_n"><a href="{yun:}$reply.r_url{/yun}">{yun:}$reply.u_name{/yun}</a> 回复 {yun:}$reply.f_name{/yun}: {yun:}$reply.content{/yun}</div>
+							<div class="Personals_cont_dy_pl_user_m">
+							<span style="float:left;width:200px; display:inline-block">{yun:}$reply.r_ctime{/yun}</span>
+							{yun:}if $reply.fid==$cookie.uid{/yun}
+							<span style="float:right"><a href="javascript:void(0);" onclick="reply_msg('{yun:}$row.id{/yun}','{yun:}$reply.uid{/yun}','{yun:}$reply.u_name{/yun}');">回复</a></span>
+							{yun:}/if{/yun}
+							</div>
+						  </div>
+						</div> 
+					</div>
+					{yun:}/foreach{/yun} 
+					{yun:}if $row.num>5{/yun}
+					<div style="float:left;margin-top:5px"><a href="javascript:void(0);" onclick="get_allmsg('{yun:}$row.id{/yun}');" id='click_{yun:}$row.id{/yun}'>查看全部评论</a></div>
+					{yun:}/if{/yun}	
+					{yun:}/if{/yun}	
+				</div>
+			
+				<div class="Personals_cont_dy_pl" style="display:none;" id="comment_{yun:}$row.id{/yun}" onblur="onblur_reply('{yun:}$row.id{/yun}')">
+					<div class="Personals_cont_dy_pl_tx"> 
+						<img src="{yun:}$member.pic{/yun}" width="32" height="40" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"/> 
+					</div>
+					<div class="Personals_cont_dy_pl_user" >
+						<div class="pf-bd textinput">
+							<textarea class="pl_textarea"  value="评论..." id="reply_{yun:}$row.id{/yun}"  onKeyUp="checkLength('66',{yun:}$row.id{/yun});" maxlength="66"></textarea>
+						</div>
+						<div class="Personals_fb">
+							<span>已输入 
+								<span id="colornum_{yun:}$row.id{/yun}">0</span>/66字
+							</span>
+							<input id="fid" value="" type="hidden"/>
+							<input id="f_name" value="" type="hidden"/>
+							<a href="javascript:;" onclick="reply_dynamic('{yun:}$row.id{/yun}','{yun:}$nid{/yun}','{yun:}$member.pic{/yun}','{yun:}$member.uid{/yun}','{yun:}$member.nickname{/yun}');" style="color:#ffffff;">回复</a>
+						</div>
+					</div>
+				</div>
+			   
+          </div>
+        </div>
+        {yun:}foreachelse{/yun}
+        <div class="friend_nocon">暂无留言！</div>
+		{yun:}/foreach{/yun}   
+		<div class="clear"></div>
+		<div class="pages">{yun:}$pagenav{/yun}</div> 
+    </div>
+    {yun:}include file="$friendstyle/right.htm"{/yun}
+  </div>
+</div>
+<script>
+var posturl="{yun:}url m=friend c=reply{/yun}";
+var friendurl="{yun:}url m=ask c=friend uid=$cookie.uid{/yun}";
+var errorimg="{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}";
+</script> 
+<input type="hidden" value="{yun:}$member.uid{/yun}" id="myuid"/>
+{yun:}include file="$friendstyle/footer.htm"{/yun}

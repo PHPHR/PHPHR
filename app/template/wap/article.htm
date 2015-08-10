@@ -1,0 +1,16 @@
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+<section>
+  <div class="warp_content clear" style=" padding-top:0px;"> {yun:}article nid='@nid' ispage=1 limit=20 islt=4  t_len=12 item=news{/yun}
+    <div class="news_list_box"> <a href="{yun:}url m=wap c=article a=show id=$news.id{/yun}"  class="index_post_list_b">
+      <h3>{yun:}$news.title{/yun}</h3>
+      <div class="">{yun:}$news.description{/yun}</div>
+      <i>{yun:}$news.time{/yun}</i> </a> </div>
+    {yun:}/article{/yun}
+   
+  </div>
+  
+      <div class="pages">{yun:}$pagenav{/yun}</div>
+</section>
+<div>
+
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

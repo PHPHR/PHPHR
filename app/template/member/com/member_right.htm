@@ -1,0 +1,37 @@
+{yun:}include file="$comstyle/header.htm"{/yun}
+<div class="w1000">
+<div class="admin_mainbody">
+{yun:}include file="$comstyle/left.htm"{/yun}
+<div class=right_box>
+<div class=admincont_box>
+<div class="com_tit">
+<span class="com_tit_span">会员特权</span>
+<div id="grow_freedom" class="grow_mod_wrap my_freedom" style="padding:10px;border:none;width:785px;; float:left">
+<iframe id="fdingdan"  name="fdingdan" onload="returnmessage('fdingdan');" style="display:none"></iframe>
+<div class="com_tit_h1">橙色为当前会员模式</div>
+<div class="added_cont"id="vip_funtion" > 
+{yun:}foreach from=$rows item=v{/yun}
+  <div class="added_tq_list {yun:}if $v.id==$statis.rating{/yun}added_list_org_list{yun:}/if{/yun}">
+    <div class="added_list_l_box"> 
+    <div class="added_list_name">{yun:}$v.name{/yun}</div>
+    <div class="added_list_money">{yun:}$v.service_price{/yun}元/{yun:}if $v.service_time>0{/yun}{yun:}$v.service_time{/yun}天{yun:}else{/yun}永久{yun:}/if{/yun}</div>
+   <div class="added_list_l_bth"> 
+   <form name="alipayment" target="fdingdan" action="index.php?c=pay&act=dingdan" method="post" id='myform{yun:}$v.id{/yun}' >
+        <input type="hidden" value="{yun:}$v.id{/yun}" name="comvip" />
+		<a href="javascript:buyvip('{yun:}$v.id{/yun}');" class="added_list_gm">申请购买>></a>
+      </form>
+	  </div> 
+    </div>
+  <div class="added_list_p"> {yun:}$v.content{/yun}<div class=""><span class="added_list_r_span">说明：</span>{yun:}$v.explains{/yun}</div></div>
+      
+  </div>
+{yun:}/foreach{/yun}
+
+</div></div></div></div></div></div>
+<script>
+function buyvip(id){
+	setTimeout(function(){$('#myform'+id).submit();},0);
+	
+}
+</script>
+{yun:}include file="$comstyle/footer.htm"{/yun}

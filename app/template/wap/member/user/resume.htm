@@ -1,0 +1,56 @@
+{yun:}include file="$wapstyle/member/header.htm"{/yun} 
+ <div class="wap_member_comp_h1"><span>我的简历</span></div>
+<script>
+function checkdef(eid){
+	$.post("index.php?c=resume",{type:"def_job",eid:eid},function(data){ 
+	})
+}
+</script>
+<div class="rsm_box" style="padding:0px 10px 10px ;">
+{yun:}foreach item=resume from=$rows{/yun}
+<div class="rsm_list">
+<div class="rsm_top">
+<a href="{yun:}url m=wap c=resume a=show id=$resume.id{/yun}">
+<div class="rsm_name">{yun:}$resume.name{/yun}</div>
+<div class=""><span class="rsm_name_s">刷新：</span>{yun:}$resume.lastupdate|date_format:'%Y-%m-%d'{/yun}   
+<span class="rsm_name_s rsm_name_s_l">被浏览：</span>{yun:}$resume.hits{/yun}
+</div>
+</a>
+</div>
+<div class="rsm_cz">
+<dl onclick="layer_del('','index.php?c=resumeset&update={yun:}$resume.id{/yun}');">
+<dt><i class="rsg_cion fa fa-refresh"></i></dt>
+<dd>刷新</dd> 
+</dl>
+<dl>
+
+<a href="index.php?c=modify&eid={yun:}$resume.id{/yun}" class="wap_member_msg_jl_sc"><dt><i class="rsg_cion fa fa-pencil-square-o"></i></dt>
+<dd>修改</dd></a>
+</dl>
+
+<dl onclick="layer_del('','index.php?c=resumeset&def={yun:}$resume.id{/yun}');">
+<dt><i class="rsg_cion {yun:}if $resume.defaults{/yun}rsg_cion_mr{yun:}/if{/yun} fa fa-check-square-o"></i></dt>
+<dd>默认简历</dd>
+</dl>
+<!--<dl>
+<dt><i class="rsg_cion fa fa-eye {yun:}if $resume.open{/yun}rsg_cion_mr{yun:}/if{/yun}"></i></dt>
+<dd>{yun:}if $resume.open{/yun}公开{yun:}else{/yun}隐藏{yun:}/if{/yun}</dd>
+<div class="rfop"> 
+    <select>
+		<option onclick="layer_del('','index.php?c=resumeset&open={yun:}$resume.id{/yun}&type=1');">公开</option>
+        <option onclick="layer_del('','index.php?c=resumeset&open={yun:}$resume.id{/yun}');">隐藏</option>
+    </select> 
+</div>
+</dl>-->
+<dl onclick="layer_del('确定要删除？','index.php?c=resumeset&del={yun:}$resume.id{/yun}');">
+<dt><i class="rsg_cion fa fa-trash-o"></i></dt>
+<dd>删除</dd>
+</dl>
+</div>
+</div>
+{yun:}/foreach{/yun} 
+<div class="mt10"><a href="index.php?c=addresume" class="rsm_cj">创建简历</a></div>
+</div>
+</div>
+
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

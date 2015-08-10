@@ -1,0 +1,78 @@
+{yun:}include file="$comstyle/header.htm"{/yun}
+<div class="w1000">
+  <div class="admin_mainbody"> 
+  {yun:}include file="$comstyle/left.htm"{/yun}
+    <div class=right_box>
+      <div class=admincont_box >
+        <div class="com_tit"><span class="com_tit_span">站内信列表</span></div>  
+         <div class="com_body"> 
+		<iframe id="supportiframe"  name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+        <div class=admin_note2>
+		<div class="clear"></div> 
+        
+          {yun:}if $rows{/yun}
+          <div class="job_news_list job_news_list_h1"> 
+                 <span class="job_news_list_span job_w190" style="text-align:left; padding-left:10px;">发送人</span> 
+                 <span class="job_news_list_span job_w190">收件人</span> 
+                <span class="job_news_list_span job_w120">时间</span> 
+                  <span class="job_news_list_span job_w120">状态</span> 
+                <span class="job_news_list_span job_w60" style="text-align:center">操作</span> 
+                </div>
+           
+            {yun:}/if{/yun}
+             <div style="clear:both"></div>
+            {yun:}foreach from=$rows item=all{/yun}
+            
+            <div class="job_news_list"> 
+                  <span class="job_news_list_span job_w190" style="text-align:left; padding-left:10px;">{yun:}$all.nickname{/yun}</span>
+                  <span class="job_news_list_span job_w190">{yun:}$all.name{/yun}</span>  
+                   <span class="job_news_list_span job_w120">{yun:}$all.ctime|date_format:'%Y-%m-%d'{/yun}-{yun:}$all.ctime|date_format:'%H:%M'{/yun}</span> 
+				   <span class="job_news_list_span job_w120">{yun:}if $all.uid==$ownuid{/yun}--{yun:}else{/yun}<span onclick="comreply('{yun:}$all.uid{/yun}','{yun:}$all.content{/yun}','{yun:}$all.id{/yun}');" style="cursor:pointer">未回复<font color="#CC3300">【回复】</font></span>{yun:}/if{/yun}</span> 
+                   <span class="job_news_list_span job_w60" style="text-align:center"> {yun:}if $all.uid==$ownuid{/yun}<a href="javascript:void(0)"  onclick="layer_del('您确定要删除？', 'index.php?c=xin&act=del&id={yun:}$all.id{/yun}'); " class="cblue">删除</a>{yun:}else{/yun}<a href="javascript:void(0)" onclick="layer_del('您确定要删除？', 'index.php?c=xin&act=del&did={yun:}$all.id{/yun}'); " class="cblue">删除</a>{yun:}/if{/yun}</span>
+                   <div class="job_news_list_xin_bot"><span class="job_news_list_xin_span">内容：</span>{yun:}$all.content{/yun}</div>
+                   </div> 
+            {yun:}foreachelse{/yun}
+            <div class="msg_no">暂无站内信！</div>
+           {yun:}/foreach{/yun}
+          </table>  <div style="clear:both"></div>
+          <div class="diggg">{yun:}$pagenav{/yun}</div> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="status_div"  style="display:none; width: 440px; ">  
+	<div id="infobox">   
+	  <form action="index.php?c=xin&act=save" target="supportiframe" method="post" id="formstatus" onsubmit="return check_xin();"> 
+		 <div class="admin_Operating_sh" style="padding:10px">
+		<div class="admin_Operating_sh_h1" style=" padding: 5px;">站内信内容：<span></span></div>
+		<div class="admin_Operating_sh_sm">我的回复：</div>
+		<div><textarea id="content" name="content" class="admin_Operating_text"></textarea></div>
+		<div class="admin_Operating_sub" style="margin-top:10px;"> <input type="submit"  name='submit' value='确认' class="submit_btn">
+		  &nbsp;&nbsp;<input type="button" id="zxxCancelBtn" onClick="layer.closeAll();" class="cancel_btn" value='取消'></div>
+		</div>  
+		<input name="fid" value="0" id='fid' type="hidden"> 
+		<input name="pid" value="0" id='pid' type="hidden"> 
+	  </form>
+	</div> 
+</div> 
+<script>  
+function comreply(uid,content,pid){  
+	$(".admin_Operating_sh_h1 span").html(content);
+	$("#fid").val(uid);
+	$("#pid").val(pid);
+	$.layer({
+		type : 1,
+		title :'回复站内信',
+		closeBtn : [0 , true],
+		border : [10 , 0.3 , '#000', true],
+		area : ['460px','230px'],
+		page : {dom :"#status_div"}
+	}); 
+	
+} 
+function check_xin(){
+	if($("#content").val()==""){layer.msg('回复内容不能为空！', 2, 2);return false; }	 
+}
+</script> 
+{yun:}include file="$comstyle/footer.htm"{/yun}  

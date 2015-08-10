@@ -1,0 +1,37 @@
+{yun:}include file="$askstyle/header.htm"{/yun}  
+<div class="answer_con">
+	<div class="content con_answer"> 
+		<div class="content_hot ">
+			<div class="left left_con">
+				<div class="answer_list hot_list">
+					{yun:}include file="$askstyle/nav.htm"{/yun}  
+                    <div class="ask_anwser fl">
+					{yun:}foreach from=$rows item=qlist{/yun}
+                    <div class="ask_anwser_items  ask_anwser_border fl">
+						<div class="ask_anwser_title fl"><a href="{yun:}url m=ask c=content id='`$qlist.id`'{/yun}" target="_blank">{yun:}$qlist.title{/yun}</a></div>
+						<div class="wt_jl">
+							<span class="gz_icon"><font>{yun:}$qlist.atnnum{/yun}</font>人关注</span>
+							<span class="hd_icon"><font>{yun:}$qlist.answer_num{/yun}</font>个回答</span> 
+							<span class="ll_icon"><font>{yun:}$qlist.visit{/yun}</font>次浏览</span>
+							<span>{yun:}$qlist.add_time|date_format:"%Y-%m-%d %H:%M"{/yun}</span>
+							{yun:}if $cookie.uid==$info.uid{/yun}
+							<span class="friend_delect"><a href="javascript:void(0)" onclick="layer_del('确定要删除该关注？','{yun:}url m=ask c=friend a=attention id=$qlist.id{/yun}')">删除</a></span>
+							{yun:}/if{/yun} 
+						</div>
+					</div>
+					{yun:}foreachelse{/yun} 
+					<div class="noresult" style="width:475px;">暂无关注问题！</div> 
+					{yun:}/foreach{/yun} 
+                    </div>
+                    <!--回答结束-->
+					<div class="clear"></div>
+					<div class="pages">{yun:}$pagenav{/yun}</div>
+				</div>
+			</div>
+			{yun:}include file="$askstyle/right.htm"{/yun}
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<iframe id="supportiframe" name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+{yun:}include file="$askstyle/footer.htm"{/yun}   

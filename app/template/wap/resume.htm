@@ -1,0 +1,152 @@
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+ <script src="{yun:}$config.sy_weburl{/yun}/app/template/wap/js/search.js" language="javascript"></script>
+<section>
+  <div class="searchOptions clearfix">
+    <ul class="searchOptions_list">
+      <li onclick="checkshowjob('city');"><a href="javascript:void(0);" class="searchOptions_list_a">{yun:}if $city_name[$smarty.get.cityid] || $city_name[$smarty.get.provinceid]{/yun}{yun:}$city_name[$smarty.get.cityid]{/yun}{yun:}$city_name[$smarty.get.provinceid]{/yun}{yun:}else{/yun}区域{yun:}/if{/yun}<i class="searchOptions_icon fa fa-caret-down"></i></a></li>
+      <li onclick="checkshowjob('job');"><a href="javascript:void(0);" class="searchOptions_list_a">{yun:}if $jobname{/yun}{yun:}$jobname{/yun}{yun:}else{/yun}意向{yun:}/if{/yun}<i class="searchOptions_icon fa fa-caret-down"></i></a></li>
+      <li onclick="show_div('open')"><a href="javascript:void(0);" class="searchOptions_list_a">{yun:}if $userclass_name[$smarty.get.exp]{/yun}{yun:}$userclass_name[$smarty.get.exp]{/yun}{yun:}else{/yun}经验{yun:}/if{/yun}<i class="searchOptions_icon fa fa-caret-down"></i></a></li>
+      <li onclick="show_div('open2')" style="border:none"><a href="javascript:void(0);" class="searchOptions_list_a">更多<i class="searchOptions_icon fa fa-caret-down"></i></a></li>
+      <input type="hidden" id="searchurl" value="{yun:}$searchurl{/yun}" />
+      <input type="hidden" id="waptype" value="1" />
+    </ul>
+
+
+    <!--薪资弹出框-->
+    <div class="job_pop_box openlist" id="open">
+      <ul class="job_pop_pay_list">
+        {yun:}foreach from=$userdata.user_word item=v{/yun}
+        <li><a href="{yun:}searchurl m=wap c=resume exp=$v untype='exp'{/yun}">{yun:}$userclass_name[$v]{/yun}</a></li>
+        {yun:}/foreach{/yun}
+      </ul>
+    </div>
+    <!--更多弹出框-->
+    <div class="job_pop_more openlist" id="open2">
+      <form method="get" action="">
+        <input type="hidden" name="c" value="resume" />
+        {yun:}if $smarty.get.jobin{/yun}<input type="hidden" name="jobin" value="{yun:}$smarty.get.jobin{/yun}" />{yun:}/if{/yun}
+        {yun:}if $smarty.get.cityid{/yun}<input type="hidden" name="cityid" value="{yun:}$smarty.get.cityid{/yun}" />{yun:}/if{/yun}
+        {yun:}if $smarty.get.provinceid{/yun}<input type="hidden" name="provinceid" value="{yun:}$smarty.get.provinceid{/yun}" />{yun:}/if{/yun}
+        {yun:}if $smarty.get.salary{/yun}<input type="hidden" name="salary" value="{yun:}$smarty.get.salary{/yun}" />{yun:}/if{/yun}
+        <div class="com_search_box">
+        <div class="com_search_box_cont">
+          <div class="com_search_box_list">
+            <div class="com_search_box_left"> 行业类别 </div>
+            <div class="com_search_box_right">
+              <div class="selectOption" style="width: 100%">
+                <select name="hy">
+                  <option value="">行业类别</option>                          
+				{yun:}foreach from=$industry_index item=v{/yun}				
+                  <option value="{yun:}$v{/yun}" {yun:}if $smarty.get.hy==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$industry_name[$v]{/yun}</option>
+                 {yun:}/foreach{/yun} 			  
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="com_search_box_list">
+            <div class="com_search_box_left"> 薪资待遇</div>
+            <div class="com_search_box_right">
+              <div class="selectOption" style="width: 100%">
+                <select name="salary" id='salary'>
+                  <option value="">薪资待遇</option>                 
+					{yun:}foreach from=$userdata.user_salary item=v{/yun}					
+                  <option value="{yun:}$v{/yun}" {yun:}if $smarty.get.salary==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$userclass_name[$v]{/yun}</option>                
+					{yun:}/foreach{/yun}				
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="com_search_box_list">
+            <div class="com_search_box_left"> 学历要求</div>
+            <div class="com_search_box_right">
+              <div class="selectOption" style="width: 100%">
+                <select name="edu" id='edu'>
+                  <option value="">学历要求</option>                  
+				{yun:}foreach from=$userdata.user_edu item=edu{/yun}				
+                  <option value="{yun:}$edu{/yun}" {yun:}if $smarty.get.edu==$edu{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$userclass_name[$edu]{/yun}</option>                  
+				{yun:}/foreach{/yun} 		    
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="com_search_box_list">
+            <div class="com_search_box_left"> 工作性质 </div>
+            <div class="com_search_box_right">
+              <div class="selectOption" style="width: 100%">
+                <select name="type" id='type'>
+                  <option value=""> 工作性质</option>
+				{yun:}foreach from=$userdata.user_type item=type{/yun}
+                  <option value="{yun:}$type{/yun}" {yun:}if $smarty.get.type==$type{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$userclass_name[$type]{/yun}</option>
+				{yun:}/foreach{/yun} 
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="com_search_box_list">
+            <div class="com_search_box_left"> 到岗时间 </div>
+            <div class="com_search_box_right">
+              <div class="selectOption" style="width: 100%">
+                <select name="report" id='report'>
+                  <option value=""> 到岗时间</option>
+				{yun:}foreach from=$userdata.user_report item=v{/yun}
+                  <option value="{yun:}$v{/yun}" {yun:}if $smarty.get.report==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$userclass_name[$v]{/yun}</option>
+				{yun:}/foreach{/yun} 
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="com_search_box_list">
+            <div class="com_search_box_left"> 更新日期</div>
+            <div class="com_search_box_right">
+              <div class="selectOption" style="width: 100%">
+                <select name="uptime" id='uptime'>
+                  <option value="">更新日期</option>
+				{yun:}foreach from=$uptime key=key item=v{/yun}
+                  <option value="{yun:}$key{/yun}" {yun:}if $smarty.get.uptime==$key{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$v{/yun}</option>
+				{yun:}/foreach{/yun} 
+                </select>
+              </div>
+            </div>
+          </div>
+          <input type="submit" value="搜索"class="seach_post_sub" />
+        </div>
+      </form>
+    </div>
+  </div>
+  <!--更多end-->
+  
+  </div>
+</section>
+<section>
+  <div class="warp_content clear">
+    <form method="get" action="{yun:}$config_wapdomain{/yun}/index.php">
+      <input type="hidden" name="c" value="resume" />
+      <div class="formFiled">
+          <input type="text" value="{yun:}$smarty.get.keyword{/yun}" name="keyword" class="input_search" placeholder="请输入关键字">
+        <input type="submit" value="搜索" class="input_btn">
+      </div>
+    </form>
+  <div class="job_list_content"> {yun:}userlist limit=20 edu='auto.edu' exp='auto.exp' sex='auto.sex' uptime='auto.uptime' keyword='auto.keyword' hy='auto.hy' report='auto.report' provinceid='auto.provinceid' cityid='auto.cityid' jobin='auto.jobin' order=topdate post_len=14 ispage=1 islt=4 item=user{/yun}
+    <div class="user_list_cont"> <a href="{yun:}url m=wap c=resume a=show id=$user.id{/yun}" class="user_list_b">
+      <div class="user_list">
+        <aside class="user_tj_photo"> {yun:}if $user.photo!=""{/yun} <img src="{yun:}$config.sy_weburl{/yun}/{yun:}$user.photo{/yun}"> {yun:}else{/yun} <img src="{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_member_icon{/yun}"> {yun:}/if{/yun} </aside>
+        <h3><span class="c288">{yun:}$user.username_n{/yun}</span><em class="user_xinx"><span class="user_line">/</span>{yun:}$user.sex_n{/yun}<span class="user_line">/</span>{yun:}if $user.age==0{/yun}保密{yun:}else{/yun}{yun:}$user.age{/yun}岁{yun:}/if{/yun}</em></h3>
+        <aside class="user_list_p"> <em class="user_p_p1"><i class="user_map fa fa-map-marker"></i><span class="user_city_n">{yun:}$user.job_city_one{/yun}-{yun:}$user.job_city_two{/yun}</span></em> <em class="user_p_ov"><span class="user_list_n">意向：</span><span class="
+user_list_yx_w">{yun:}$user.job_post_n{/yun}</span></em> </aside>
+        <aside class="user_list_p"> <em class="user_p_p1"><i class="user_map fa fa-usd"></i><span class="cf60">{yun:}$user.salary_n{/yun}</span> </em> <span class="user_list_n">经验：</span><span class="user_list_yx_w">{yun:}$user.exp_n{/yun}</span> </aside>
+        {yun:}if $user.topdate>time(){/yun}<i class="user_icon_zd">置顶</i> {yun:}/if{/yun}</div>
+      </a> </div>
+    {yun:}/userlist{/yun} </div>
+  {yun:}if $total<=0{/yun}
+  {yun:}if $smarty.get.keyword!="" {/yun}
+  <div class="wap_member_no">没有搜索到人才</div>
+  {yun:}else{/yun}
+  <div class="wap_member_no">暂无人才</div>
+  {yun:}/if{/yun}
+  {yun:}else{/yun} 
+  <div class="pages">{yun:}$pagenav{/yun}</div> 
+  {yun:}/if{/yun} </div>
+</div>
+<link rel="stylesheet" href="{yun:}$config.sy_weburl{/yun}/app/template/wap/css/wap_tck.css" type="text/css">
+{yun:}include file="$wapstyle/public.htm"{/yun}
+{yun:}include file="$wapstyle/footer.htm"{/yun}

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>{yun:}$title{/yun}</title>
+<META name="keywords" content="{yun:}$keywords{/yun}">
+<META name="description" content="{yun:}$description{/yun}">
+<link rel="stylesheet" href="{yun:}$style{/yun}/style/css.css" type="text/css">
+<!--[if IE 6]>
+<script src="{yun:}$config.sy_weburl{/yun}/js/png.js"></script>
+<script>
+DD_belatedPNG.fix('.png');
+</script>
+<![endif]--> 
+<script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/layer/layer.min.js" language="javascript"></script>
+<script src="{yun:}$config.sy_weburl{/yun}/js/public.js" language="javascript"></script>
+<link rel="stylesheet" href="{yun:}$style{/yun}/style/evaluate.css" type="text/css">
+</head>
+<body>
+<!--头部导航-->
+{yun:}include file="$tplstyle/header.htm"{/yun}
+
+<div class="yun_body">
+<div class="yun_content">
+	  <div class="current_Location icon "><div class="fl">您当前的位置：<a href="{yun:}$config.sy_weburl{/yun}">首页</a> > 测评</div></div>
+      <div class="more_list_box">
+       <div class="more_list_box_cont">
+       <div class="more_list_box_h1"><span class="more_list_box_span">趣味测试分类</span></div>
+        <div class="more_list_box_content">
+          <div class="more_list_box_content_box">
+       <div class="more_list_box_left">
+       
+        {yun:}foreach from=$group item=v{/yun}
+        	{yun:}if $gid==$v.id{/yun}
+            	<a href="{yun:}url m=evaluate c=morelist gid=$v.id{/yun}" class="more_list_box_a" style="background:#fff url({yun:}$style{/yun}/images/map_icon_job.png) no-repeat 10px 8px; font-weight:bold">{yun:}$v.name{/yun}</a>
+            {yun:}else{/yun}
+            	<a href="{yun:}url m=evaluate c=morelist gid=$v.id{/yun}" class="more_list_box_a">{yun:}$v.name{/yun}</a>     
+            {yun:}/if{/yun}        
+			   
+        {yun:}foreachelse{/yun}
+        	<font color="red" >目前没有分类</font>
+        {yun:}/foreach{/yun}
+       
+       </div>
+        <div class="more_list_box_right">
+         <ul>
+			{yun:}foreach from=$rows item=v{/yun}
+				<li>
+				<a href="{yun:}url m=evaluate c=exampaper titleid=$v.id gid=$v.keyid{/yun}" title="{yun:}$v.name{/yun}">{yun:}$v.name{/yun}</a>
+				<span style="color: red; margin-left: 0px;">热度{yun:}$v.visits{/yun}</span></li>
+			{yun:}foreachelse{/yun}
+			<div class="more_list_box_no"><font color="red" >目前没有测评试卷</font></div>
+			{yun:}/foreach{/yun}
+        </ul>
+          </div>
+         </div>
+		 <div class="clear"></div>
+		 <div class="pages"> {yun:}$pagenav{/yun}</div>
+       </div> 
+       </div> 
+</div>
+</div>
+{yun:}include file="$tplstyle/footer.htm"{/yun}

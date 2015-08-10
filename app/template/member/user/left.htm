@@ -1,0 +1,108 @@
+<script>
+    $(document).ready(function () {
+        $(".left_sidebar_icon").click(function () {
+            var aid = $(this).attr("aid");
+            var style = $("#leftlist" + aid).attr("style");
+            if ($(this).hasClass("left_sidebar_icon")) {
+                $(this).parent().prev().find('li.overflow').show();
+                $(this).attr("class", "left_sidebar_icon1");
+                $(this).parent().prev().prev().height($(this).parent().prev().find('ul li').length * 30);
+            } else {
+                $(this).parent().prev().find('li.overflow').hide();
+                $(this).attr("class", "left_sidebar_icon");
+                $(this).parent().prev().prev().height(($(this).parent().prev().find('ul li').length - $(this).parent().prev().find('ul li.overflow').length) * 30);
+            }
+        })
+    });
+</script>
+
+<div class="left_sidebar">
+  <div class="left_sidebar_list_box {yun:}if $smarty.get.c==" "{/yun}left_sidebar_list_box_cur{yun:}/if{/yun}">
+    <div class="left_sidebar_h1 left_sidebar_h1_ie6"><span class="left_sidebar_h1_span left_sidebar_h1_span_icon4">&nbsp;</span></div>
+    <div class="left_sidebar_nav_box">
+      <div>
+        <div class="left_sidebar_home"><a href="index.php"></a></div>
+      </div>
+      <ul class="left_sidebar_nav">
+        <li class="left_sidebar_nav_cur"><a href="index.php">我的求职首页</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="left_sidebar_list_box {yun:}if $smarty.get.c=="resume" || $smarty.get.c=="look" || $smarty.get.c=="privacy"{/yun}left_sidebar_list_box_cur{yun:}/if{/yun}">
+  <div class="left_sidebar_h1 left_sidebar_h3_ie6 left_sidebar_h1_no" style="border-top:none;"><span class="left_sidebar_h1_span">简历管理</span></div>
+  <div class="left_sidebar_nav_box">
+    <ul class="left_sidebar_nav">
+      <li {yun:}if $smarty.get.c=='resume'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=resume">我的简历 </a></li>
+      {yun:}if $config.user_number>$myresumenum{/yun}
+      <li {yun:}if $smarty.get.c=='expect'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=expect&add={yun:}$uid{/yun}">创建简历</a></li>
+      {yun:}else{/yun}
+      <li><a href="javascript:void(0)" onclick="layer.msg('你的简历数已经达到系统设置的简历数了',2,8);return false;">创建简历</a></li>
+      {yun:}/if{/yun}
+      <li {yun:}if $smarty.get.c=='look'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=look">简历被浏览 </a></li>
+      <li {yun:}if $smarty.get.c=='privacy'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=privacy">隐私设置</a></li>
+    </ul>
+  </div>
+</div>
+<div class="left_sidebar_list_box {yun:}if $smarty.get.c=="msg" || $smarty.get.c=="job" || $smarty.get.c=="favorite" || $smarty.get.c=="look_job" || $smarty.get.c=="atn" || $smarty.get.c=="commsg" || $smarty.get.c=="finder" || $smarty.get.c=="blacklist"{/yun}left_sidebar_list_box_cur{yun:}/if{/yun}">
+<div class="left_sidebar_h1 left_sidebar_h2_ie6"><span class="left_sidebar_h1_span  left_sidebar_h1_span_icon2">应聘管理</span></div>
+<div class="left_sidebar_nav_box">
+  <ul class="left_sidebar_nav">
+    <li {yun:}if $smarty.get.c=='msg'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=msg">面试邀请</a></li>
+    <li {yun:}if $smarty.get.c=='job'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=job">申请的职位</a></li>
+    <li {yun:}if $smarty.get.c=='favorite'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=favorite">职位收藏</a></li>
+    <li {yun:}if $smarty.get.c=='look_job'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=look_job">浏览的职位 </a></li>
+    <li {yun:}if $smarty.get.c=='atn'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=atn">关注的企业</a></li>
+
+    <li  {yun:}if $smarty.get.c!="msg" && $smarty.get.c!="job" && $smarty.get.c!="favorite" && $smarty.get.c!="look_job" && $smarty.get.c!="atn" && $smarty.get.c!="commsg" && $smarty.get.c!="finder" && $smarty.get.c!="blacklist"{/yun}style="display:none"{yun:}/if{/yun} {yun:}if $smarty.get.c=='commsg'{/yun}class=" left_sidebar_nav_cur"{yun:}else{/yun}class="overflow"{yun:}/if{/yun}>
+    <a href="index.php?c=commsg">求职咨询 </a>
+    </li>
+    <li {yun:}if $smarty.get.c!="msg" && $smarty.get.c!="job" && $smarty.get.c!="favorite" && $smarty.get.c!="look_job" && $smarty.get.c!="atn" && $smarty.get.c!="commsg" && $smarty.get.c!="finder" && $smarty.get.c!="blacklist"{/yun}style="display:none"{yun:}/if{/yun} {yun:}if $smarty.get.c=='finder'{/yun}class="left_sidebar_nav_cur"{yun:}else{/yun}class="overflow"{yun:}/if{/yun}>
+    <a href="index.php?c=finder">职位搜索器</a>
+    </li>
+    <li {yun:}if $smarty.get.c!="msg" && $smarty.get.c!="job" && $smarty.get.c!="favorite" && $smarty.get.c!="look_job" && $smarty.get.c!="atn" && $smarty.get.c!="commsg" && $smarty.get.c!="finder" && $smarty.get.c!="blacklist"{/yun}style="display:none"{yun:}/if{/yun} {yun:}if $smarty.get.c=='blacklist'{/yun}class="left_sidebar_nav_cur"{yun:}else{/yun}class="overflow"{yun:}/if{/yun}>
+    <a href="index.php?c=blacklist">公司黑名单</a>
+    </li>
+  </ul>
+</div>
+<div>
+  <div class="left_sidebar_icon left_sidebar_h2_ie6_icon" aid="1"></div>
+</div>
+</div>
+<div class="left_sidebar_list_box {yun:}if $smarty.get.c=="info" || $smarty.get.c=="passwd" || $smarty.get.c=="paylist" || $smarty.get.c=="binding" || $smarty.get.c=="integral" || $smarty.get.c=="integral_reduce"{/yun}left_sidebar_list_box_cur{yun:}/if{/yun}">
+<div class="left_sidebar_h1 left_sidebar_h2_ie6  left_sidebar_h4_ie6"><span class="left_sidebar_h1_span left_sidebar_h1_span_icon5">账户管理</span></div>
+<div class="left_sidebar_nav_box">
+  <ul class="left_sidebar_nav">
+    <li {yun:}if $smarty.get.c=='info'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=info">基本信息</a></li>
+    <li {yun:}if $smarty.get.c=='passwd'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=passwd">修改密码</a></li>
+    <li {yun:}if $smarty.get.c=='paylist'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=paylist">充值记录</a></li>
+    <li {yun:}if $smarty.get.c=='binding'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=binding">账户绑定</a></li>
+    <li><a href="{yun:}url m=invitereg{/yun}" target="_blank">邀请注册</a></li>
+
+    <li {yun:}if $smarty.get.c!="info" && $smarty.get.c!="passwd" && $smarty.get.c!="paylist" && $smarty.get.c!="binding" && $smarty.get.c!="integral_reduce" && $smarty.get.c!="integral"{/yun}style="display:none"{yun:}/if{/yun} {yun:}if $smarty.get.c=='integral'{/yun}class="left_sidebar_nav_cur"{yun:}else{/yun}class="overflow"{yun:}/if{/yun}>
+    <a href="index.php?c=integral">获取{yun:}$config.integral_pricename{/yun}</a>
+    </li>
+    <li {yun:}if $smarty.get.c!="info" && $smarty.get.c!="passwd" && $smarty.get.c!="paylist" && $smarty.get.c!="binding" && $smarty.get.c!="integral_reduce" && $smarty.get.c!="integral"{/yun}style="display:none"{yun:}/if{/yun} {yun:}if $smarty.get.c=='integral_reduce'{/yun}class="left_sidebar_nav_cur"{yun:}else{/yun}class="overflow"{yun:}/if{/yun}>
+    <a href="index.php?c=integral_reduce">消费{yun:}$config.integral_pricename{/yun}</a>
+    </li>
+  </ul>
+</div>
+<div>
+  <div class="left_sidebar_icon" aid="2"></div>
+</div>
+</div>
+<div class="left_sidebar_list_box {yun:}if $smarty.get.c=="message" || $smarty.get.c=="seemessage" || $smarty.get.c=="sysnews" || $smarty.get.c=="xin"{/yun}left_sidebar_list_box_cur{yun:}/if{/yun}">
+<div class="left_sidebar_h1 left_sidebar_h2_ie6  left_sidebar_h5_ie6"><span class="left_sidebar_h1_span left_sidebar_h1_span_icon5">交流中心</span></div>
+<div class="left_sidebar_nav_box">
+  <ul class="left_sidebar_nav">
+    <li {yun:}if $smarty.get.c=='message'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=message">留言反馈</a></li>
+    <li {yun:}if $smarty.get.c=='seemessage'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=seemessage">反馈列表</a></li>
+    <li {yun:}if $smarty.get.c=='sysnews'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=sysnews">系统消息</a></li>
+    <li {yun:}if $smarty.get.c=='xin'{/yun}class="left_sidebar_nav_cur"{yun:}/if{/yun}><a href="index.php?c=xin">站内信</a></li>
+    <li><a href="{yun:}url m=ask c=friend a=myquestion uid=$cookie.uid{/yun}" target="_blank">我的提问</a></li>
+  </ul>
+</div>
+<div>
+<!--  <div class="left_sidebar_icon" aid="2"></div>-->
+</div>
+</div>
+</div>

@@ -1,0 +1,33 @@
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+ <section class="list">
+  <article>
+    <div class="regform" style="padding-top: 20px;">
+      <form action="{yun:}$config_wapdomain{/yun}/?c=login" method="post" onsubmit="return mlogin(this);">
+        <input name="usertype" type="hidden" value="{yun:}$smarty.get.usertype{/yun}"/>
+        <input name="wxid" type="hidden" value="{yun:}$smarty.get.wxid{/yun}"/>
+        <dl class="forminputitem">
+          <dd>
+            <div class="c inputitem_w">
+              <input name="username" type="text" id="username" value="{yun:}$smarty.get.username{/yun}" placeholder="输入用户名" class="inputitemtxt">
+            </div>
+          </dd>
+          <dd>
+            <div class="c ico_eye_close inputitem_w">
+              <input name="password" type="password" id="password"  class="inputitemtxt" placeholder="输入密码" >
+              <em class="viewpwd" id="showPwd" onclick="showPwd(this)"></em> </div>
+          </dd>
+          <dd> <span class="photochk">
+            <input type="checkbox" name="longLogin" id="longLogin" class="inputChk">
+            <em class="blue">自动登录</em> </span> <a href="{yun:}url m=wap c=forgetpw{/yun}" class="getpwd">忘记密码</a> </dd>
+          <dd>
+            <input type="submit" name="submit"  value="登录" class="inputSubmit">
+          </dd>
+        </dl>
+      </form>
+    </div>
+  </article>
+  <div class="userloginreg">
+    <p> 没有账号？马上加入{yun:}$config.sy_webname{/yun} </p>
+    {yun:}if $smarty.get.usertype==2{/yun} <a href="{yun:}url m=wap c=register usertype=2{/yun}" class="regperson">注册新用户</a> {yun:}else{/yun} <a href="{yun:}url m=wap c=register{/yun}" class="regperson">注册新用户</a> {yun:}/if{/yun} </div>
+</section>
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

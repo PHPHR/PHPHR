@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>{yun:}$title{/yun}</title>
+    <meta name="keywords" content="{yun:}$keywords{/yun}" />
+    <meta name="description" content="{yun:}$description{/yun}" />
+    <link rel="stylesheet" href="{yun:}$style{/yun}/style/css.css" type="text/css" />
+    <script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js" language="javascript"></script>
+    <script src="{yun:}$config.sy_weburl{/yun}/js/layer/layer.min.js" language="javascript"></script>
+    <script src="{yun:}$config.sy_weburl{/yun}/js/lazyload.min.js" language="javascript"></script>
+    <script src="{yun:}$config.sy_weburl{/yun}/js/public.js" language="javascript"></script>
+    <link rel="stylesheet" href="{yun:}$com_style{/yun}/images/comapply.css" type="text/css" />
+    <!--[if IE 6]>
+    <script src="{yun:}$config.sy_weburl{/yun}/js/png.js"></script>
+    <script>
+    DD_belatedPNG.fix('.png');
+    </script>
+    <![endif]-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak={yun:}$config.map_key{/yun}" charset="utf-8"></script>
+    <script src="{yun:}$config.sy_weburl{/yun}/js/map.js" language="javascript"></script>
+</head>
+<body>
+    {yun:}include file="$tplstyle/header.htm"{/yun}
+    <div class="yun_content">
+        <div class="current_Location png"> 您当前的位置：<a href="{yun:}$config.sy_weburl{/yun}">首页</a> > <a href="{yun:}url m=job{/yun}">职位列表</a> > <span>企业详情 </span></div>
+        <div></div>
+        <div class="firm_left">
+            <div class="firm_left_con">
+                <div class="firm_sta">
+                    <div class="firm_sta_logo"> {yun:}if $com.logo{/yun}<img src="{yun:}$com.logo{/yun}" width="185" height="75" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}',2);" />{yun:}else{/yun}<img src="{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}" width="185" height="75"/>{yun:}/if{/yun} </div>
+                    <div class="firm_sta_mes">
+                        <h3>{yun:}$com.name|mb_substr:0:20:'gbk'{/yun}</h3>
+                        <div class="firm_sta_mesed">
+                            公司评价数：<i>{yun:}$pl_num{/yun}</i>|&nbsp;&nbsp;
+                            公司粉丝数：<i id="antnum{yun:}$com.uid{/yun}">{yun:}$com.ant_num{/yun}</i>|&nbsp;&nbsp;
+                            公司职位申请数：<i>{yun:}$sq_num{/yun}</i>
+                        </div>
+                        <div class="firm_sta_mesgz">
+                            {yun:}if $usertype=='1'{/yun}
+                            {yun:}if $isatn.id{/yun}
+                            <a href="javascript:void(0)" onclick="atn('{yun:}$com.uid{/yun}','{yun:}url m=ajax c=atn_company{/yun}')" id='atn_{yun:}$com.uid{/yun}' class="cancel_att">取消关注</a>
+                            {yun:}else{/yun}
+                            <a href="javascript:void(0)" onclick="atn('{yun:}$com.uid{/yun}','{yun:}url m=ajax c=atn_company{/yun}')" id='atn_{yun:}$com.uid{/yun}' class="attentioned">关注</a>
+                            {yun:}/if{/yun}
+                            {yun:}else{/yun}
+                                {yun:}if $uid{/yun}
+                                <a href="javascript:void(0)" onclick="layer.msg('只有个人用户才能关注', 2, 3)" class="attentioned">关注</a> 
+                                {yun:}else{/yun}
+                                <a href="javascript:void(0)" onclick="showlogin('1');" class="attentioned">关注</a> 
+                                {yun:}/if{/yun} 
+                            {yun:}/if{/yun} 
+                        </div>
+                    </div>
+                </div>
+                <div class="firm_det" id="company">
+                    <div class="firm_det_tit"><span>企业新闻</span></div>
+                 <div style="width:100%; padding:20px 0; text-align:center; font-size:18px;">    {yun:}$NewsInfo.title{/yun}</div>
+                    <div class="firm_det_con"> {yun:}$NewsInfo.body{/yun} </div>
+                </div>                              
+            </div>           
+        </div>
+        <div class="firm_right" id="jbzl">
+            <div class="firm_right_con">
+                <div class="firm_det firm_det_r">
+                    <div class="firm_det_tit firm_det_tit2"><span>基本资料</span></div>
+                    <div class="frc_det">
+                        <div class="frc_det_con"><span>性质</span>{yun:}$com.pr_info{/yun}</div>
+                        <div class="frc_det_con"><span>规模</span>{yun:}$com.mun_info{/yun}</div>
+                        <div class="frc_det_con"><span>地区</span>{yun:}$com.provinceid{/yun}</div>
+                        <div class="frc_det_con"><span>行业</span>{yun:}$com.hy_info{/yun}</div>
+                    </div>
+                </div>
+                <div class="firm_det" id="map">
+                    <div class="firm_det_tit firm_det_tit2"><span>地理位置</span></div>
+                    {yun:}if $com.y!='' && $com.x!=''{/yun}
+                    <div class="frc_map">
+                        <div id="maps_container" style="width:218px;height:155px;"></div>
+                        <script>
+                            getmapnoshowcont('maps_container', "{yun:}$com.x{/yun}", "{yun:}$com.y{/yun}", "map_x", "map_y");
+                        </script>
+                    </div>
+                    <div class="frc_map_look"> <a href="javascript:showmap('map_show');">查看完整地图</a></div>
+                    {yun:}else{/yun}
+                    <div class="firm_tips_no"> 该企业还未设置地图!</div>
+                    {yun:}/if{/yun}
+                </div>
+                <div class="firm_det" id="news">
+                    <div class="firm_det_tit firm_det_tit2"><span>企业新闻</span></div>
+                    <div class="frc_news">
+                        
+                        {yun:}if !empty($NewsList){/yun}
+                        <ul>
+                            {yun:}foreach from=$NewsList item=row{/yun}
+                            <li>
+                                <p><a href="{yun:}url m=company c=newsshow id='`$com.uid`' nid='`$row.id`'{/yun}" target="_blank">{yun:}$row.title{/yun}</a></p>
+                            </li>
+                            {yun:}/foreach{/yun}
+                        </ul>
+                        {yun:}else{/yun} <div class="firm_tips_no"> 该公司还没有发布新闻信息!</div> {yun:}/if{/yun}
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+      
+    </div>
+         
+        {yun:}include file="$tplstyle/footer.htm"{/yun}
+      <div class="clear"></div>
+  <div id="map_show" style=" display:none;">
+    <div id="map_container" style="width:580px;height:350px;"></div>
+  </div>
+    <div class="clear"></div>
+    <script>
+        $(function () {
+            $(".firm_post").hover(function () {
+                $(this).find(".firm_post_right").show();
+            }, function () {;
+                $(this).find(".firm_post_right").hide();
+            });
+           
+        });
+        function showmap(id) {
+            $.layer({
+                type: 1,
+                title: '地图展示',
+                closeBtn: [0, true],
+                offset: ['100px', ''],
+                border: [10, 0.3, '#000', true],
+                area: ['580px', 'auto'],
+                page: { dom: "#" + id }
+            });
+        }
+        getmapshowcont('map_container', "{yun:}$com.x{/yun}", "{yun:}$com.y{/yun}", "{yun:}$com.name{/yun}", "{yun:}$com.address{/yun}");
+    </script>
+</body>
+</html>
+{yun:}include file="$tplstyle/public_search/login.htm"{/yun} 

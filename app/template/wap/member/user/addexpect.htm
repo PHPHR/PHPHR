@@ -1,0 +1,144 @@
+{yun:}include file="$wapstyle/member/header.htm"{/yun} 
+<link rel="stylesheet" href="{yun:}$config.sy_weburl{/yun}/app/template/wap/css/wap_tck.css" type="text/css">
+<script src="{yun:}$wap_style{/yun}/js/resume.js" language="javascript"></script> 
+<div class="resume-cont"> <!--a href="javascript:checkshow('info');" id="infobutton" class="resume-cont_p" style="display:none">
+  <div class="resume-cont_h1" ><span>求职意向</span><i class="resume-icon"></i></div>
+  </a-->
+  <div class="resume-cont_zk" id="expect">
+    <div class="resume-cont_wate">
+            <dl class="resume-cont_wate_list">
+        <dt><span class="resume-cont_wate_bj">*</span> 从事行业</dt>
+        <dd>
+          <div class="mLeft12 relative">
+            <div class="selectOption" style="width:100%">
+              <select name="hy" id="hy">
+              {yun:}foreach from=$industry_index item=v{/yun}
+              <option value="{yun:}$v{/yun}" {yun:}if $row.hy==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$industry_name[$v]{/yun}</option>
+              {yun:}/foreach{/yun}
+              </select>
+            </div>
+          </div>
+        </dd>
+      </dl> 
+      <dl class="resume-cont_wate_list">
+        <dt><font color="#ff0000">*</font>期望从事职位</dt>
+        <input type="hidden" id="job_classid" value="{yun:}$row.job_classid{/yun}" />
+        <dd>
+              <input type="button" id="jobclassbutton" value="{yun:}$jobname{/yun}" class="reinputText" onclick="checkshowjob('job');" style="height:46px; background:#fff"/>
+              <div class="job_search_box_jobclass" style="display:none; float:left;width:100%;height:auto; z-index:100; position:absolute; background-color:#FFF;">
+        	<ul>
+            	{yun:}foreach from=$job_index item=v{/yun}
+                <li style="width:auto;float:left;display:none; list-style-type:none; margin:5px 10px 5px 10px;" class="jobsearchjobclass 0" jobclassid="{yun:}$v{/yun}" parentid="0">{yun:}$job_name[$v]{/yun}</li>
+                {yun:}foreach from=$job_type[$v] item=v1{/yun}
+                <li style="width:auto;float:left;display:none; list-style-type:none; margin:5px 10px 5px 10px;" class="jobsearchjobclass1 {yun:}$v{/yun}" jobclassid="{yun:}$v1{/yun}" parentid="{yun:}$v{/yun}">{yun:}$job_name[$v1]{/yun}</li>
+                {yun:}foreach from=$job_type[$v1] item=v2{/yun}
+                <li style="width:auto;float:left;display:none; list-style-type:none; margin:5px 10px 5px 10px;" class="jobsearchjobclass2 {yun:}$v1{/yun}" jobclassid="{yun:}$v2{/yun}" parentid="{yun:}$v1{/yun}">{yun:}$job_name[$v2]{/yun}</li>
+                {yun:}/foreach{/yun}
+                {yun:}/foreach{/yun}
+                {yun:}/foreach{/yun} 
+           	</ul>
+    	</div> 
+        <input type="hidden" name="job_post" id="job_post" value="" /> 
+        </dd>
+      </dl>
+      <dl class="resume-cont_wate_list">
+        <dt><font color="#ff0000">*</font>期望工作地点</dt>
+        <dd>
+          <div class="mLeft12 relative">
+            <div class="selectOption" style="width:31%">
+              <select id="provinceid" onchange="checkcity(this.value,'1');">
+                <option value="">请选择</option>
+                {yun:}foreach from=$city_index item=v{/yun}
+                <option value="{yun:}$v{/yun}" {yun:}if $row.provinceid==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$city_name[$v]{/yun}</option>
+                {yun:}/foreach{/yun}
+              </select>
+            </div>
+            <div class="selectOption" style="width:31%">
+              <select  id="cityid" onchange="checkcity(this.value,'2');">
+                <option value="">请选择</option>
+                {yun:}foreach from=$city_type[$row.provinceid] item=v{/yun}
+                <option value="{yun:}$v{/yun}" {yun:}if $row.cityid==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$city_name[$v]{/yun}</option>
+                {yun:}/foreach{/yun}
+              </select>
+            </div>
+            <div class="selectOption" style="width:31%">
+              <select id="three_cityid">
+                <option value="">请选择</option>
+                {yun:}foreach from=$city_type[$row.cityid] item=v{/yun}
+                <option value="{yun:}$v{/yun}" {yun:}if $row.three_cityid==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$city_name[$v]{/yun}</option>
+                {yun:}/foreach{/yun}
+              </select>
+            </div>
+          </div>
+        </dd>
+      </dl>
+      <dl class="resume-cont_wate_list">
+        <dt><font color="#ff0000">*</font> 期望薪资</dt>
+        <dd>
+          <div class="mLeft12 relative">
+            <div class="selectOption" style="width:70%">
+              <select id="salary">
+				{yun:}foreach item=v from=$userdata.user_salary{/yun}
+                <option value="{yun:}$v{/yun}" {yun:}if $row.salary==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$userclass_name[$v]{/yun}</option>
+                {yun:}/foreach{/yun}
+              </select>
+            </div>
+             </div>
+        </dd>
+      </dl>
+        <dl class="resume-cont_wate_list">
+        <dt><font color="#ff0000">*</font> 工作性质 </dt>
+        <dd>
+          <div class="mLeft12 relative">
+            <div class="selectOption" style="width:70%">
+              <select id="type">
+				{yun:}foreach item=v from=$userdata.user_type{/yun}
+                <option value="{yun:}$v{/yun}" {yun:}if $row.type==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$userclass_name[$v]{/yun}</option>
+                {yun:}/foreach{/yun}
+              </select>
+            </div>
+             </div>
+        </dd>
+      </dl>
+      <dl class="resume-cont_wate_list">
+        <dt><font color="#ff0000">*</font>到岗时间</dt>
+        <dd>
+          <div class="mLeft12 relative">
+            <div class="selectOption" style="width:100%">
+              <select id="report">
+				{yun:}foreach item=v from=$userdata.user_report{/yun}
+                <option value="{yun:}$v{/yun}" {yun:}if $row.report==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$userclass_name[$v]{/yun}</option>
+                {yun:}/foreach{/yun}
+              </select>
+            </div>
+          </div>
+        </dd>
+      </dl>
+        <dl class="resume-cont_wate_list">
+        <dt><font color="#ff0000">*</font>求职状态</dt>
+        <dd>
+          <div class="mLeft12 relative">
+            <div class="selectOption" style="width:100%">
+              <select id="jobstatus">
+				{yun:}foreach item=v from=$userdata.user_jobstatus{/yun}
+                <option value="{yun:}$v{/yun}" {yun:}if $row.jobstatus==$v{/yun}selected="selected"{yun:}/if{/yun}>{yun:}$userclass_name[$v]{/yun}</option>
+                {yun:}/foreach{/yun}
+              </select>
+            </div>
+          </div>
+        </dd>
+      </dl>
+      <dl class="resume-cont_wate_list">
+        <dt>&nbsp;</dt>
+        <dd>
+        <input type="hidden" id="eid" value="{yun:}$row.id{/yun}" />
+          <input type="submit" onclick="saveexpect();" value="保存" class="reinputText2">
+        </dd>
+      </dl>
+    </div>
+  </div>
+</div>
+
+{yun:}include file="$wapstyle/public.htm"{/yun}
+
+{yun:}include file="$wapstyle/footer.htm"{/yun} 

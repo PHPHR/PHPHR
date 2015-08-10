@@ -1,0 +1,74 @@
+{yun:}include file="$wapstyle/header_cont.htm"{/yun}
+<script src="{yun:}$config.sy_weburl{/yun}/app/template/wap/js/search.js" language="javascript"></script>
+<section>
+  <div class="searchOptions clearfix">
+    <ul class="searchOptions_list">
+      <li onclick="checkshowjob('city');"><a href="javascript:void(0);" class="searchOptions_list_a">{yun:}if $city_name[$smarty.get.cityid]{/yun}{yun:}$city_name[$smarty.get.cityid]{/yun}{yun:}else{/yun}区域{yun:}/if{/yun}<i class="searchOptions_icon fa fa-caret-down"></i></a></li>
+      <li onclick="show_div('open1')"><a href="javascript:void(0);" class="searchOptions_list_a">{yun:}if $industry_name[$smarty.get.hy]{/yun}{yun:}$industry_name[$smarty.get.hy]|mb_substr:0:6:'gbk'{/yun}{yun:}else{/yun}行业{yun:}/if{/yun}<i class="searchOptions_icon fa fa-caret-down"></i></a></li>
+      <li onclick="show_div('open')"><a href="javascript:void(0);" class="searchOptions_list_a">{yun:}if $comclass_name[$smarty.get.pr]{/yun}{yun:}$comclass_name[$smarty.get.pr]{/yun}{yun:}else{/yun}性质{yun:}/if{/yun}<i class="searchOptions_icon fa fa-caret-down"></i></a></li>
+      <li onclick="show_div('open2')"><a href="javascript:void(0);" class="searchOptions_list_a">{yun:}if $comclass_name[$smarty.get.mun]{/yun}{yun:}$comclass_name[$smarty.get.mun]{/yun}{yun:}else{/yun}规模{yun:}/if{/yun}<i class="searchOptions_icon fa fa-caret-down"></i></a></li>
+      <input type="hidden" id="searchurl" value="{yun:}$searchurl{/yun}" />
+      <input type="hidden" id="waptype" value="1" />
+    </ul>
+
+    <!--行业弹出框-->
+    <div class="job_pop_box openlist"  id="open1">
+      <ul class="job_pop_pay_list">
+        {yun:}foreach from=$industry_index item=v{/yun}
+        <li><a href="{yun:}searchurl m=wap c=company hy=$v untype='hy'{/yun}">{yun:}$industry_name[$v]{/yun}</a></li>
+        {yun:}/foreach{/yun}
+      </ul>
+    </div> 
+    <!--企业性质弹出框-->
+    <div class="job_pop_box openlist" id="open">
+      <ul class="job_pop_pay_list">
+          {yun:}foreach from=$comdata.job_pr item=v{/yun}
+        <li><a href="{yun:}searchurl m=wap c=company pr=$v untype='pr'{/yun}">{yun:}$comclass_name[$v]{/yun}</a></li>
+        {yun:}/foreach{/yun}
+      </ul>
+    </div>
+    <!--企业规模弹出框-->
+    <div class="job_pop_more openlist" id="open2">
+      <ul class="job_pop_pay_list">
+          {yun:}foreach from=$comdata.job_mun item=v{/yun}
+        <li><a href="{yun:}searchurl m=wap c=company mun=$v untype='mun'{/yun}">{yun:}$comclass_name[$v]{/yun}</a></li>
+        {yun:}/foreach{/yun}
+      </ul>
+    </div>
+  </div>
+</section>
+<div class="warp_content clear">
+  <section>
+    <form method="get" action="{yun:}$config_wapdomain{/yun}/index.php">
+      <input type="hidden" name="c" value="company" />
+      <div class="formFiled">
+          <input type="text" value="{yun:}$smarty.get.keyword{/yun}" name="keyword" class="input_search" placeholder="请输入关键字">
+        <input type="submit" value="搜索" class="input_btn">
+      </div>
+    </form>
+  </section>
+  <section>
+    <div class="job_list_content"> {yun:}comlist ispage=1 firm=1 firmpic=1 ismsg=1 isjob=1 hy='auto.hy' pr='auto.pr' mun='auto.mun' provinceid='auto.provinceid' cityid='auto.cityid' three_cityid='auto.three_cityid' keyword='auto.keyword' limit=20 islt=4 item=list{/yun}
+      <div class="job_list_box"> <a href="{yun:}url m=wap c=company a=show id=$list.uid{/yun}" class="job_list">
+        <h3>{yun:}$list.name|mb_substr:0:16:'gbk'{/yun} </h3>
+        <aside class="firm_qy_job">{yun:}foreach from=$list.joblist item=one key=key{/yun}{yun:}if $key<2{/yun}{yun:}if $key>0{/yun} <em class="line">|</em>{yun:}/if{/yun}{yun:}$one.name{/yun}{yun:}/if{/yun}{yun:}/foreach{/yun}</aside>
+        <aside class="firm_num">共 <font color="#FF6600">{yun:}$list.joblist|@count{/yun}</font> 个职位{yun:}$list.job_city_one{/yun}-{yun:}$list.job_city_two{/yun}</aside>
+        </a> </div>
+      {yun:}/comlist{/yun} </div>
+  </section>
+  {yun:}if $total<=0{/yun}
+  {yun:}if $smarty.get.keyword!="" {/yun}
+  <div class="wap_member_no">没有搜索到企业</div>
+  {yun:}else{/yun}
+  <div class="wap_member_no">暂无企业</div>
+  {yun:}/if{/yun}
+  {yun:}else{/yun}
+
+
+ <div class="pages">{yun:}$pagenav{/yun}</div>
+  {yun:}/if{/yun}
+  <div> </div>
+</div>
+<link rel="stylesheet" href="{yun:}$config.sy_weburl{/yun}/app/template/wap/css/wap_tck.css" type="text/css">
+{yun:}include file="$wapstyle/public.htm"{/yun}
+{yun:}include file="$wapstyle/footer.htm"{/yun}
