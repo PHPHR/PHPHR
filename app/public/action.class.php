@@ -19,7 +19,7 @@ class model{
     protected $db               =   null;
     protected $pk               =   'id';
     protected $autoinc          =   false;
-    protected $def      =   null;
+    protected $def      =   phphr_;
     protected $name             =   '';
     protected $coding             =   '';
     protected $dbName           =   '';

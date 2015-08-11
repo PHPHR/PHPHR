@@ -17,6 +17,7 @@ class Smarty_Internal_Compile_Nav extends Smarty_Internal_CompileBase{
 			$ParamerArr = GetSmarty($paramer,$_GET,$_smarty_tpl);
 			$paramer = $ParamerArr[arr];
 			$Purl =  $ParamerArr[purl];
+			if(is_array( $menu_name[12]))
 			foreach($menu_name[12] as $key=>$val){
 				if($val[\'type\']==\'2\'){
 					if($config[\'sy_seo_rewrite\']=="1" && $val[furl]!=\'\'){
@@ -27,6 +28,7 @@ class Smarty_Internal_Compile_Nav extends Smarty_Internal_CompileBase{
 					$menu_name[12][$key][navclass] = navcalss($val,$paramer[hovclass]);
 				}
 			}
+			if(is_array( $menu_name[1]))
 			foreach($menu_name[1] as $key=>$value){
 				if($value[\'type\']==\'1\'){
 					if($config[\'sy_seo_rewrite\']=="1" && $value[furl]!=\'\'){
@@ -37,6 +39,7 @@ class Smarty_Internal_Compile_Nav extends Smarty_Internal_CompileBase{
 					$menu_name[1][$key][navclass] = navcalss($value,$paramer[hovclass]);
 				}
 			}
+			if(is_array( $menu_name[2]))
 			foreach($menu_name[2] as $key=>$value){
 				if($value[\'type\']==\'1\'){
 					if($config[\'sy_seo_rewrite\']=="1" && $value[furl]!=\'\'){
@@ -48,6 +51,7 @@ class Smarty_Internal_Compile_Nav extends Smarty_Internal_CompileBase{
 				}
 			}
             $isCurrentFind=false;
+            if(is_array( $menu_name[4]))
 			foreach($menu_name[4] as $key=>$value){
 				if($value[\'type\']==\'1\' && $value[furl]!=\'\'){
 					if($config[\'sy_seo_rewrite\']=="1"){
@@ -63,6 +67,7 @@ class Smarty_Internal_Compile_Nav extends Smarty_Internal_CompileBase{
                     $isCurrentFind=true;
                 }
 			}
+			if(is_array( $menu_name[5]))
 			foreach($menu_name[5] as $key=>$value){
 				if($value[\'type\']==\'1\'){
 					if($config[\'sy_seo_rewrite\']=="1" && $value[furl]!=\'\'){

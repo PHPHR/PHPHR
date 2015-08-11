@@ -9,6 +9,7 @@
 * 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
  */
 class index_controller extends resume_controller{
+
 	function usersearch(){
         $uptime=array(1=>'今天',3=>'最近3天',7=>'最近7天',30=>'最近一个月',90=>'最近三个月');
         $this->yunset("uptime",$uptime);
@@ -116,7 +117,9 @@ class index_controller extends resume_controller{
 			$this->yunset("zpjob1son",$zpjob1son);
 		}
 		$this->seo("user_search");
-		$this->yun_tpl(array('search'));
+//		$this->yun_tpl(array('search')); // 旧模板
+		$this->yun_tpl(['search_new']); // 新模板
+
 	}
 	function search_action(){
 		$this->usersearch();

@@ -1,34 +1,113 @@
 <?php
 
-/*
-* $Author ：PHPYUN开发团队
-*
-* 官网: http://www.phpyun.com
-*
-* 版权所有 2009-2015 宿迁鑫潮信息技术有限公司，并保留所有权利。
-*
-* 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
-
+/**
+ * Class index_controller
  */
 class index_controller extends common{
-	function index_action()
-	{
-		if($_COOKIE['uid']!=""&&$_COOKIE['username']!=""){
-			$this->ACT_msg($this->config['sy_weburl'], "您已经登录了！");
-		}
-		if($_GET['uid'])
-		{
-			setcookie("regcode",$_GET['uid'],time()+3600,"/");
-		}else{
-			setcookie("regcode",$_GET['uid'],time()-3600,"/");
-		}
-		$this->seo("register");
-		if($_GET['usertype']=="2"){
-			$this->yun_tpl(array('company'));
-		}else{
-			$this->yun_tpl(array('user'));
-		}
-	}
+//	function index_action()
+//	{
+//		if($_COOKIE['uid']!=""&&$_COOKIE['username']!=""){
+//			$this->ACT_msg($this->config['sy_weburl'], "您已经登录了！");
+//		}
+//		if($_GET['uid'])
+//		{
+//			setcookie("regcode",$_GET['uid'],time()+3600,"/");
+//		}else{
+//			setcookie("regcode",$_GET['uid'],time()-3600,"/");
+//		}
+//		$this->seo("register");
+//		if($_GET['usertype']=="2"){
+//			$this->yun_tpl(array('company'));
+//		}else{
+//			$this->yun_tpl(array('user'));
+//		}
+//	}
+
+    /**
+     *  注册引导
+     */
+    public function index_action()
+    {
+        $this->seo("register");
+        $this->yun_tpl(['reg']);
+    }
+
+    /**
+     * 注册页
+     */
+    public function reguser_action()
+    {
+        //注册意向
+        if(!empty(intval($_GET['t']))){
+            setcookie("regtype",$_GET['t'],time()+604800,"/",COOKIE_DOMAIN);
+        }
+        $this->seo("register");
+        $this->yun_tpl(['reguser']);
+    }
+
+    /**
+     * 注册保存
+     */
+    public function savereg_action()
+    {
+        $userName = trim($_POST['username']);
+        $password = trim($_POST['password']);
+        $vcode = trim($_POST['vcode']);
+
+        //验证码
+        if(md5($vcode)!=$_SESSION['authcode']) {
+            echo json_encode(['msg'=>'code_error']);die;
+        }
+
+        //用户名验证
+        if(is_numeric($userName)){
+            if(!preg_match("/^1[3,5,8,7]{1}[0-9]{9}$/",$userName)){ //手机号码验证
+                echo json_encode(['msg'=>'username_error']);die;
+            }
+        }else{
+            if(!preg_match("/^([a-zA-Z0-9\-]+[_|\_|\.]?)*[a-zA-Z0-9\-]+@([a-zA-Z0-9\-]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,4}$/",$userName)){   //邮箱验证
+                echo json_encode(['msg'=>'username_error']);die;
+            }
+        }
+
+        //检查用户是否注册
+        $Member=$this->MODEL("userinfo");
+        $nid = $Member->GetMemberNum(array("username"=>$userName));
+        if($nid){
+            echo json_encode(['msg'=>'user_exist']);die;
+        }
+        $salt=substr(uniqid(),-6);
+        if($Member->AddMember([
+            'username'=>$userName,
+            'password'=>md5(md5($password).$salt),
+            'salt'=>$salt,
+            'usertype'=>0,
+            'reg_time'=>time(),
+        ])){
+            $_SESSION['is_login']=1;
+            $_SESSION['username']=$userName;
+            echo json_encode(['msg'=>'succ']);
+        }
+    }
+
+    /**
+     *  注册成功
+     */
+    public function regok_action()
+    {
+        $this->seo("register");
+        $this->yun_tpl(['regok']);
+    }
+
+    /**
+     *  个人基本信息
+     */
+    public function person_action()
+    {
+        $this->seo("");
+        $this->yun_tpl(["person"]);
+    }
+
 	function ok_action()
 	{
 		if($_GET['type']==1)
@@ -90,14 +169,14 @@ class index_controller extends common{
 			echo $num;die;
 		}
 	}
-	function errjson($msg,$status='8'){ 
-		$arr['status']=$status; 
+	function errjson($msg,$status='8'){
+		$arr['status']=$status;
 		$arr['msg']=yun_iconv("gbk","utf-8",$msg);
 		echo json_encode($arr);die;
 	}
-	function regsave_action(){ 
+	function regsave_action(){
 		$_POST=$this->post_trim($_POST);
-		$usertype=intval($_POST['usertype']); 
+		$usertype=intval($_POST['usertype']);
 		$_POST['username']=yun_iconv("utf-8","gbk",$_POST['username']);
 		$_POST['unit_name']=yun_iconv("utf-8","gbk",$_POST['unit_name']);
 		$_POST['address']=yun_iconv("utf-8","gbk",$_POST['address']);
@@ -157,14 +236,14 @@ class index_controller extends common{
 				{
 					if(!$this->CheckRegUser($_POST['unit_name']) || $_POST['unit_name']=="")
 					{
-						$this->errjson('请正确填写企业名称！'); 
+						$this->errjson('请正确填写企业名称！');
 					}
 				}
 				if($this->config['reg_comaddress'] =='1')
 				{
 					if(!$this->CheckRegUser($_POST['address']) || $_POST['address']=="")
 					{
-						$this->errjson('请正确填写企业地址！'); 
+						$this->errjson('请正确填写企业地址！');
 					}
 				}
 				if($this->config['reg_comlink'] =='1')
@@ -206,7 +285,7 @@ class index_controller extends common{
 		if($_POST['username']!=""){
 			$nid = $Member->GetMemberNum(array("username"=>$_POST['username']));
 			if($nid){
-				$this->errjson('账户名已存在！');  
+				$this->errjson('账户名已存在！');
 			}else{
 				if($_POST['usertype']=='1'){
 					$satus = 1;
@@ -217,7 +296,7 @@ class index_controller extends common{
 					$this->uc_open();
 					$uid=uc_user_register($_POST['username'],$_POST['password'],$_POST['email']);
 					if($uid<=0){
-						$this->errjson('该邮箱已存在！');  
+						$this->errjson('该邮箱已存在！');
 					}else{
 						list($uid,$username,$password,$email,$salt)=uc_user_login($_POST['username'],$_POST['password']);
 						$pass = md5(md5($_POST['password']).$salt);
@@ -234,7 +313,7 @@ class index_controller extends common{
 				}else{
 					$salt = substr(uniqid(rand()), -6);
 					$pass = md5(md5($_POST['password']).$salt);
-				} 
+				}
 				$ip=fun_ip_get();
 				$data['username']=$_POST['username'];
 				$data['password']=$pass;
@@ -255,7 +334,7 @@ class index_controller extends common{
 					$userid = $user_id['uid'];
 				}
 				if($userid){
-					
+
 					$this->unset_cookie();
 					if($this->config['sy_pw_type']=="pw_center"){
 						$Member->UpdateMember(array("pwuid"=>$pwuid),array("uid"=>$userid));
@@ -308,7 +387,7 @@ class index_controller extends common{
 					{
 						$Member->company_invtal($userid,$this->config['integral_reg'],true,"注册赠送",true,2,'integral',23);
 					}
-					
+
 
 					if($_POST['usertype']=="1"){
 						if($this->config['user_status']=="1"&&$_POST['email']){
@@ -321,31 +400,31 @@ class index_controller extends common{
 							$data_cert['date']=date("Y-m-d");
 							if($this->config['sy_smtpserver']!="" && $this->config['sy_smtpemail']!="" && $this->config['sy_smtpuser']!=""){
 								$this->send_msg_email($data_cert);
-								$this->errjson('帐号激活邮件已发送到您邮箱，请先激活！',7); 
+								$this->errjson('帐号激活邮件已发送到您邮箱，请先激活！',7);
 							}else{
 								$this->errjson('还没有配置邮箱，请联系管理员！');
-							}    
+							}
 						}else{
 							$Member->UpdateMember(array("login_date"=>time()),array("uid"=>$userid));
 							$this->add_cookie($userid,$_POST['username'],$salt,$_POST['email'],$pass,$usertype);
 							$_POST['uid']=$userid;
-							$this->regemail($_POST); 
-							$this->errjson('',1);   
+							$this->regemail($_POST);
+							$this->errjson('',1);
 						}
 					}elseif($usertype=="2"){
 						$_POST['uid']=$userid;
 						$this->regemail($_POST);
 						if($this->config['com_status']!="1"){
-							$this->errjson('注册成功，请等待管理员审核！',7); 
-						}else{ 
+							$this->errjson('注册成功，请等待管理员审核！',7);
+						}else{
 							$Member->UpdateMember(array("login_date"=>time()),array("uid"=>$userid));
 							$this->add_cookie($userid,$_POST['username'],$salt,$_POST['email'],$pass,$usertype);
-							$this->errjson('',1); 
+							$this->errjson('',1);
 						}
 					}
 				}else{
 					$this->errjson('注册失败！',8);
-				} 
+				}
 			}
 		}else if($_POST['username']==''){
 			$this->errjson('用户名不能为空！',8);

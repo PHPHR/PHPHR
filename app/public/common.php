@@ -463,7 +463,9 @@ class common{
 	}
 	function im(){
 		$uiddir=DATA_PATH."cache/im/";
-		include($uiddir."/status.php");
+        if(file_exists($uiddir . "/status.php")) {
+            include($uiddir . "/status.php");
+        }
 		$liststatus=unserialize(base64_decode($statusdata));
 		if(empty($liststatus[$this->uid])){
 			$liststatus[$this->uid]="1";

@@ -127,7 +127,7 @@ function formatparamer($paramer,$_smarty_tpl){
     }
     return $paramer;
 }
-function get_url($paramer,$config,$seo,$type='',$index='',$_smarty_tpl){
+function get_url($paramer,$config,$seo,$type='',$index='',$_smarty_tpl=''){
 	global $ModuleName,$adminDir;
 
     $paramer=formatparamer($paramer,$_smarty_tpl);

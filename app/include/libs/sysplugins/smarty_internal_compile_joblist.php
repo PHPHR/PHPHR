@@ -209,6 +209,7 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
 					}
 				}
 			}
+			if(file_exists(PLUS_PATH."/comrating.cache.php"))
 			include PLUS_PATH."/comrating.cache.php";
 			foreach('.$name.' as $key=>$value){
 				'.$name.'[$key] = $db->array_action($value,$cache_array);

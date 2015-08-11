@@ -25,7 +25,9 @@ class Smarty_Internal_Compile_Key extends Smarty_Internal_CompileBase{
 		}else{
 			$limit=20;
 		}
+		if(file_exists(PLUS_PATH."/keyword.cache.php"))
 		include PLUS_PATH."/keyword.cache.php";
+
 		if($paramer[iswap]){
 			$wap = "/wap";
 		}else{
