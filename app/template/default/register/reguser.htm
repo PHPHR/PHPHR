@@ -22,9 +22,9 @@
                             <form action="index.php?m=register&c=savereg" method="post">
                             <ul class="box">
                                 <li><span class="c1">账    号：</span><input type="text" name="username" class="text" placeholder="填写手机号码或者邮箱"></li>
-                                <li><span class="c1">密    码：</span><input type="password" class="text" placeholder="请输入6-16个字符，建议字母加数字的组合"></li>
+                                <li><span class="c1">密    码：</span><input type="password" name="password" class="text" placeholder="请输入6-16个字符，建议字母加数字的组合"></li>
                                 <li><span class="c1">验证码：</span><input name="vcode" type="text" class="text1"><img id="vcode_img" src="{yun:}$config.sy_weburl{/yun}/app/include/authcode.inc.php" onclick="javascript:check_code();" title="看不清,请点击"></li>
-                                <li><span class="c1"></span><input type="checkbox" class="checkbox"><span class="c2">我已阅读并同意药师多服务条款</span></li>
+                                <li><span class="c1"></span><input type="checkbox" class="checkbox" name="agree" checked><span class="c2">我已阅读并同意药师多服务条款</span></li>
                                 <li><span class="c1"></span><input type="submit" name="submit" class="submit" value=""></li>
                             </ul>
                             </form>

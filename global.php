@@ -21,7 +21,7 @@ define('ALL_PS','conn');
 ini_set('session.gc_maxlifetime',900);
 ini_set('session.gc_probability',10);
 ini_set('session.gc_divisor',100);
-
+session_start();
 include(CONFIG_PATH.'db.config.php');
 include_once(PLUS_PATH.'config.php');
 include(CONFIG_PATH.'db.safety.php');

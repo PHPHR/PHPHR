@@ -1,8 +1,12 @@
 <?php
 /* *
-* $Author ：Pari开发团队, 联系: QQ 280913284
+* $Author ：PHPYUN开发团队
 *
+* 官网: http://www.phpyun.com
 *
+* 版权所有 2009-2015 宿迁鑫潮信息技术有限公司，并保留所有权利。
+*
+* 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
 */
 class index_controller extends common
 {
@@ -206,7 +210,7 @@ class index_controller extends common
 				$this->obj->DB_insert_once("friend_info","`uid`='".$userid."',`nickname`='$username',`usertype`='$usertype'");
 				$this->add_cookie($userid,$username,$salt,$email,$pass,$usertype);
  				unset($_SESSION['qq']);
-				$this->ACT_msg($_SERVER['HTTP_REFERER'],"登录成功！",9);
+				$this->ACT_msg("/member","登录成功！",9);
 		}
 		$this->seo("qqlogin");
 		$this->yun_tpl(array('index'));

@@ -1,8 +1,12 @@
 <?php
 /* *
-* $Author ：Pari开发团队, 联系: QQ 280913284
+* $Author ：PHPYUN开发团队
 *
+* 官网: http://www.phpyun.com
 *
+* 版权所有 2009-2015 宿迁鑫潮信息技术有限公司，并保留所有权利。
+*
+* 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
 */
 class login_controller extends common{
 	function index_action(){
@@ -37,7 +41,7 @@ class login_controller extends common{
 			}
 			$username = yun_iconv("utf-8","gbk",$_POST['username']);
 
-			if(!$this->CheckRegUser($username)){
+			if(!$this->CheckRegUser($username) && !$this->CheckRegEmail($username)){
 				$data['msg']='无效的用户名！';
 				$this->layer_msg($data['msg'],9,0,'',2);
 			}
@@ -67,11 +71,9 @@ class login_controller extends common{
 						$UserinfoM->UpdateMember(array('unionid'=>$_COOKIE['unionid']),array('uid'=>$userinfo['uid']));
 						setcookie("unionid",'',time() - 86400, "/");
 					}
-					setcookie("uid",$userinfo['uid'],time() + 86400, "/");
-					setcookie("username",$userinfo['username'],time() + 86400, "/");
-					setcookie("usertype",$userinfo['usertype'],time() + 86400, "/");
-					setcookie("salt",$userinfo['salt'],time() + 86400, "/");
-					setcookie("shell",md5($userinfo['username'].$userinfo['password'].$userinfo['salt']), time() + 86400,"/");
+					
+					$this->add_cookie($userinfo['uid'],$userinfo['username'],$userinfo['salt'],$userinfo['email'],$userinfo['password'],$userinfo['usertype']);
+
 					if($_COOKIE['wxid']){	
 						 $this->layer_msg('绑定成功，请按左上方返回进入微信客户端',9,0,Url('wap').'member/',2); 
 					}else{

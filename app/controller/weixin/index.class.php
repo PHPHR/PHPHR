@@ -1,8 +1,12 @@
 <?php
 /*
-* $Author ：Pari开发团队, 联系: QQ 280913284
+* $Author ：PHPYUN开发团队
 *
+* 官网: http://www.phpyun.com
 *
+* 版权所有 2009-2015 宿迁鑫潮信息技术有限公司，并保留所有权利。
+*
+* 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
  */
 class index_controller extends common{ 
 
@@ -40,8 +44,13 @@ class index_controller extends common{
 				$MsgEvent = $postObj->Event;
 				if ($MsgEvent=='subscribe')
 				{
-
-					$centerStr = "<Content><![CDATA[欢迎您关注".iconv('gbk','utf-8',$this->config['sy_webname'])."！\n 1：您可以直接回复关键字如【销售】、【销售 XX公司】查找您想要的职位\n绑定您的账户体验更多精彩功能\n感谢您的关注！]]></Content>";
+					if($this->config['wx_welcom'])
+					{
+						$centerStr = "<Content><![CDATA[".iconv('gbk','utf-8',$this->config['wx_welcom'])."]]></Content>";
+					}else{
+						$centerStr = "<Content><![CDATA[欢迎您关注".iconv('gbk','utf-8',$this->config['sy_webname'])."！\n 1：您可以直接回复关键字如【销售】、【销售 XX公司】查找您想要的职位\n绑定您的账户体验更多精彩功能\n感谢您的关注！]]></Content>";
+					}
+					
 					$this->MsgType = 'text';
 
 				}elseif ($MsgEvent=='CLICK')

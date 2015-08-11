@@ -1,8 +1,12 @@
 <?php
 /*
-* $Author ：Pari开发团队, 联系: QQ 280913284
+* $Author ：PHPYUN开发团队
 *
+* 官网: http://www.phpyun.com
 *
+* 版权所有 2009-2015 宿迁鑫潮信息技术有限公司，并保留所有权利。
+*
+* 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
  */
 class job_controller extends common{
 	function index_action(){
@@ -49,7 +53,19 @@ class job_controller extends common{
 		$job['lang']=$lang;
 		$company=$UserinfoM->GetUserinfoOne(array("uid"=>$job['uid']),array("usertype"=>'2'));
 		$JobM->UpdateComjob(array("`jobhits`=`jobhits`+1"),array("id"=>(int)$_GET['id']));
-		if($_COOKIE['usertype']=="1"){
+		if($this->config['com_resume_link']=='1'){
+			$userinfo['uid']=$this->uid;
+			$userinfo['usertype']=$_COOKIE['usertype'];
+		}else{
+			$userinfo['uid']=$userinfo['usertype']=1;
+		}
+		
+		if($_COOKIE['usertype']=="1"&&$this->uid){  
+			if($this->config['com_resume_link']=='1'){
+				$userinfo['resumenum']=$ResumeM->GetResumeExpectNum(array("uid"=>$this->uid));
+			}else{
+				$userinfo['resumenum']='1';
+			}
 			$look_job=$JobM->GetLookJobOne(array("uid"=>$this->uid,"jobid"=>(int)$_GET['id']));
 			if(!empty($look_job)){
 				$JobM->UpdateLookJob(array("datetime"=>time()),array("uid"=>$this->uid,"jobid"=>(int)$_GET['id']));
@@ -98,6 +114,21 @@ class job_controller extends common{
 						if($nid){
 							$UserinfoM->UpdateUserStatis("`sq_job`=`sq_job`+1",array("uid"=>$value['com_id']),array('usertype'=>'2'));
 							$UserinfoM->UpdateUserStatis("`sq_jobnum`=`sq_jobnum`+1",array("uid"=>$value['uid']),array('usertype'=>'1'));
+							if($info['link_type']=='1'){
+								$ComM=$this->MODEL("company");
+								$job_link=$ComM->GetCompanyInfo(array("uid"=>$info['uid']),array("field"=>"`linkmail`"));
+								$info['email']=$job_link['linkmail'];
+							}
+							if($this->config["sy_smtpserver"]!="" && $this->config["sy_smtpemail"]!="" &&	$this->config["sy_smtpuser"]!=""){
+
+								if($info['email']){
+									$contents=@file_get_contents(Url("resume",array("c"=>"sendresume","job_link"=>'1',"id"=>$resume['id'])));
+									$smtp = $this->email_set();
+									$smtpusermail =$this->config['sy_smtpemail'];
+									$sendid = $smtp->sendmail($info['email'],$smtpusermail,"您收到一份新的求职简历！——".$this->config['sy_webname'],$contents);
+								}
+							}
+							$this->obj->member_log("我申请了职位：".$info['name'],6);
 							$data['msg']='申请成功！';
 							$data['url']=$_SERVER['HTTP_REFERER'];
 							$data['msg']=iconv("GBK","UTF-8",$data['msg']);
@@ -154,6 +185,7 @@ class job_controller extends common{
 		$this->yunset("job",$job);
 		$this->yunset($CacheArr);
 		$this->yunset("company",$company);
+		$this->yunset("userinfo",$userinfo);
 		$this->yunset("headertitle","职位详情");
 		$this->yuntpl(array('wap/job_show'));
 	}

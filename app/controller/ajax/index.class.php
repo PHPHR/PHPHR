@@ -1,8 +1,12 @@
 <?php
 /*
-* $Author ：Pari开发团队, 联系: QQ 280913284
+* $Author ：PHPYUN开发团队
 *
+* 官网: http://www.phpyun.com
 *
+* 版权所有 2009-2015 宿迁鑫潮信息技术有限公司，并保留所有权利。
+*
+* 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
  */
 class index_controller extends common{
 	function comindex_favjob_action(){
@@ -595,8 +599,7 @@ class index_controller extends common{
 				$arr['status']=1;
 				$arr['msg']="您已被该用户列入黑名单！";
 			}
-			$userid_job=$this->obj->DB_select_once("userid_job","`com_id`='".$this->uid."' and `eid`='".$eid."'");
-			if((!empty($resume)||!empty($userid_job))&&$arr['status']==''){
+			if(!empty($resume)&&$arr['status']==''){
 				$arr['status']=3;
 			}else if($arr['status']==''){
 				if($_COOKIE['usertype']=='2'){
@@ -1006,13 +1009,13 @@ function getzph_action(){
 		if(is_array($job_index)){
 			foreach($job_index as $j=>$v){
 				if($j<17){
-					$html.='<li class="lst'.$j.' " onmouseover="show_job(\''.$j.'\',\'0\');" onmouseout="hide_job(\''.$j.'\');"> <b></b> <a class="link" href="'.Url("com",array('c'=>'search','job1'=>$v),"1").'" title="'.$job_name[$v].'">'.$job_name[$v].'</a> <i></i><div class="lstCon"><div class="lstConClass">';
+					$html.='<li class="lst'.$j.' " onmouseover="show_job(\''.$j.'\',\'0\');" onmouseout="hide_job(\''.$j.'\');"> <b></b> <a class="link" href="'.Url("job",array('c'=>'search','job1'=>$v),"1").'" title="'.$job_name[$v].'">'.$job_name[$v].'</a> <i></i><div class="lstCon"><div class="lstConClass">';
 					if(is_array($job_type[$v])){
 						foreach($job_type[$v] as $vv){
-							$html.=' <dl><dt> <a  href="'.Url("com",array('c'=>'search','job1'=>$v,'job1_son'=>$vv),"1").'" title="'.$job_name[$vv].'">'.$job_name[$vv].'</a> </dt><dd> ';
+							$html.=' <dl><dt> <a  href="'.Url("job",array('c'=>'search','job1'=>$v,'job1_son'=>$vv),"1").'" title="'.$job_name[$vv].'">'.$job_name[$vv].'</a> </dt><dd> ';
 							if(is_array($job_type[$vv])){
 								foreach($job_type[$vv] as $vvv){
-									$html.=' <a  href="'.Url("com",array('c'=>'search','job1'=>$v,'job1_son'=>$vv,'job_post'=>$vvv),"1").'" title="'.$job_name[$vvv].'">'.$job_name[$vvv].' </a>';
+									$html.=' <a  href="'.Url("job",array('c'=>'search','job1'=>$v,'job1_son'=>$vv,'job_post'=>$vvv),"1").'" title="'.$job_name[$vvv].'">'.$job_name[$vvv].' </a>';
 								}
 							}
 							$html.=' </dd><dd style="display:block;clear:both;float:inherit;width:100%;font-size:0;line-height:0;"></dd></dl>';
@@ -1218,7 +1221,7 @@ function getzph_action(){
 				echo 5;die;
 			}
 			$status=$this->send_msg_email(array("moblie"=>$_POST['moblie'],"code"=>$randstr));
-			if($status=='1'){
+			if($status=='发送成功!'){
 				$data['uid']='0';
 				$data['type']='2';
 				$data['status']='0';
@@ -1232,8 +1235,10 @@ function getzph_action(){
 				}else{
 					$this->obj->insert_into("company_cert",$data);
 				}
+				echo 1;die;
+			}else{
+				echo 2;die;
 			}
-			echo $status;die;
 		}
 	}
     function talent_pool_action(){
@@ -1412,18 +1417,15 @@ function getzph_action(){
 		} echo "document.write('".$html."');";
 	}
 	function SiteCity_action(){
-		if($_POST[cityid]=="nat"){
-			unset($_SESSION['cityid']);unset($_SESSION['three_cityid']);unset($_SESSION['cityname']);unset($_SESSION['hyclass']);
+		unset($_SESSION['cityid']);unset($_SESSION['three_cityid']);unset($_SESSION['cityname']);unset($_SESSION['newsite']);unset($_SESSION['host']);unset($_SESSION['did']);unset($_SESSION['hyclass']);unset($_SESSION['fz_type']);
+		if($_POST[cityid]=="nat"){ 
 			if($this->config['sy_indexdomain']){
 				$_SESSION['host'] = $this->config['sy_indexdomain'];
 			}else{
 				$_SESSION['host'] = $this->config['sy_weburl'];
-			}
-
-			echo $_SESSION['host'];
-			die;
+			} 
+			echo $_SESSION['host'];die;
 		}
-		unset($_SESSION['cityid']);unset($_SESSION['three_cityid']);unset($_SESSION['cityname']);unset($_SESSION['newsite']);unset($_SESSION['host']);unset($_SESSION['did']);unset($_SESSION['hyclass']);
 		if((int)$_POST['cityid']>0){
 			if(file_exists(PLUS_PATH."/domain_cache.php")){
 				include(PLUS_PATH."/domain_cache.php");
@@ -1453,18 +1455,14 @@ function getzph_action(){
 		}
 	}
 	function SiteHy_action(){
-		if($_POST['hyid']=="0"){
-			unset($_SESSION['cityid']);unset($_SESSION['three_cityid']);unset($_SESSION['cityname']);unset($_SESSION['hyclass']);
+		unset($_SESSION['cityid']);unset($_SESSION['three_cityid']);unset($_SESSION['cityname']);unset($_SESSION['hyclass']);unset($_SESSION['fz_type']);
+		if($_POST['hyid']=="0"){ 
 			$_SESSION['host'] = $this->config['sy_indexdomain'];
 			echo $_SESSION['host'];die;
-		}
-		unset($_SESSION['cityid']);
-		unset($_SESSION['three_cityid']);
-		unset($_SESSION['cityname']);
+		} 
 		unset($_SESSION['newsite']);
 		unset($_SESSION['host']);
-		unset($_SESSION['did']);
-		unset($_SESSION['hyclass']);
+		unset($_SESSION['did']); 
 		if((int)$_POST['hyid']>0){
 			if(file_exists(PLUS_PATH."/domain_cache.php")){
 				include(PLUS_PATH."/domain_cache.php");

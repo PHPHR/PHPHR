@@ -1,11 +1,14 @@
 <?php
 /*
-* $Author ：Pari开发团队, 联系: QQ 280913284
+* $Author ：PHPYUN开发团队
 *
+* 官网: http://www.phpyun.com
 *
+* 版权所有 2009-2015 宿迁鑫潮信息技术有限公司，并保留所有权利。
+*
+* 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
  */
 class show_controller extends resume_controller{
-
 	function index_action(){
 		$M=$this->MODEL('resume');
 		if($_GET['uid']){
@@ -24,6 +27,7 @@ class show_controller extends resume_controller{
 			}
 		}else if($_GET['id']){
 			$id=(int)$_GET['id'];
+
 		}
 		$resume_expect=$M->SelectExpectOne(array("id"=>$id));
 
@@ -84,12 +88,9 @@ class show_controller extends resume_controller{
 				$this->yun_tpl(array('jianli'.intval($_GET['tmp']).'/index'));
 			}else{
 				if($resume_expect['tmpid']){
-
 					$this->yun_tpl(array('jianli'.intval($resume_expect['tmpid']).'/index'));
 				}else{
-
 					$this->yun_tpl(array('resume'));
-
 				}
 			}
 		}

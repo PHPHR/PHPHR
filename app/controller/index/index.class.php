@@ -1,8 +1,12 @@
 <?php
 /*
-* $Author ：Pari开发团队, 联系: QQ 280913284
+* $Author ：PHPYUN开发团队
 *
+* 官网: http://www.phpyun.com
 *
+* 版权所有 2009-2015 宿迁鑫潮信息技术有限公司，并保留所有权利。
+*
+* 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
  */
 class index_controller extends common{
 	function index_action(){
@@ -15,8 +19,8 @@ class index_controller extends common{
         $CacheM=$this->MODEL('cache');
         $CacheList=$CacheM->GetCache(array('job','city','com','user','hy'));
         $this->yunset($CacheList);
-		if($this->config["cityid"]){
-			$this->seo("index",$this->config['webtitle'],$this->config['webkeyword'],$this->config['webmeta']);
+		if($this->config['did']){
+			$this->seo("index",$this->config['sy_webtitle'],$this->config['sy_webkeyword'],$this->config['sy_webmeta']);
 		}else{
 			$this->seo("index");
 		}
