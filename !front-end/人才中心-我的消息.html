@@ -37,71 +37,84 @@
 <div class="wdxx w1000">
 	<div class="l left">
     	<div class="j_tab">
-            <ul class="hd">
+            <ul class="hd" id="">
                 <li class="on">
                     <a href="#">
                     <div class="tb">
                         <img class="img1" src="images/pic120.png" />
                         <img class="img2" src="images/pic120_2.png" />
                     </div>
-                    <p>账号绑定</p>
+                    <p>网站公告</p>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <div class="tb">
-                            <img class="img1" src="images/pic121.png" />
-                            <img class="img2" src="images/pic121_2.png" />
-                        </div>
-                        <p>修改密码</p>
-                    </a>
+                    <div class="tb">
+                        <img class="img1" src="images/pic121.png" />
+                        <img class="img2" src="images/pic121_2.png" />
+                    </div>
+                    <p>收件箱</p>
                     <div class="num">10</div>
-                </li>
-                <li>
-                    <a href="#">
-                        <div class="tb">
-                            <img class="img1" src="images/pic122.png" />
-                            <img class="img2" src="images/pic122_2.png" />
-                        </div>
-                        <p>简历公开设置</p>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <div class="tb">
-                            <img class="img1" src="images/pic123.png" />
-                            <img class="img2" src="images/pic123_2.png" />
-                        </div>
-                        <p>简历公开设置</p>
+                    <div class="tb">
+                        <img class="img1" src="images/pic122.png" />
+                        <img class="img2" src="images/pic122_2.png" />
+                    </div>
+                    <p>发件箱</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                    <div class="tb">
+                        <img class="img1" src="images/pic123.png" />
+                        <img class="img2" src="images/pic123_2.png" />
+                    </div>
+                    <p>写信</p>
                     </a>
                 </li>
                 <div class="clear"></div>
             </ul>
-            <div class="huan">
-                <p><em>时间</em>标题</p>
-                <ul>
-                    <li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>
-                    <li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>
-                    <li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>
-                    <li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>
-                </ul>
-                <div class="j_page">
-                    <div class="page1">
-                        <a href="#">上一页</a>
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">下一页</a>
+            <div id="tab_bd">
+                <div class="li" style="display:block">
+                    <div class="huan">
+                        <p><em>时间</em>标题</p>
+                        <ul>
+                            <li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>
+                            <li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>
+                            <li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>
+                            <li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>
+                        </ul>
+                        <div class="j_page">
+                            <div class="page1">
+                                <a href="#">上一页</a>
+                                <a href="#">1</a>
+                                <a href="#">2</a>
+                                <a href="#">3</a>
+                                <a href="#">4</a>
+                                <a href="#">5</a>
+                                <a href="#">6</a>
+                                <a href="#">下一页</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
     <div class="r right_all">
-    	<div class="bfb"><img src="images/pic70.jpg" /></div>
+    	<div class="bfb">
+            <script type="text/javascript" src="js/jquery.circliful.min.js"></script>
+            <script type="text/javascript">
+                $( document ).ready(function() {
+                    $('#myStat2').circliful();
+                });
+            </script>
+            <div id="myStat2" data-dimension="89" data-text="30%" data-info="New Clients" data-width="10" data-fontsize="20" data-percent="35" data-fgcolor="#fe960f" data-bgcolor="#efefef"></div>
+        </div>
         <ul class="blj">
         	<li><a href="#">编辑简历</a></li>
         	<li><a class="a2" href="#">预览简历</a></li>

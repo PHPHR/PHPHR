@@ -11,6 +11,7 @@
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="js/JQ_common.js"></script>
 <script type="text/javascript" src="js/jquery.SuperSlide.2.1.js"></script>
+<script type="text/javascript" src="js/js.js"></script>
 </head>
 
 <body>
@@ -52,10 +53,34 @@
                 <div class="bd">
                     <div class="none" style="display:block;">
                     	<form method="get" name="" action="" target="_blank">
-                            <div id="searchTxt" class="searchTxt" onMouseOver="this.className='searchTxt searchTxtHover';" onMouseOut="this.className='searchTxt';">
+                            <div id="searchTxt" class="searchTxt">
                                 <div class="searchMenu">
-                                    <div class="searchSelected" id="searchSelected">城市</div>
-                                    <div style="display:none;" class="searchTab" id="searchTab">
+                                    <div class=" myopenbut" id="">城市</div>
+                                    <div class="model_box">
+                                        <div class="pos">
+                                            <div class="close"></div>
+                                            <ul id="allProvince" class="show">
+                                                <li><b>A</b><span myselect="1">安徽</span></li>
+                                                <li><b>B</b><span myselect="2">北京</span></li>
+                                                <li><b>C</b><span myselect="3">重庆</span></li>
+                                                <li><b>F</b><span myselect="4">福建</span></li>
+                                                <li><b>G</b><span myselect="5">广东</span></li>
+                                                <li><b>H</b><span myselect="6">河北</span><span myselect="7">安徽</span></li>
+                                                <li><b>J</b><span myselect="8">吉林</span></li>
+                                                <li><b>L</b><span myselect="9">辽宁</span></li>
+                                                <li><b>N</b><span myselect="10">内蒙</span></li>
+                                                <li><b>Q</b><span myselect="11">青海</span></li>
+                                                <li><b>S</b><span myselect="12">上海</span></li>
+                                                <li><b>T</b><span myselect="13">天津</span><span myselect="14">安徽</span><span myselect="15">安徽</span></li>
+                                                <li><b>X</b><span myselect="16">新疆</span></li>
+                                                <li><b>Y</b><span myselect="17">云南</span></li>
+                                                <li><b>Z</b><span myselect="18">浙江</span></li>
+                                            </ul>
+                                            <input type="hidden" class="model_input"/>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- <div style="display:none;" class="searchTab" id="searchTab">
                                         <div class="radius" style="top:259px;"></div>
                                         <div class="radius" style="top:259px;left:59px;"></div>
                                         <ul>
@@ -63,22 +88,46 @@
                                             <li>城市</li>
                                             <li>城市</li>
                                         </ul>
-                                    </div>                                
+                                    </div>        -->                         
                                 </div>
                                 <input name="w" type="text" /> 
                             </div>
-                            
                             <div class="searchBtn">
                                 <button id="searchBtn" type="submit" value=""></button>
                             </div>
                         </form>
                     </div>
+
                     <div class="none">
-                    	<form method="get" name="" action="" target="_blank">
-                            <div id="searchTxt" class="searchTxt" onMouseOver="this.className='searchTxt searchTxtHover';" onMouseOut="this.className='searchTxt';">
+                        <form method="get" name="" action="" target="_blank">
+                            <div id="searchTxt" class="searchTxt">
                                 <div class="searchMenu">
-                                    <div class="searchSelected" id="searchSelected">城市</div>
-                                    <div style="display:none;" class="searchTab" id="searchTab">
+                                    <div class=" myopenbut" id="">城市</div>
+                                    <div class="model_box">
+                                        <div class="pos">
+                                            <div class="close"></div>
+                                            <ul id="allProvince" class="show">
+                                                <li><b>A</b><span myselect="1">安徽</span></li>
+                                                <li><b>B</b><span myselect="2">北京</span></li>
+                                                <li><b>C</b><span myselect="3">重庆</span></li>
+                                                <li><b>F</b><span myselect="4">福建</span></li>
+                                                <li><b>G</b><span myselect="5">广东</span></li>
+                                                <li><b>H</b><span myselect="6">河北</span><span myselect="7">安徽</span></li>
+                                                <li><b>J</b><span myselect="8">吉林</span></li>
+                                                <li><b>L</b><span myselect="9">辽宁</span></li>
+                                                <li><b>N</b><span myselect="10">内蒙</span></li>
+                                                <li><b>Q</b><span myselect="11">青海</span></li>
+                                                <li><b>S</b><span myselect="12">上海</span></li>
+                                                <li><b>T</b><span myselect="13">天津</span><span myselect="14">安徽</span><span myselect="15">安徽</span></li>
+                                                <li><b>X</b><span myselect="16">新疆</span></li>
+                                                <li><b>Y</b><span myselect="17">云南</span></li>
+                                                <li><b>Z</b><span myselect="18">浙江</span></li>
+                                            </ul>
+                                            <input type="hidden" class="model_input"/>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div style="display:none;" class="searchTab" id="searchTab">
                                         <div class="radius" style="top:259px;"></div>
                                         <div class="radius" style="top:259px;left:59px;"></div>
                                         <ul>
@@ -86,22 +135,45 @@
                                             <li>城市</li>
                                             <li>城市</li>
                                         </ul>
-                                    </div>                                
+                                    </div>        -->
                                 </div>
-                                <input name="w" type="text" /> 
+                                <input name="w" type="text" />
                             </div>
-                            
                             <div class="searchBtn">
                                 <button id="searchBtn" type="submit" value=""></button>
                             </div>
                         </form>
                     </div>
-                    <div class="none">
-                    	<form method="get" name="" action="" target="_blank">
-                            <div id="searchTxt" class="searchTxt" onMouseOver="this.className='searchTxt searchTxtHover';" onMouseOut="this.className='searchTxt';">
+                    <div class="none" >
+                        <form method="get" name="" action="" target="_blank">
+                            <div id="searchTxt" class="searchTxt">
                                 <div class="searchMenu">
-                                    <div class="searchSelected" id="searchSelected">城市</div>
-                                    <div style="display:none;" class="searchTab" id="searchTab">
+                                    <div class=" myopenbut" id="">城市</div>
+                                    <div class="model_box">
+                                        <div class="pos">
+                                            <div class="close"></div>
+                                            <ul id="allProvince" class="show">
+                                                <li><b>A</b><span myselect="1">安徽</span></li>
+                                                <li><b>B</b><span myselect="2">北京</span></li>
+                                                <li><b>C</b><span myselect="3">重庆</span></li>
+                                                <li><b>F</b><span myselect="4">福建</span></li>
+                                                <li><b>G</b><span myselect="5">广东</span></li>
+                                                <li><b>H</b><span myselect="6">河北</span><span myselect="7">安徽</span></li>
+                                                <li><b>J</b><span myselect="8">吉林</span></li>
+                                                <li><b>L</b><span myselect="9">辽宁</span></li>
+                                                <li><b>N</b><span myselect="10">内蒙</span></li>
+                                                <li><b>Q</b><span myselect="11">青海</span></li>
+                                                <li><b>S</b><span myselect="12">上海</span></li>
+                                                <li><b>T</b><span myselect="13">天津</span><span myselect="14">安徽</span><span myselect="15">安徽</span></li>
+                                                <li><b>X</b><span myselect="16">新疆</span></li>
+                                                <li><b>Y</b><span myselect="17">云南</span></li>
+                                                <li><b>Z</b><span myselect="18">浙江</span></li>
+                                            </ul>
+                                            <input type="hidden" class="model_input"/>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div style="display:none;" class="searchTab" id="searchTab">
                                         <div class="radius" style="top:259px;"></div>
                                         <div class="radius" style="top:259px;left:59px;"></div>
                                         <ul>
@@ -109,11 +181,10 @@
                                             <li>城市</li>
                                             <li>城市</li>
                                         </ul>
-                                    </div>                                
+                                    </div>        -->
                                 </div>
-                                <input name="w" type="text" /> 
+                                <input name="w" type="text" />
                             </div>
-                            
                             <div class="searchBtn">
                                 <button id="searchBtn" type="submit" value=""></button>
                             </div>

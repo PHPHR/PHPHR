@@ -135,7 +135,15 @@
         </div>
     </div>
     <div class="r right_all">
-    	<div class="bfb"><img src="images/pic70.jpg" /></div>
+    	<div class="bfb">
+            <script type="text/javascript" src="js/jquery.circliful.min.js"></script>
+            <script type="text/javascript">
+                $( document ).ready(function() {
+                    $('#myStat2').circliful();
+                });
+            </script>
+            <div id="myStat2" data-dimension="89" data-text="30%" data-info="New Clients" data-width="10" data-fontsize="20" data-percent="35" data-fgcolor="#fe960f" data-bgcolor="#efefef"></div>
+        </div>
         <ul class="blj">
         	<li><a href="#">编辑简历</a></li>
         	<li><a class="a2" href="#">预览简历</a></li>

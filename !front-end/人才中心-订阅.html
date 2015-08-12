@@ -56,34 +56,36 @@
                     <p class="p2">接收邮箱   发送周期 （必填）</p>
                     <input type="text" class="text" placeholder="diuabd@qq.com" />
                     <ul class="day">
-                        <li class="hover"><a href="#">7天 </a></li>
-                        <li><a href="#">7天 </a></li>
-                        <li><a href="#">7天 </a></li>
+                        <li class="hover"><span>7天</span> </li>
+                        <li><span>7天</span>  </li>
+                        <li><span>7天</span>  </li>
                         <div class="clear"></div>
                     </ul>
-                    <p class="p2">接收邮箱   发送周期 （必填）</p>
+                    <p class="p2">职位类别 （多选，最多三项）</p>
                     <dl class="select">
                         <dt>互诺科技互诺科技互诺科技互诺科技</dt>
                         <dd>
                             <ul>
-                                <li><a href="#">互诺科技1</a></li>
-                                <li><a href="#">互诺科技2</a></li>
-                                <li><a href="#">互诺科技3</a></li>
+                                <li myselect="1">互诺科技1</li>
+                                <li myselect="2">互诺科技2</li>
+                                <li myselect="3">互诺科技3</li>
                             </ul>
+                            <input type="hidden" class="select_hidden"/>
                         </dd>
                     </dl>
-                    <p class="p2">接收邮箱   发送周期 （必填）</p>
+                    <p class="p2">工作地点 （必填）</p>
                     <dl class="select">
                         <dt class="dt2">互诺科技互诺科技互诺科技互诺科技</dt>
                         <dd>
                             <ul>
-                                <li><a href="#">互诺科技1</a></li>
-                                <li><a href="#">互诺科技2</a></li>
-                                <li><a href="#">互诺科技3</a></li>
+                                <li myselect="1">互诺科技1</li>
+                                <li myselect="2">互诺科技2</li>
+                                <li myselect="3">互诺科技3</li>
                             </ul>
+                            <input type="hidden" class="select_hidden"/>
                         </dd>
                     </dl>
-                    <p class="p2">接收邮箱   发送周期 （必填）</p>
+                    <p class="p2">月薪范围（选填）</p>
                     <input type="text" class="text" placeholder="diuabd@qq.com" />
                 </div>
                 <form>
@@ -94,7 +96,15 @@
         </div>
     </div>
     <div class="r right_all">
-    	<div class="bfb"><img src="images/pic70.jpg" /></div>
+        <div class="bfb">
+            <script type="text/javascript" src="js/jquery.circliful.min.js"></script>
+            <script type="text/javascript">
+                $( document ).ready(function() {
+                    $('#myStat2').circliful();
+                });
+            </script>
+            <div id="myStat2" data-dimension="89" data-text="30%" data-info="New Clients" data-width="10" data-fontsize="20" data-percent="35" data-fgcolor="#fe960f" data-bgcolor="#efefef"></div>
+        </div>
         <ul class="blj">
         	<li><a href="#">编辑简历</a></li>
         	<li><a class="a2" href="#">预览简历</a></li>

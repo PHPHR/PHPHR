@@ -1,4 +1,12 @@
-$(function(){ 
+
+
+
+
+
+
+
+
+$(function(){
 	$search();
 	$sift();
 	$(".index .m_wrap1 .hd li").click(function(){
@@ -38,24 +46,27 @@ $(function(){
 	});*/
 });
 
+
 var $search = (function(){
-	$(".searchSelected").click(function(){ 
+	$(".searchSelected").click(function(){
 		$(".searchTab").show();
 		$(this).addClass("searchOpen");
-	}); 
+	});
 
 	$(".searchTab li").hover(function(){
 		$(this).addClass("selected");
 	},function(){
 		$(this).removeClass("selected");
 	});
-	 
+
 	$(".searchTab li").click(function(){
 		$(".searchSelected").html($(this).html());
 		$(".searchTab").hide();
 		$(".searchSelected").removeClass("searchOpen");
 	});
 });
+
+
 
 var $sift = (function(){
 	var dlNum  =$("#selectList").find("dl");
@@ -103,7 +114,12 @@ var $sift = (function(){
 		$(this).parent().removeAttr("style");	
 	},function(){
 		$(this).parent().height(25);	
-	});	
+	});
+
+
+
+
+
 });
 /*setTimeout(function(){
 alert(msg);

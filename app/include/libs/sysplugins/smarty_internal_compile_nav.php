@@ -19,7 +19,7 @@ class Smarty_Internal_Compile_Nav extends Smarty_Internal_CompileBase{
 			$Purl =  $ParamerArr[purl];
 			if(is_array( $menu_name[12]))
 			foreach($menu_name[12] as $key=>$val){
-				if($val[\'type\']==\'2\'){
+			    if($val[\'type\']==\'2\'){
 					if($config[\'sy_seo_rewrite\']=="1" && $val[furl]!=\'\'){
 						$menu_name[12][$key][url] = $val[furl];
 					}else{

@@ -38,48 +38,57 @@
 <div class="w1000 jlgksz">
 	<div class="l left">
     	<div class="j_tab">
-            <ul class="hd">
+            <ul class="hd" id="tab_hd">
                 <li>
-                    <a href="#">
-                        <div class="tb">
-                            <img class="img1" src="images/pic97.png" />
-                            <img class="img2" src="images/pic97_2.png" />
-                        </div>
-                        <p>账号绑定</p>
-                    </a>
+                    <div class="tb">
+                        <img class="img1" src="images/pic97.png" />
+                        <img class="img2" src="images/pic97_2.png" />
+                    </div>
+                    <p>账号绑定</p>
                 </li>
                 <li>
-                    <a href="#">
-                        <div class="tb">
-                            <img class="img1" src="images/pic98.png" />
-                            <img class="img2" src="images/pic98_2.png" />
-                        </div>
-                        <p>修改密码</p>
-                    </a>
+                    <div class="tb">
+                        <img class="img1" src="images/pic98.png" />
+                        <img class="img2" src="images/pic98_2.png" />
+                    </div>
+                    <p>修改密码</p>
                 </li>
                 <li class="on">
-                    <a href="#">
-                        <div class="tb">
-                            <img class="img1" src="images/pic99.png" />
-                            <img class="img2" src="images/pic99_2.png" />
-                        </div>
-                        <p>简历公开设置</p>
-                    </a>
+                    <div class="tb">
+                        <img class="img1" src="images/pic99.png" />
+                        <img class="img2" src="images/pic99_2.png" />
+                    </div>
+                    <p>简历公开设置</p>
                 </li>
                 <div class="clear"></div>
             </ul>
-            <div class="huan huan1">
-                <p class="tit">资料公开设置</p>
-                <p class="p1"><input type="radio" />完全公开</p>
-                <p class="p1"><input type="radio" />完全保密</p>
-                <p class="tit">联系方式公开设置</p>
-                <p class="p1"><input type="radio" />公开我的联系方式</p>
-                <p class="p1"><input type="radio" />不公开我的联系方式</p>
-            </div>
+            <ul id="tab_bd">
+                <li>
+                    <div class="huan huan1">
+                        <p class="tit">资料公开设置</p>
+                        <p class="p1"><input type="radio" />完全公开</p>
+                        <p class="p1"><input type="radio" />完全保密</p>
+                        <p class="tit">联系方式公开设置</p>
+                        <p class="p1"><input type="radio" />公开我的联系方式</p>
+                        <p class="p1"><input type="radio" />不公开我的联系方式</p>
+                    </div>
+                </li>
+                <li></li>
+                <li></li>
+            </ul>
+
         </div>
     </div>
     <div class="r right_all">
-    	<div class="bfb"><img src="images/pic70.jpg" /></div>
+        <div class="bfb">
+            <script type="text/javascript" src="js/jquery.circliful.min.js"></script>
+            <script type="text/javascript">
+                $( document ).ready(function() {
+                    $('#myStat2').circliful();
+                });
+            </script>
+            <div id="myStat2" data-dimension="89" data-text="30%" data-info="New Clients" data-width="10" data-fontsize="20" data-percent="35" data-fgcolor="#fe960f" data-bgcolor="#efefef"></div>
+        </div>
         <ul class="blj">
         	<li><a href="#">编辑简历</a></li>
         	<li><a class="a2" href="#">预览简历</a></li>

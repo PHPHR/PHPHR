@@ -1,131 +1,105 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8" />
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<title>{yun:}$title{/yun}</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
-<!--[if lte IE 6]><script src="{yun:}$config.sy_weburl{/yun}/resource/js/DD_belatedPNG_0.0.8a-min.js" type="text/javascript"></script><script type="text/javascript">	DD_belatedPNG.fix('*');</script><![endif]-->
-<!-- 加载jQuery1.7.2版本-->
-<script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/JQ_common.js"></script>
-<script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery.SuperSlide.2.1.js"></script>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <title>无标题文档</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <!--[if lte IE 6]><script src="js/DD_belatedPNG_0.0.8a-min.js" type="text/javascript"></script><script type="text/javascript">	DD_belatedPNG.fix('*');</script><![endif]-->
+    <!-- 加载jQuery1.7.2版本-->
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/JQ_common.js"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.2.1.js"></script>
 </head>
 
 <body>
 <div id="main" class="jbxx">
-	<div style="background:url({yun:}$config.sy_weburl{/yun}/resource/images/ysd_38.jpg) top center no-repeat #81c7eb; ">
-    	<div class="main"> 
-			<div style="height:70px;"></div>
+    <div style="background:url(images/ysd_38.jpg) top center no-repeat #81c7eb; ">
+        <div class="main">
+            <div style="height:70px;"></div>
             <dl class="m_wrap" style="width:800px;">
-            <dt style="background:url({yun:}$config.sy_weburl{/yun}/resource/images/ysd_60.png) bottom no-repeat;">
-            	<div class="icons" style="background:url({yun:}$Info.resume_photo{/yun}) no-repeat;"></div>
-            	<h1>{yun:}$Info.username_n{/yun}<span>{yun:}$Info.user_sex{/yun}士</span></h1>
-            </dt>
-            <dd>
-            	<ul class="box1">
-                <li><span>专业：</span>临床医生</li>
-                <li><span>学历：</span>{yun:}$Info.useredu{/yun}</li>
-                <li><span>职称：</span>专业护士</li>
-                <li><span>所在地区：</span>广州</li>
-                <li><span>联系电话：</span>{yun:}image uid=$Info.uid number=$Info.telphone action=telphone width=200{/yun}</li>
-                <li><span>工作年限：</span>3年 </li>
-                <li><span>联系邮箱：</span>{yun:}$Info.email{/yun}</li>
-                <li><span>目前工作状态：</span>离职 </li>
-                <li><span>一句话介绍自己：</span>自强不息，永不言败</li>
-                <div class="clear"></div>
-                </ul>
-                <div class="line"></div>
-                <div class="tit">意向职位</div>
-                <ul class="box2">
-                <li style="text-align:left;"><i class="ico1"></i>{yun:}$Info.jobname{/yun}</li>
-                <li><i class="ico2"></i>{yun:}$Info.type{/yun}</li>
-                <li><i class="ico3"></i>{yun:}$Info.city_one{/yun} {yun:}$Info.city_two{/yun} {yun:}$Info.city_three{/yun}</li>
-                <li><i class="ico4"></i>{yun:}$Info.salary{/yun} {yun:}if $Info.salary!="面议"{/yun} <font color="#888888">RMB</font>{yun:}/if{/yun}</li>
-                <div class="clear"></div>
-                </ul>
-
-                {yun:}if is_array($Info.user_work) && !empty($Info.user_work){/yun}
-                <div class="line"></div>
-                <div class="tit">工作经历<span>（工作了3年3个月，做了2份工作）</span></div>
-                {yun:}foreach item=all from=$Info.user_work{/yun}
-                <div class="box3">
-                    <div class="p1">
-                        <div class="date">{yun:}$all.sdate|date_format:"%Y-%m"{/yun} — {yun:}if $all.edate{/yun}{yun:}$all.edate|date_format:"%Y-%m"{/yun}{yun:}else{/yun}至今{yun:}/if{/yun}<span>[2年4个月]</span></div>
-                        <span class="c1">{yun:}$all.title{/yun}</span>
+                <dt style="background:url(images/ysd_60.png) bottom no-repeat;">
+                <div class="icons" style="background:url(images/ysd_40.jpg) no-repeat;"></div>
+                <h1>柳艳冰<span>女士</span></h1>
+                </dt>
+                <dd>
+                    <ul class="xbox1">
+                        <li><span>专业：</span>临床医生</li>
+                        <li><span>最高学历：</span>本科</li>
+                        <li><span>职称：</span>专业护士</li>
+                        <li><span>所在地区：</span>广州</li>
+                        <li><span>联系电话：</span>15627672454</li>
+                        <li><span>工作年限：</span>3年 </li>
+                        <li><span>联系邮箱：</span>276706578@qq.com</li>
+                        <li><span>目前工作状态：</span>离职 </li>
+                        <li><span>一句话介绍自己：</span>自强不息，永不言败</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="line"></div>
+                    <div class="tit">意向职位</div>
+                    <ul class="xbox2">
+                        <li style="text-align:left;"><i class="ico1"></i>网建技术项目总监</li>
+                        <li><i class="ico2"></i>全职</li>
+                        <li><i class="ico3"></i>广州</li>
+                        <li><i class="ico4"></i>10k-15k</li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="line"></div>
+                    <div class="tit">工作经历<span>（工作了3年3个月，做了2份工作）</span></div>
+                    <div class="xbox3">
+                        <div class="p1"><div class="date">2012.07 — 2014.08<span>[2年4个月]</span></div><span class="c1">项目总监</span></div>
+                        <div class="p2"><span>广州顺大计算机科技有限公司</span></div>
+                        <div class="p3">广州顺大计算机科技有限公司工作内容广州顺大计算机科技有限公司工作内容广州顺大计算机科技有限
+                            公司工作内容广州顺大计算机科技有限公司工作内容广州顺大计算机科技有限公司工作内容</div>
                     </div>
-                    <div class="p2"><span>{yun:}$all.name{/yun}</span></div>
-                    <div class="p3">{yun:}$all.content{/yun}</div>
-                </div>
-                {yun:}/foreach{/yun}
-                {yun:}/if{/yun}
-
-                {yun:}if is_array($Info.user_edu) && !empty($Info.user_edu){/yun}
-                <div class="line"></div>
-                <div class="tit">教育经历</div>
-                {yun:}section name=all loop=$Info.user_edu{/yun}
-                <div class="box3">
-                    <div class="p1"><div class="date"> {yun:}$Info.user_edu[all].sdate|date_format:"%Y - %m"{/yun} - {yun:}$Info.user_edu[all].edate|date_format:"%Y - %m"{/yun}</div>
-                        <span class="c2">{yun:}$Info.user_edu[all].name{/yun}</span><em>|</em><span class="c2">{yun:}$Info.user_edu[all].title{/yun}</span><em>|</em>
-                        <span class="c2">{yun:}$Info.user_edu[all].specialty{/yun}</span></div>
-                    <div class="clear"></div>
-                    <div class="blank"></div>
-                </div>
-                {yun:}/section{/yun}
-                {yun:}/if{/yun}
-
-
-                {yun:}if $Info.description{/yun}
-                <div class="line"></div>
-                <div class="tit">自我描述</div>
-                <div class="box3">
-                	<div class="p3">{yun:}$Info.description{/yun}</div>
-                </div>
-                {yun:}/if{/yun}
-
-                {yun:}if is_array($Info.user_xm) && !empty($Info.user_xm){/yun}
-                <div class="resume_list">
-                    <div class="resume_content_h1"><i class="resume_content_h1_icon resume_content_h1_icon5"></i><span class="resume_content_h1_name">项目经验</span></div>
-                    <div class="resume_jl_box">
-                        <div class="resume_jl_list"> <i class="resume_jl_list_icon"></i>
-                            <div class="resume_jl_time">{yun:}$Info.user_xm[all].sdate|date_format:"%Y年%m月"{/yun} - {yun:}$Info.user_xm[all].edate|date_format:"%Y年%m月"{/yun}</div>
-                            <div class="resume_jl_post_name"> {yun:}$Info.user_xm[all].title{/yun}<span class="resume_jl_bm">({yun:}$Info.user_xm[all].sys{/yun})</span></div>
-                            <div class="resume_jl_qy_name">{yun:}$Info.user_xm[all].name{/yun}</div>
-                            <div class="resume_jl_p"> <span class="">项目内容：</span>{yun:}$Info.user_xm[all].content{/yun}</div>
-                        </div>
-                        {yun:}/section{/yun} </div>
-                </div>
-
-
-
-                <div class="line"></div>
-                <div class="tit">项目经验</div>
-                {yun:}section name=all loop=$Info.user_xm{/yun}
-                <div class="box3">
-                	<div class="p1"><div class="date"> {yun:}$Info.user_xm[all].sdate|date_format:"%Y - %m"{/yun} - {yun:}$Info.user_xm[all].edate|date_format:"%Y - %m"</div>
-                        <span class="c2">{yun:}$Info.user_xm[all].sys{/yun}</span><em>|</em><span class="c2">{yun:}$Info.user_xm[all].name{/yun}</span><em>|</em><span class="c2">{yun:}$Info.user_xm[all].title{/yun}</span></div>
-                    <div class="blank4"></div>
-                    <div class="p3">{yun:}$Info.user_xm[all].content{/yun}</div>
-                </div>
-                {yun:}/if{/yun}
-
-                {yun:}if is_array($Info.user_tra) && !empty($Info.user_tra){/yun}
-                <div class="line"></div>
-                <div class="tit">培训经历</div>
-                {yun:}section name=all loop=$Info.user_tra{/yun}
-                <div class="box3">
-                    <div class="p1"><div class="date">{yun:}$Info.user_tra[all].sdate|date_format:"%Y年%m月"{/yun} - {yun:}$Info.user_tra[all].edate|date_format:"%Y年%m月"{/yun}</div>
-                        <span class="c2">{yun:}$Info.user_tra[all].title{/yun}</span></div>
-                    <div class="p2"><span>{yun:}$Info.user_tra[all].name{/yun}</span></div>
-                    <div class="p3">{yun:}$Info.user_tra[all].content{/yun}</div>
-                </div>
-                {yun:}/if{/yun}
-
-                <div class="line"></div>
-                <div class="tit">附件</div>
-                <div style="padding:0 0 30px 50px;"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_51.jpg"></div>
-            </dd>
+                    <div class="line"></div>
+                    <div class="tit">教育经历</div>
+                    <div class="xbox3">
+                        <div class="p1"><div class="date"> 2010.10.10  — 2015.06.06</div><span class="c2">广州电视广播大学</span><em>|</em><span class="c2">本科</span><em>|</em><span class="c2">工商企业管理</span></div>
+                        <div class="clear"></div>
+                        <div class="blank"></div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="tit">自我描述</div>
+                    <div class="xbox3">
+                        <div class="p3">当今社会竞争激烈，所以我会更加珍惜和不断充实自我、丰富自我、完善自我。
+                            一个机会，一份信任，对于每一个渴求上进的人来说是十分宝贵的，给我一片天空，我回报的不是
+                            奇迹，而是一生的勤奋和忠诚！如蒙诚聘，我将竭尽所能，为贵单位的发展贡献自己的一份力量，
+                            请您相信，我可能不是最好的，但我会努力做得更好。</div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="tit">项目经验</div>
+                    <div class="xbox3">
+                        <div class="p1"><div class="date"> 2010.10.10  — 2015.06.06</div><span class="c2">GMP认证</span><em>|</em><span class="c2">世界传奇手游</span><em>|</em><span class="c2">项目经理</span></div>
+                        <div class="blank4"></div>
+                        <div class="p3">当今社会竞争激烈，所以我会更加珍惜和不断充实自我、丰富自我、完善自我。一个机会，
+                            一份信任，对于每一个渴求上进的人来说是十分宝贵的，给我一片天空，我回报的不是奇迹，而是一生的勤
+                            奋和忠诚！如蒙诚聘，我将竭尽所能，为贵单位的发展贡献自己的一份力量，请您相信，我可能不是最好的，
+                            但我会努力做得更好。你还可以输入500 个中文字</div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="tit">学生信息</div>
+                    <div class="xbox3">
+                        <div class="p1"><div class="date"> 2010.10.10  — 2015.06.06</div><span class="c2">学生部长</span><em>|</em><span class="c2">项目助理</span></div>
+                        <div class="blank4"></div>
+                        <div class="p3">当今社会竞争激烈，所以我会更加珍惜和不断充实自我、丰富自我、完善自我。一个机会，
+                            一份信任，对于每一个渴求上进的人来说是十分宝贵的，给我一片天空，我回报的不是奇迹，而是一生的勤
+                            奋和忠诚！如蒙诚聘，我将竭尽所能，为贵单位的发展贡献自己的一份力量，请您相信，我可能不是最好的，但我会努力做得更好。</div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="tit">培训经历</div>
+                    <div class="xbox3">
+                        <div class="p1"><div class="date">2010.10.10  —  2015.06.06</div><span class="c2">大型机器</span></div>
+                        <div class="p2"><span>蓝翔挖掘机</span><span>开挖掘机炒菜</span><span>山东</span><span>挖掘机驾驶证</span></div>
+                        <div class="p3">当今社会竞争激烈，所以我会更加珍惜和不断充实自我、丰富自我、完善自我。一个机会，
+                            一份信任，对于每一个渴求上进的人来说是十分宝贵的，给我一片天空，我回报的不是奇迹，而是一生的勤
+                            奋和忠诚！如蒙诚聘，我将竭尽所能，为贵单位的发展贡献自己的一份力量，请您相信，我可能不是最好的，但我会努力做得更好。</div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="tit">附件</div>
+                    <div style="padding:0 0 30px 50px;"><img src="images/ysd_51.jpg"></div>
+                </dd>
             </dl>
             <div class="m_line1"></div>
             <div style="height:164px;"></div>
@@ -133,7 +107,7 @@
     </div>
 </div>
 <div class="f_box1">
-	<span><i class="ico1"></i>下载</span><span><i class="ico2"></i>邀请面试</span><span><i class="ico3"></i>不合适</span>
+    <span><i class="ico1"></i>下载</span><span><i class="ico2"></i>邀请面试</span><span><i class="ico3"></i>不合适</span>
 </div>
 </body>
 </html>
