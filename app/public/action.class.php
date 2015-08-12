@@ -68,16 +68,12 @@ class model{
         if(is_array($$TableFullName)){
             $fields=array_keys($$TableFullName);
         }
-		if(is_array($fields)){
 			if(is_array($data)){
 				foreach($data as $key=>$v){
-					if(in_array($key,$fields)){
 						$v = $this->FilterStr($v);
 						$value[]="`".$key."`='".mysql_real_escape_string($v)."'";
-					}
 				}
 			}
-		}
 		$value=@implode(",",$value);
 		return $this->DB_insert_once($table,$value);
 	}

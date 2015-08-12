@@ -429,6 +429,7 @@ class Smarty_Internal_Template extends Smarty_Internal_TemplateBase
         $output .= $plugins_string;
         //TODO：将自定义标签代码放到页面开头
         global $DiyTagOutputStr;
+        if(is_array($DiyTagOutputStr) && !empty($DiyTagOutputStr))
         foreach($DiyTagOutputStr as $v){
             $output.="<?php $v ?>\n";
         }

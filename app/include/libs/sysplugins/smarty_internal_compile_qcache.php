@@ -48,8 +48,9 @@ class Smarty_Internal_Compile_Qcache extends Smarty_Internal_CompileBase{
 				break;
 			} 
 		}
-		if($paramer[son]){
-			foreach('.$name.' as $key=>$val){ 
+		if($paramer[son] && !empty($name) && is_array('.$name.')){
+			foreach('.$name.' as $key=>$val){
+			  if(!empty($ask_type[$val[\'id\']]) && is_array($ask_type[$val[\'id\']]))
 				foreach($ask_type[$val[\'id\']] as $v){
 					'.$name.'[$key][son][]=array(\'name\'=>$ask_name[$v],"id"=>$v);
 				} 

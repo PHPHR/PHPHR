@@ -46,27 +46,37 @@ class index_controller extends common{
     }
 
     /**
-     * 注册保存
+     * 注册验证码校对
      */
-    public function savereg_action()
+    public function saveregvcode_action()
     {
-        $userName = trim($_POST['username']);
-        $password = trim($_POST['password']);
         $vcode = trim($_POST['vcode']);
 
         //验证码
         if(md5($vcode)!=$_SESSION['authcode']) {
-            echo json_encode(['msg'=>'code_error']);die;
+            echo 'false';
+            die;
+        }else{
+            echo 'true';
+            die;
         }
+    }
+    /**
+     * 注册验证用户
+    */
+
+    public function savereguser_action()
+    {
+        $userName = trim($_POST['username']);
 
         //用户名验证
         if(is_numeric($userName)){
             if(!preg_match("/^1[3,5,8,7]{1}[0-9]{9}$/",$userName)){ //手机号码验证
-                echo json_encode(['msg'=>'username_error']);die;
+                echo 'false';die;
             }
         }else{
             if(!preg_match("/^([a-zA-Z0-9\-]+[_|\_|\.]?)*[a-zA-Z0-9\-]+@([a-zA-Z0-9\-]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z0-9]{2,4}$/",$userName)){   //邮箱验证
-                echo json_encode(['msg'=>'username_error']);die;
+                echo 'false';die;
             }
         }
 
@@ -74,8 +84,18 @@ class index_controller extends common{
         $Member=$this->MODEL("userinfo");
         $nid = $Member->GetMemberNum(array("username"=>$userName));
         if($nid){
-            echo json_encode(['msg'=>'user_exist']);die;
+            echo 'false';die;
+        }else{
+            echo 'true';die;
         }
+    }
+    /**
+     * 注册保存
+     */
+    public function savereg_action() {
+        $Member=$this->MODEL("userinfo");
+        $userName = trim($_POST['username']);
+        $password = trim($_POST['password']);
         $salt=substr(uniqid(),-6);
         if($Member->AddMember([
             'username'=>$userName,
@@ -86,7 +106,8 @@ class index_controller extends common{
         ])){
             $_SESSION['is_login']=1;
             $_SESSION['username']=$userName;
-            echo json_encode(['msg'=>'succ']);
+            echo json_encode(array('status'=>'succ'));
+            die;
         }
     }
 

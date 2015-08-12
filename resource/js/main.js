@@ -1,5 +1,6 @@
 
-seajs.use("./resource/js/reg",function(reg){
-
-	reg.checkLogin();
+seajs.use("./resource/js/checkform",function(checkform){
+    /*зЂВс*/
+    checkform.registerIn();
+    checkform.register();
 })

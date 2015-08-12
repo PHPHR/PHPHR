@@ -19,7 +19,6 @@ $model = $_GET['c'];
 $action = $_GET['act'];
 if($model=="")	$model="index";
 if($action=="")	$action = "index";
-
 $usertype=$_COOKIE["usertype"];
 if($usertype==1){
 	$type="user";
@@ -41,7 +40,6 @@ if($_GET['m']=='ajax'){
 
 $conclass=$model.'_controller';
 $actfunc=$action.'_action';
-
 $views=new $conclass($phpyun,$db,$db_config["def"],"member");
 if(!method_exists($views,$actfunc)){
 	$views->DoException();

@@ -449,7 +449,7 @@ function FormatPicUrl($paramer){
     }
     return $config['sy_weburl'].$UploadPath;
 }
-function GetSmarty($arr,$get,$_smarty_tpl){
+function GetSmarty($arr,$get,$_smarty_tpl = null){
     $arr = str_replace("\"","",$arr);
     $arr = str_replace("'","",$arr);
     if(is_array($arr)){

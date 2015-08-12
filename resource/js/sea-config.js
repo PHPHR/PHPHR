@@ -1,5 +1,5 @@
 /**
-*seajsé‡Œé¢çš„é…ç½®æ–‡ä»¶
+*seajsÅäÖÃÎÄ¼ş
 */
 
 seajs.config({
@@ -7,7 +7,7 @@ seajs.config({
 	alias : {
 		"jquery" : "jquery-1.10.2.min",
 		"validate" : "jquery.validate",
-		"reg" : "resource"
+		"form" : "jquery.form"
 	},
 	charset : "gbk"
 
