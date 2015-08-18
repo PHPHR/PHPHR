@@ -32,9 +32,16 @@ define(function(require,exports,module){
      */
     var checkform = {
         /*注册加载*/
-
         registerIn : function(){
             $(".slideTxtBox :input").val("");
+        },
+        /*注册成功跳转个人信息*/
+        registerOk : function(){
+            if($("#main").data("id") == "reg_ok"){
+                setTimeout(function(){
+                  location.href = weburl+"/index.php?m=member&c=person";
+                },1000)
+            }
         },
         /*注册验证*/
 		register : function(){
@@ -52,13 +59,13 @@ define(function(require,exports,module){
                         }
                     }).done(function(data){
                         if(data.status == 'succ'){
-                            location.href = "index.php";
+                            location.href = "index.php?m=register&c=regok";
                         }
                     }).fail(function(error){
                         alert("注册失败");
-                        $(".slideTxtBox :password").val("");
-                        $(".slideTxtBox [name = 'vcode']").val();
-                        $("#vcode_img").trigger("click");
+                        //$(".slideTxtBox :password").val("");
+                        //$(".slideTxtBox [name = 'vcode']").val("");
+                        //$("#vcode_img").trigger("click");
 
                     })
                 },

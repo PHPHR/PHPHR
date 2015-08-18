@@ -166,11 +166,12 @@ class model{
         return $row_return?$row_return:array();
 	}
 	function DB_insert_once($tablename, $value){
+
 		$SQL = "INSERT INTO `" . $this->def . $tablename . "` SET ".$value;
-		$this->db->query("set sql_mode=''");
-		$this->db->query($SQL);
-		$nid= $this->db->insert_id();
-		return $nid;
+        $this->db->query("set sql_mode=''");
+        $this->db->query($SQL);
+        $nid= $this->db->insert_id();
+        return $nid;
 	}
 	function DB_update_all($tablename, $value, $where = 1){
     	$SQL = "UPDATE `" . $this->def . $tablename . "` SET $value WHERE ".$where;
