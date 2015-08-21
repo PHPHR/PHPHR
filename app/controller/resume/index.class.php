@@ -46,15 +46,10 @@ class index_controller extends resume_controller{
 			if($_COOKIE['lookresume'] || $_COOKIE['talentpool'] || $_COOKIE['useridmsg'])
 			{
 				$this->yunset(array('lookresume'=>@explode(',',$_COOKIE['lookresume']),'talentpool'=>@explode(',',$_COOKIE['talentpool']),'useridmsg'=>@explode(',',$_COOKIE['useridmsg'])));
-
 			}else{
-
 				$historyM = $this->MODEL('history');
-
 				$lookResume = $historyM->lookResumeHistory($this->uid);
-
 				$talentpool  = $historyM->talentpoolHistory($this->uid);
-
 				$useridmsg  = $historyM->useridmsgHistory($this->uid);
 
 				if($this->config['sy_web_site']=="1"){
