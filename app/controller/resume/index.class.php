@@ -117,8 +117,8 @@ class index_controller extends resume_controller{
 			$this->yunset("zpjob1son",$zpjob1son);
 		}
 		$this->seo("user_search");
-//		$this->yun_tpl(array('search')); // 旧模板
-		$this->yun_tpl(['search_new']); // 新模板
+		$this->yun_tpl(array('search')); // 旧模板
+//		$this->yun_tpl(['search_new']); // 新模板
 
 	}
 	function search_action(){

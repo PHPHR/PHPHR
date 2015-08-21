@@ -192,9 +192,9 @@ DD_belatedPNG.fix('.png');
 {yun:}if $user.idcard_status=='1'{/yun}<img src="{yun:}$style{/yun}/images/sf.png" title="身份已认证"  class="user_rz_img png fl">{yun:}/if{/yun}
 {yun:}if $user.ispic{/yun}<img src="{yun:}$style{/yun}/images/profile.png" title="有形象照" class="user_rz_img png fl">{yun:}/if{/yun}
 
-{yun:}if in_array($user.id,$lookresume){/yun}<span class="co_fav"><i></i><em>已浏览</em></span>{yun:}/if{/yun}
-{yun:}if in_array($user.id,$talentpool){/yun}<span class="co_fav"><i></i><em>已收藏</em></span>{yun:}/if{/yun}
-{yun:}if in_array($user.uid,$useridmsg){/yun}<span class="co_fav"><i></i><em>已邀请</em></span>{yun:}/if{/yun}
+{yun:}if is_array($lookresume) && in_array($user.id,$lookresume){/yun}<span class="co_fav"><i></i><em>已浏览</em></span>{yun:}/if{/yun}
+{yun:}if is_array($talentpool) && in_array($user.id,$talentpool){/yun}<span class="co_fav"><i></i><em>已收藏</em></span>{yun:}/if{/yun}
+{yun:}if is_array($useridmsg) && in_array($user.uid,$useridmsg){/yun}<span class="co_fav"><i></i><em>已邀请</em></span>{yun:}/if{/yun}
 
 {yun:}if $job_list.rec_time>time(){/yun}<img width="15" height="15" src="{yun:}$style{/yun}/images/tui.png" title="站长推荐"/>{yun:}/if{/yun}
 </div>

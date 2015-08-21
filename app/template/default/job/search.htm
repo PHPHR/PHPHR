@@ -196,9 +196,9 @@ DD_belatedPNG.fix('.png');
               <input type="checkbox" name="checkbox_job" style="display:none;" id="checkbox{yun:}$job_list.id{/yun}" value="{yun:}$job_list.id{/yun}"/>
             </div>
             <a href="{yun:}$job_list.job_url{/yun}" class="search_job_jobs_name" target="_blank">{yun:}$job_list.name_n{/yun}</a> {yun:}if $job_list.rec_time>time(){/yun}<img width="15" height="15" src="{yun:}$style{/yun}/images/tui.png" title="站长推荐" class="co_zztj png"/>{yun:}/if{/yun} 
-			{yun:}if in_array($job_list.id,$lookjob){/yun}<span class="co_fav"><i></i><em>已浏览</em></span>{yun:}/if{/yun} 
-			{yun:}if in_array($job_list.id,$favjob){/yun}<span class="co_fav"><i></i><em>已收藏</em></span>{yun:}/if{/yun} 
-			{yun:}if in_array($job_list.id,$useridjob){/yun}<span class="co_fav"><i></i><em>已申请</em></span>{yun:}/if{/yun}
+			{yun:}if is_array($lookjob) && in_array($job_list.id,$lookjob){/yun}<span class="co_fav"><i></i><em>已浏览</em></span>{yun:}/if{/yun}
+			{yun:}if is_array($favjob) &&in_array($job_list.id,$favjob){/yun}<span class="co_fav"><i></i><em>已收藏</em></span>{yun:}/if{/yun}
+			{yun:}if is_array($useridjob) &&in_array($job_list.id,$useridjob){/yun}<span class="co_fav"><i></i><em>已申请</em></span>{yun:}/if{/yun}
 			</div>
           <div class="disc_pay">&nbsp;{yun:}$job_list.job_salary{/yun} </div>
           <div class=" clear"></div>
