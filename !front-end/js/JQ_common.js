@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 $(function(){
 	$search();
 	$sift();
@@ -24,6 +17,13 @@ $(function(){
 		$(this).addClass("hover");
 		$(".zrczgz .m_wrap1 dd .none").hide(); 
 		$(".zrczgz .m_wrap1 dd .none").eq(i).show(); 
+	});
+	
+	$(".m_nav dl dt").click(function(){
+		$(this).next("dd").toggle()
+		.siblings("dd:visible").hide();
+		$(this).toggleClass("hover");
+		$(this).siblings(".hover").removeClass("hover");
 	});
 	/*banner自适应屏幕*/
 	//var w_img = window.screen.width

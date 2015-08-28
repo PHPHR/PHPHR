@@ -274,6 +274,23 @@ class index_controller extends common
 			$this->ajaxlogin("用户名不能为空！");
 		}
 	}
+
+    /**
+     * 登录
+     */
+   public function sign_action()
+   {
+       $this->yun_tpl(array('login'));
+   }
+
+    /**
+     *  登录验证
+     */
+  public function login_action()
+  {
+      var_dump($_POST);die;
+  }
+
 	function newuser($Member,$username,$password,$email,$usertype,$pwuid,$qqid='')
 	{
 		$salt = substr(uniqid(rand()), -6);

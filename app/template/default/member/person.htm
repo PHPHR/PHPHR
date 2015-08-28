@@ -12,98 +12,115 @@
                 <div class="ico"></div>
                 </dt>
                 <dd>
-                    <ul class="box">
-                        <li><input type="text" class="text l" placeholder="姓名">
-                            <div class='diy_select r select0'>
-                                <input type='hidden' name='' class='diy_select_input'/>
-                                <div class='diy_select_txt'>性别</div>
-                                <div class='diy_select_btn'></div>
-                                <ul class='diy_select_list'>
-                                    <li>性别</li>
-                                    <li>性别</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class='diy_select l select0'>
-                                <input type='hidden' name='' class='diy_select_input'/>
-                                <div class='diy_select_txt'>毕业院校</div>
-                                <div class='diy_select_btn'></div>
-                                <ul class='diy_select_list'>
-                                    <li>毕业院校</li>
-                                    <li>毕业院校</li>
-                                </ul>
-                            </div>
-                            <div class='diy_select r select0'>
-                                <input type='hidden' name='' class='diy_select_input'/>
-                                <div class='diy_select_txt'>最高学历</div>
-                                <div class='diy_select_btn'></div>
-                                <ul class='diy_select_list'>
-                                    <li>最高学历</li>
-                                    <li>最高学历</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class='diy_select l select0'>
-                                <input type='hidden' name='' class='diy_select_input'/>
-                                <div class='diy_select_txt'>专业</div>
-                                <div class='diy_select_btn'></div>
-                                <ul class='diy_select_list'>
-                                    <li>专业</li>
-                                    <li>专业</li>
-                                </ul>
-                            </div>
-                            <div class='diy_select r select0'>
-                                <input type='hidden' name='' class='diy_select_input'/>
-                                <div class='diy_select_txt'>职称</div>
-                                <div class='diy_select_btn'></div>
-                                <ul class='diy_select_list'>
-                                    <li>职称</li>
-                                    <li>职称</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class='diy_select l select1'>
-                                <input type='hidden' name='' class='diy_select_input'/>
-                                <div class='diy_select_txt'>目前工作状态：</div>
-                                <div class='diy_select_btn'></div>
-                                <ul class='diy_select_list'>
-                                    <li>目前工作状态：</li>
-                                    <li>目前工作状态：</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class='diy_select l select0'>
-                                <input type='hidden' name='' class='diy_select_input'/>
-                                <div class='diy_select_txt'>工作年限</div>
-                                <div class='diy_select_btn'></div>
-                                <ul class='diy_select_list'>
-                                    <li>工作年限</li>
-                                    <li>工作年限</li>
-                                </ul>
-                            </div>
-                            <div class='diy_select r select0'>
-                                <input type='hidden' name='' class='diy_select_input'/>
-                                <div class='diy_select_txt'>所在地区</div>
-                                <div class='diy_select_btn'></div>
-                                <ul class='diy_select_list'>
-                                    <li>所在地区</li>
-                                    <li>所在地区</li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <input type="text" class="text l" placeholder="联系电话">
-                            <input type="text" class="text r" placeholder="联系邮箱">
-                        </li>
-                        <li><input type="text" class="text1" placeholder="一句话介绍自己"></li>
-                        <li><input type="submit" class="submit" value=""></li>
-                    </ul>
+                    <form method="post" id="person_info">
+                        <ul class="box">
+                            <li>
+                                <div class="l">
+                                    <input type="text" name="name" class="text" placeholder="姓名">
+                                </div>
+                                <div class='diy_select r select0'>
 
-                    <a href="#" class="m_btn"></a>
+                                    <div class='diy_select_txt'>性别</div>
+                                    <div class='diy_select_btn'></div>
+                                    <ul class='diy_select_list'>
+                                        <li>男</li>
+                                        <li>女</li>
+                                    </ul>
+                                    <input type="hidden" name="sex">
+                                </div>
+                            </li>
+                            <li>
+                                <div class='diy_select l select0'>
+
+                                    <div class='diy_select_txt'>毕业院校</div>
+                                    <div class='diy_select_btn'></div>
+                                    <ul class='diy_select_list'>
+                                        <li>毕业院校</li>
+                                        <li>毕业院校</li>
+                                    </ul>
+                                    <input type="hidden" name="school">
+                                </div>
+                                <div class='diy_select r select0'>
+
+                                    <div class='diy_select_txt'>最高学历</div>
+                                    <div class='diy_select_btn'></div>
+                                    <ul class='diy_select_list'>
+                                        <li>最高学历</li>
+                                        <li>最高学历</li>
+                                    </ul>
+                                    <input type="hidden" name="education"/>
+                                </div>
+                            </li>
+                            <li>
+                                <div class='diy_select l select0'>
+
+                                    <div class='diy_select_txt'>专业</div>
+                                    <div class='diy_select_btn'></div>
+                                    <ul class='diy_select_list'>
+                                        <li>专业</li>
+                                        <li>专业</li>
+                                    </ul>
+                                    <input type="hidden" name="profession">
+                                </div>
+                                <div class='diy_select r select0'>
+
+                                    <div class='diy_select_txt'>职称</div>
+                                    <div class='diy_select_btn'></div>
+                                    <ul class='diy_select_list'>
+                                        <li>职称</li>
+                                        <li>职称</li>
+                                    </ul>
+                                    <input type="hidden" name="title">
+                                </div>
+                            </li>
+                            <li>
+                                <div class='diy_select l select1'>
+
+                                    <div class='diy_select_txt'>目前工作状态：</div>
+                                    <div class='diy_select_btn'></div>
+                                    <ul class='diy_select_list'>
+                                        <li>目前工作状态：</li>
+                                        <li>目前工作状态：</li>
+                                    </ul>
+                                    <inpu type="hidden" name="status" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class='diy_select l select0'>
+
+                                    <div class='diy_select_txt'>工作年限</div>
+                                    <div class='diy_select_btn'></div>
+                                    <ul class='diy_select_list' data-value="">
+                                        <li>工作年限</li>
+                                        <li>工作年限</li>
+                                    </ul>
+                                    <input type="hidden" name="year" />
+                                </div>
+                                <div class='diy_select r select0'>
+
+                                    <div class='diy_select_txt'>所在地区</div>
+                                    <div class='diy_select_btn'></div>
+                                    <ul class='diy_select_list' data-value="">
+                                        <li>所在地区</li>
+                                        <li>所在地区</li>
+                                    </ul>
+                                    <input type="hidden" name="district" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="l">
+                                    <input type="text" name="phone" class="text l" placeholder="联系电话">
+                                </div>
+                                <div class="l">
+                                    <input type="text" name="email" class="text r" placeholder="联系邮箱">
+                                </div>
+                            </li>
+                            <li><input type="text" name="introduction" class="text1" placeholder="一句话介绍自己"></li>
+                            <li><input type="submit" class="submit" value=""></li>
+                        </ul>
+
+                        <a class="m_btn" href="#" target="_blank"></a>
+                    </form>
                 </dd>
             </dl>
             <div class="m_line"></div>
@@ -113,6 +130,19 @@
 <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/js/public.js" charset="gbk"></script>
 <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/select.js" charset="gbk"></script>
 {yun:}include file="$tplstyle/newfoot.htm"{/yun}
+<script>
 
+
+    seajs.use("./resource/js/member.js",function(member){
+        var oSelectList = $(".diy_select_list li");
+        var oBtn = $("#person_info :submit");
+
+        member.checkForm();
+        oSelectList.on("click",member.checkList);
+        oBtn.on("click",member.checkAjax);
+
+    })
+
+</script>
 
 

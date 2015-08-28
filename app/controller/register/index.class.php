@@ -39,7 +39,7 @@ class index_controller extends common{
     {
         //×¢²áÒâÏò
         if(!empty(intval($_GET['t']))){
-            setcookie("regtype",$_GET['t'],time()+604800,"/",COOKIE_DOMAIN);
+            setcookie("regtype",$_GET['t'],0,"/",COOKIE_DOMAIN);
         }
         $this->seo("register");
         $this->yun_tpl(['reguser']);
@@ -101,11 +101,12 @@ class index_controller extends common{
             'username'=>$userName,
             'password'=>md5(md5($password).$salt),
             'salt'=>$salt,
-            'usertype'=>0,
+            'usertype'=>$_COOKIE['regtype'],
             'reg_time'=>time(),
         ])){
             $_SESSION['is_login']=1;
             $_SESSION['username']=$userName;
+            $this->add_cookie($_SESSION['uid'],$userName,$salt,$userName,md5(md5($password).$salt),$_COOKIE['regtype']);
             echo json_encode(array('status'=>'succ'));
             die;
         }

@@ -1,121 +1,601 @@
-{yun:}include file="$userstyle/header.htm"{/yun}
-<script type="text/javascript">
-    function gourl() {
-        layer.confirm('ȷ��Ҫ�����µļ�����', function () { window.location.href = 'index.php?c=expect&add={yun:}$uid{/yun}'; window.event.returnValue = false; return false; });
-    }
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.SuperSlide.2.1.js"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+</head>
 
-    function setdef_resume(id) {
-        $.post(weburl + "/member/index.php?m=ajax&c=default_resume", { eid: id }, function (data) {
-            if (data == 0) {
-                layer.alert('���ȵ�¼��', 0, '��ʾ', function () { window.location.href = "index.php?m=login&usertype=1"; window.event.returnValue = false; return false; });
-            } else if (data == 1) {
-                layer.msg('���óɹ���', 2, 9, function () { location.reload(); }); return false;
-            } else {
-                layer.msg('ϵͳ���������Ժ����ԣ�', 2, 8, function () { location.reload(); }); return false;
-            }
-        })
-    }
-</script>
-<div class="w950">
-    {yun:}include file="$userstyle/left.htm"{/yun}
-    <div class="mian_right fltR mt12 re">
-        <div class="member_right_h1 fltL"><span class="member_right_span fltL">�ҵļ���</span></div>
-        <div class="resume_box_list">
-       		{yun:}if !empty($rows){/yun}
-            <div class="resume_Prompt">��ʾ�����м�����������Ͷ��ְλ������˽����Ϊ"����"ʱ����Ĭ�ϼ������Ա���ҵ������ </div>
-            {yun:}/if{/yun}
+<body class="j_body">
+<div class="j_header">
+    <div class="w1000">
+        <div class="l"><a href="#"><img src="images/pic02.png" /></a></div>
+        <ul class="l menu">
+            <li><a href="#">招聘中心</a></li>
+            <li><a href="#">发布职位</a></li>
+            <li><a href="#">简历管理</a></li>
+            <li><a href="#">企业信息</a></li>
+            <li><a href="#">招人才</a></li>
             <div class="clear"></div>
-            {yun:}foreach item=resume from=$rows{/yun}
-            {yun:}if $resume.id==$def_job{/yun}
-            <!--  Ĭ�ϼ���-->
-            <div class="u_new_resume u_new_resume_bg">
-            <div class="u_new_resume_left">Ĭ�ϼ���</div>
-            <div class="u_new_resume_right">
-            <div class="u_new_resume_left_l">
-            <div class="u_new_resume_left_name">
-            <a href="{yun:}url m=resume c=show id=$resume.id tmp=$resume.tmpid{/yun}">{yun:}$resume.name{/yun}</a>
-            </div>
-               <div class="u_new_resume_left_bot2">
-           <div class="resume_list_mr_wz_left">
-                        <span class="resume_list_mr_wzdleft">�����ȣ�</span><span class="shell fltL shell_mt">
-                            <i style="width:{yun:}$resume.integrity{/yun}%"></i>
-                        </span>
-                        <font class="red">{yun:}$resume.integrity{/yun}%</font>
-                    </div>
-                <div class="u_new_resume_left_liul u_new_resume_left_liul_mt5">�������{yun:}$resume.hits{/yun} ��</div>  
-                   </div>  
-                <div class="u_new_resume_bot"> 
-           <span class="u_new_resume_bot_s">���ͣ���׼����   </span>       
-            <span class="u_new_resume_bot_s">����ְλ��
-            <a href="index.php?c=likejob&id={yun:}$resume.id{/yun}"class="u_new_resume_bot_r_a">�鿴����</a>
-            </span>       
-            <span class="u_new_resume_bot_s">����ʱ�䣺{yun:}$resume.lastupdate|date_format:'%Y-%m-%d'{/yun} </span>     
-            </div>
-            </div>
-           <div class="u_new_resume_left_r">
-           <div class="u_new_resume_left_r_p">
-          <a href="javascript:void(0)" onclick="resumetop('{yun:}$resume.id{/yun}','{yun:}$resume.topdate{/yun}')" class="u_new_resume_left_a u_new_resume_left_a_zd">�ö�</a> 
-          <a href="javascript:void(0)" onclick="layer_del('ȷ��Ҫˢ�£�', '{yun:}$now_url{/yun}&act=refresh&id={yun:}$resume.id{/yun}');" class="u_new_resume_left_a"> ˢ��</a> <a target="_blank" href="{yun:}url m=resume c=show id=$resume.id tmp=$resume.tmpid{/yun}" class="u_new_resume_left_a"> Ԥ��</a> 
-          </div>
-            <div class="u_new_resume_left_r_p">
-          <a href="index.php?c=show&eid={yun:}$resume.id{/yun}"  class="u_new_resume_left_a">����Ʒ</a>
-          <a href="index.php?c=expect{yun:}if $resume.doc{/yun}q{yun:}/if{/yun}&e={yun:}$resume.id{/yun}" class="u_new_resume_left_a">�޸�</a> 
-          
-          <a href="javascript:void(0)" onclick="layer_del('ȷ��Ҫɾ����', '{yun:}$now_url{/yun}&act=del&id={yun:}$resume.id{/yun}');" class="u_new_resume_left_a"> ɾ��</a>
-          </div>
-          
-             </div>
-           </div>
-         </div>
-         {yun:}else{/yun}
-          <!--  ���ü���-->
-           <div class="u_new_resume">
-            <div class="u_new_resume_left">����</div>
-            <div class="u_new_resume_right">
-            <div class="u_new_resume_left_l ">
-            <div class="u_new_resume_left_name u_new_resume_left_namew208">
-            <a href="{yun:}url m=resume c=show id=$resume.id tmp=$resume.tmpid{/yun}">{yun:}$resume.name{/yun}</a>
-            </div>
-            <div class="u_new_resume_left_wad">�����ȣ�{yun:}$resume.integrity{/yun}%</div>    
-            <div class="u_new_resume_left_liul">�������{yun:}$resume.hits{/yun} ��</div>    
-               <div class="u_new_resume_bot"> 
-           <span class="u_new_resume_bot_s">���ͣ�{yun:}if $resume.doc=='1'{/yun}���ټ���{yun:}else{/yun}��׼����{yun:}/if{/yun}</span>       
-            <span class="u_new_resume_bot_s">����ְλ��<a href="index.php?c=likejob&id={yun:}$resume.id{/yun}"class="u_new_resume_bot_r_a">�鿴����</a> </span>       
-            <span class="u_new_resume_bot_s">����ʱ�䣺{yun:}$resume.lastupdate|date_format:'%Y-%m-%d'{/yun} </span>     
-           
-            </div>
-            </div>
-           <div class="u_new_resume_left_r u_new_resume_left_rw215">
-         <a href="javascript:setdef_resume('{yun:}$resume.id{/yun}');" class="u_new_resume_bot_r_a">��ΪĬ��</a><span class="u_new_resume_bot_line">|</span><a href="index.php?c=expect{yun:}if $resume.doc{/yun}q{yun:}/if{/yun}&e={yun:}$resume.id{/yun}"class="u_new_resume_bot_r_a">�޸�</a><span class="u_new_resume_bot_line">|</span><a href="{yun:}url m=resume c=show id=$resume.id tmp=$resume.tmpid{/yun}"class="u_new_resume_bot_r_a">Ԥ��</a><span class="u_new_resume_bot_line">|</span><a href="javascript:void(0)" onclick="layer_del('ȷ��Ҫɾ����', '{yun:}$now_url{/yun}&act=del&id={yun:}$resume.id{/yun}');" class="u_new_resume_bot_r_a">ɾ��</a>
-           </div>
-          </div>
-         </div>  
-               <!--  ���ü���-->
-         {yun:}/if{/yun}
-         {yun:}foreachelse{/yun}
-         <div class="msg_no">����û�м�����</div>
-         {yun:}/foreach{/yun}
-         <div class="clear"></div>
-            <div class="resume_cj">
-                {yun:}if $confignum!=""{/yun}�������Դ��� <span class="resume_cj_sz">({yun:}$maxnum{/yun})</span> �ݱ��ü���{yun:}/if{/yun}��
-                {yun:}if $maxnum>0{/yun}
-                <a class="thickbox" title="�����¼���" href="javascript:void(0)" onclick="gourl();return false;">�����¼���</a>
-                <a href="index.php?c=expectq&add={yun:}$uid{/yun}" title="ֱ��ճ�����еĸ��˼���" class="thickbox2">����ճ������</a>
-                {yun:}else{/yun}
-                <a class="thickbox" title="�����¼���" href="javascript:void(0)" onclick="layer.msg('��ļ������Ѿ��ﵽϵͳ���õļ�������',2,8);return false;">�����¼���</a> 
-                <a href="javascript:void(0)" onclick="layer.msg('��ļ������Ѿ��ﵽϵͳ���õļ�������',2,8);return false;" title="ֱ��ճ�����еĸ��˼���" class="thickbox2">
-                ����ճ������
-                </a>
-                {yun:}/if{/yun}
-            </div>
-            <div class="clear"></div>
-            <div class="wxts_box wxts_box_mt30">
-                <div class="wxts">��ܰ��ʾ��</div>
-                1���ϴ�������Ʒ���ϴ�������Ʒ����ҵֱ���˽����������
-                
-            </div>
-        </div>
+        </ul>
+        <dl class="r select">
+            <dt>互诺科技互诺科技互诺科技互诺科技</dt>
+            <dd>
+                <ul>
+                    <li><a href="#">互诺科技1</a></li>
+                    <li><a href="#">互诺科技2</a></li>
+                    <li><a href="#">互诺科技3</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <div class="clear"></div>
     </div>
 </div>
 
-{yun:}include file="$userstyle/footer.htm"{/yun}
+<div class="jlgl w1000">
+    <div class="l left">
+        <div class="con">
+            <div class="tit">基本资料</div>
+            <p class="p1"><span class="open_but">编辑</span></p>
+            <div class="box1">
+                <div class="l zb">
+                    <div class="inputbox" style="display:none;">
+                        <div class="list">
+                            <input type="text" class="l text" placeholder="姓名" />
+                            <dl class="select r">
+                                <dt>互诺科技互诺科技互诺科技互诺科技</dt>
+                                <dd>
+                                    <ul>
+                                        <li myselect="1">互诺科技1</li>
+                                        <li myselect="2">互诺科技2</li>
+                                        <li myselect="3">互诺科技3</li>
+                                    </ul>
+                                    <input type="hidden" class="select_hidden"/>
+                                </dd>
+                            </dl>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="list">
+                            <dl class="select l">
+                                <dt>互诺科技互诺科技互诺科技互诺科技</dt>
+                                <dd>
+                                    <ul>
+                                        <li myselect="1">互诺科技1</li>
+                                        <li myselect="2">互诺科技2</li>
+                                        <li myselect="3">互诺科技3</li>
+                                    </ul>
+                                    <input type="hidden" class="select_hidden"/>
+                                </dd>
+                            </dl>
+                            <dl class="r select">
+                                <dt>互诺科技互诺科技互诺科技互诺科技</dt>
+                                <dd>
+                                    <ul>
+                                        <li myselect="1">互诺科技1</li>
+                                        <li myselect="2">互诺科技2</li>
+                                        <li myselect="3">互诺科技3</li>
+                                    </ul>
+                                    <input type="hidden" class="select_hidden"/>
+                                </dd>
+                            </dl>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="list">
+                            <dl class="l select">
+                                <dt>互诺科技互诺科技互诺科技互诺科技</dt>
+                                <dd>
+                                    <ul>
+                                        <li myselect="1">互诺科技1</li>
+                                        <li myselect="2">互诺科技2</li>
+                                        <li myselect="3">互诺科技3</li>
+                                    </ul>
+                                    <input type="hidden" class="select_hidden"/>
+                                </dd>
+                            </dl>
+                            <dl class="select r">
+                                <dt>互诺科技互诺科技互诺科技互诺科技</dt>
+                                <dd>
+                                    <ul>
+                                        <li myselect="1">互诺科技1</li>
+                                        <li myselect="2">互诺科技2</li>
+                                        <li myselect="3">互诺科技3</li>
+                                    </ul>
+                                    <input type="hidden" class="select_hidden"/>
+                                </dd>
+                            </dl>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="list">
+                            <dl class="select select2">
+                                <dt>性别</dt>
+                                <dd>
+                                    <ul>
+                                        <li><a href="#">互诺科技1</a></li>
+                                        <li><a href="#">互诺科技2</a></li>
+                                        <li><a href="#">互诺科技3</a></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                        </div>
+                        <div class="list">
+                            <dl class="l select">
+                                <dt>性别</dt>
+                                <dd>
+                                    <ul>
+                                        <li><a href="#">互诺科技1</a></li>
+                                        <li><a href="#">互诺科技2</a></li>
+                                        <li><a href="#">互诺科技3</a></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl class="r select">
+                                <dt>性别</dt>
+                                <dd>
+                                    <ul>
+                                        <li><a href="#">互诺科技1</a></li>
+                                        <li><a href="#">互诺科技2</a></li>
+                                        <li><a href="#">互诺科技3</a></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="list">
+                            <input type="text" class="l text" placeholder="姓名" />
+                            <input type="text" class="r text" placeholder="姓名" />
+                            <div class="clear"></div>
+                        </div>
+                        <div class="list no_pad">
+                            <input type="text" class="text t2" placeholder="姓名" />
+                        </div>
+                        <p class="more"><a href="#">填写更多 >></a></p>
+                        <div class="an">
+                            <input type="button" class="l button colsebut" value="保存" />
+                            <input type="button" class="l button b2" value="取消" />
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <ul class="xbox1 infobox">
+                        <li><span>专业：</span>临床医生</li>
+                        <li><span>最高学历：</span>本科</li>
+                        <li><span>职称：</span>专业护士</li>
+                        <li><span>所在地区：</span>广州</li>
+                        <li><span>联系电话：</span>15627672454</li>
+                        <li><span>工作年限：</span>3年 </li>
+                        <li><span>联系邮箱：</span>276706578@qq.com</li>
+                        <li><span>目前工作状态：</span>离职 </li>
+                        <li><span>一句话介绍自己：</span>自强不息，永不言败</li>
+                        <div class="clear"></div>
+                    </ul>
+                </div>
+                <div class="l xgtx">
+                    <div class="pic"><img src="images/pic104.jpg" /></div>
+                    <p><a href="#">修改头像</a></p>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+        </div>
+
+        <div class="con">
+            <div class="tit">基本资料</div>
+            <p class="p1"><span>编辑</span></p>
+            <div class="box2">
+                <span class="l s1">网建技术项目总监</span>
+                <span class="l s2">全职</span>
+                <span class="l s3">广州</span>
+                <span class="l s4">10k-15k</span>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="con">
+            <div class="tit">基本资料</div>
+            <p class="p1"><span class="a2">添加</a></span>
+            <div class="box3">
+                <p class="p2">广州顺大计算机科技有限公司</p>
+                <p class="p3"><em>2012.07 — 2014.08</em>项目总监</p>
+                <p class="p4">广州顺大计算机科技有限公司工作内容广州顺大计算机科技有限公司工作内容广州顺大计算机科技有限公司工作内容广州顺大计算机科技有限公司工作内容广州顺大计算机科技有限公司工作内容</p>
+            </div>
+            <div class="box4 box1">
+                <div class="list">
+                    <div class="l bg">
+                        <span class="l">学校名称：</span>
+                        <input type="text" class="l text" />
+                        <div class="clear"></div>
+                    </div>
+                    <dl class="l select">
+                        <dt>学历：</dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <div class="list">
+                    <div class="l bg">
+                        <span class="l">所学专业：</span>
+                        <input type="text" class="l text" />
+                        <div class="clear"></div>
+                    </div>
+                    <dl class="l select select3">
+                        <dt>学历：</dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="l select select3 select4">
+                        <dt></dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <div class="an">
+                    <input type="button" class="l button" value="保存" />
+                    <input type="button" class="l button b2" value="保存" />
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="con con2">
+            <div class="tit">基本资料</div>
+            <p class="p1"><span>编辑</a></span>
+            <div class="box5">
+                <p>当今社会竞争激烈，所以我会更加珍惜和不断充实自我、丰富自我、完善自我。一个机会，一份信任，对于每一个渴求上进的人来说是十分宝贵的，给我一片天空，我回报的不是奇迹，而是一生的勤奋和忠诚！如蒙诚聘，我将竭尽所能，为贵单位的发展贡献自己的一份力量，请您相信，我可能不是最好的，但我会努力做得更好。</p>
+                <div class="an">
+                    <input type="button" class="l button" value="保存" />
+                    <input type="button" class="l button b2" value="保存" />
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="con">
+            <div class="tit">基本资料</div>
+            <p class="p1"><span class="a2">添加</span></p>
+            <div class="box6 box1 box4">
+                <div class="list">
+                    <input type="text" class="l text" placeholder="姓名" />
+                    <dl class="l select select3">
+                        <dt>学历：</dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="l select select3 select4">
+                        <dt></dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <div class="list">
+                    <input type="text" class="l text" placeholder="姓名" />
+                    <dl class="l select">
+                        <dt>学历：</dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <div class="ms">
+                    <p class="ms">项目描述</p>
+                    <textarea placeholder="项目描述"></textarea>
+                </div>
+                <div class="an">
+                    <input type="button" class="l button" value="保存" />
+                    <input type="button" class="l button b2" value="保存" />
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="con">
+            <div class="tit">基本资料</div>
+            <p class="p1"><span class="a2">添加</span></p>
+            <div class="box7 box1 box4">
+                <p class="ymsj">实践经历<em><input type="radio" />无</em><em><input type="radio" />无</em></p>
+                <div class="list">
+                    <input type="text" class="l text" placeholder="姓名" />
+                    <dl class="l select select3">
+                        <dt>学历：</dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="l select select3 select4">
+                        <dt></dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <div class="list"><input type="text" class="text text2" placeholder="姓名" /></div>
+                <div class="ms">
+                    <p class="ms">项目描述</p>
+                    <textarea placeholder="项目描述"></textarea>
+                </div>
+                <div class="an">
+                    <input type="button" class="l button" value="保存" />
+                    <input type="button" class="l button b2" value="保存" />
+                    <div class="clear"></div>
+                </div>
+
+                <p class="ymsj ymsj2">实践经历<em><input type="radio" />无</em><em><input type="radio" />无</em></p>
+                <div class="list">
+                    <input type="text" class="l text" placeholder="姓名" />
+                    <dl class="l select select3">
+                        <dt>学历：</dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="l select select3 select4">
+                        <dt></dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <div class="list"><input type="text" class="text text2" placeholder="姓名" /></div>
+                <div class="an an2">
+                    <input type="button" class="l button" value="保存" />
+                    <input type="button" class="l button b2" value="保存" />
+                    <div class="clear"></div>
+                </div>
+
+                <p class="ymsj ymsj2">实践经历<em><input type="radio" />无</em><em><input type="radio" />无</em></p>
+                <div class="list">
+                    <input type="text" class="l text" placeholder="姓名" />
+                    <dl class="l select select3">
+                        <dt>学历：</dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="l select select3 select4">
+                        <dt></dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <div class="list"><input type="text" class="text text2" placeholder="姓名" /></div>
+                <div class="an an2">
+                    <input type="button" class="l button" value="保存" />
+                    <input type="button" class="l button b2" value="保存" />
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="con">
+            <div class="tit">基本资料</div>
+            <p class="p1"><span class="a2">添加</span></p>
+            <div class="box8 box1 box4">
+                <div class="list">
+                    <input type="text" class="l text" placeholder="姓名" />
+                    <dl class="l select select3">
+                        <dt>学历：</dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <dl class="l select select3 select4">
+                        <dt></dt>
+                        <dd>
+                            <ul>
+                                <li><a href="#">互诺科技1</a></li>
+                                <li><a href="#">互诺科技2</a></li>
+                                <li><a href="#">互诺科技3</a></li>
+                            </ul>
+                        </dd>
+                    </dl>
+                    <div class="clear"></div>
+                </div>
+                <div class="list">
+                    <input type="text" class="l text" placeholder="姓名" />
+                    <input type="text" class="r text" placeholder="姓名" />
+                    <div class="clear"></div>
+                </div>
+                <div class="list">
+                    <input type="text" class="l text" placeholder="姓名" />
+                    <input type="text" class="r text" placeholder="姓名" />
+                    <div class="clear"></div>
+                </div>
+                <div class="ms">
+                    <p class="ms">项目描述</p>
+                    <textarea></textarea>
+                </div>
+                <div class="an">
+                    <input type="button" class="l button" value="保存" />
+                    <input type="button" class="l button b2" value="保存" />
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="con no_mar">
+            <div class="tit">基本资料</div>
+            <p class="p1"><span class="a2">添加</span></p>
+            <div class="box9 box1">
+                <div class="list">
+                    <dl class="select">
+                        <dt>类别</dt>
+                        <dd>
+                            <ul>
+                                <li>互诺科技1</li>
+                                <li>互诺科技2</li>
+                                <li>互诺科技3</li>
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="tpb"><img src="images/pic108.jpg" /></div>
+                <div class="djsc">
+                    <input type="button" class="button" value="点击上传" />
+                </div>
+                <div class="an">
+                    <input type="button" class="l button" value="保存" />
+                    <input type="button" class="l button b2" value="保存" />
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="r right">
+        <div class="right_all">
+
+            <div class="bfb">
+                <script type="text/javascript" src="js/jquery.circliful.min.js"></script>
+                <script type="text/javascript">
+                    $( document ).ready(function() {
+                        $('#myStat2').circliful();
+                    });
+                </script>
+                <div id="myStat2" data-dimension="89" data-text="30%" data-info="New Clients" data-width="10" data-fontsize="20" data-percent="35" data-fgcolor="#fe960f" data-bgcolor="#efefef"></div>
+            </div>
+            <ul class="blj">
+                <li><a href="#">编辑简历</a></li>
+                <li><a class="a2" href="#">预览简历</a></li>
+                <div class="clear"></div>
+            </ul>
+            <ul class="f_nav">
+                <li>
+                    <a href="#">
+                        <div class="pic">
+                            <img class="img1" src="images/pic74.png" />
+                            <img class="img2" src="images/pic74_2.png" />
+                        </div>
+                        <p>投递箱</p>
+                    </a>
+                    <div class="num">2</div>
+                </li>
+                <li>
+                    <a href="#">
+                        <div class="pic">
+                            <img class="img1" src="images/pic75.png" />
+                            <img class="img2" src="images/pic75_2.png" />
+                        </div>
+                        <p>投递箱</p>
+                    </a>
+                </li>
+                <li class="hover">
+                    <a href="#">
+                        <div class="pic">
+                            <img class="img1" src="images/pic76.png" />
+                            <img class="img2" src="images/pic76_2.png" />
+                        </div>
+                        <p>投递箱</p>
+                    </a>
+                </li>
+                <li class="last">
+                    <a href="#">
+                        <div class="pic">
+                            <img class="img1" src="images/pic77.png" />
+                            <img class="img2" src="images/pic77_2.png" />
+                        </div>
+                        <p>投递箱</p>
+                    </a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="wj">
+                <a href="#">
+                    <div class="l"><img src="images/pic110.jpg" /></div>
+                    <div class="l zz">
+                        <p class="p1">柳艳冰个人简历.doc</p>
+                        <p class="p2">2014-08-03 23:12</p>
+                    </div>
+                </a>
+                <input type="button" class="button" />
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="gc">
+            <ul>
+                <li><i></i><a href="#">基本资料</a></li>
+                <li><i></i><a href="#">基本资料</a></li>
+                <li><i></i><a href="#">基本资料</a></li>
+                <li><i class="cha"></i><a href="#">基本资料</a></li>
+                <li><i class="cha"></i><a href="#">基本资料</a></li>
+                <li><i class="cha"></i><a href="#">基本资料</a></li>
+                <li><i class="cha"></i><a href="#">基本资料</a></li>
+                <li><i class="cha"></i><a href="#">基本资料</a></li>
+                <li><i class="cha"></i><a href="#">基本资料</a></li>
+                <li><i class="cha"></i><a href="#">基本资料</a></li>
+            </ul>
+            <div class="j_wechat">
+                <div class="pic"><img src="images/pic81.jpg" /></div>
+                <p>扫一扫，立即下载药师多APP求职信息随时掌握</p>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+</body>
+</html>

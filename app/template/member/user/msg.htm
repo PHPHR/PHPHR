@@ -1,86 +1,163 @@
-{yun:}include file="$userstyle/header.htm"{/yun}
-<div class="w950">
-    {yun:}include file="$userstyle/left.htm"{/yun}
-    <div class="mian_right fltR mt12">
-        <div class="member_right_h1 fltL"><span class="member_right_span fltL">面试邀请</span></div>
-        <div class="remindbox01 mt10">
-            <div id="gms_showclew"></div>
-            <div class="resumelistbox01 mt10">
-                <div id="" class="resume_box_list">
-                {yun:}if !empty($rows){/yun}
-                    <div class="List_Ope List_Title ">
-                        <span class="List_Title_span List_Title_w170">面试职位</span>
-                        <span class="List_Title_span List_Title_w330">公司名称</span>
-                        <span class="List_Title_span List_Title_w230" style="text-align:center">操作</span>
-                    </div>
-                    {yun:}/if{/yun}
-                    {yun:}foreach item=log from=$rows{/yun}
-                    <div class="List_Ope List_Ope_Advisory">
-                        <span class="List_Title_span List_Title_w170">
-                            <a href="{yun:}url m=job c=comapply id='`$log.jobid`'{/yun}" class="List_Title_span_com">{yun:}$log.jobname{/yun}</a>
-                        </span>
-                        <span class="List_Title_span List_Title_w330">
-                            <a href="{yun:}url m=company c=show id='`$log.fid`'{/yun}" target="_blank">{yun:}$log.fname{/yun}</a>
-                        </span>
-                     
-                        <span class="List_Title_span List_Title_w230" style="width:250px;text-align:center">
-                 
-                         <a href="javascript:void(0);" onclick="layer_del('您确定要删除？', 'index.php?c=msg&act=del&id={yun:}$log.id{/yun}'); " class="cblue">删除</a> <span class="u_List_line">|</span><a href="javascript:void(0);" onclick="layer_del('您确定要屏蔽该公司并删除该邀请？','index.php?c=msg&act=shield&id={yun:}$log.id{/yun}');" class="cblue">屏蔽</a><span class="u_List_line">|</span>
-                         <a href="javascript:void(0);" onclick="layer_del('确定要拒绝面试邀请？', 'index.php?c=msg&act=inviteset&id={yun:}$log.id{/yun}&browse=4')" class="cblue">拒绝面试</a><span class="u_List_line">|</span><a href="javascript:void(0);" onclick="layer_del('确定要同意面试邀请？', 'index.php?c=msg&act=inviteset&id={yun:}$log.id{/yun}&browse=3')" class="cblue">同意面试</a>
-                         <span class="u_List_line">|</span>
-                               <a href="javascript:getcont('{yun:}$log.id{/yun}');">查看</a>
-                        </span>
-                        <div style="width:100%; float:left"><span style="padding-left:10px;">邀请时间：{yun:}$log.datetime|date_format:'%Y-%m-%d'{/yun}</span>
-                        <span style="padding-left:48px;">我的操作： {yun:}if $log.is_browse=="1"{/yun}
-                            <font color="#f60">尚未回复</font>
-                            {yun:}elseif $log.is_browse=="2"{/yun}
-                            <font color="#666">已查看</font>
-                            {yun:}elseif $log.is_browse=="3"{/yun} 
-                            	<font color="#008000">已同意</font>
-                            {yun:}elseif $log.is_browse=="4"{/yun}
-                            	<font color="#FF00000">已拒绝</font>
-                            {yun:}/if{/yun}</span>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+    <title>邀请函</title>
+    <link href="{yun:}$config.sy_weburl{/yun}/resource/css/style.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/js.js"></script>
+</head>
+
+<body class="j_body">
+<div class="j_header">
+    <div class="w1000">
+        <div class="l"><a href="#"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/pic02.png" /></a></div>
+        <ul class="l menu">
+            <li><a href="#">招聘中心</a></li>
+            <li><a href="#">发布职位</a></li>
+            <li><a href="#">简历管理</a></li>
+            <li><a href="#">企业信息</a></li>
+            <li><a href="#">招人才</a></li>
+            <div class="clear"></div>
+        </ul>
+        <dl class="r select">
+            <dt>互诺科技互诺科技互诺科技互诺科技</dt>
+            <dd>
+                <ul>
+                    <li><a href="#">互诺科技1</a></li>
+                    <li><a href="#">互诺科技2</a></li>
+                    <li><a href="#">互诺科技3</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <div class="clear"></div>
+    </div>
+</div>
+
+<div class="yqh w1000">
+    <div class="l left">
+        <div class="j_tab">
+            <ul class="hd">
+                <li class="on">
+                    <a href="#">
+                        <div class="tb">
+                            <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic121.png" />
+                            <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic121_2.png" />
                         </div>
+                        <p>修改密码</p>
+                    </a>
+                    <div class="num">10</div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="huan">
+                <table>
+                    <tr class="tr1">
+                        <td class="td1" width="360">邀请的职位</td>
+                        <td class="td2" width="203">邀约时间</td>
+                        <td class="td3" width="150">状态</td>
+                    </tr>
+                    <tr class="tr2">
+                        <td class="td1"><p>质管员<em class="e1">全职  |  广州   |</em><em class="e2">3000元-5000元</em><br /><em class="e3">广州国健医药咨询服务有限公司</em></p></td>
+                        <td class="td2">2015-7-9  09：0:0</td>
+                        <td>
+                            <input type="button" class="button" value="接受" />
+                            <input type="button" class="button b2" value="拒绝" />
+                        </td>
+                    </tr>
+                    <tr class="tr2">
+                        <td class="td1"><p>质管员<em class="e1">全职  |  广州   |</em><em class="e2">3000元-5000元</em><br /><em class="e3">广州国健医药咨询服务有限公司</em></p></td>
+                        <td class="td2">2015-7-9  09：0:0</td>
+                        <td class="js"><span>已接受</span></td>
+                    </tr>
+                    <tr class="tr2">
+                        <td class="td1"><p>质管员<em class="e1">全职  |  广州   |</em><em class="e2">3000元-5000元</em><br /><em class="e3">广州国健医药咨询服务有限公司</em></p></td>
+                        <td class="td2">2015-7-9  09：0:0</td>
+                        <td class="jj"><span>拒绝</span></td>
+                    </tr>
+                </table>
+                <div class="j_page j_page2">
+                    <div class="page1">
+                        <a href="#">上一页</a>
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#">下一页</a>
                     </div>
-                    {yun:}foreachelse{/yun}
-                    <div class="msg_no">您还没有邀请信息。</div>
-                    {yun:}/foreach{/yun}
                 </div>
-                <div class="diggg">{yun:}$pagenav{/yun}</div>
             </div>
         </div>
     </div>
-</div>
-<div id="getcont" style="width:350px;height:250px; display:none;">
-    <div style=" padding:10px;">
-        <div class="audition_list"><span class="audition_list_span">面试职位：</span><em class="audition_list_em" id="jobname"></em></div>
-        <div class="audition_list"><span class="audition_list_span">联系人： </span><em class="audition_list_em" id="linkman"></em></div>
-        <div class="audition_list"><span class="audition_list_span">联系电话：</span><em class="audition_list_em" id="linktel"></em></div>
-        <div class="audition_list"><span class="audition_list_span">面试时间：</span><em class="audition_list_em" id="intertime"></em></div>
-        <div class="audition_list"><span class="audition_list_span">面试地址：</span><em class="audition_list_em" id="address"></em></div>
-        <div class="audition_list"><span class="audition_list_span">面试备注：</span><em class="audition_list_em" id="content"></em></div>
+    <div class="r right_all">
+        <div class="bfb">
+            <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery.circliful.min.js"></script>
+            <script type="text/javascript">
+                $( document ).ready(function() {
+                    $('#myStat2').circliful();
+                });
+            </script>
+            <div id="myStat2" data-dimension="89" data-text="30%" data-info="New Clients" data-width="10" data-fontsize="20" data-percent="35" data-fgcolor="#fe960f" data-bgcolor="#efefef"></div>
+        </div>
+        <ul class="blj">
+            <li><a href="#">编辑简历</a></li>
+            <li><a class="a2" href="#">预览简历</a></li>
+            <div class="clear"></div>
+        </ul>
+        <ul class="f_nav">
+            <li>
+                <a href="#">
+                    <div class="pic">
+                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic74.png" />
+                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic74_2.png" />
+                    </div>
+                    <p>投递箱</p>
+                </a>
+                <div class="num">2</div>
+            </li>
+            <li>
+                <a href="#">
+                    <div class="pic">
+                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic75.png" />
+                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic75_2.png" />
+                    </div>
+                    <p>投递箱</p>
+                </a>
+            </li>
+            <li class="hover">
+                <a href="#">
+                    <div class="pic">
+                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic76.png" />
+                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic76_2.png" />
+                    </div>
+                    <p>投递箱</p>
+                </a>
+            </li>
+            <li class="last">
+                <a href="#">
+                    <div class="pic">
+                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic77.png" />
+                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic77_2.png" />
+                    </div>
+                    <p>投递箱</p>
+                </a>
+            </li>
+            <div class="clear"></div>
+        </ul>
+        <ul class="box2">
+            <li><a class="a2" href="#">增值中心</a></li>
+            <li><a class="a3" href="#">增值中心</a></li>
+            <li><a class="a4" href="#">增值中心</a></li>
+            <li><a class="a5" href="#">增值中心</a></li>
+        </ul>
+        <div class="j_wechat">
+            <div class="pic"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/pic81.jpg" /></div>
+            <p>扫一扫，立即下载药师多APP求职信息随时掌握</p>
+        </div>
     </div>
+    <div class="clear"></div>
 </div>
-<script>
-    function getcont(id) {
-        $.post("index.php?c=msg&act=ajax", { id: id }, function (data) {
-            var data = eval('(' + data + ')');
-            $("#jobname").html(data.jobname);
-            $("#linkman").html(data.linkman);
-            $("#linktel").html(data.linktel);
-            $("#intertime").html(data.intertime);
-            $("#address").html(data.address);
-            $("#content").html(data.content);
-            $.layer({
-                type: 1,
-                title: '邀请信息',
-                shade: [0],
-                closeBtn: [0, true],
-                border: [10, 0.3, '#000', true],
-                area: ['350px', 'auto'],
-                page: { dom: "#getcont" }
-            });
-        })
-    }
-</script>
-{yun:}include file="$userstyle/footer.htm"{/yun}
+</body>
+</html>

@@ -6,7 +6,8 @@
  * Time: 18:06
  */
 
-class index_controller extends common{
+class index_controller extends common
+{
 
     /**
      * 个人信息引导
@@ -22,5 +23,23 @@ class index_controller extends common{
     public function person_action(){
         $this->seo("member");
         $this->yun_tpl(['person']);
+    }
+
+    /**
+     * 企业信息
+     */
+    public function company_action()
+    {
+        $this->seo("");
+        $this->yun_tpl(['company']);
+    }
+
+    /**
+     *  企业收藏
+     */
+    public function favorite_action()
+    {
+        $this->seo('');
+        $this->yun_tpl(['favorite']);
     }
 }
