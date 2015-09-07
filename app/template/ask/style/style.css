@@ -6,8 +6,8 @@ a{ text-decoration:none;}
 a:hover{ text-decoration:underline;color:#f60}
 img{ border:0;}
 .clear{ clear:both; height:0;_height:0; line-height:0; font-size:0;}
-body{ font-family:Î¢ÈíÑÅºÚ;background:#f3f3f3; position:relative;font-size:12px;}
-button, input, textarea, th, td { font-family:Î¢ÈíÑÅºÚ,ËÎÌå;}
+body{ font-family:"Microsoft Yahei";background:#f3f3f3; position:relative;font-size:12px;}
+button, input, textarea, th, td { font-family:"Microsoft Yahei",ËÎÌå;}
 .fl{ float:left}
 .fr{ float:right}
 .con_answer{ position:relative;}
@@ -86,10 +86,10 @@ button, input, textarea, th, td { font-family:Î¢ÈíÑÅºÚ,ËÎÌå;}
 .top_qq{ float:left; padding-right:7px;}
 .top_qq img{ width:17px; height:17px;}
 .top_person{ float:left; color:#fff; cursor:pointer;}
-.top_person span{ font-family:Î¢ÈíÑÅºÚ; font-size:14px; display:inline-block;}
+.top_person span{ font-family:"Microsoft Yahei"; font-size:14px; display:inline-block;}
 .top_person i{ width:12px; height:12px;display:inline-block; background:url(../images/icon1.jpg) no-repeat 4px;padding-right:30px;}
 .person_con{float:left; cursor:pointer; display:inline-block;_float:right; display:inline-block; float:right !important;}
-.person_con span{color:#fff;font-family:Î¢ÈíÑÅºÚ;; font-size:14px;}
+.person_con span{color:#fff;font-family:"Microsoft Yahei";; font-size:14px;}
 .person_con i{width:12px; height:12px;display:inline-block; background:url(../images/icon2.jpg) no-repeat 4px;padding-right:2px;}
 
 /*µ¼º½*/
@@ -138,8 +138,8 @@ button, input, textarea, th, td { font-family:Î¢ÈíÑÅºÚ,ËÎÌå;}
 .recommend{ float:left; margin-left:21px; height:30px; line-height:30px; width:498px; }
 .recommend_con{ font-size:12px; line-height:35px; color:#999;}
 .recommend_con span{ float:left; color:#999;font-size:14px;}
-.recom{ float:left; width:410px; display:block; height:30px; overflow:hidden;font-family:Î¢ÈíÑÅºÚ;;}
-.recom a{ color:#666; font-size:14px;font-family:Î¢ÈíÑÅºÚ;} 
+.recom{ float:left; width:410px; display:block; height:30px; overflow:hidden;font-family:"Microsoft Yahei";;}
+.recom a{ color:#666; font-size:14px;font-family:"Microsoft Yahei";}
 .recom a:hover{ color:#2c668f;}
 /*menutwo*/
 
@@ -524,7 +524,7 @@ cursor:pointer;}
 .att_wd{ position:absolute; right:0; top:36px; z-index:100;}
 .att_wd span{ width:105px; height:31px; background:#0d8eb0; line-height:31px; display:block;}
 .att_wd span:hover{ background:#3985bb;}
-.att_wd span a{ color:#fff; font-family:"Î¢ÈíÑÅºÚ"; font-size:16px; background:url(../images/icon15.jpg) no-repeat 13px 6px; padding-left:30px;}
+.att_wd span a{ color:#fff; font-family:"Microsoft Yahei"; font-size:16px; background:url(../images/icon15.jpg) no-repeat 13px 6px; padding-left:30px;}
 .wt_list{ width:695px; height:40px; background:#fafafa; line-height:40px; border-bottom:1px solid #eee; margin-top:95px;}
 .wt_list span{ font-size:14px; color:#555; margin:0 10px; display:block; float:left; padding: 0 10px; }
 .wt_list span a { color:#555;}
@@ -551,22 +551,22 @@ cursor:pointer;}
 .me_mes dl dt{ float:left; margin-right:17px; width:95px; margin-left:20px; margin-top:50px;}
 .me_mes dl dt img{ width:80px; height:100px; border:5px solid #0d8eb0;}
 .me_mes dl dd{ padding-top:74px; float:left; _width:480px; display:inline-block;}
-.me_mes dl dd .nickname{ font-family:"Î¢ÈíÑÅºÚ"; font-size:21px; color:#333; font-weight:normal; line-height:25px;float:left}
+.me_mes dl dd .nickname{ font-family:"Microsoft Yahei"; font-size:21px; color:#333; font-weight:normal; line-height:25px;float:left}
 .me_mes_edit{ font-size:12px; margin:12px 0 0 0 ; float:left; }
 .me_mes_edit a{color:#0d8eb0; margin-left:14px;}
 .me_mes_edit a:hover{ color:#f60;}
 .me_mes dl dd h3 span{ font-size:12px; color:#999; padding-left:14px;}
 .me_mes dl dd p{ font-size:12px; color:#999; line-height:18px;width:544px; overflow:hidden;}
-.comapply_no_msg_cont{ width:700px;color:#666; line-height:24px; text-align:center;font-family:"Î¢ÈíÑÅºÚ"; margin-bottom:10px; font-size:30px;}
+.comapply_no_msg_cont{ width:700px;color:#666; line-height:24px; text-align:center;font-family:"Microsoft Yahei"; margin-bottom:10px; font-size:30px;}
 .Pagination input{border:1px solid #cbcbcb;margin:0 5px; height:28px;font-size:16px;line-height:28px;}
 .noresult{ height:160px; font-size:24px; color:#555; background:#fafafa url(../images/noresult.png) 80px 55px no-repeat; padding:120px 0 0 220px; margin-top:15px; line-height:32px;}
 .noresult span{font-size:16px; color:#999;}
 .noresult a{color:#f60; text-decoration:underline}
-.me_fans{ font-size:16px; color:#bbb; padding-top:5px; font-family:"Î¢ÈíÑÅºÚ";}
+.me_fans{ font-size:16px; color:#bbb; padding-top:5px; font-family:"Microsoft Yahei";}
 .me_fans span{ color:#555; font-size:16px;}
 .me_fans span .font,.me_fans span font{ color:#ff6600; padding-left:3px;}
 .me_fans .add_attention{padding-left:20px; }
-.me_fans .add_attention a{background:#0D8EB0;color:#fff; font-size:14px; display:inline-block; padding:2px 8px; *padding:1px 8px;padding:1px 8px\9;font-family:"Î¢ÈíÑÅºÚ";}
+.me_fans .add_attention a{background:#0D8EB0;color:#fff; font-size:14px; display:inline-block; padding:2px 8px; *padding:1px 8px;padding:1px 8px\9;font-family:"Microsoft Yahei";}
 .me_fans .add_attention a:hover{/* background:#0d84ac*/}
 .me_fans .add_attention  .watch_qxgz{ color:#999; margin-right:10px;background:none;}
 .recom_expert h2 span{ font-size:12px; color:#aaa; font-weight:normal;}
@@ -582,7 +582,7 @@ cursor:pointer;}
 .len_con textarea{font-size:12px; color:#888; line-height:24px; height:65px; padding:3px; border:0;width:220px;_width:215px;}
 .len_con p{font-size:12px; color:#888; line-height:24px; padding:3px;  }
 .lea_fb{ display:block; padding:9px 0 18px 0; border-bottom:1px dashed #c2c2c2;}
-.lea_fb input{ width:226px; height:41px; background:#ececec; border:0; cursor:pointer; font-family:"Î¢ÈíÑÅºÚ"; font-size:18PX; color:#333;}
+.lea_fb input{ width:226px; height:41px; background:#ececec; border:0; cursor:pointer; font-family:"Microsoft Yahei"; font-size:18PX; color:#333;}
 .lea_fb input:hover{ background:#ff6600; color:#fff;}
 .lea_ed{ border:1px solid #e2e0e0; background:#f3f3f3;}
 .len_icon{background:url(../images/icon18.jpg) no-repeat;}

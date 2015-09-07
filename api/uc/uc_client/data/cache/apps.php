@@ -47,7 +47,7 @@ $_CACHE['apps'] = array (
   array (
     'appid' => '3',
     'type' => 'OTHER',
-    'name' => 'phpyun人才系统',
+    'name' => '药师多人才系统',
     'url' => 'http://job.com',
     'ip' => '127.0.0.1',
     'viewprourl' => '',

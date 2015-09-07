@@ -22,7 +22,7 @@
 .link_white a:hover {text-decoration: underline;}
 .headerbg {background: url("../images/hj2.png") repeat-x scroll center bottom transparent;height:65px;overflow:hidden;width:100%;}
 .wap_tit {background: none repeat scroll 0 0 #F6F6F6;border-bottom: 1px solid #E4E4E4;border-top: 1px solid #E4E4E4;float: left;height: 33px;line-height:33px;width: 100%;border-top:1px solid #AABACA;background: #FAFAFA;text-align:center}
-.wap_tit span {color:#2488ee;font-weight:bold;display: block;float: left;font-family:14px; font-family:微软雅黑;margin-left:5px;}
+.wap_tit span {color:#2488ee;font-weight:bold;display: block;float: left;font-family:14px; font-family:"Microsoft Yahei";margin-left:5px;}
 .wap_tit  h2{ font-size:15px;color:#F60}
 .news_cont_ms{width:100%; text-align:center;line-height:25px;}
 .map_top{witdh:100%;padding:5px;height:25px;position:relative;background-color:#0F5398;background-image: -moz-linear-gradient(center top , #0D76BF 0%, #0F5398 100%);border-bottom:1px solid #053F7B;color: #FFFFFF; text-align:right}

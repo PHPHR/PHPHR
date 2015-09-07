@@ -123,7 +123,7 @@ class index_controller extends resume_controller
 
     function index_action()
     {
-        if ($this->config['sy_default_userclass'] == '1' || $_GET['zrc']) {
+//        if ($this->config['sy_default_userclass'] == '1' || $_GET['zrc']) {
             $resumeclassurl = $this->config['sy_resumedir'] != "" ? $this->config['sy_weburl'] . "/resume/?c=search&" : $resumeclassurl = $this->config['sy_weburl'] . "/index.php?m=resume&c=search&";
             $this->yunset("resumeclassurl", $resumeclassurl);
             $CacheM = $this->MODEL('cache');
@@ -133,9 +133,9 @@ class index_controller extends resume_controller
             $this->seo("user");
 			$this->yun_tpl(array('index_gj'));
 //            $this->yun_tpl(array('index'));
-        } else {
-            $this->usersearch();
-        }
+//        } else {
+//            $this->usersearch();
+//        }
     }
 }
 

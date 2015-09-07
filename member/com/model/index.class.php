@@ -9,7 +9,7 @@
 * 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
 */
 class index_controller extends company{
-	function index_action(){ 
+	function index_action(){
 		include(CONFIG_PATH."db.data.php");
 		$this->yunset("arr_data",$arr_data);
 		$statis=$this->company_satic();  
@@ -47,7 +47,7 @@ class index_controller extends company{
 		$this->yunset("company",$company);
 		$this->public_action();
 		$this->yunset("js_def",1);
-		$this->com_tpl('index');
+		$this->com_tpl('company');
 	}
 }
 ?>

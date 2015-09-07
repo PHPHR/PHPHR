@@ -751,7 +751,7 @@
 .popWeixin .close {color: #000;font-size: 20px;position: absolute;right: 10px;top: 5px;}
 .popWeixin dl{width:100%;}
 .popWeixin dt {float: left;width: 100px;height: 100px;}
-.popWeixin dd {margin-left: 120px;font-size: 16px;font-family: "Î¢ÈíÑÅºÚ";background: url(../images/weixin.jpg) 90px 0px no-repeat;}
+.popWeixin dd {margin-left: 120px;font-size: 16px;font-family: "Microsoft Yahei";background: url(../images/weixin.jpg) 90px 0px no-repeat;}
 .job_sq_qx_yy{width:62px;height:28px; background:#f60;color:#fff;border:none;}
 .job_tck_left{width:90px; display:inline-block; text-align:right}
 .List_left_tl{ text-align:left}

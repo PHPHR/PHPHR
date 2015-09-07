@@ -14,13 +14,12 @@ class jobadd_controller extends company
 	{
 		
 		$statics = $this->company_satic();
-		
 		if( $statics['addjobnum'] == 2){
 			if(intval($statics['integral']) < intval($this->config['integral_job'])){
 				$this->ACT_msg("index.php?c=pay","你的".$this->config['integral_pricename']."不够发布职位！",8);
 			}
 		}
-		
+		$this->getJob();
 		$company=$this->get_user();
 		
 		$msg=array();
@@ -75,7 +74,7 @@ class jobadd_controller extends company
 		$this->yunset("row",$row);
 		$this->yunset("today",date('Y-m-d',time()));
 		$this->yunset("js_def",3);
-		$this->com_tpl('jobadd');
+		$this->com_tpl('addjob');
 	}
 	function edit_action(){
 		if($_GET['id']){

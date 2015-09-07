@@ -239,7 +239,7 @@ nav.nav > span {cursor: pointer;display: inline-block;height: 33px;line-height:3
 .area_select i {background:#fff;display: block;height:4px;margin-bottom: 3px;overflow: hidden;position: relative;}
 .area_select i:after {background:#2174de;content: " ";height: 4px;left: 3px;position: absolute;top: 0;width: 2px;}
 .x_cor{color:#ff0000; display:inline-block; line-height:28px; margin-right:5px; font-size:14px;}
-.tiny_cz{width:100%;height:30px; display:inline-block; background:#F60;color:#fff; font-size:16px; margin-top:10px; text-align:center; line-height:30px; font-family:Î¢ÈíÑÅºÚ;}
+.tiny_cz{width:100%;height:30px; display:inline-block; background:#F60;color:#fff; font-size:16px; margin-top:10px; text-align:center; line-height:30px; font-family:"Microsoft Yahei";}
 .tiny_tag{width:100%; margin-top:5px; text-align:center}
 .wap_com_m_top{width:100%; padding-top:5px; padding-bottom:10px; position:relative}
 .wap_com_m_top_iocn{ display:inline-block;width:30px;height:30px; background:url(../images/wap_c.gif) no-repeat 5px 5px; background-size:70%; float:left;}

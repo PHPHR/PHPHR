@@ -2,8 +2,8 @@
 /* CSS Document */
 
 /*µ¯³öµÇÂ½¿ò*/
-.logoin_tck{width:480px;height:250px; background:#fff; font-family:Î¢ÈíÑÅºÚ }
-input{ font-family:Î¢ÈíÑÅºÚ }
+.logoin_tck{width:480px;height:250px; background:#fff; font-family:"Microsoft Yahei" }
+input{ font-family:"Microsoft Yahei" }
 .logoin_tck_left{width:300px; float:left;border-right:1px dashed #dbdbdb; margin-top:25px; padding-left:25px;}
 .logoin_tck_text{width:258px;height:38px;border:1px solid #d2d2d2;  float:left; overflow:hidden}
 .logoin_tck_text_icon{width:38px; display:inline-block;height:38px; background:#f5f5f5 url(../images/yun_logoin_tck_icon1.jpg) no-repeat center center; float:left;}

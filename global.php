@@ -11,6 +11,10 @@
 //======================== 系统常量 ========================\\
 ini_set('display_errors','on');
 error_reporting(7);
+
+//设置cookie域
+const COOKIE_DOMAIN='.phphr.com';
+
 define('APP_PATH',dirname(__FILE__).'/'); 
 define('CONFIG_PATH',APP_PATH.'/config/'); 
 define('DATA_PATH',APP_PATH.'/data/'); 

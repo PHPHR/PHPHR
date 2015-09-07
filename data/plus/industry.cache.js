@@ -15,7 +15,7 @@ hi[12]=37;
 hi[13]=36;
 hi[14]=839;
  
-ht=new Array(); 
+ht='new Array()'; 
 var hn=new Array();
 hn[35]='计算机/互联网';
 hn[837]='机械/设备/技工';

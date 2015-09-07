@@ -30,7 +30,7 @@ DD_belatedPNG.fix('.png');
 {yun:}include file="$tplstyle/public_search/index_search.htm"{/yun}
 <div class="yun_body">
   <div class="yun_content">
-    
+
     <div class="current_Location com_current_Location png">
       <div class="fl" >您当前的位置：<a href="{yun:}$config.sy_weburl{/yun}">首页</a> > <span onclick="index_industry(1,'input[name=keyword]','.disc_zwsx','left:100px;top:100px; position:absolute;');">职位列表</span> </div>
     </div>
@@ -58,7 +58,7 @@ DD_belatedPNG.fix('.png');
             </div>
         </div>
 			{yun:}if $industry_name[$smarty.get.hy]{/yun} 
-			<a href="{yun:}searchurl m=job c=search untype='hy'{/yun}" class="Search_jobs_c_a disc_fac">行业：{yun:}$industry_name[$smarty.get.hy]{/yun}</a> 
+			<a href="{yun:}searchurl m=job c=search untype='hy'{/yun}" class="Search_jobs_c_a disc_fac">行业：{yun:}$industry_name[$smarty.get.hy]{/yun}</a>
 				{yun:}/if{/yun}
             {yun:}if $smarty.get.job1{/yun} <a href="{yun:}searchurl m=job c=search untype='job1,job1_son,job_post'{/yun}" class="Search_jobs_c_a disc_fac">职位分类：{yun:}$job_name[$smarty.get.job1]{/yun}</a> {yun:}/if{/yun}
             {yun:}if $smarty.get.job1_son{/yun} <a href="{yun:}searchurl m=job c=search untype='job1_son,job_post'{/yun}" class="Search_jobs_c_a disc_fac">{yun:}$job_name[$smarty.get.job1_son]{/yun}</a> {yun:}/if{/yun}
@@ -69,7 +69,7 @@ DD_belatedPNG.fix('.png');
 			{yun:}/if{/yun}
             {yun:}if $smarty.get.three_cityid{/yun} <a href="{yun:}searchurl m=job c=search untype='three_cityid'{/yun}" class="Search_jobs_c_a disc_fac">{yun:}$city_name[$smarty.get.three_cityid]{/yun}</a> {yun:}/if{/yun}
             {yun:}if $smarty.get.salary{/yun} <a href="{yun:}searchurl m=job c=search untype='salary'{/yun}" class="Search_jobs_c_a disc_fac">薪资：{yun:}$comclass_name[$smarty.get.salary]{/yun}</a> {yun:}/if{/yun}
-            {yun:}if $smarty.get.edu{/yun} <a href="{yun:}searchurl m=job c=search untype='edu'{/yun}" class="Search_jobs_c_a disc_fac">学历：{yun:}$comclass_name[$smarty.get.edu]{/yun}</a> {yun:}/if{/yun} 
+            {yun:}if $smarty.get.edu{/yun} <a href="{yun:}searchurl m=job c=search untype='edu'{/yun}" class="Search_jobs_c_a disc_fac">学历：{yun:}$comclass_name[$smarty.get.edu]{/yun}</a> {yun:}/if{/yun}
             {yun:}if $smarty.get.exp{/yun} <a href="{yun:}searchurl m=job c=search untype='exp'{/yun}" class="Search_jobs_c_a disc_fac">工作经验：{yun:}$comclass_name[$smarty.get.exp]{/yun}</a> {yun:}/if{/yun} 
             {yun:}if $smarty.get.sex{/yun} <a href="{yun:}searchurl m=job c=search untype='sex'{/yun}" class="Search_jobs_c_a disc_fac">性别：{yun:}$comclass_name[$smarty.get.sex]{/yun}</a> {yun:}/if{/yun} 
             {yun:}if $smarty.get.type{/yun} <a href="{yun:}searchurl m=job c=search untype='type'{/yun}" class="Search_jobs_c_a disc_fac">类型：{yun:}$comclass_name[$smarty.get.type]{/yun}</a> {yun:}/if{/yun}

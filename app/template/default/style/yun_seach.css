@@ -76,7 +76,7 @@
 .yun_Looking_work_name{ border-bottom: 1px dashed #e7e7e7; cursor: pointer;width: 100%; padding-top:15px; padding-bottom:10px; float:left}
 .yun_Looking_work_yun_td1{width:280px; float:left;font-weight:bold}
 .yun_Looking_work_yun_td2{width:146px; float:left; text-align:center;color:#676767; }
-.yun_Looking_work_yun_td3{width:146px; float:left; text-align:center;color:#f60;font-family:Œ¢»Ì—≈∫⁄; font-size:14px;}
+.yun_Looking_work_yun_td3{width:146px; float:left; text-align:center;color:#f60;font-family:"Microsoft Yahei"; font-size:14px;}
 .yun_Looking_work_yun_td4{width:106px; float:left; text-align:center; }
 .yun_Looking_work_yun_td5{width:106px; float:left; text-align:center; }
 .yun_Looking_work_yun_td6{width:270px; float:left; text-align:left; }
@@ -109,7 +109,7 @@
 .yun_Looking_work_right_box ul li{width:100%;border-bottom:1px solid #f1f1f1;  line-height:20px;padding-top:10px; padding-bottom:10px;}
 .yun_Looking_work_right_box ul li .yun_Looking_work_post_name{ font-size:14px; display:block;color:#0286ce}
 .yun_Looking_work_right_box ul li span{ display:block;color:#7d7d7e}
-.yun_Looking_work_right_box ul li em{ color:#d34501; font-family:Œ¢»Ì—≈∫⁄;}
+.yun_Looking_work_right_box ul li em{ color:#d34501; font-family:"Microsoft Yahei";}
 .yun_Looking_work_right_box ul li  a{color:#999;}
 .cont_fd1 {display: inline-block;position: absolute;width: 516px; z-index: 1000;}
 .cont_fd_bg1 { background:#FFFFFF;border: 2px solid #1E9EDB;display: block; float: left;position: relative; width: 512px;}
@@ -140,7 +140,7 @@
 /*’“»À≤≈ left*/
 .All_post_seach_user{ padding-top:0px; padding-bottom:0px;}
 .Com_Search_Results {width:100%;height: 20px;padding-top: 10px;padding-bottom: 10px;border-bottom: 1px solid #e0e0e0;}
-.Com_Search_Results span {display: inline-block;float: left;width: 150px;padding-left: 10px;font-family: Œ¢»Ì—≈∫⁄;font-size: 16px;}
+.Com_Search_Results span {display: inline-block;float: left;width: 150px;padding-left: 10px;font-family:"Microsoft Yahei";font-size: 16px;}
  .user_title{ display:block; margin-right:10px;}
 .Com_Search_Results_r {width: 380px}
 .Com_Search_Results_r ul {;float: left}
@@ -187,17 +187,17 @@
 .search_Look_tag{width:460px;height:23px; line-height:23px; overflow:hidden;color:#666666; float:left; margin-top:10px; padding-left:10px; font-size:14px;}
 .maincenter{width:978px;border:1px solid #e3e0e0; float:left; margin-top:10px; background:#fff;}
 .search_menuBox{width:100%;height:46px; background:url(../images/yun_search_bg.jpg) repeat-x}
-.search_menuBox ul li{ width:325px;height:46px; line-height:46px;text-align:center; font-size:18px;color:#798088;border-right:1px solid #e3e0e0; font-family:Œ¢»Ì—≈∫⁄;float:left; cursor:pointer}
+.search_menuBox ul li{ width:325px;height:46px; line-height:46px;text-align:center; font-size:18px;color:#798088;border-right:1px solid #e3e0e0; font-family:"Microsoft Yahei";float:left; cursor:pointer}
 .search_menuBox ul  .search_cur{ background:#fff;height:46px; line-height:46px;color:#f16b04;}
 .search_post_jj{width:100%; background:#fff; margin-top:10px; float:left; margin-bottom:10px;}
-.search_post_jj_h1{ font-size:16px; font-family:Œ¢»Ì—≈∫⁄; padding:10px;}
+.search_post_jj_h1{ font-size:16px; font-family:"Microsoft Yahei"; padding:10px;}
 .search_post_jj_h1 span{ display:block;border-left:4px solid #f16b04; padding-left:10px;}
 .search_post_list {width:100%; padding-bottom:10px; float:left}
 .search_post_list li{background:#f6f6f6;line-height: 20px;padding:5px; width:223px;float:left; margin-left:10px; margin-top:10px; position:relative;_margin-left:3px;_margin-right:3px;}
 .search_post_list li .yun_Looking_work_post_name {color: #0286CE; display: block; font-size: 14px;width:165px;height:20px; line-height:20px; overflow:hidden}
 .search_post_list li span { color: #7D7D7E;display: block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap; width: 225px;}
 .search_post_list li i{ display:block; position:absolute;right:5px;top:5px;color:#999}
-.search_post_list li em {color: #D34501;font-family: Œ¢»Ì—≈∫⁄;}
+.search_post_list li em {color: #D34501;font-family:"Microsoft Yahei";}
 .search_post_list li a {color: #999999;}
 .contentBox{ padding:10px; float:left; position:relative}
 .contentBox_cont{width:100%;}

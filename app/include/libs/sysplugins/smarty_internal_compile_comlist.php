@@ -148,12 +148,13 @@ class Smarty_Internal_Compile_Comlist extends Smarty_Internal_CompileBase{
 							'.$name.'[$key][\'jobnum\'] = '.$name.'[$key][\'jobnum\']+1;
 						}
 					}
-					foreach($comrat as $k=>$v){
-						if($value[\'rating\']==$v[\'id\']){
-							'.$name.'[$key][\'color\'] = $v[\'com_color\'];
-							'.$name.'[$key][\'ratlogo\'] = $v[\'com_pic\'];
+					if(is_array($comrat) && !empty($comrat))
+						foreach($comrat as $k=>$v){
+							if($value[\'rating\']==$v[\'id\']){
+								'.$name.'[$key][\'color\'] = $v[\'com_color\'];
+								'.$name.'[$key][\'ratlogo\'] = $v[\'com_pic\'];
+							}
 						}
-					}
 				}
 			}
 		}

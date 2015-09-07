@@ -85,10 +85,10 @@ class Smarty_Internal_Compile_Comjob extends Smarty_Internal_CompileBase{
 			foreach($uids as $key=>$value){
 				foreach($statis as $v){
 					foreach($comrat as $val){
-						if($value==$v[uid] && $val[id]==$v[rating])
+						if($value==$v[\'uid\'] && $val[\'id\']==$v[\'rating\'])
 						{
-							$ComList[$key][color]=$val[com_color];
-							$ComList[$key][ratlogo]=$val[com_pic];
+							$ComList[$key][\'color\']=$val[\'com_color\'];
+							$ComList[$key][\'ratlogo\']=$val[\'com_pic\'];
 						}
 					}
 				}

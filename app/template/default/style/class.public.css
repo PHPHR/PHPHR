@@ -33,7 +33,7 @@ ul ,li{ list-style:none}
 .yun_tck .yun_tck_con .yun_tck_con_list li i {float: right;line-height: 26px;font-size: 12px}
 .yun_tck .actions {margin: 20px 0;text-align: center;display: block;}
 .yun_tck .actions button {margin: 0 3px}
-.button_a {width:60px;display:inline-block; font-family:Î¢ÈíÑÅºÚ;height: 28px;background:#ccc;border:none;color:#333; margin-right:10px; cursor:pointer}
+.button_a {width:60px;display:inline-block; font-family:"Microsoft Yahei";height: 28px;background:#ccc;border:none;color:#333; margin-right:10px; cursor:pointer}
 
 .button_a_red {background:#2483bb;color:#fff}
 .yun_tck .yun_tck_con .yun_tck_con_list .selected{ font-weight:bold; color:red;}

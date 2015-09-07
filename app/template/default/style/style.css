@@ -184,7 +184,7 @@ visibility:hidden;
 	background: url("../images/yun_logoin_icon.png") no-repeat scroll -75px -4px transparent;
 	color: #FFFFFF;
 	display: block;
-	font-family: Î¢ÈíÑÅºÚ;
+	font-family:"Microsoft Yahei";
 	font-size: 14px;
 	height: 27px;
 	line-height: 27px;
@@ -385,7 +385,7 @@ visibility:hidden;
 	height:41px; line-height:41px;
 	background:#fff;
 	border:2px solid #e4e4e4;
-	font-family:Î¢ÈíÑÅºÚ;
+	font-family:"Microsoft Yahei";
 }
 .ty_button {
 	color: #b7afaf;
@@ -402,7 +402,7 @@ visibility:hidden;
 	border-left:0;
 	border-right:0;
 	background:url("../images/disc_icon15.png") no-repeat right center #fff;
-	font-family:"Î¢ÈíÑÅºÚ";
+	font-family:"Microsoft Yahei";
 }
 .com_sea_key_city{	width:213px;
 	height:41px;	border-top:2px solid #e4e4e4;
@@ -414,7 +414,7 @@ visibility:hidden;
 	height:45px;
 	width:86px;
 	font-size:16px;
-	font-family:Î¢ÈíÑÅºÚ;
+	font-family:"Microsoft Yahei";
 	color:#fff;
 	cursor:pointer
 }
@@ -427,7 +427,7 @@ visibility:hidden;
 	float:left;
 	padding-top:10px;
 	color:#706d6d;
-	font-family:"Î¢ÈíÑÅºÚ";
+	font-family:"Microsoft Yahei";
 	font-size:14px;
 	padding-bottom:18px;
 }
@@ -507,7 +507,7 @@ visibility:hidden;
 .firm_list_post{width:100%; line-height:23px; margin-top:5px;float:left}
 .firm_list_post a{color:#999; display:inline-block; padding-right:10px; padding-left:10px;border-radius:10px;border:1px solid #eee; margin-right:10px; margin-top:5px; background:#fff;}
 .firm_list_post a:hover{color:#06F;border:1px solid #06F; text-decoration:none}
-.firm_list_cur_name{ font-size:16px; font-family:Î¢ÈíÑÅºÚ}
+.firm_list_cur_name{ font-size:16px; font-family:"Microsoft Yahei"}
 .firm_list_cur_news{width:100%; line-height:23px; float:left;}
 .firm_list_cur_left{width:350px;border-right:1px solid #ccc;float:left }
 .firm_list_cur_right{width:335px; float:left; padding-left:10px;}
@@ -534,7 +534,7 @@ visibility:hidden;
 .co_recom ul li a:hover{text-decoration:none;}
 .co_recom ul li a:hover p{color:#0062A4;}
 .co_recom ul li a img{ width:185px; height:75px; border:1px solid #f2f1f1;}
-.co_recom ul li a p{ color:#0371d3; padding-top:10px; line-height:14px; font-size:14px;font-family:"Î¢ÈíÑÅºÚ";}
+.co_recom ul li a p{ color:#0371d3; padding-top:10px; line-height:14px; font-size:14px;font-family:"Microsoft Yahei";}
 .co_recom{}
 .co_recom dl{ margin-left:8px; border-bottom:1px dashed #ededed; line-height:24px; width:975px; clear:both; overflow:hidden; margin-top:12px; padding-bottom:10px; font-size:14px;}
 .co_recom dl dt{ float:left; width:100px; text-align:right; font-size:14px; color:#766c6c;}
@@ -544,10 +544,10 @@ visibility:hidden;
 /*****************/
 .firm_left_close_con{width:204px; float:left;background:#f9f9f9; padding-left:12px; margin-bottom:14px; padding-bottom:10px;}
 .firm_left_close{}
-.firm_left_cont{ background:#fbfbfb; width:216px; padding-bottom:16px; overflow:auto;font-family:"Î¢ÈíÑÅºÚ"; }
+.firm_left_cont{ background:#fbfbfb; width:216px; padding-bottom:16px; overflow:auto;font-family:"Microsoft Yahei"; }
 .company_list{ zoom:1; margin-top:18px;}
 .firm_list_02{ background: #fbfbfb;}
-.company_name{ font-family:"Î¢ÈíÑÅºÚ"; font-size:16px; line-height:25px;}
+.company_name{ font-family:"Microsoft Yahei"; font-size:16px; line-height:25px;}
 .company_name a{ color:#1369c0;}
 .company_name span{ font-size:12px;}
 .firm_qy_list span font{ color:#7c8389; font-size:12px;}

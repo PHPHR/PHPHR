@@ -160,19 +160,19 @@ center; font-size:12px; z-index:11 }
 .textbox2{width:160px;}
 .com_info_text{width:240px;height:33px; line-height:33px;border:1px solid #CFCFCF;border-bottom:1px solid  #E8E8E8;border-right:1px solid  #E8E8E8;color:#666; text-indent:5px; float:left; background:#fff; margin-right:10px;_margin-right:5px;}
 .admin_tit_right{ float:right;}
-.admin_tit_right .Com_xz{width:115px;height:35px; font-size:16px;color:#fff;border:none;font-family:Î¢ÈíÑÅºÚ; background:#699CCC;cursor:pointer}
+.admin_tit_right .Com_xz{width:115px;height:35px; font-size:16px;color:#fff;border:none;font-family:"Microsoft Yahei"; background:#699CCC;cursor:pointer}
 .admin_tit{width:100%;height:45px; line-height:45px;border-bottom:1px solid #e8e8e8;color:#666; float:left}
 .admin_tit span{ float:left}
-.admin_tit .admin_tit_bg{ display:inline-block; font-size:18px;color:#3281cb; font-family:Î¢ÈíÑÅºÚ; margin-right:10px;margin-left:15px;}
+.admin_tit .admin_tit_bg{ display:inline-block; font-size:18px;color:#3281cb; font-family:"Microsoft Yahei"; margin-right:10px;margin-left:15px;}
 .com_admin_ask{width:16px;height:16px; background:url(../images/ask.jpg) no-repeat; display:inline-block; float:left; margin-top:15px; cursor:pointer}
 .condition{width:130px; float:left}
-.btn_01{width:106px;height:37px; font-size:16px;color:#fff;border:none;font-family:Î¢ÈíÑÅºÚ; background:#456dab; cursor:pointer}
+.btn_01{width:106px;height:37px; font-size:16px;color:#fff;border:none;font-family:"Microsoft Yahei"; background:#456dab; cursor:pointer}
 .sub_btn{ float:left; margin-top:5px}
 /*map*/
 .admin_note_map{width:760px; float:left; margin-top:20px; }
 .map_seach{ width:275px;position:absolute;top:10px;right:10px; z-index:10}
 .map_seach_text{width:200px;height:30px;line-height:30px;color:#999;background:#fff;border:none; float:left;overflow:hidden; text-indent:10px;} 
-.map_seach_sub{width:70px;height:30px; background:#699CCC;color:#fff;border:none; font-family:Î¢ÈíÑÅºÚ; font-size:14px; float:left; cursor:pointer;;overflow:hidden}
+.map_seach_sub{width:70px;height:30px; background:#699CCC;color:#fff;border:none; font-family:"Microsoft Yahei"; font-size:14px; float:left; cursor:pointer;;overflow:hidden}
 .map_seach_bg{width:270px;height:30px; padding:5px; background:#999;position:absolute;top:5px;right:10px; z-index:5;filter:Alpha(opacity=60); opacity:0.6;border-radius:3px}
 /*news*/
 .wxts {background: url(../images/ts2.jpg) no-repeat  left 8px; color: #FF6600; font-weight: bold; padding-left: 20px;}
@@ -295,14 +295,14 @@ center; font-size:12px; z-index:11 }
 .List_Title_conten_b{color:#E5A408}
 .List_Title_content_Advisory_r2{ float:right; margin-right:10px;color:#666}
 .com_text_news{width:390px;height:34px; line-height:34px;_height:33px; background:#fff;border:1px solid #ccc;border-right:none; float:left; overflow:hidden;}
-.com_tj{height:34px; background:#DF4E1A;color:#fff;border:none; padding-left:5px; padding-right:5px;font-family:Î¢ÈíÑÅºÚ; font-size:14px; cursor:pointer;float:left}
-.span_name{float:left; line-height:30px; font-size:14px;color:#666;font-family:Î¢ÈíÑÅºÚ; }
+.com_tj{height:34px; background:#DF4E1A;color:#fff;border:none; padding-left:5px; padding-right:5px;font-family:"Microsoft Yahei"; font-size:14px; cursor:pointer;float:left}
+.span_name{float:left; line-height:30px; font-size:14px;color:#666;font-family:"Microsoft Yahei"; }
 .errordisplay {background: url(errorico.gif) no-repeat;color: #AA0000;display: none; height: 25px; line-height: 25px; padding-left: 15px;text-align: left;/*visibility: hidden;*/}
 .admin_note2{width:100%; margin-top:15px; float:left}
 .admin_password{width:100%; margin-top:15px; float:left}
 .admin_password .vs_right_span{ float:left; line-height:28px; padding-left:10px;color:#666}
 .text_s_left{width:140px; display:inline-block; font-size:14px; text-align:right;color:#686868; float:left; line-height:28px}
-.my_table{ background:#e3e3e3; margin-top:20px;width:100%;font-family:Î¢ÈíÑÅºÚ;}
+.my_table{ background:#e3e3e3; margin-top:20px;width:100%;font-family:"Microsoft Yahei";}
 .my_table th{height:38px; padding:0px 10px 0px 10px; background:#fcfcfc;color:#33649e; font-size:14px; font-weight:normal; }
 .my_table td{ background:#fff;font-size:12px; text-align:center;color:#323232}
 .my_table  .my_table_th_bg{ background:#4173ae;color:#fff;}
@@ -311,9 +311,9 @@ center; font-size:12px; z-index:11 }
 .my_pay_table_r_bg{width:171px;height:13px; background:url(../images/r_bg1.png) no-repeat; float:right}
 .my_pay_hot{   height:37px;left: 394px;position: absolute; top: 10px;width: 86px;z-index:1; overflow:hidden}
 .my_table  .my_table_th_bg span{ display:block;position:relative; z-index:10}
-.xinxi-guanli-box{font-family:Î¢ÈíÑÅºÚ; font-size:14px;}
+.xinxi-guanli-box{font-family:"Microsoft Yahei"; font-size:14px;}
 .xinxi-title-bg{width:100%; float:left;background:url(../images/line2.jpg) repeat-x bottom;height:38px;}
-.xinxi-title-bg ul li{width:160px;heiht:38px; line-height:38px; float:left; text-align:center;font-family:Î¢ÈíÑÅºÚ; font-size:14px;color:#0f1e36; margin-left:5px;border-bottom:none; cursor:pointer }
+.xinxi-title-bg ul li{width:160px;heiht:38px; line-height:38px; float:left; text-align:center;font-family:"Microsoft Yahei"; font-size:14px;color:#0f1e36; margin-left:5px;border-bottom:none; cursor:pointer }
 .xinxi-title-bg ul li span{width:160px;heiht:38px;color:#0f1e36; display:block} 
 .xinxi-title-bg ul .hover{ background:#fff;border:1px solid #dadada;border-top:2px solid #54728c;color:#06F;border-bottom:none; font-size:16px;height:36px;}
 .xinxi-title-bg ul .hover span{color:#5271a4}
@@ -333,14 +333,14 @@ center; font-size:12px; z-index:11 }
 .admin_pay_top{width:688px; float:left; background:#e8f3fd;border:1px solid #d0e5fb; padding:10px; margin-top:15px;}
 .admin_note_p2{ background:url(../images/pay_2.jpg) no-repeat; padding-left:90px;height:70px; float:left}
 .admin_note_p2_t{ font-size:14px;}
-.admin_note_p2_t span{ font-size:18px;color:#F60;font-family:Î¢ÈíÑÅºÚ;}
-.admin_tit_right .Com_xz_pay{width:115px;height:35px; font-size:16px;color:#fff;border:none;font-family:Î¢ÈíÑÅºÚ; background:#699CCC;cursor:pointer; display:inline-block; text-align:center; line-height:35px; margin-top:18px;}
+.admin_note_p2_t span{ font-size:18px;color:#F60;font-family:"Microsoft Yahei";}
+.admin_tit_right .Com_xz_pay{width:115px;height:35px; font-size:16px;color:#fff;border:none;font-family:"Microsoft Yahei"; background:#699CCC;cursor:pointer; display:inline-block; text-align:center; line-height:35px; margin-top:18px;}
 .admin_tit_right .Com_xz_pay:hove{ background:#5779AF}
 .pay_table_ys{width:100%; background:#ccc; margin-top:10px; font-size:12px;}
 .pay_table_ys th{ font-weight:normal; font-size:14px;}
 .pay_table_ca{width:100%;  margin-top:10px;font-size:12px;}
 .pay_table_ca th{ font-weight:normal; font-size:14px;}
-.my_table_msg{ background:#ccc; width:100%;font-family:Î¢ÈíÑÅºÚ;}
+.my_table_msg{ background:#ccc; width:100%;font-family:"Microsoft Yahei";}
 .my_table_msg th{height:38px; padding:0px 10px 0px 10px; background:#fcfcfc;color:#333; font-size:15px; font-weight:normal;}
 .my_table_msg  td{ background:#fff;font-size:12px; padding:0px 10px 0px 10px;color:#323232;white-space: normal; word-break: break-all;}
 .reply_list{width:100%; float:left}
@@ -418,7 +418,7 @@ center; font-size:12px; z-index:11 }
 .Tip_Information_k{width:108px;height:40px; position:absolute;left:70px;top:-38px;}
 .Tip_Information_jt{width:69px;height:76px; background:url(../images/com_tck_jt.png) no-repeat; position:absolute;left:490px;top:-30px;}
 .Tip_Information_cont{width:345px;background:#f5f5f5;border:3px solid #5779af; position:absolute;left:380px;top:50px; border-radius:3px}
-.Tip_Information_p{ padding:20px 20px 20px 80px; background:url(../images/com_icon.gif) no-repeat 20px 30px; line-height:30px; font-size:16px;;font-family:Î¢ÈíÑÅºÚ;color:#689fde}
+.Tip_Information_p{ padding:20px 20px 20px 80px; background:url(../images/com_icon.gif) no-repeat 20px 30px; line-height:30px; font-size:16px;;font-family:"Microsoft Yahei";color:#689fde}
 .Tip_Information_p span{color:#6fbd2a}
 .Tip_Information_bot{width:100%;height:35px; background:url(../images/com_t_bg.gif)}
 .Tip-next{width:61px;height:24px; background:#689fde;border-radius:3px; display:block; float:right; text-align:center; line-height:24px;color:#fff; margin-top:5px; margin-right:10px;}
@@ -476,7 +476,7 @@ center; font-size:12px; z-index:11 }
 .table_form td, .table_form th {padding: 6px 0 5px 6px;}
 .table_form  textarea{border: 1px solid #B1B2B3;}
 .pay_Money_t{ border-bottom: 1px dashed #DCDCDC;padding-bottom: 10px;}
-.pay_Money{font-size: 18px;margin-bottom: 10px;padding-top:10px; font-family:Î¢ÈíÑÅºÚ;}
+.pay_Money{font-size: 18px;margin-bottom: 10px;padding-top:10px; font-family:"Microsoft Yahei";}
 .pay_Money strong{color: #CC3333;}
 .payment_choose{width:752px; float:left;border:2px solid #0d8bec; padding-left:10px;}
 .choose-pay-type{width:100%; padding-bottom:10px; float:left; font-size:14px; margin-top:20px;}
@@ -531,7 +531,7 @@ center; font-size:12px; z-index:11 }
 .paytype-list .bank-list .radio {float:left;width:13px;margin-top:10px;*margin-top:5px;margin-left:1px}
 .paytype-list .bank--yinlian{ background:url(../images/hk_img.jpg) no-repeat}
 .ad_bnner{width:710px; overflow:hidden; margin-top:10px;}
-.ad_bnner_tit{ margin-top:10px; font-size:16px; font-family:Î¢ÈíÑÅºÚ;}
+.ad_bnner_tit{ margin-top:10px; font-size:16px; font-family:"Microsoft Yahei";}
 .admin_textbox_02 ul .job_add_bc{width:360px;}
 .tit_lt_job{width:}
 .toggle{float:right; cursor:pointer; right:50px; position:relative;color:#3281CB; font-weight:bold;}
@@ -552,7 +552,7 @@ center; font-size:12px; z-index:11 }
 .submit_btn {color:#fff; background:url(../images/xubox_ico0.png) no-repeat -5px -114px;}
 .cancel_btn {background:url(../images/xubox_ico0.png) no-repeat -81px -114px ;color: #FFFFFF;}
 .admin_email_dy{width:100%;height:35px; line-height:35px; background:#F5F5F5; float:left; margin-top:10px;}
-.admin_email_dy span {font-family: Î¢ÈíÑÅºÚ;font-size: 16px;padding-left: 15px;}
+.admin_email_dy span {font-family:"Microsoft Yahei";font-size: 16px;padding-left: 15px;}
 .admin_email_msg{width:100%; line-height:29px; color:#666; text-indent:15px; margin-top:10px; float:left}
 .pri_p { float: left; margin-left: 10px;width: 690px;}
 .pri_p p {color: #A6A6A6;margin-top: 15px;}
@@ -580,15 +580,15 @@ center; font-size:12px; z-index:11 }
 .admin_job_js_box_c{width:350px; background:#f8f8f8; padding:10px; padding-top:0px; float:left}
 .admin_job_js_box_list{width:100%; float:left; margin-top:10px;}
 .admin_job_js_box_touch{width:100%; float:left; margin-top:10px;}
-.cert_rz_cg{height:46px; line-height:46px;  text-align:center; margin-top:10px; font-size:20px; font-family:Î¢ÈíÑÅºÚ;}
+.cert_rz_cg{height:46px; line-height:46px;  text-align:center; margin-top:10px; font-size:20px; font-family:"Microsoft Yahei";}
 .cert_rz_cg span{ display:block;width:62px;height:42px;background:url(../images/reg-menu.gif) no-repeat 0 -49px; float:left; margin-left:110px;_margin-left:50px;}
 .cert_rz_cg  em{ float:left}
 .con_banner_no{width:270px; margin:0 auto}
 .con_banner_no span{width:26px;height:27px; background:url(../images/xubox_ico0.png) no-repeat -91px -6px; display:inline-block; float:left}
-.con_banner_no em{ display:inline-block; line-height:27px; font-size:16px; font-family:Î¢ÈíÑÅºÚ; float:left; padding-left:10px;}
+.con_banner_no em{ display:inline-block; line-height:27px; font-size:16px; font-family:"Microsoft Yahei"; float:left; padding-left:10px;}
 .my_question_no{width:270px; margin:10px auto}
 .my_question_no i{width:30px;height:30px;  display:inline-block;background:url(../images/ask_c.png) no-repeat; float:left}
-.my_question_no em{ display:inline-block; line-height:27px; font-size:18px; font-family:Î¢ÈíÑÅºÚ; float:left; padding-left:10px;}
+.my_question_no em{ display:inline-block; line-height:27px; font-size:18px; font-family:"Microsoft Yahei"; float:left; padding-left:10px;}
 .pay_log_text{width:200px;height:21px; line-height:21px;border:1px solid #ccc; font-size:12px;color:#666}
 .pay_log_qx{ font-size:12px;}
 .pay_log_qx td{ padding:2px;}
@@ -754,8 +754,8 @@ center; font-size:12px; z-index:11 }
 .table .com_table th{ font-size:13px; font-weight:normal; background:#e8e8e8; padding:5px 3px 5px 3px;}
 .table .com_table td{ background:#fff; text-align:center; font-size:12px; padding-top:5px; padding-bottom:5px;white-space: normal; word-break: break-all;}
 .btn_02{width:92px;height:28px; font-size:12px;color:#fff;border:none;background:#389cff; margin-top:10px; cursor:pointer; float:left}
-.btn_news {width:115px;height:35px; font-size:16px;color:#fff;border:none;font-family:Î¢ÈíÑÅºÚ; background:#699CCC; float:right;cursor:pointer}
-.jingjia_table{width:100%; background:#ccc;font-family:Î¢ÈíÑÅºÚ;}
+.btn_news {width:115px;height:35px; font-size:16px;color:#fff;border:none;font-family:"Microsoft Yahei"; background:#699CCC; float:right;cursor:pointer}
+.jingjia_table{width:100%; background:#ccc;font-family:"Microsoft Yahei";}
 .jingjia_table th{ font-size:14px; font-weight:normal; background:#e8e8e8; padding:3px;padding:10px 3px 10px 3px;}
 .jingjia_table td{ background:#fff; text-align:center; font-size:14px;padding:10px 3px 10px 3px;}
 .hr_tip_box{width:100%; background:#f0f0f0; padding-bottom:20px; margin-top:10px; float:left}
@@ -821,9 +821,9 @@ center; font-size:12px; z-index:11 }
 .show-pic_sc{width:106px;height:37px; line-height:37px;color:#fff; font-size:14px; display:inline-block; background:url(../images/sub1.png) no-repeat; text-align:center;}
 .com_m_tips{width:771px;height:33px;border: 1px solid #F3C964; background:#FFFFCD; margin-top:10px; line-height:33px; padding-left:10px;}
 .admin_note{width:760px; float:left; background:#e8f3fd;border:1px solid #d0e5fb; padding:10px;_padding:5px;margin-top:10px;}
-.admin_note h2{width:100%; float:left; font-weight:normal; font-family:Î¢ÈíÑÅºÚ; font-size:16px; }
+.admin_note h2{width:100%; float:left; font-weight:normal; font-family:"Microsoft Yahei"; font-size:16px; }
 .admin_note_p{width:450px; float:left; line-height:25px;color:#848484; background:url(../images/ts.png) no-repeat; padding-left:80px; margin-top:10px;height:60px;}
-.admin_note_p span{ font-weight:bold; font-size:14px; font-family:Î¢ÈíÑÅºÚ;color:#DF4E1A; margin-left:5px; margin-right:5px;}
+.admin_note_p span{ font-weight:bold; font-size:14px; font-family:"Microsoft Yahei";color:#DF4E1A; margin-left:5px; margin-right:5px;}
 .admin_tit_right{ float:right;}
 /*ÑûÇëÃæÊÔ*/
 .city_1 {background: none repeat scroll 0 0 #FFFFFF;color: #666666;line-height: 24px;width: 100%;float: left;}
@@ -876,7 +876,7 @@ border-width: 1px;font-size: 12px;height: 95px;line-height: 23px;padding: 2px;}
 .added_list:hover{border:1px solid #61bbf7}
 .added_list_org{border:1px solid #feb88d; background: #fdeade;}
 .added_list_org  .added_list_bth{ background:#f60}
-.com_tit_h1{ width:100%; padding-top:20px; padding-bottom:20px; float:left; font:bold 22px/28px "Î¢ÈíÑÅºÚ";color:#f60}
+.com_tit_h1{ width:100%; padding-top:20px; padding-bottom:20px; float:left; font:bold 22px/28px "Microsoft Yahei";color:#f60}
 .added_list_org_list{}
 .added_list_org_list .added_list_l_box {width:155px;height:130px; float:left; background:#ff7300}
 .added_list_org_list .added_list_gm{ background:#ffb67a}

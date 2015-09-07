@@ -2,7 +2,6 @@
 /*
 *
  */
-
 class index_controller extends job_controller{
 	function comsearch(){
 		if($this->config['cityid']){
@@ -21,10 +20,8 @@ class index_controller extends job_controller{
         if($this->uid && $_COOKIE['usertype']==1){
 	 		$FinderParams=array('keyword','hy','job1','job1_son','job_post','provinceid','cityid','three_cityid','salary','edu','exp','sex','type','report','sdate','uptime');
 	        foreach($_GET as $k=>$v){
-	            if(in_array($k,$FinderParams)){
-	            	if($v!=""){
-	               		$finder[$k]=$v;
-	            	}
+	            if(in_array($k,$FinderParams ) && $v!=""){
+					$finder[$k]=$v;
 	            }
 	        }
 	        if($this->config['cityid']){
@@ -39,18 +36,12 @@ class index_controller extends job_controller{
 			}
 			if($_COOKIE['lookjob'] || $_COOKIE['favjob'] || $_COOKIE['useridjob'])
 			{
-
 				$this->yunset(array('lookjob'=>@explode(',',$_COOKIE['lookjob']),'favjob'=>@explode(',',$_COOKIE['favjob']),'useridjob'=>@explode(',',$_COOKIE['useridjob'])));
-
 			}else{
-
 				$historyM = $this->MODEL('history');
-
 				$lookjob = $historyM->lookJobHistory($this->uid);
-
 				$favjob  = $historyM->favjobHistory($this->uid);
 				$useridjob  = $historyM->useridjobHistory($this->uid);
-
 				if($this->config['sy_web_site']=="1"){
 					if($this->config['sy_onedomain']!=""){
 						$weburl=get_domain($this->config['sy_onedomain']);
@@ -62,9 +53,7 @@ class index_controller extends job_controller{
 					SetCookie("lookjob",$lookjob,time() + 86400,"/",$weburl);
 					SetCookie("favjob",$favjob,time() + 86400,"/",$weburl);
 					SetCookie("useridjob",$useridjob,time() + 86400,"/",$weburl);
-
 				}else{
-
 					SetCookie("lookjob",$lookjob,time() + 86400,"/");
 					SetCookie("favjob",$favjob,time() + 86400,"/");
 					SetCookie("useridjob",$useridjob,time() + 86400,"/");
@@ -110,7 +99,7 @@ class index_controller extends job_controller{
 		$this->yun_tpl(array('search'));
 	}
 	function search_action(){
-		$this->comsearch();
+        $this->comsearch();
 	}
 	function index_action(){
 		if($this->config['sy_default_comclass']=='1'){
@@ -123,6 +112,7 @@ class index_controller extends job_controller{
 			$this->comsearch();
 		}
 	}
+
 	function addfinder_action(){
 		if($_COOKIE['usertype']==$_POST['usertype']&&$this->uid){
 			$M=$this->MODEL('job');
@@ -145,6 +135,7 @@ class index_controller extends job_controller{
 			$this->layer_msg($msg,8,0);
 		}
 	}
+
 	function report_action(){
         session_start();
 		$M=$this->MODEL('job');
@@ -161,6 +152,7 @@ class index_controller extends job_controller{
 			echo 4;die;
 		}
 	}
+
 	function recommend_action(){
 		if($_POST){
 			if($_POST['femail']=="" || $_POST['myemail']=="" || $_POST['authcode']==""){
@@ -177,7 +169,6 @@ class index_controller extends job_controller{
 				echo "网站邮件服务器不可用";die;
 			}
 			$filename = TPL_PATH.$this->config['style']."/".$this->m."/sendjob.htm";
-
 		    $handle = fopen($filename, "r");
 		    $contents = fread($handle, filesize ($filename));
 		    fclose($handle);
@@ -219,6 +210,7 @@ class index_controller extends job_controller{
 		$this->seo("recommend");
 		$this->yun_tpl(array('recommend'));
 	}
+
 	function send_email_job_action(){
 		$this->yun_tpl(array('send_email_job'));
 	}

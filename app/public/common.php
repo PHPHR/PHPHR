@@ -20,7 +20,6 @@ class common{
     public $dirname="";
 	function common($tpl,$db,$def="",$model="index",$m="") {
 		global $config;
-
 		$this->config = $config;
 		$this->tpl=$tpl;
 		$this->db=$db;

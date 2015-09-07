@@ -7,12 +7,25 @@
 <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script> 
 <script type="text/javascript" src="js/jquery.SuperSlide.2.1.js"></script>
 <script type="text/javascript" src="js/js.js"></script> 
+<link rel="stylesheet" href="kindeditor/themes/default/default.css" />
+<script type="text/javascript" charset="utf-8" src="kindeditor/kindeditor-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="kindeditor/lang/zh_CN.js"></script>
+<script>
+	var editor;
+	KindEditor.ready(function(K) {
+		editor = K.create('textarea[name="content"]', {
+			items : [
+						'image','emoticons'
+					]
+		});
+	});
+</script>
 </head>
 
 <body class="j_body">
 <div class="j_header">
 	<div class="w1000">
-    	<div class="l"><a href="#"><img src="images/pic02.png" /></a></div>
+    	<div class="l"><a href="#"><img src="images/ysd_150.png" /></a></div>
         <ul class="l menu">
         	<li><a href="#">招聘中心</a></li>
         	<li><a href="#">发布职位</a></li>
@@ -22,12 +35,14 @@
             <div class="clear"></div>
         </ul>
         <dl class="r select">
-            <dt>互诺科技互诺科技互诺科技互诺科技</dt>
+            <dt>柳艳冰...</dt>
             <dd>
                 <ul>
-                    <li><a href="#">互诺科技1</a></li>
-                    <li><a href="#">互诺科技2</a></li>
-                    <li><a href="#">互诺科技3</a></li>
+                    <li><a href="#">我的简历</a></li>
+                    <li><a href="#">个人资料</a></li>
+                    <li><a href="#">我的订阅</a></li>
+                    <li><a href="#">投递箱</a></li>
+                    <li><a href="#">退出</a></li>
                 </ul>
             </dd>
         </dl>
@@ -49,76 +64,76 @@
                         <dt>选择分享类别</dt>
                         <dd>
                             <ul>
-                                <li><a href="#">互诺科技1</a></li>
-                                <li><a href="#">互诺科技2</a></li>
-                                <li><a href="#">互诺科技3</a></li>
+                                <li><a href="#">医 生</a></li>
+                                <li><a href="#">护 士</a></li>
+                                <li><a href="#">药 店</a></li>
                             </ul>
                         </dd>
                     </dl>
                     <div class="clear"></div>
                 </div>
                 <div class="fxfb">
-                    <textarea class="xie" placeholder="我也来说一句"></textarea>
+                    <textarea class="xie" name="content" >我也来说一句</textarea>
                     <div class="zbf">
-                        <div class="l pic"><a href="#"><img src="images/pic86.png" /></a></div>
-                        <div class="l pic"><a href="#"><img src="images/pic87.png" /></a></div>
+                        <!--<div class="l pic"><a href="#"><img src="images/pic86.png" /></a></div>
+                        <div class="l pic"><a href="#"><img src="images/pic87.png" /></a></div>-->
                         <input type="button" class="r button"  value="发表"/>
                         <div class="clear"></div>
                     </div>
                 </div>
             </div>
-        </div>
+        </div>  
         <div class="yy">
-        	<div class="box2">
-            	<div class="list">
+            <div class="box2">
+                <div class="list">
                     <dl class="l select">
                         <dt>选择分享类别</dt>
                         <dd>
                             <ul>
-                                <li><a href="#">互诺科技1</a></li>
-                                <li><a href="#">互诺科技2</a></li>
-                                <li><a href="#">互诺科技3</a></li>
+                                <li><a href="#">医 生</a></li>
+                                <li><a href="#">护 士</a></li>
+                                <li><a href="#">药 店</a></li>
                             </ul>
                         </dd>
                     </dl>
                     <ul class="l nav">
-                    	<li><a href="#">药店工作</a></li>
-                    	<li><a href="#">药厂工作</a></li>
-                    	<li><a href="#">药厂工作</a></li>
-                    	<li><a href="#">医药公司工作</a></li>
-                    	<li><a href="#">药包材工作</a></li> 
-                    	<li><a href="#">其他</a></li>
+                        <li><a href="#">药店工作</a></li>
+                        <li><a href="#">药厂工作</a></li>
+                        <li><a href="#">药厂工作</a></li>
+                        <li><a href="#">医药公司工作</a></li>
+                        <li><a href="#">药包材工作</a></li> 
+                        <li><a href="#">其他</a></li>
                         <div class="clear"></div>                                    
                     </ul>
                     <div class="clear"></div>
                 </div>
                 <div class="fbss">
-                	<div class="sst">
-                    	<div class="l"><img src="images/pic90.png" /></div>
+                    <div class="sst">
+                        <div class="l"><img src="images/pic90.png" /></div>
                         <div class="l zw">
-                        	<p class="p1">优秀网页设计<em>今天 13:15</em></p>
+                            <p class="p1">优秀网页设计<em>今天 13:15</em></p>
                             <p class="p2">渐变太美！渐变太美！渐变太美！作者：Feridun Akgüngör 更多作品</p>
                         </div>
                         <div class="l paz">
-                        	<span class="l s1"><em>524</em>点赞</span>
+                            <span class="l s1"><em>524</em>点赞</span>
                             <span class="l s2"><a href="#">分享</a></span>
                             <div class="clear"></div>
                         </div>
                         <div class="clear"></div>
                     </div>
                     <ul class="tpq">
-                    	<li><a href="#"><img src="images/pic92.jpg" /></a></li>
-                    	<li><a href="#"><img src="images/pic92.jpg" /></a></li>
-                    	<li><a href="#"><img src="images/pic92.jpg" /></a></li>
-                    	<li><a href="#"><img src="images/pic92.jpg" /></a></li>
+                        <li><a href="#"><img src="images/pic92.jpg" /></a></li>
+                        <li><a href="#"><img src="images/pic92.jpg" /></a></li>
+                        <li><a href="#"><img src="images/pic92.jpg" /></a></li>
+                        <li><a href="#"><img src="images/pic92.jpg" /></a></li>
                         <div class="clear"></div>
                     </ul>
                 </div>
                 <div class="pinglun">
-                	<div class="xq">
-                    	<div class="l"><img src="images/pic93.jpg" /></div>
+                    <div class="xq">
+                        <div class="l"><img src="images/pic93.jpg" /></div>
                         <div class="r hl">
-                        	<p class="p1"><em>皮小曹：</em> 东方卫视的欢乐喜剧人不错</p>
+                            <p class="p1"><em>皮小曹：</em> 东方卫视的欢乐喜剧人不错</p>
                             <p class="p2"><em>22分钟前</em></p>
                         </div>
                         <div class="clear"></div>
@@ -126,18 +141,18 @@
                     <input type="text" class="text" placeholder="我也来说一句" />
                 </div>
             </div>
-        </div>
+        </div>   
         <div class="yy">
-        	<div class="box2">
+            <div class="box2">
                 <div class="fbss">
-                	<div class="sst">
-                    	<div class="l"><img src="images/pic90.png" /></div>
+                    <div class="sst">
+                        <div class="l"><img src="images/pic90.png" /></div>
                         <div class="l zw">
-                        	<p class="p1">优秀网页设计<em>今天 13:15</em></p>
+                            <p class="p1">优秀网页设计<em>今天 13:15</em></p>
                             <p class="p2">渐变太美！渐变太美！渐变太美！作者：Feridun Akgüngör 更多作品</p>
                         </div>
                         <div class="l paz">
-                        	<span class="l s1"><em>524</em>点赞</span>
+                            <span class="l s1"><em>524</em>点赞</span>
                             <span class="l s2"><a href="#">分享</a></span>
                             <div class="clear"></div>
                         </div>
@@ -145,10 +160,10 @@
                     </div>
                 </div>
                 <div class="pinglun">
-                	<div class="xq">
-                    	<div class="l"><img src="images/pic93.jpg" /></div>
+                    <div class="xq">
+                        <div class="l"><img src="images/pic93.jpg" /></div>
                         <div class="r hl">
-                        	<p class="p1"><em>皮小曹：</em> 东方卫视的欢乐喜剧人不错</p>
+                            <p class="p1"><em>皮小曹：</em> 东方卫视的欢乐喜剧人不错</p>
                             <p class="p2"><em>22分钟前</em></p>
                         </div>
                         <div class="clear"></div>
@@ -156,36 +171,36 @@
                     <input type="text" class="text" placeholder="我也来说一句" />
                 </div>
             </div>
-        </div>
+        </div>   
         <div class="yy">
-        	<div class="box2">
+            <div class="box2">
                 <div class="fbss">
-                	<div class="sst">
-                    	<div class="l"><img src="images/pic90.png" /></div>
+                    <div class="sst">
+                        <div class="l"><img src="images/pic90.png" /></div>
                         <div class="l zw">
-                        	<p class="p1">优秀网页设计<em>今天 13:15</em></p>
+                            <p class="p1">优秀网页设计<em>今天 13:15</em></p>
                             <p class="p2">渐变太美！渐变太美！渐变太美！作者：Feridun Akgüngör 更多作品</p>
                         </div>
                         <div class="l paz">
-                        	<span class="l s1"><em>524</em>点赞</span>
+                            <span class="l s1"><em>524</em>点赞</span>
                             <span class="l s2"><a href="#">分享</a></span>
                             <div class="clear"></div>
                         </div>
                         <div class="clear"></div>
                     </div>
                     <ul class="tpq">
-                    	<li><a href="#"><img src="images/pic92.jpg" /></a></li>
-                    	<li><a href="#"><img src="images/pic92.jpg" /></a></li>
-                    	<li><a href="#"><img src="images/pic92.jpg" /></a></li>
-                    	<li><a href="#"><img src="images/pic92.jpg" /></a></li>
+                        <li><a href="#"><img src="images/pic92.jpg" /></a></li>
+                        <li><a href="#"><img src="images/pic92.jpg" /></a></li>
+                        <li><a href="#"><img src="images/pic92.jpg" /></a></li>
+                        <li><a href="#"><img src="images/pic92.jpg" /></a></li>
                         <div class="clear"></div>
                     </ul>
                 </div>
                 <div class="pinglun">
-                	<div class="xq">
-                    	<div class="l"><img src="images/pic93.jpg" /></div>
+                    <div class="xq">
+                        <div class="l"><img src="images/pic93.jpg" /></div>
                         <div class="r hl">
-                        	<p class="p1"><em>皮小曹：</em> 东方卫视的欢乐喜剧人不错</p>
+                            <p class="p1"><em>皮小曹：</em> 东方卫视的欢乐喜剧人不错</p>
                             <p class="p2"><em>22分钟前</em></p>
                         </div>
                         <div class="clear"></div>
@@ -194,7 +209,15 @@
                 </div>
             </div>
         </div>
-        <div class="an"><input type="button" class="button" value="加载更多" /></div>
+        <div id="content"></div>
+        <div class="an get_more"><input type="button" class="button" value="加载更多" /></div>
+        <script type="text/javascript">
+		$(function() {
+			$(".get_more").click(function(){
+				$("#content").load("data.html");
+			});
+		});
+		</script>
     </div>
     <div class="r right_all">
     	<div class="bfb">

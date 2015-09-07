@@ -111,7 +111,7 @@ select optgroup {color: #CAC8BB;}
 .admin_index_date_list{width:340px;height:290px; position:absolute;right:0px;top:10px;_right:10px; }
 .admin_index_date_list li{width:100px; float:left; margin-left:10px; margin-bottom:10px;}
 .admin_index_date_list a{ display:block;width:100px;height:38px; background:#b6b3b3;  float:left;color:#f9f9f9; text-align:center; padding-top:50px; float:left}
-.admin_index_date_n{ font-size:18px; font-weight:bold; font-family:Î¢ÈíÑÅºÚ; display:block; line-height:20px; }
+.admin_index_date_n{ font-size:18px; font-weight:bold; font-family:"Microsoft Yahei"; display:block; line-height:20px; }
 .admin_index_date_list .admin_index_date_a{ background:#b6b3b3 url(../images/admin_date_a.png) no-repeat 40px 20px;}
 .admin_index_date_list .admin_index_date_a:hover{ text-decoration:none; background:#F60  url(../images/admin_date_a.png) no-repeat 40px 20px;}
 .admin_index_date_list .admin_index_date_b{ background:#b6b3b3 url(../images/admin_date_b.png) no-repeat 40px 20px;}
@@ -157,7 +157,7 @@ select optgroup {color: #CAC8BB;}
 .fr{ float:right;}
 .col_main{ width:100%;}
 .main_hd{ line-height:40px; background:#fff;}
-.main_hd h2{line-height:60px;padding:0 30px;font-size:16px; font-family:Î¢ÈíÑÅºÚ; font-weight:normal;}
+.main_hd h2{line-height:60px;padding:0 30px;font-size:16px; font-family:"Microsoft Yahei"; font-weight:normal;}
 .title_tab{width:100%; border-bottom:1px solid #ddd; float:left;background:#fff;}
 .tab_navs{width:70%; float:left;}
 .tab_navs li{ float:left; width:108px;}
@@ -169,12 +169,12 @@ select optgroup {color: #CAC8BB;}
 .extra_info a{ margin:0 10px;}
 .admin_static_main{width:100%;}
 .mod_header{width:100%; padding:15px 0; border-bottom:1px solid #ddd; background:#fff;}
-.mod_header_title{ margin-left:14px;font-size:16px; font-family:Î¢ÈíÑÅºÚ;}
+.mod_header_title{ margin-left:14px;font-size:16px; font-family:"Microsoft Yahei";}
 .mod_header_help{ width:16px; height:16px; margin-right:20px;}
 .mod_header_help img{ width:16px; height:16px; float:left;}
 .mod_basic{border:1px solid #dce3ed; width:100%; margin-top:10px;}
 .mod_basic .title{ height:30px; background:#f9f9f9; border-bottom:1px solid #d8d8d8;width:100%; float:left;}
-.mod_basic .title h3{line-height:30px;padding:0 10px;font-size:16px; font-family:Î¢ÈíÑÅºÚ; font-weight:normal; width:100px; float:left;}
+.mod_basic .title h3{line-height:30px;padding:0 10px;font-size:16px; font-family:"Microsoft Yahei"; font-weight:normal; width:100px; float:left;}
 .ui_trendgrid {width: 100%; background:#fff;}
 .ui_trendgrid td {border-right: 1px solid #D8D8D8;}
 .ui_trendgrid_item {height: 100%; vertical-align:middle;overflow: hidden;margin-bottom:20px; display:block;}
@@ -187,7 +187,7 @@ select optgroup {color: #CAC8BB;}
 .mod_basic .tabs{ float:left;}
 .mod_basic .tabs li{ float:left; border-right:1px solid #ccc; display:inline-block}
 .mod_basic .tabs .last{border-right:none;}
-.mod_basic .tabs li a{height:30px; line-height:30px; display:inline-block;font-size:14px; font-family:Î¢ÈíÑÅºÚ; color:#333; text-decoration:none;padding:0 20px; float:left}
+.mod_basic .tabs li a{height:30px; line-height:30px; display:inline-block;font-size:14px; font-family:"Microsoft Yahei"; color:#333; text-decoration:none;padding:0 20px; float:left}
 .mod_basic .tabs li a:hover{ background:#eee;color:#333;}
 .mod_basic .tabs .current{ border-right:none;}
 .mod_basic .tabs .current a{background:#1178c3;color:#fff;}

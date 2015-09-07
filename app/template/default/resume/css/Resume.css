@@ -1,7 +1,7 @@
 @charset "gb2312";
 /* CSS Document */
 * {margin:0;padding: 0;}
-body {font: 14px "Œ¢»Ì—≈∫⁄", "Arial Narrow", HELVETICA;background:#f4f4f4;}
+body {font: 14px "Microsoft Yahei", "Arial Narrow", HELVETICA;background:#f4f4f4;}
 a {color: #666666;text-decoration: none;}
 img {border: medium none;}
 body, ul, ol, li, dl, dt, dd, div, span, b, form, img, p, pre {border: 0 none;list-style: none outside none;margin: 0;padding: 0;}
@@ -70,7 +70,7 @@ body, ul, ol, li, dl, dt, dd, div, span, b, form, img, p, pre {border: 0 none;li
 .resume_jl_box_tp a{color:#456dab; text-decoration:underline}
 .btn{width:100%; float:left; text-align:center; padding:20px 0;}
 .resume_jl_p{word-wrap: break-word;}
-.btn_1{width:85px;height:30px; line-height:30px;border:none; background:#456dab;color:#fff; cursor:pointer; font-family:Œ¢»Ì—≈∫⁄; margin-right:10px; display:inline-block}
+.btn_1{width:85px;height:30px; line-height:30px;border:none; background:#456dab;color:#fff; cursor:pointer; font-family:"Microsoft Yahei"; margin-right:10px; display:inline-block}
 .resume_content_msg_span_fl{ float:left}
 /*—˚«Î√Ê ‘*/
 .city_1 {background: none repeat scroll 0 0 #FFFFFF;color: #666666;line-height: 24px;width: 100%;float: left;}

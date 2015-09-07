@@ -5,7 +5,6 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
     public $shorttag_order = array('from', 'item', 'key', 'name');
     public function compile($args, $compiler, $parameter){
         $_attr = $this->getAttributes($compiler, $args);
-
         $from = $_attr['from'];
         $item = $_attr['item'];
         $name = $_attr['item'];
@@ -20,8 +19,8 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
 		
         eval(\'$paramer='.str_replace('\'','\\\'',ArrayToString($_attr,true)).';\');
 		$ParamerArr = GetSmarty($paramer,$_GET,$_smarty_tpl);
-		$paramer = $ParamerArr[arr];
-        $Purl =  $ParamerArr[purl];
+		$paramer = $ParamerArr[\'arr\'];
+        $Purl =  $ParamerArr[\'purl\'];
         global $ModuleName;
         if(!$Purl["m"]){
             $Purl["m"]=$ModuleName;
@@ -33,19 +32,19 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
 			if($config[three_cityid]>0 && $config[three_cityid]!=""){
 				$paramer[three_cityid] = $config[three_cityid];
 			}
-			if($config[hyclass]>0 && $config[hyclass]!=""){
-				$paramer[hy]=$config[hyclass];
+			if($config[\'hyclass\']>0 && $config[\'hyclass\']!=""){
+				$paramer[hy]=$config[\'hyclass\'];
 			}
 		}
-		if($paramer[sdate]){
-			$where = "`sdate`>".strtotime("-".intval($paramer[sdate])." day",time())." and `edate`>\'$time\' and `state`=1";
+		if($paramer[\'sdate\']){
+			$where = "`sdate`>".strtotime("-".intval($paramer[\'sdate\'])." day",time())." and `edate`>\'$time\' and `state`=1";
 		}else{
 			$where = "`edate`>\'$time\' and `state`=1";
 		}
-		if($paramer[uid]){
+		if($paramer[\'uid\']){
 			$where .= " AND `uid` = \'$paramer[uid]\'";
 		}
-		if($paramer[rec]){
+		if($paramer[\'rec\']){
 			$where.=" AND `rec_time`>".time();
 		}
 		if($paramer[\'cert\']){
@@ -57,10 +56,10 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
 			}
 			$where.=" and `uid` in (".@implode(",",$job_uid).")";
 		}
-		if($paramer[noid]){
+		if($paramer[\'noid\']){
 			$where.= " and `id`<>$paramer[noid]";
 		}
-		if($paramer[r_status]){
+		if($paramer[\'r_status\']){
 			$where.= " and `r_status`=2";
 		}else{
 			$where.= " and `r_status`<>2";
@@ -70,23 +69,23 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
 		}else{
 			$where.= " and `status`<>1";
 		}
-		if($paramer[pr]){
+		if($paramer[\'pr\']){
 			$where .= " AND `pr` =$paramer[pr]";
 		}
 		if($paramer[\'hy\']){
 			$where .= " AND `hy` = $paramer[hy]";
 		}
-		if($paramer[mun]){
+		if($paramer[\'mun\']){
 			$where .= " AND `mun` = $paramer[mun]";
 		}
-		if($paramer[job1]){
+		if($paramer[\'job1\']){
 			$where .= " AND `job1` = $paramer[job1]";
 		}
-		if($paramer[job1_son])
+		if($paramer[\'job1_son\'])
 		{
 			$where .= " AND `job1_son` = $paramer[job1_son]";
 		}
-		if($paramer[job_post])
+		if($paramer[\'job_post\'])
 		{
 			$where .= " AND (`job_post` IN ($paramer[job_post]))";
 		}
@@ -100,7 +99,7 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
 		if($paramer[\'jobin\']){
 			$where .= " AND (`job1` IN ($paramer[jobin]) OR `job1_son` IN ($paramer[jobin]) OR `job_post` IN ($paramer[jobin]))";
 		}
-		if($paramer[provinceid]){
+		if($paramer[\'provinceid\']){
 			$where .= " AND `provinceid` = $paramer[provinceid]";
 		}
 		if($paramer[\'cityid\']){
@@ -112,43 +111,43 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
 		if($paramer[\'cityin\']){
 			$where .= " AND `three_cityid` IN ($paramer[cityin])";
 		}
-		if($paramer[edu]){
+		if($paramer[\'edu\']){
 			$where .= " AND `edu` = $paramer[edu]";
 		}
-		if($paramer[exp]){
+		if($paramer[\'exp\']){
 			$where .= " AND `exp` = $paramer[exp]";
 		}
-		if($paramer[type]){
+		if($paramer[\'type\']){
 			$where .= " AND `type` = $paramer[type]";
 		}
-		if($paramer[sex]){
+		if($paramer[\'sex\']){
 			$where .= " AND `sex` = $paramer[sex]";
 		}
-		if($paramer[salary]){
+		if($paramer[\'salary\']){
 			$where .= " AND `salary` = $paramer[salary]";
 		}
-		if($paramer[cityin]){
+		if($paramer[\'cityin\']){
 			$where .= " AND( AND `provinceid` IN ($paramer[cityin]) OR `cityid` IN ($paramer[cityin]) OR `three_cityid` IN ($paramer[cityin]))";
 		}
 		if($paramer[urgent]){
 			$where.=" AND `urgent_time`>".time();
 		}
-		if($paramer[uptime]){
+		if($paramer[\'uptime\']){
 			$uptime = $time-$paramer[uptime]*86400;
 			$where.=" AND `lastupdate`>$uptime";
 		}
-		if($paramer[comname]){
+		if($paramer[\'comname\']){
 			$where.=" AND `com_name` LIKE \'%".$paramer[comname]."%\'";
 		}
-		if($paramer[com_pro]){
+		if($paramer[\'com_pro\']){
 			$where.=" AND `com_provinceid` =\'".$paramer[com_pro]."\'";
 		}
-		if($paramer[keyword]){
-			$where1[]="`name` LIKE \'%".$paramer[keyword]."%\'";
-			$where1[]="`com_name` LIKE \'%".$paramer[keyword]."%\'";
+		if($paramer[\'keyword\']){
+			$where1[]="`name` LIKE \'%".$paramer[\'keyword\']."%\'";
+			$where1[]="`com_name` LIKE \'%".$paramer[\'keyword\']."%\'";
 			include PLUS_PATH."/city.cache.php";
 			foreach($city_name as $k=>$v){
-				if(strpos($v,$paramer[keyword])!==false){
+				if(strpos($v,$paramer[\'keyword\'])!==false){
 					$cityid[]=$k;
 				}
 			}
@@ -168,7 +167,7 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
 		}else{
 			$order = " ORDER BY `lastupdate` ";
 		}
-		if($paramer[sort]){
+		if($paramer[\'sort\']){
 			$sort = $paramer[sort];
 		}else{
 			$sort = " DESC";
@@ -179,10 +178,10 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
 		}else{
 			$where.=$order.$sort;
 		}
-		if($paramer[where]){
+		if($paramer[\'where\']){
 			$where = $paramer[where];
 		}
-		if($paramer[limit]){
+		if($paramer[\'limit\']){
 			$limit = " limit ".$paramer[limit];
 		}
 		if($paramer[ispage]){
@@ -213,11 +212,11 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
 			include PLUS_PATH."/comrating.cache.php";
 			foreach('.$name.' as $key=>$value){
 				'.$name.'[$key] = $db->array_action($value,$cache_array);
-				'.$name.'[$key][stime] = date("Y-m-d",$value[sdate]);
-				'.$name.'[$key][etime] = date("Y-m-d",$value[edate]);
-				'.$name.'[$key][lastupdate] = date("Y-m-d",$value[lastupdate]);
+				'.$name.'[$key][\'stime\'] = date("Y-m-d",$value[\'sdate\']);
+				'.$name.'[$key][\'etime\'] = date("Y-m-d",$value[\'edate\']);
+				'.$name.'[$key][\'lastupdate\'] = date("Y-m-d",$value[\'lastupdate\']);
 
-				'.$name.'[$key][yyzz_status] =$r_uid[$value[\'uid\']][\'yyzz_status\'];
+				'.$name.'[$key][\'yyzz_status\'] = !empty($r_uid[$value[\'uid\']][\'yyzz_status\']) ? $r_uid[$value[\'uid\']][\'yyzz_status\'] : \'\' ;
 				$time=time()-$value[\'lastupdate\'];
 
 				if($time>86400 && $time<604800){
@@ -237,41 +236,42 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
 					}
 
 				}
-				if($paramer[comlen]){
-					'.$name.'[$key][com_n] = mb_substr($value[\'com_name\'],0,$paramer[comlen],"GBK");
+				if($paramer[\'comlen\']){
+					'.$name.'[$key][\'com_n\'] = mb_substr($value[\'com_name\'],0,$paramer[\'comlen\'],"GBK");
 				}
-				if($paramer[namelen]){
+				if($paramer[\'namelen\']){
 					if($value[\'rec_time\']>time()){
-						'.$name.'[$key][name_n] = "<font color=\'red\'>".mb_substr($value[\'name\'],0,$paramer[namelen],"GBK")."</font>";
+						'.$name.'[$key][\'name_n\'] = "<font color=\'red\'>".mb_substr($value[\'name\'],0,$paramer[namelen],"GBK")."</font>";
 					}else{
-						'.$name.'[$key][name_n] = mb_substr($value[\'name\'],0,$paramer[namelen],"GBK");
+						'.$name.'[$key][\'name_n\'] = mb_substr($value[\'name\'],0,$paramer[namelen],"GBK");
 					}
 				}else{
 					if($value[\'rec_time\']>time()){
 						'.$name.'[$key][\'name_n\'] = "<font color=\'red\'>".$value[\'name\']."</font>";
 					}
 				}
-				'.$name.'[$key][job_url] = Url("job",array("c"=>"comapply","id"=>$value[id]),"1");
-				'.$name.'[$key][com_url] = Url("company",array("c"=>"show","id"=>$value[uid]));
+				'.$name.'[$key][\'job_url\'] = Url("job",array("c"=>"comapply","id"=>$value[id]),"1");
+				'.$name.'[$key][\'com_url\'] = Url("company",array("c"=>"show","id"=>$value[\'uid\']));
+				if(is_array($comrat) && !empty($comrat))
 				foreach($comrat as $k=>$v){
-					if($value[rating]==$v[id]){
-						'.$name.'[$key][color] = str_replace("#","",$v[com_color]);
-						'.$name.'[$key][ratlogo] = $v[com_pic];
-						'.$name.'[$key][ratname] = $v[name];
+					if($value[\'rating\']==$v[id]){
+						'.$name.'[$key][\'color\'] = str_replace("#","",$v[com_color]);
+						'.$name.'[$key][\'ratlogo\'] = $v[\'com_pic\'];
+						'.$name.'[$key][\'ratname\'] = $v[\'name\'];
 					}
 				}
-				if($paramer[keyword]){
-					'.$name.'[$key][name]=str_replace($paramer[keyword],"<font color=#FF6600 >".$paramer[keyword]."</font>",$value[name]);
-					'.$name.'[$key][com_name]=str_replace($paramer[keyword],"<font color=#FF6600 >".$paramer[keyword]."</font>",$value[com_name]);
-					'.$name.'[$key][name_n]=str_replace($paramer[keyword],"<font color=#FF6600 >".$paramer[keyword]."</font>",'.$name.'[$key][name_n]);
-					'.$name.'[$key][com_n]=str_replace($paramer[keyword],"<font color=#FF6600 >".$paramer[keyword]."</font>",'.$name.'[$key][com_n]);
-					'.$name.'[$key][job_city_one]=str_replace($paramer[keyword],"<font color=#FF6600 >".$paramer[keyword]."</font>",$city_name[$value[provinceid]]);
-					'.$name.'[$key][job_city_two]=str_replace($paramer[keyword],"<font color=#FF6600 >".$paramer[keyword]."</font>",$city_name[$value[cityid]]);
+				if($paramer[\'keyword\']){
+					'.$name.'[$key][\'name\']=str_replace($paramer[\'keyword\'],"<font color=#FF6600 >".$paramer[\'keyword\']."</font>",$value[name]);
+					'.$name.'[$key][\'com_name\']=str_replace($paramer[\'keyword\'],"<font color=#FF6600 >".$paramer[\'keyword\']."</font>",$value[com_name]);
+					'.$name.'[$key][\'name_n\']=str_replace($paramer[\'keyword\'],"<font color=#FF6600 >".$paramer[\'keyword\']."</font>",'.$name.'[$key][\'name_n\']);
+					'.$name.'[$key][\'com_n\']=str_replace($paramer[\'keyword\'],"<font color=#FF6600 >".$paramer[\'keyword\']."</font>",'.$name.'[$key][com_n]);
+					'.$name.'[$key][\'job_city_one\']=str_replace($paramer[\'keyword\'],"<font color=#FF6600 >".$paramer[\'keyword\']."</font>",$city_name[$value[provinceid]]);
+					'.$name.'[$key][\'job_city_two\']=str_replace($paramer[\'keyword\'],"<font color=#FF6600 >".$paramer[\'keyword\']."</font>",$city_name[$value[cityid]]);
 				}
 			}
 			if(is_array('.$name.')){
-				if($paramer[keyword]!=""&&!empty('.$name.')){
-					addkeywords(\'3\',$paramer[keyword]);
+				if($paramer[\'keyword\']!=""&&!empty('.$name.')){
+					addkeywords(\'3\',$paramer[\'keyword\']);
 				}
 			}
 		}';

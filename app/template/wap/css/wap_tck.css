@@ -16,7 +16,7 @@ height:100%;
 .mask .f_left .arrow_icon i:nth-child(2){left:-5px;}
 .mask .f_body{margin-left:40px;background:#333;height:100%;}
 .selecter h2{position:fixed;height:40px;width:280px;background:#288ee0;z-index:1;font-size:18px;line-height:40px;border-bottom:1px solid #1979c6;text-indent:16px;top:0;right:0;}
-.selecter h2 button{overflow: hidden;height: 23px;line-height: 23px;width: 43px;background: -webkit-gradient(linear, left top, left bottom, from(#D15321), to(#D15321));color: #FFF;margin-right: 5px;font-size: 12px;text-indent: 0;border: 1px solid #D15321;border-radius:0px;font-family:微软雅黑; position:relative; float:right; margin-top:8px;}
+.selecter h2 button{overflow: hidden;height: 23px;line-height: 23px;width: 43px;background: -webkit-gradient(linear, left top, left bottom, from(#D15321), to(#D15321));color: #FFF;margin-right: 5px;font-size: 12px;text-indent: 0;border: 1px solid #D15321;border-radius:0px;font-family:"Microsoft Yahei"; position:relative; float:right; margin-top:8px;}
 .selecter h2  .clear_sub_gb{background: -webkit-gradient(linear, left top, left bottom, from(#0ec81b), to(#0ec81b));border:1px solid #0ec81b;}
 .selecter h2  .clear_sub_qic{background: -webkit-gradient(linear, left top, left bottom, from(#c0ba14), to(#c0ba14));border:1px solid #c0ba14;}
 .selecter .contentbody{position:relative;background:#ede9e9;margin-top:40px;height:100%;}

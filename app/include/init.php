@@ -58,7 +58,6 @@ require(APP_PATH.'app/public/common.php');
 if(file_exists($ControllerPath.$ModuleName.'.controller.php')){
     require($ControllerPath.$ModuleName.'.controller.php');
 }
-
 if(file_exists($ControllerPath.$ControllerName.'.class.php')){
     require($ControllerPath.$ControllerName.'.class.php');
 }else{
@@ -69,14 +68,11 @@ if(file_exists($ControllerPath.$ControllerName.'.class.php')){
         require($ControllerPath.'index.class.php');
     }
 }
-
 if($ModuleName=='siteadmin'){$model='admin';}else{$model='index';}
 
 
 $conclass=$ControllerName.'_controller';
-
 $actfunc=$ActionName.'_action';
-
 $views=new $conclass($phpyun,$db,$db_config['def'],$model,$ModuleName);
 $views->m=$ModuleName;
 if(!method_exists($views,$actfunc)){

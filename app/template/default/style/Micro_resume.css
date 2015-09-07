@@ -10,9 +10,9 @@
 .micro_resume_text {background:#fff url(../images/yun_tiny_icon2.jpg) no-repeat 3px center; padding-left:20px;display: inline;float: left;height: 32px;border:2px solid #018ad8;width:337px; margin-left:5px;_margin-left:2px;}
 .micro_resume_text input {background:#FFFFFF;border: 0 none;font-size: 14px;height: 28px; line-height:30px;width:335px;color:#999}
 .m_input {background:#fff;border: medium none;font-size: 16px;height: 32px;line-height: 32px;padding: 0;width: 434px;}
-.f_sub_input {color: #FFFFFF;display: inline-block;font-family: "Î¢ÈíÑÅºÚ", "SimHei";font-size: 16px;height:36px;line-height:36px;padding: 0 15px;background:#018ad8;width:90px;border:none;cursor:pointer; margin-left:5px;}
+.f_sub_input {color: #FFFFFF;display: inline-block;font-family: "Microsoft Yahei", "SimHei";font-size: 16px;height:36px;line-height:36px;padding: 0 15px;background:#018ad8;width:90px;border:none;cursor:pointer; margin-left:5px;}
 .f_sub_r {float:right}
-.micro_resume_fast{width:230px;height:38px; line-height:38px; font-family:Î¢ÈíÑÅºÚ; font-size:20px;background:#fde113;text-align: center;color:#c61e1e; display:block}
+.micro_resume_fast{width:230px;height:38px; line-height:38px; font-family:"Microsoft Yahei"; font-size:20px;background:#fde113;text-align: center;color:#c61e1e; display:block}
 .micro_resume_fast:hover{ background:#FC3; text-decoration:none}
 .micro_resume {width:1000px;margin: 0px auto;position: relative}
 .micro_resume_cont {width: 100%;margin: 0 auto;position: relative;width:1000px;padding-bottom:10px;float: left}
@@ -40,12 +40,12 @@
 .micro_box_cont {background:#fff;height:550px;position:relative}
 .micro_box_icon {width:40px;height:23px;background:url(../images/yun_f_jt.png) no-repeat;position:absolute;right:80px;top:-23px;}
 .micro_box_cont_h1 {width:100%;height:40px;line-height:40px;background:#0A85C6}
-.micro_box_cont_h1 span {font-size:18px;font-family:Î¢ÈíÑÅºÚ;color:#fff;padding-left:15px;float:left}
+.micro_box_cont_h1 span {font-size:18px;font-family:"Microsoft Yahei";color:#fff;padding-left:15px;float:left}
 .micro_box_cont_h1 a {float:right;margin-right:10px;color:#fff;}
 .micro_resume_release {width: 700px;padding-left: 50px;padding-right: 50px;padding-bottom:20px;padding-top:30px;float: left;}
 .micro_resume_release_list li {width: 100%;float: left;margin-top: 10px;}
 .micro_resume_release_list .micro_resume_prompt{width: 100%; height:65px; background:#f5f5f5; border-top:1px dashed #999; }
-.micro_resume_release_list .micro_resume_prompt p{ width:440px;color:#555;font-size:14px;font-family:Î¢ÈíÑÅºÚ; margin:0 0 0 20px; line-height:30px; }
+.micro_resume_release_list .micro_resume_prompt p{ width:440px;color:#555;font-size:14px;font-family:"Microsoft Yahei"; margin:0 0 0 20px; line-height:30px; }
 .micro_resume_release_list li span{width:100px;float:left;display:block;height:25px;line-height:25px;color:#4d4e51;font-size:12px;text-align:right;}
 .micro_resume_release_list li .micro_resume_release_text {width: 200px;height: 25px;line-height:25px;border: 1px solid #ccc;float: left;color:#666;}
 .micro_resume_release_list li .micro_resume_release_text2 {width: 80px;}
@@ -53,9 +53,9 @@
 .micro_resume_release_list li em {float: left;line-height: 30px;margin-right: 5px;font-size: 14px;}
 .micro_resume_release_list li a {float: left;line-height: 30px;}
 .micro_resume_release_list li img {float: left;margin-left: 5px;margin-right: 5px;}
-.micro_resume_release_list b {width: 400px;display: block;float: left;line-height: 30px;color: #6D6D6D;font-family: "Î¢ÈíÑÅºÚ";font-size: 15px;font-weight: normal;word-break:break-all;}
+.micro_resume_release_list b {width: 400px;display: block;float: left;line-height: 30px;color: #6D6D6D;font-family: "Microsoft Yahei";font-size: 15px;font-weight: normal;word-break:break-all;}
 .micro_resume_release_list b a {float: none;color: #0279CE;text-decoration: underline}
-.tinyadd_title {width: 100%;height: 40px;line-height: 40px;text-align: center;background: url(../images/tiny_bg.png) repeat-x;color: #333333;font-family: Î¢ÈíÑÅºÚ;font-size: 18px;}
+.tinyadd_title {width: 100%;height: 40px;line-height: 40px;text-align: center;background: url(../images/tiny_bg.png) repeat-x;color: #333333;font-family:"Microsoft Yahei";font-size: 18px;}
 .fast_submit {width:114px;height:34px;background:url(../images/button_icon.png) no-repeat 0 -35px;font-size:14px;font-weight:bold;color:#fff;text-align:center;line-height:32px;padding:0;border:none;cursor:pointer}
 /*Î¢ÕÐÆ¸ start*/
 .yun_micro_body{width:970px; padding:5px; background:#fff; float:left}
@@ -66,12 +66,12 @@
 .fast_issuance {width: 440px;}
 .fast_issuance_cont {width: 438px;background: #fff url(../images/yun_fastbg.png) no-repeat right bottom;float: left;}
 .fast_titie {width: 100%;height: 36px;line-height: 36px;background: #edebe9}
-.fast_titie span {float: left;font-size: 16px;font-family: Î¢ÈíÑÅºÚ;padding-left: 10px;}
+.fast_titie span {float: left;font-size: 16px;font-family:"Microsoft Yahei";padding-left: 10px;}
 .fast_titie a {float: right;width: 20px;height: 20px;display: inline-block;background: url(../images/yun_fast_fb.png) no-repeat -207px 0;margin-right: 10px;margin-top: 8px;}
 .fast_issuance_cont ul {width: 400px;float: left;padding: 10px;}
 .fast_issuance_cont li {margin-top: 8px;font-size: 12px;width: 100%;float: left}
 .fast_issuance_cont .micro_resume_prompt{width: 100%;}
-.fast_issuance_cont .micro_resume_prompt p{ width:410px;color:#555;font-size:14px;font-family:Î¢ÈíÑÅºÚ; margin:0 0 0 20px; line-height:30px; }
+.fast_issuance_cont .micro_resume_prompt p{ width:410px;color:#555;font-size:14px;font-family:"Microsoft Yahei"; margin:0 0 0 20px; line-height:30px; }
 .fast_issuance_cont li span {display: inline-block;width: 93px;text-align: right;line-height:23px;float: left}
 .fast_issuance_cont li .input_simple {border: none;height: 24px;line-height: 24px;color: #666;margin-left: 5px;width: 200px;border:1px solid #ccc;float: left;display:block}
 .fast_issuance_cont li .input_simple8 {width: 118px;border:1px solid #ccc;margin-right: 5px;}
@@ -87,7 +87,7 @@
 .Fast_submit {width:55px;height: 28px;background: url(../images/m_butt.png) no-repeat;border: none;float: left; margin-top:5px;}
 .new_fast_list .yun_fast_e {border: none;}
 .new_fast_listbg {width:713px; padding:0px 10px 10px 10px;border-bottom:1px dotted #d4d2d2; margin-top:10px;float:left}
-.Fast_Search_Results {background: url(../images/yun_wp.jpg) repeat-x left 14px;height: 20px;padding-bottom: 20px;padding-top: 10px;width: 100%;font-family: Î¢ÈíÑÅºÚ;font-size: 16px;text-indent: 10px; margin-top:10px;}
+.Fast_Search_Results {background: url(../images/yun_wp.jpg) repeat-x left 14px;height: 20px;padding-bottom: 20px;padding-top: 10px;width: 100%;font-family:"Microsoft Yahei";font-size: 16px;text-indent: 10px; margin-top:10px;}
 .Fast_Search_Results span{ display:block; background:#fff url(../images/yun_wp_s.jpg) no-repeat; padding-left:35px; padding-right:10px; font-size:18px;}
 .new_fast_listbg span{ display:inline-block; padding-left:10px; padding-right:10px;color:#747576}
 .new_fast_listbg .yun_micro_list_t{width:100%; float:left; position:relative}
@@ -102,7 +102,7 @@
 
 .Latest_talent_h1 {background-position: 0 -93px;border-bottom: 1px solid #FFFFFF;height: 32px;width: 100%;}
 .fast_Fillet_bot_mz {width: 108px;height: 108px;background-position: -177px -160px;overflow: hidden;position: absolute;right: 0px;bottom: 0px;}
-.why_fast_h2 {font-family: Î¢ÈíÑÅºÚ;font-size: 16px;height: 34px;line-height: 34px;text-indent: 10px;color: #06F}
+.why_fast_h2 {font-family:"Microsoft Yahei";font-size: 16px;height: 34px;line-height: 34px;text-indent: 10px;color: #06F}
 .why_fast {display: block;line-height:26px;color: #787878;padding: 10px 5px;margin-bottom: 10px;background: #fff;font-size: 12px; background:#fcfcfc; float:left}
 .why_fast_fb {width: 100%;text-align: center;display: block;margin-bottom: 10px;}
 .why_fast_top {height: 5px;overflow: hidden;width: 100%;float: left;margin-bottom: 5px;}
@@ -175,8 +175,8 @@
 .fast_show_left{width:708px; float:left}
 .fast_show_post{width:662px;border:1px solid #e9e9e9; float:left; background:#fff; padding:20px 30px;}
 .fast_show_top{width:100%;border-bottom:1px dashed #e8ecee; float:left; padding-bottom:20px; position:relative}
-.fast_show_top_h1{width:100%; float:left; font-size:24px; font-weight:bold; font-family:Î¢ÈíÑÅºÚ; padding-bottom:15px;}
-.fast_show_top_xz{width:100%;  font-size:16px;font-family:Î¢ÈíÑÅºÚ;color:#666}
+.fast_show_top_h1{width:100%; float:left; font-size:24px; font-weight:bold; font-family:"Microsoft Yahei"; padding-bottom:15px;}
+.fast_show_top_xz{width:100%;  font-size:16px;font-family:"Microsoft Yahei";color:#666}
 .fast_show_top_date{ position:absolute;right:0px;top:30px; font-size:14px;color:#a29d9a}
 .fast_show_com_name{width:100%; float:left; font-size:14px; font-weight:bold;color:#605e5c; padding-top:20px; padding-bottom:10px;}
 .fast_show_list{width:600px; padding-left:35px;height:24px; line-height:24px; font-size:14px;color:#6e6666; float:left; position:relative; margin-top:10px;}
@@ -208,8 +208,8 @@
 .recruit_user_public01{ background:#91bd5c url(../images/micro_wx.png) no-repeat 17px center;; text-align:left; width:94px; padding-left:62px;}
 .recruit_search{ margin-top:13px;}
 .recruit_search_box{ padding:1px; border:1px solid #e6e6e6; width:276px; background:#fff;}
-.recruit_box_text{ width:214px; height:32px; line-height:32px; border:medium none; float:left; font-size:14px; color:#aea9a9; padding-left:6px;_padding-left:3px; font-family:"Î¢ÈíÑÅºÚ";}
-.recruit_box_but{ width:52px; height:32px; border: none; background:#2c81d6; float: right; color:#fff; font-size:14px; font-family:"Î¢ÈíÑÅºÚ"; cursor:pointer;}
+.recruit_box_text{ width:214px; height:32px; line-height:32px; border:medium none; float:left; font-size:14px; color:#aea9a9; padding-left:6px;_padding-left:3px; font-family:"Microsoft Yahei";}
+.recruit_box_but{ width:52px; height:32px; border: none; background:#2c81d6; float: right; color:#fff; font-size:14px; font-family:"Microsoft Yahei"; cursor:pointer;}
 .recruit_box_but:hover{ background:#09F;}
 .recruit_search_hot{ line-height:36px; padding-left:15px; font-size:14px; color:#fff;}
 .recruit_search_hot dl dt{ float:left;}

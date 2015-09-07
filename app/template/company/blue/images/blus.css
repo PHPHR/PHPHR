@@ -52,7 +52,7 @@ body {font-size:12px;width:100%;height:100%;font-family:microsoft yahei;ËÎÌå; ba
 .Job_comment_left{ float:left;width:645px;}
 .Job_comment_right{width:100%; float:left; position:relative;}
 .Job_comment_right_fixd{ background: none repeat scroll 0 0 #fff;}
-.Job_comment_no{ width:100%; float:left; padding-bottom:20px;font-size:18px; font-family:Î¢ÈíÑÅºÚ;; text-align:center; margin-top:40px;} 
+.Job_comment_no{ width:100%; float:left; padding-bottom:20px;font-size:18px; font-family:"Microsoft Yahei";; text-align:center; margin-top:40px;}
 .Job_ask_bg_login{  font-size:14px;color:#666;}
 .Job_ask_bg_login a{color:#06F}
 .Job_comment_left_c{float:left; background:url(../images/Job_line.jpg) repeat-y 70px; padding-left:90px;}
@@ -85,9 +85,9 @@ body {font-size:12px;width:100%;height:100%;font-family:microsoft yahei;ËÎÌå; ba
 }
 .commpay_Comment_input{width:100%; float:left; padding-bottom:20px;}
 .program_reply {background: url(../images/btn_blue.jpg) no-repeat scroll 0 0 transparent;border: 0 none;color: #FFFFFF;margin-top:10px;height: 24px;line-height: 24px;padding: 0;width: 64px;float:right;font-size:12px;}
-.program_reply_pl{width:86px;height:30px; background:#f60;color:#fff;border:none; margin-top:10px; float:left;font-family:Î¢ÈíÑÅºÚ;;}
+.program_reply_pl{width:86px;height:30px; background:#f60;color:#fff;border:none; margin-top:10px; float:left;font-family:"Microsoft Yahei";;}
 .commpay_Comment_input span{width:250px; float:left;height:26px;; line-height:26px; display:block; margin-top:10px; padding-left:10px;color:#999}
-.Job_comment_no{ font-size:18px; font-family:Î¢ÈíÑÅºÚ;; text-align:center; margin-top:40px;}
+.Job_comment_no{ font-size:18px; font-family:"Microsoft Yahei";; text-align:center; margin-top:40px;}
 .Job_ask_bg{width:385px; float:left}
 .Job_ask_bg_login{z-index:20; font-size:14px;color:#666;}
 .Job_ask_bg_login a{color:#06F}

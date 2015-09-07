@@ -3,7 +3,7 @@
 *{ margin:0; padding:0}
 body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,img,dl,dt,dd,table,th,td,blockquote,fieldset,div,strong,label,em{margin:0;padding:0;border:0;}
 ul,ol,li{list-style:none;}
-body{ width:100%;height:100%;overflow-x:hidden; font-family:Î¢ÈíÑÅºÚ;}
+body{ width:100%;height:100%;overflow-x:hidden; font-family:"Microsoft Yahei";}
 ul {list-style-type:none;}
 a {text-decoration:none;color:#333;}
 a:hover {color:#f60;text-decoration:underline;}
@@ -16,7 +16,7 @@ em{ font-style:normal}
 .header_logo{ margin:20px 0 0 0;}
 .header_nav{width:980px; padding-top:10px; padding-bottom:10px;}
 .header_right_nav{}
-.header_right_nav li{ float:left; margin-left:60px; font-size:18px; color:#333; font-family:Î¢ÈíÑÅºÚ; line-height:80px;}
+.header_right_nav li{ float:left; margin-left:60px; font-size:18px; color:#333; font-family:"Microsoft Yahei"; line-height:80px;}
 .nav_cur{color:#f60}
 .wap_banner{width:100%; height:504px; background:#0a78d1;}
 .wap_banner_img {width:980px; margin:0 auto; position:relative;}
@@ -24,7 +24,7 @@ em{ font-style:normal}
 .banner_biaoyu{ position:absolute;right:20px;top:80px;}
 .wap_erweim_bg{width:447px;height:154px; position:absolute;right:10px;top:350px; background:url(../images/yun_job_wap4.png) no-repeat}
 .wap_erweim{width:132px;height:132px; position:absolute;top:363px;right:48px;}
-.banner_input{width:495px;height:52px; background:url(../images/yun_job_wap3.jpg) no-repeat; line-height:52px; font-size:20px; padding-left:50px; font-family:Î¢ÈíÑÅºÚ; position:absolute;right:10px;top:280px;}
+.banner_input{width:495px;height:52px; background:url(../images/yun_job_wap3.jpg) no-repeat; line-height:52px; font-size:20px; padding-left:50px; font-family:"Microsoft Yahei"; position:absolute;right:10px;top:280px;}
 .wap_iphoto{width:248px;height:514px; position:absolute;left:30px;top:50px;}
 .ios_banner{ width:100%; height:504px; background:#0a78d1 url(../images/ios_bg.jpg) no-repeat left center;}
 .ios_banner_980{ width:980px; height:504px;position:relative; margin:0 auto; position:relative}
@@ -41,7 +41,7 @@ em{ font-style:normal}
 .feature_main dl{ width:326px; float:left; margin:50px 0 0 0;}
 .feature_main dl dt{ float:left; width:86px;}
 .feature_main dl dd{ float:left; width:180px; margin-left:20px;}
-.feature_h{ width:100%; float:left;font-size:18px; color:#333; font-family:Î¢ÈíÑÅºÚ; line-height:34px;}
+.feature_h{ width:100%; float:left;font-size:18px; color:#333; font-family:"Microsoft Yahei"; line-height:34px;}
 .feature_text{ width:100%; float:left; line-height:24px; font-size:14px;color:#999}
 .index_list{ width:100%;}
 .index_list_one{width:100%; height:420px; border-top:1px solid #dcdcdc;}
@@ -49,7 +49,7 @@ em{ font-style:normal}
 .index_phone{ width:280px; margin:63px 0 0 0;}
 .index_list_text{ width:336px; margin-top:160px;}
 .index_list_text dt{ width:100%;float:left; margin-bottom:12px;}
-.index_list_text dd{ width:100%; float:left;font-size:18px; color:#666; font-family:Î¢ÈíÑÅºÚ; line-height:37px;}
+.index_list_text dd{ width:100%; float:left;font-size:18px; color:#666; font-family:"Microsoft Yahei"; line-height:37px;}
 .ml76{ margin-left:76px;}
 .ml170{ margin-left:170px;_margin-left:85px;}
 /*´¥ÆÁ*/
@@ -65,9 +65,9 @@ em{ font-style:normal}
 .touch dl{ width:208px; float:left; margin-right:50px;}
 .touch dl dt{width:75px; float:left; margin:0 0 0 70px;_margin:0 0 0 35px;}
 .touch dl dd{width:100%; float:left;}
-.touch_h1{width:100%; float:left;font-size:18px; color:#333; font-family:Î¢ÈíÑÅºÚ; line-height:42px; text-align:center;}
+.touch_h1{width:100%; float:left;font-size:18px; color:#333; font-family:"Microsoft Yahei"; line-height:42px; text-align:center;}
 .touch_items_text{width:100%; float:left; line-height:20px; color:#999; font-size:12px; font-family:ËÎÌå}
-.banner_input input{ width:520px; padding-left:10px; height:52px; background:#f7fafc; border:none; line-height:52px;font-size:22px; color:#999; font-family:Î¢ÈíÑÅºÚ;}
+.banner_input input{ width:520px; padding-left:10px; height:52px; background:#f7fafc; border:none; line-height:52px;font-size:22px; color:#999; font-family:"Microsoft Yahei";}
 .banner_wei{ margin:20px 20px 0 0;}
 /*Î¢ÐÅ*/
 .wei_banner{width:100%;height:504px;; background:#739f30;}
@@ -88,13 +88,13 @@ em{ font-style:normal}
 .wei_job_list{ width:100%; background:#edf2f6; border-top:1px solid #dcdce6;}
 .wei_job_list .touch dl dt{width:75px; float:left; margin:0 0 0 36px;_margin:0 0 0 28px;}
 .wei_job_list .touch_h1{font-size:18px; color:#070707; margin-top:12px; }
-.wei_job_list .touch_items_text{font-size:14px;font-family:Î¢ÈíÑÅºÚ; color:#58585a;}
+.wei_job_list .touch_items_text{font-size:14px;font-family:"Microsoft Yahei"; color:#58585a;}
 .android_ban{width:100%;height:504px; background:#145365}
-.android_content{width:980px; margin:0 auto; font-family:Î¢ÈíÑÅºÚ;}
+.android_content{width:980px; margin:0 auto; font-family:"Microsoft Yahei";}
 .android_ban_top{ font-size:26px;color:#636c6c; padding-top:40px; padding-bottom:10px;text-align:center; }
 .android_ban_p1{width:100%; text-align:center; font-size:16px;color:#afb8b8; padding-bottom:130px; z-index:10000}
 .android_bot{width:100%;height:347px; background:#f2f9fe;border-top:1px solid #cfdde6;border-bottom:1px solid #cfdde6}
-.android_bot_cont{width:980px; margin:0 auto; font-family:Î¢ÈíÑÅºÚ;}
+.android_bot_cont{width:980px; margin:0 auto; font-family:"Microsoft Yahei";}
 .android_bot_left{width:490px;height:347px; float:left; position:relative}
 .android_bot_right{width:429px;height:347px;border-left:1px solid #cfdde6; float:left; background:url(../images/ad_line.jpg) repeat-y; padding-left:60px; position:relative}
 .android_bot_h1{width:;height:47px; line-height:47px;font-size:24px;color:#e55d03; background:url(../images/and_icon.jpg) no-repeat; padding-left:50px; margin-top:40px;}

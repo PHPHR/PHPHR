@@ -23,7 +23,7 @@
 .complay_h1_share{width:200px; float:left; line-height:30px;}
 .complay_h1_share span{float:right;}
 .complay_h1_share  .Company_post_s_fl{ float:left}
-.Company_post_name_h1{display:inline-block; font-size:24px; font-family:Î¢ÈíÑÅºÚ;color:#1369c0;float:left;}
+.Company_post_name_h1{display:inline-block; font-size:24px; font-family:"Microsoft Yahei";color:#1369c0;float:left;}
 .Company_post_span_i{ display:inline-block;height:18px; line-height:18px;color:#fff; background:#fcb202; float:left; margin-top:10px; margin-left:10px;width:33px; text-align:center;}
 .Company_post_jingj{ background:#129f73;color:#fff;}
 .Company_post_jinj{background:#129f73;color:#fff;}
@@ -48,7 +48,7 @@
 
 .Company_post_zx{width:650px;height:32px; line-height:32px;position:relative; font-size:14px; font-weight:bold; float:left;border-bottom:1px solid #dddddd}
 .Company_post_more{width:100%; float:left;height:35px; line-height:35px; font-weight:bold;color:#7a7878;border-top:1px solid #fff;}
-.Company_Name {width: 100%;height: 55px;line-height: 55px;background: url(../images/yun_icoline.jpg) repeat-x bottom;text-align: center;font-size: 30px;font-family: Î¢ÈíÑÅºÚ;overflow: hidden}
+.Company_Name {width: 100%;height: 55px;line-height: 55px;background: url(../images/yun_icoline.jpg) repeat-x bottom;text-align: center;font-size: 30px;font-family:"Microsoft Yahei";overflow: hidden}
 .Authenticate {float: right;margin-right: 20px;}
 .Company_Name span {display: block;width: 600px;float: left;color: #EE5800}
 .Company_h1 {width: 100%;height: 40px;line-height: 40px;font-size: 20px;color: #3d98e1;}
@@ -72,8 +72,8 @@
 .Company_details ul li strong {width: 98px;height: 30px;display: block;float: left;border-right: 1px solid #dedede;padding-left: 10px;}
 .Company_details ul li em {display: block;width: 564px;float: left;padding-left: 10px;color: #666;}
 .comapply_sq {width:700px; padding:20px 0;float: left}
-.comapply_sq .comapply_sq_submit {display: inline-block;width: 137px;height: 40px;background:#f60;line-height: 40px;font-size: 16px;text-align: center;color: #fff;font-family:Î¢ÈíÑÅºÚ;float: left}
-.comapply_sq .comapply_ysq  {display: inline-block;width: 137px;height: 40px;background: url(../images/yun_com_sub_sq.jpg);line-height: 40px;font-size: 16px;text-align: center;color: #fff;font-family:Î¢ÈíÑÅºÚ;float: left;text-decoration: none;}
+.comapply_sq .comapply_sq_submit {display: inline-block;width: 137px;height: 40px;background:#f60;line-height: 40px;font-size: 16px;text-align: center;color: #fff;font-family:"Microsoft Yahei";float: left}
+.comapply_sq .comapply_ysq  {display: inline-block;width: 137px;height: 40px;background: url(../images/yun_com_sub_sq.jpg);line-height: 40px;font-size: 16px;text-align: center;color: #fff;font-family:"Microsoft Yahei";float: left;text-decoration: none;}
 .comapply_sq .comapply_sq_submit:hover {text-decoration: none;color: #fff;}
 .comapply_sq_r {width:470px;height:22px;line-height:22px;float: left;margin-top:10px;margin-left: 40px;_margin-left: 20px; font-size:14px; position:relative; z-index:1000}
 .comapply_sq_r .comapply_sq_sc {color:#999797;display: inline-block;padding-left:22px;background: url(../images/yun_sq_icon.gif) no-repeat;margin-left: 10px; background-position: 0 4px; float:left}
@@ -117,7 +117,7 @@
 .comapply_Leave_fb {width: 100%;color: #000;font-size: 14px;font-weight: bold;line-height: 40px;}
 .comapply_Leave_fb_text {width:200px;background: #fff;border: 1px solid #dddddd;resize: none;height:80px;font-size:12px;color:#666;line-height:20px; padding:5px; line-height:20px;}
 .comapply_Leave_fb_s {width:100%; float:left}
-.comapply_Leave_fb_sub {margin-top: 15px;margin-bottom: 10px;width:80px;height:28px;background:#3b8ee3;border: none;color: #fff;cursor: pointer;float:left; font-size:14px; font-family:Î¢ÈíÑÅºÚ;}
+.comapply_Leave_fb_sub {margin-top: 15px;margin-bottom: 10px;width:80px;height:28px;background:#3b8ee3;border: none;color: #fff;cursor: pointer;float:left; font-size:14px; font-family:"Microsoft Yahei";}
 .comapply_Leave_fb_R{ float:left; width:515px;background:#f2f2f2;height:30px; line-height:30px;border:1px solid #e6e6e6; margin-left:10px; margin-top:15px; padding-left:10px; padding-right:10px;color:#a19f9e}
 .Company_post_other{width:670px; background:#fff; float:left; margin-top:10px; padding-left:20px; padding-bottom:10px;}
 .Company_post_other_list{width:100%; float:left; border-bottom:1px solid #f3f3f3; padding-top:10px; padding-bottom:5px; }

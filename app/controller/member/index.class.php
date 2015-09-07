@@ -42,4 +42,51 @@ class index_controller extends common
         $this->seo('');
         $this->yun_tpl(['favorite']);
     }
+
+    /**
+     * 发布信息
+     */
+    public function publish_action()
+    {
+        $this->seo('');
+        $this->yun_tpl(['publish']);
+    }
+
+    /**
+     *  企业资料
+     */
+    public function citem_action()
+    {
+        $this->seo('');
+        $this->yun_tpl(["citem"]);
+    }
+
+    /**
+     *  推荐
+     */
+    public function recomm_action()
+    {
+        $this->seo('');
+        $this->yun_tpl(["recomm"]);
+    }
+
+    /**
+     * 已下载的简历
+     */
+    public function dlod_action()
+    {
+        $this->seo('');
+        $this->yun_tpl(["dlod"]);
+    }
+
+    /**
+     * 在招职位
+     */
+    public function recruit_action()
+    {
+        $this->seo('');
+        $this->yun_tpl(["recruit"]);
+    }
+
+
 }

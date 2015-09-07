@@ -5,7 +5,7 @@
 	padding: 0;
 }
 body {
-	font-family:Î¢ÈíÑÅºÚ;
+	font-family:"Microsoft Yahei";
 	font-size:12px;
 	background:#f4f4f4 url(../images/bg.png) no-repeat top center
 }
@@ -119,7 +119,7 @@ body, ul, ol, li, dl, dt, dd, div, span, b, form, img, p, pre {
 	padding-top: 1px;
 	width:708px;
 	text-indent:10px;
-	font-family:Î¢ÈíÑÅºÚ;
+	font-family:"Microsoft Yahei";
 	border-top:1px solid #ebebeb;
 	margin-top:5px;
 }
@@ -489,7 +489,7 @@ body, ul, ol, li, dl, dt, dd, div, span, b, form, img, p, pre {
 .resume_jl_box_t2 img{float:left;}
 .resume_beizu_text{border:1px solid #ddd;width:340px;height:90px;}
 .resume_beizu_bth{width:80px;height:30px; background:#1369c0;border:none;color:#fff; cursor:pointer}
-.btn_1{width:85px;height:30px; line-height:30px;border:none; background:#456dab;color:#fff; cursor:pointer; font-family:Î¢ÈíÑÅºÚ; margin-right:10px; display:inline-block}
+.btn_1{width:85px;height:30px; line-height:30px;border:none; background:#456dab;color:#fff; cursor:pointer; font-family:"Microsoft Yahei"; margin-right:10px; display:inline-block}
 
 
 

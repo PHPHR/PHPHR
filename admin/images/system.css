@@ -512,7 +512,7 @@ html:hover .ui_btns button:focus { outline:none 0; }
 .admin_message_choose .admin_message_selected li a:hover .delete {
     background-position: right bottom;
 }
-.admin_jianli_h1{height: 35px;line-height: 35px; width: 100%; background:#f5f5f5; font-size:15px; font-family:Î¢ÈíÑÅºÚ; text-indent:20px;}
+.admin_jianli_h1{height: 35px;line-height: 35px; width: 100%; background:#f5f5f5; font-size:15px; font-family:"Microsoft Yahei"; text-indent:20px;}
 .table_form_resume th{ font-weight:normal; text-align:right; font-size:14px; padding:5px;}
 .table_form_resume td{ padding:5px;}
 .admin_save_sub{width:90px;line-height:26px; background:#458abf;color:#fff;border:none;}
@@ -561,7 +561,7 @@ html:hover .ui_btns button:focus { outline:none 0; }
 .admin_adv_search_bth{width:71px;height:25px; line-height:23px;border:1px solid #d66500; border-radius:2px; font-size:12px; font-weight:bold;color:#fff; padding-left:10px;background:#f57403 url(../images/admin_adv_san1.png) no-repeat 70px 10px; cursor:pointer; float:left}
 .admin_adv_search_bth_hover{ width:71px;height:31px; line-height:31px; padding-left:10px;border:1px solid #e1e1e1;border-bottom:none;color:#656769; position:absolute; left:0px;top:-2px; background:#edf0f7 url(../images/admin_adv_san2.png) no-repeat 68px 16px;}
 .admin_adv_search_box{width:100%; position:absolute;left:0px;top:34px; background:#fafafa;border:1px solid #e1e1e1;border-radius:0px 0px 5px 5px; z-index:500;}
-.admin_adv_search_list{width:100%;border-bottom:1px solid #e1e1e1; background:url(../images/gj_line.gif) repeat-y 100px top; padding-bottom:5px; position:relative; font-family:Î¢ÈíÑÅºÚ;}
+.admin_adv_search_list{width:100%;border-bottom:1px solid #e1e1e1; background:url(../images/gj_line.gif) repeat-y 100px top; padding-bottom:5px; position:relative; font-family:"Microsoft Yahei";}
 .admin_adv_search_left{width:100px; position:absolute;left:0px;top:0px;height:40px; line-height:40px; padding-left:20px; font-size:14px; font-weight:bold;}
 .admin_adv_search_right{padding-left:140px; padding-top:10px;}
 .admin_adv_search_right a{ display:inline-block;height:19px; line-height:19px; padding-left:10px; padding-right:10px; margin-right:13px;}

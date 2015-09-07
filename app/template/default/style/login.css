@@ -24,7 +24,7 @@ input {outline: medium none;}
 .reg_w980_bg{background:url(../images/reg_img2.jpg) no-repeat right bottom;}
 .reg_header_ban{ position:absolute;right:0px;top:0px;}
 .reg_logo{ float:left; margin-top:35px;}
-.reg_msg{ float:left; font-size:26px; font-family:Î¢ÈíÑÅºÚ; margin-top:40px;color:#fff;height:30px; line-height:30px; border-left:2px solid #fff; margin-left:20px; padding-left:20px;}
+.reg_msg{ float:left; font-size:26px; font-family:"Microsoft Yahei"; margin-top:40px;color:#fff;height:30px; line-height:30px; border-left:2px solid #fff; margin-left:20px; padding-left:20px;}
 .reg_content{width:980px; margin:0 auto; position:relative;}
 .logoin_cont{width:978px; background:#fff;border:1px solid #dadada; margin-top:20px;padding-bottom:20px;}
 .reg_h1_tit{width:100%;height:50px; background:#f0f0f0; position:relative;border-bottom:1px solid #dadada}
@@ -74,7 +74,7 @@ input {outline: medium none;}
 .logoin_text_yz{width:163px;height:34px;line-height:34px;border:1px solid #d0d0d0;color:#999; background:url(../images/reg_text_bg.png) repeat-x top; float:left; margin-right:10px;}
 .register_right{ float:left;width:200px; padding-top:70px;}
 .register_right_c{ padding-left:45px; font-size:12px;line-height:30px;color:#4b4b4b; margin-top:20px; }
-.register_right_c a{ display:inline-block;width:80px;height:30px; font-size:14px;line-height:30px;color:#fff; text-align:center; background:#4eac0f; margin-top:10px;border-radius:2px;font-family:Î¢ÈíÑÅºÚ;}
+.register_right_c a{ display:inline-block;width:80px;height:30px; font-size:14px;line-height:30px;color:#fff; text-align:center; background:#4eac0f; margin-top:10px;border-radius:2px;font-family:"Microsoft Yahei";}
 .register_right_c a:hover{ color:#fff;}
 .register_right_q{ padding-left:45px;}
 .reg_yz_look{ font-size:14px; margin-left:10px;color:#757e82; line-height:35px;}
@@ -90,7 +90,7 @@ input {outline: medium none;}
 .logoin_bg{width:292px;height:410px; background:#000; position:absolute;right:0px;top:-410px; z-index:8;filter:Alpha(opacity=40); opacity:0.4; }
 .logoin_banner{width:100%;height:410px; overflow-x:hidden}
 .login_box_tit{width:100%;height:55px;overflow:hidden}
-.login_box_tit li{width:146px; float:left;height:54px; line-height:54px; text-align:center; font-size:18px;font-family:Î¢ÈíÑÅºÚ;cursor:pointer;color:#fff; }
+.login_box_tit li{width:146px; float:left;height:54px; line-height:54px; text-align:center; font-size:18px;font-family:"Microsoft Yahei";cursor:pointer;color:#fff; }
 .lgoin_box_cot{ float:left}
 .login_fast{ background:#1a314f /*url(../images/logoin_erm.png) no-repeat right bottom*/;color:#c4c0c0}
 .login_box_tit .login_cur{background:#1a314f/* url(../images/logoin_cur.png) no-repeat left bottom*/;color:#c4c0c0}
@@ -106,18 +106,18 @@ input {outline: medium none;}
 .login_box_cz_l{ float:left; display:block;height:20px; line-height:20px;color:#ffffff}
 .login_box_cz_l .index_logoin_check{width:13px;height:13px; overflow:hidden; vertical-align:middle; margin-right:5px;_margin-right:3px;float:left;margin-top:3px;}
 .login_box_cz a{ float:right;color:#ffffff; display:block;line-height:20px;}
-.login_box_bth2{width:260px;height:45px; background:#f04f4f;border:none; cursor:pointer; float:left;color:#fff; font-size:18px; font-family:Î¢ÈíÑÅºÚ; }
-.login_box_h1_d{width:100%; font-size:22px; text-align:center; padding-top:18px; padding-bottom:0px;color:#fff;font-family:Î¢ÈíÑÅºÚ;}
+.login_box_bth2{width:260px;height:45px; background:#f04f4f;border:none; cursor:pointer; float:left;color:#fff; font-size:18px; font-family:"Microsoft Yahei"; }
+.login_box_h1_d{width:100%; font-size:22px; text-align:center; padding-top:18px; padding-bottom:0px;color:#fff;font-family:"Microsoft Yahei";}
 .login_box_reg{width:100%; float:left; padding-top:5px;color:#fff; text-align:center;}
 .login_box_reg a{color:#fff;}
-.login_box_cz .login_box_bth3{width:120px;height:45px; background:#0fb0b0;border:none; cursor:pointer; float:right;color:#fff; line-height:44px; text-align:center; font-size:16px; font-family:Î¢ÈíÑÅºÚ;}
+.login_box_cz .login_box_bth3{width:120px;height:45px; background:#0fb0b0;border:none; cursor:pointer; float:right;color:#fff; line-height:44px; text-align:center; font-size:16px; font-family:"Microsoft Yahei";}
 .login_other{width:265px; padding-left:15px; background:url(../images/log_line.png) no-repeat 30px top; margin-top:10px; float:left}
 .login_other_left{width:; float:left; line-height:25px; margin-top:10px;color:#fff}
 .login_qq{width:260px; padding-top:0px; float:left}
 .login_qq a{ display:inline-block; height:20px; line-height:20px;color:#fff;background:url(../images/yun_qq.png) no-repeat left center; padding-left:20px;}
 .login_qq .log_sina{ background:url(../images/yun_sina.png) no-repeat left center; padding-left:20px;}
 .login_qq  .log_wx{ background:url(../images/yun_wx.png) no-repeat left center; padding-left:20px;}
-.login_h1{width:100%; font-size:24px;font-family:Î¢ÈíÑÅºÚ; text-align:center;color:#666; padding-top:10px; padding-bottom:10px;}
+.login_h1{width:100%; font-size:24px;font-family:"Microsoft Yahei"; text-align:center;color:#666; padding-top:10px; padding-bottom:10px;}
 .login_right{ float:right;width:422px;}
 .logoin_re{ position:relative; z-index:5}
 .logoin_msg{width:246px;height:28px; position:absolute;left:0px;top:-45px;}
@@ -132,7 +132,7 @@ input {outline: medium none;}
 .login_list{width:325px; float:left; padding-top:50px; padding-bottom:50px;}
 .login_list dt{ float:left}
 .login_list dd{width:200px; float:left;padding-left:20px;}
-.login_list_h1{width:100%;font-family:Î¢ÈíÑÅºÚ; font-size:18px;color:#5f5f5f}
+.login_list_h1{width:100%;font-family:"Microsoft Yahei"; font-size:18px;color:#5f5f5f}
 .login_list_p{width:100%; line-height:20px;color:#9c9c9c; margin-top:10px;}
 .lgoin_box_dimen{ padding:15px;width:260px;}
 .lgoin_box_dimen_p{ font-family:14px; font-weight:bold;color:#fff; text-align:center; margin-top:20px;}

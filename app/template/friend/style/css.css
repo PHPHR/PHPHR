@@ -24,9 +24,9 @@ em {
 body {
 	font-size: 12px;
 	color: #666;
-	font-family:Î¢ÈíÑÅºÚ,ËÎÌå;
+	font-family:"Microsoft Yahei",ËÎÌå;
 }
-button, input, textarea, th, td { font-family:Î¢ÈíÑÅºÚ,ËÎÌå;}
+button, input, textarea, th, td { font-family:"Microsoft Yahei",ËÎÌå;}
 .fl {
 	float: left
 }
@@ -108,7 +108,7 @@ button, input, textarea, th, td { font-family:Î¢ÈíÑÅºÚ,ËÎÌå;}
 	display: block;
 	font-size: 24px;
 	color: #ff7300;
-	font-family: "Î¢ÈíÑÅºÚ";
+	font-family: "Microsoft Yahei";
 	font-weight: normal
 }
 .friend_mune {
@@ -274,12 +274,12 @@ button, input, textarea, th, td { font-family:Î¢ÈíÑÅºÚ,ËÎÌå;}
 .friend_items{ width:158px; border:1px solid #ececec; margin-bottom:15px;}
 .Personals_left_h1 {
 	font-size: 16px;
-	font-family: Î¢ÈíÑÅºÚ; background:#f9f9f9; height:30px; line-height:30px; padding:4px 0 4px 10px;
+	font-family:"Microsoft Yahei"; background:#f9f9f9; height:30px; line-height:30px; padding:4px 0 4px 10px;
 	color:#256db2; border-bottom:1px solid #ececec;
 }
 .Personals_left_h2 {
 	font-size: 16px;
-	font-family: Î¢ÈíÑÅºÚ;
+	font-family:"Microsoft Yahei";
 	margin-bottom: 10px;
 	color:#256db2;
 	margin-top: 20px;
@@ -578,7 +578,7 @@ button, input, textarea, th, td { font-family:Î¢ÈíÑÅºÚ,ËÎÌå;}
 }
 .Personals_may strong {
 	float: left;
-	font-family: Î¢ÈíÑÅºÚ;
+	font-family:"Microsoft Yahei";
 	font-size: 16px;
 	font-weight: normal;
 	color:#256db2; padding-left:10px;
@@ -691,7 +691,7 @@ button, input, textarea, th, td { font-family:Î¢ÈíÑÅºÚ,ËÎÌå;}
 }
 .answers_news_title_r li {
 	float: left;
-	font-family: Î¢ÈíÑÅºÚ;
+	font-family:"Microsoft Yahei";
 	font-size: 14px;
 	height: 30px;
 	line-height: 30px;
@@ -755,7 +755,7 @@ button, input, textarea, th, td { font-family:Î¢ÈíÑÅºÚ,ËÎÌå;}
 	line-height: 37px;
 	text-indent: 10px;
 	width: 100%;
-	font-family: Î¢ÈíÑÅºÚ
+	font-family: "Microsoft Yahei"
 }
 .Personals_my_all_seach {
 	width: 510px;
@@ -811,7 +811,7 @@ button, input, textarea, th, td { font-family:Î¢ÈíÑÅºÚ,ËÎÌå;}
 }
 .Personals_my_all_list_dl dd .friend_name {
 	color: #336699;
-	font-family: ºÚÌå, Î¢ÈíÑÅºÚ, ËÎÌå, Tahoma, Helvetica, Arial, sans-serif;
+	font-family: ºÚÌå, "Microsoft Yahei", ËÎÌå, Tahoma, Helvetica, Arial, sans-serif;
 	font-size: 14px;
 	font-weight: bold;
 	line-height: 22px;
@@ -846,7 +846,7 @@ button, input, textarea, th, td { font-family:Î¢ÈíÑÅºÚ,ËÎÌå;}
 	font-weight: bold;
 }
 .talk_box_main{ width:556px;border: 1px solid #ececec; float:left;}
-.mess_title{ background:#f9f9f9; height:37px; line-height:37px; font-size:16px; font-family:Î¢ÈíÑÅºÚ; width:546px; padding-left:10px; color:#256db2;}
+.mess_title{ background:#f9f9f9; height:37px; line-height:37px; font-size:16px; font-family:"Microsoft Yahei"; width:546px; padding-left:10px; color:#256db2;}
 .talk-box {
 	width:556px;
 	float: left; border-bottom:1px solid #ececec;

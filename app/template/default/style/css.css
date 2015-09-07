@@ -1,7 +1,7 @@
 @charset "gb2312";
 /* CSS Document */
 * {margin: 0;padding: 0;}
-body {font-size: 12px;position: relative;width: 100%;height: 100%; font-family:Œ¢»Ì—≈∫⁄}
+body {font-size: 12px;position: relative;width: 100%;height: 100%; font-family:"Microsoft Yahei"}
 a {color: #505050;text-decoration: none;outline: none;blr:expression(this.onFocus=this.blur());}
 a:hover {color: #CD0200;text-decoration: underline;}
 em, i {font-style: normal;}
@@ -18,7 +18,7 @@ input {outline: medium none;}
 .red {color: red;}
 .blue {color: #4189d8}
 .blod{ font-weight:bold;}
-button, input, textarea, th, td { font-family:Œ¢»Ì—≈∫⁄,ÀŒÃÂ;}
+button, input, textarea, th, td { font-family:"Microsoft Yahei",ÀŒÃÂ;}
 .icon {background-image: url(../images/yun_ico2.png);background-repeat: no-repeat;}
 .icon2 {background-image: url(../images/yun_icobg1.png);background-repeat: no-repeat;}
 .icon3 {background-image: url(../images/yun_x.png);background-repeat: repeat-x;}
@@ -103,7 +103,7 @@ button, input, textarea, th, td { font-family:Œ¢»Ì—≈∫⁄,ÀŒÃÂ;}
 .nav_cont_content {width:1000px;height: 40px;margin: 0 auto; }
 .nav_cont {width:800px;height: 40px;float: left;z-index: 1001;position: relative;z-index:1px}
 .nav_list li {display: inline-block;cursor: pointer;position:relative;float:left; margin-right:1px;}
-.nav_list li a {display: block;height: 40px; line-height:40px;color: #fff;float: left; padding-left:12px; padding-right:12px;font-size: 15px; font-family:Œ¢»Ì—≈∫⁄;}
+.nav_list li a {display: block;height: 40px; line-height:40px;color: #fff;float: left; padding-left:12px; padding-right:12px;font-size: 15px; font-family:"Microsoft Yahei";}
 .nav_list li a span {margin-top: 20px;display: block;height: 20px;float: left}
 .nav_list .nav_list_hover { background:#2c81d6}
 .nav_list li a:hover { background:#2c81d6;color:#fff;text-decoration: none}
@@ -217,7 +217,7 @@ button, input, textarea, th, td { font-family:Œ¢»Ì—≈∫⁄,ÀŒÃÂ;}
 }
 .fri_left h1 {
 	color: #006697;
-	font-family: Œ¢»Ì—≈∫⁄, ÀŒÃÂ;
+	font-family: "Microsoft Yahei", ÀŒÃÂ;
 	font-size: 16px;
 	font-weight: bold;
 	line-height: 30px;
@@ -239,7 +239,7 @@ button, input, textarea, th, td { font-family:Œ¢»Ì—≈∫⁄,ÀŒÃÂ;}
 }
 .fri_right h1 {
 	color: #006697;
-	font-family: Œ¢»Ì—≈∫⁄, ÀŒÃÂ;
+	font-family: "Microsoft Yahei", ÀŒÃÂ;
 	font-size: 16px;
 	font-weight: bold;
 	line-height: 30px;
@@ -422,20 +422,20 @@ button, input, textarea, th, td { font-family:Œ¢»Ì—≈∫⁄,ÀŒÃÂ;}
 .invitereg_p1{ font-size:14px; font-weight:bold; padding:15px; background:#f8f8f8; margin-top:20px;}
 .invitereg_p2{width:680px; padding-left:75px; margin-top:10px;}
 .invitereg_info{width:680px;height:100px; background:#fffdf7;border:1px solid #e5e0c6; font-size:14px; line-height:23px; padding:5px; margin-top:10px;}
-.invitereg_bth{width:140px;height:40px; background:#e45c00;color:#fff; font-size:18px; font-family:Œ¢»Ì—≈∫⁄;border:none; margin-top:10px; cursor:pointer }
+.invitereg_bth{width:140px;height:40px; background:#e45c00;color:#fff; font-size:18px; font-family:"Microsoft Yahei";border:none; margin-top:10px; cursor:pointer }
 .invitereg_list_span{width:145px; display:inline-block; text-align:right; font-size:14px;}
 .invitereg_list{ margin-top:10px;}
 .invitereg_text{width:550px;height:45px;border:1px solid #d6cfcf;color:#666; padding-left:5px; line-height:45px; font-size:16px;}
 .invitereg_info_yx{width:580px;height:100px;border:1px solid #d6cfcf;color:#666;font-size:14px; line-height:23px; padding:5px;}
 /*µÿÕº*/
 .map_nav{ width:980px;height:43px;background:url(../images/map_nav_bg.jpg) repeat-x; margin:0 auto; margin-top:12px;}
-.map_nav li{ float:left; width:132px;background:url(../images/map_line.jpg) no-repeat top right;line-height:43px; text-align:center; font-family:Œ¢»Ì—≈∫⁄; font-size:16px; }
+.map_nav li{ float:left; width:132px;background:url(../images/map_line.jpg) no-repeat top right;line-height:43px; text-align:center; font-family:"Microsoft Yahei"; font-size:16px; }
 .map_nav li a:hover{background:url(../images/map_nav_content.jpg) no-repeat;color:#fff;display:block; text-decoration:none;}
 .map_nav .map_nav_content{ width:132px; height:43px;background:url(../images/map_nav_content.jpg) no-repeat;}
 .map_nav .map_nav_content a{ color:#fff;}
 .map_main{ width:980px; margin:0 auto;}
 .map_items{ width:978px; border:1px solid #d6dbe1; border-top:2px solid #458fce; background:#fff; margin:15px 0 0 0;}
-.map_items_h {width:978px; height:40px; line-height:40px; background:#fcfcfc;font-family:Œ¢»Ì—≈∫⁄; font-size:16px;border-bottom:1px solid #d6dbe1;}
+.map_items_h {width:978px; height:40px; line-height:40px; background:#fcfcfc;font-family:"Microsoft Yahei"; font-size:16px;border-bottom:1px solid #d6dbe1;}
 .map_items_h em{ float:left;padding-left:18px; margin-right:10px; }
 .map_items_h a{ float:left; margin:14px 0 0 0;_margin:7px 0 0 0;}
 .map_news{ width:958px; padding-left:20px;}
@@ -482,16 +482,16 @@ button, input, textarea, th, td { font-family:Œ¢»Ì—≈∫⁄,ÀŒÃÂ;}
 /*º§ªÓ“≥√Ê*/
 
 .jh_main{ width:1000px; margin:0 auto; display:block; overflow:hidden; padding-bottom:20px;}
-.jh_main_name{ font-family:"Œ¢»Ì—≈∫⁄"; font-size:18px; color:#40505f; padding:15px 0; line-height:25px;}
+.jh_main_name{ font-family:"Microsoft Yahei"; font-size:18px; color:#40505f; padding:15px 0; line-height:25px;}
 .jh_wel{ width:100%; background:url("../images/jh_bg1.png") repeat-x center; text-align:center;}
-.jh_wel span{ font-family:"Œ¢»Ì—≈∫⁄"; font-size:18px; background:#fff; padding:0 20px;}
+.jh_wel span{ font-family:"Microsoft Yahei"; font-size:18px; background:#fff; padding:0 20px;}
 .jh_wel span i{ color:#e84c3d;}
 .jh_wel span em{ color:#f39c11;}
 .jh_content{ width:1020px;}
 .jh_con{ width:244px; float:left; position:relative; margin-right:8px;}
 .jh_con_det{ width:244px; height:344px; background:url("../images/jh_bg3.png") no-repeat; margin-top:90px;}
 .jh_con_detcon{ padding:70px 18px 35px; text-align:center;}
-.jh_con_det_name{ font-family:"Œ¢»Ì—≈∫⁄"; font-size:20px; color:#40505f; padding-bottom:16px;}
+.jh_con_det_name{ font-family:"Microsoft Yahei"; font-size:20px; color:#40505f; padding-bottom:16px;}
 .jh_con_detcon p{ font-size:14px; color:#7d7381; line-height:26px; text-align:left; height:153px; overflow:hidden;}
 .jh_con_det:hover{ background:url("../images/jh_bg2.png") no-repeat;}
 .jh_con_detcon a{ width:124px; height:36px; display:block; background:#56708b; text-align:center; line-height:36px; color:#fff;border-radius:5px; font-size:16px; margin:0 auto;}
@@ -546,7 +546,7 @@ button, input, textarea, th, td { font-family:Œ¢»Ì—≈∫⁄,ÀŒÃÂ;}
 .pwdmain_title_r {
     background: #7ab7f3;
     color: #fff;
-    font-family: Œ¢»Ì—≈∫⁄;
+    font-family:"Microsoft Yahei";
     font-size: 18px;
     height: 35px;
     line-height: 35px;

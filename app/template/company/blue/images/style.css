@@ -2,7 +2,7 @@
 /* CSS Document */
 *{outline: none; }
 html,body{height:100%; margin:0; padding:0;}
-body{margin:0;padding:0; font:12px 微软雅黑,宋体; color:#333;word-wrap:break-word;}
+body{margin:0;padding:0; font:12px "Microsoft Yahei",宋体; color:#333;word-wrap:break-word;}
 body, h1, h2, h3, h4, h5, h6, hr, p, dl, dt, dd, ul, ol, li, button, input, textarea, th, td {margin:0; padding:0;}
 img{border:none;}
 ul{margin:0;padding:0; list-style:none;}

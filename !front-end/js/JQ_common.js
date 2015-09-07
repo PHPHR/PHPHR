@@ -1,4 +1,3 @@
-
 $(function(){
 	$search();
 	$sift();
@@ -19,11 +18,33 @@ $(function(){
 		$(".zrczgz .m_wrap1 dd .none").eq(i).show(); 
 	});
 	
-	$(".m_nav dl dt").click(function(){
-		$(this).next("dd").toggle()
-		.siblings("dd:visible").hide();
-		$(this).toggleClass("hover");
-		$(this).siblings(".hover").removeClass("hover");
+	$(".zrczgz .m_nav dl").hover(function(){
+		var i = $(".zrczgz .m_nav dl").index(this);
+		$(".zrczgz .m_nav dl").removeClass("hover");
+		$(this).addClass("hover");
+		$(".zrczgz .m_nav dl").find("dd.popup").hide();
+		$(".zrczgz .m_nav dl").find("dd.popup").eq(i).show();
+	},function(){
+		$(".zrczgz .m_nav dl").removeClass("hover");
+		$(".zrczgz .m_nav dl").find("dd.popup").hide();
+	});
+	
+	$('.jbxx .m_wrap1 dt').click(function(){
+        if( $(this).parents('.m_wrap1').hasClass('on')){
+            $(this).parents('.m_wrap1').removeClass('on');
+        }else{
+            $(this).parents('.m_wrap1').addClass('on');
+        }
+    });
+	
+	$(".m_download").click(function(){
+		var x = ($(window).width()-$(".m_popup").width())/2
+		var y = ($(window).height()-$(".m_popup").height())/2
+		$(".m_popup").css({"left":x,"top":y});
+		$(".m_body,.m_popup").fadeIn();	
+	});
+	$(".jbxx").find(".m_popup .close").click(function(){
+		$(".m_body,.m_popup").fadeOut();	
 	});
 	/*banner自适应屏幕*/
 	//var w_img = window.screen.width

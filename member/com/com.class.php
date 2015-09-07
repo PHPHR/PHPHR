@@ -75,6 +75,16 @@ class company extends common
 		$this->yunset("statis",$statis);
 		return $statis;
 	}
+
+    /**
+     * @param $type
+     * @param array $statis
+     */
+    public function getJob()
+    {
+        $jobClass=$this->obj->DB_select_all("job_class","keyid!=0");
+
+    }
 	
 	function get_com($type,$statis=array())
 	{

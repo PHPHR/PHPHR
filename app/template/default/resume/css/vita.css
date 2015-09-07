@@ -1,6 +1,6 @@
 @charset "gb2312";
 *{ margin:0; padding:0;}
-body{ font-size:12px;color:#555555; background:#f1f1f1;width:100%;height:100%;font-family:Î¢ÈíÑÅºÚ}
+body{ font-size:12px;color:#555555; background:#f1f1f1;width:100%;height:100%;font-family:"Microsoft Yahei"}
 em{ font-style:normal}
 a{ text-decoration:none;color:#666;}
 ul,li{ list-style:none}
@@ -20,7 +20,7 @@ ul,li{ list-style:none}
 .one_vita_Basic_photo{float:left; position:relative; padding-left:70px; padding-right:20px;}
 .one_vita_Basic_photo_bg{width:225px;height:171px;background: url(../images/jil_img.png) no-repeat;_background: url(../images/jianli_img.gif) no-repeat;left:0px;top:-13px; position:absolute }
 .one_vita_Basic_info{width:520px; padding-left:20px; float:left}
-.one_vita_name{ font-size:22px; font-family:Î¢ÈíÑÅºÚ;}
+.one_vita_name{ font-size:22px; font-family:"Microsoft Yahei";}
 .one_vita_line{width:100%;height:2px;filter:Alpha(opacity=10); opacity:0.1; background:#fff; margin-top:5px; overflow:hidden;}
 .one_vita_Basic_info_t{width:100%; padding:10px 0;}
 .one_vita_Basic_icon{ display:inline-block; padding-left:18px; background:url(../images/two_r_icon.png) no-repeat 0 0; margin-right:10px;}
@@ -67,7 +67,7 @@ ul,li{ list-style:none}
 .two_vita_Basic_photo{width:148px;height:154px; background:url(../images/jinli2.png.png) no-repeat; position:absolute;left:32px;top:-53px;}
 .two_vita_Basic_photo_line{width:13px;height:178px; overflow:hidden; background:#fff; position:absolute;left:180px;top:-55px;}
 .two_vita_Basic_info{width:550px; float:left; padding-left:220px;color:#fff;}
-.two_vita_name{ font-size:22px; font-family:Î¢ÈíÑÅºÚ;color:#fff; padding-top:10px; padding-bottom:10px;}
+.two_vita_name{ font-size:22px; font-family:"Microsoft Yahei";color:#fff; padding-top:10px; padding-bottom:10px;}
 .two_vita_Basic_info_t{width:100%; padding:10px 0;}
 .two_vita_Basic_icon{ display:inline-block; padding-left:18px; background:url(../images/two_r_icon.png) no-repeat 0 0; margin-right:10px;color:#fff}
 .two_vita_Basic_Age{ background-position:0 -29px;}
@@ -105,7 +105,7 @@ ul,li{ list-style:none}
 .three_vita_Basic{width:815px; float:left; padding:20px 10px 0;color:#716c6c; position:relative}
 .three_vita_Basic_photo{width:90px;height:120px; background:#fff;border:1px solid #E4DFDF; padding:5px; position:absolute;right:30px;top:10px;}
 .three_vita_Basic_info{width:580px; padding-left:25px; float:left}
-.three_vita_name{ font-size:26px; font-family:Î¢ÈíÑÅºÚ;color:#000}
+.three_vita_name{ font-size:26px; font-family:"Microsoft Yahei";color:#000}
 .three_vita_name_nl{ font-size:16px;color:#4B4B4B; font-family:ËÎÌå}
 .sf_yz{ font-size:12px; font-family:ËÎÌå; margin-left:3px;color:#390}
 .three_vita_line{width:100%;height:2px;filter:Alpha(opacity=10); opacity:0.1; background:#fff; margin-top:5px;}
@@ -187,7 +187,7 @@ border-width: 1px;font-size: 12px;height: 95px;line-height: 23px;padding: 2px;}
 .resume_beizu_text{border:1px solid #ddd;width:340px;height:90px;}
 .resume_beizu_bth{width:80px;height:30px; background:#1369c0;border:none;color:#fff; cursor:pointer}
 
-.btn_1{width:85px;height:30px; line-height:30px;border:none; background:#456dab;color:#fff; cursor:pointer; font-family:Î¢ÈíÑÅºÚ; margin-right:10px; display:inline-block}
+.btn_1{width:85px;height:30px; line-height:30px;border:none; background:#456dab;color:#fff; cursor:pointer; font-family:"Microsoft Yahei"; margin-right:10px; display:inline-block}
 
 
 
