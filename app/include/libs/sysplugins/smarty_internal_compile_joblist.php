@@ -212,11 +212,40 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
 			include PLUS_PATH."/comrating.cache.php";
 			foreach('.$name.' as $key=>$value){
 				'.$name.'[$key] = $db->array_action($value,$cache_array);
-				'.$name.'[$key][\'stime\'] = date("Y-m-d",$value[\'sdate\']);
-				'.$name.'[$key][\'etime\'] = date("Y-m-d",$value[\'edate\']);
-				'.$name.'[$key][\'lastupdate\'] = date("Y-m-d",$value[\'lastupdate\']);
-
-				'.$name.'[$key][\'yyzz_status\'] = !empty($r_uid[$value[\'uid\']][\'yyzz_status\']) ? $r_uid[$value[\'uid\']][\'yyzz_status\'] : \'\' ;
+				'.$name.'[$key][stime] = date("Y-m-d",$value[sdate]);
+				'.$name.'[$key][etime] = date("Y-m-d",$value[edate]);
+				'.$name.'[$key][lastupdate] = date("Y-m-d",$value[lastupdate]);
+                $salary = "不限";
+                
+                if($value["salary"] == "46") {
+                    $salary = "面议";
+                }
+                if($value["salary"] == "47") {
+                    $salary = "1000以下";
+                }
+                if($value["salary"] == "48") {
+                    $salary = "1000 - 1999";
+                }
+                if($value["salary"] == "83") {
+                    $salary = "2000 - 2999";
+                }
+                if($value["salary"] == "49") {
+                    $salary = "3000 - 4499";
+                }
+                if($value["salary"] == "50") {
+                    $salary = "4500 - 5999";
+                }
+                if($value["salary"] == "51") {
+                    $salary = "6000 - 7999";
+                }
+                if($value["salary"] == "52") {
+                    $salary = "8000 - 9999";
+                }
+                if($value["salary"] == "53") {
+                    $salary = "10000以上";
+                }
+                '.$name.'[$key]["str_salary"] = $salary;
+				'.$name.'[$key][yyzz_status] =$r_uid[$value[\'uid\']][\'yyzz_status\'] ? $r_uid[$value[\'uid\']][\'yyzz_status\'] : \' \'  ;
 				$time=time()-$value[\'lastupdate\'];
 
 				if($time>86400 && $time<604800){

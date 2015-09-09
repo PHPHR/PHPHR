@@ -167,7 +167,7 @@ function selectAll(){
 function ResumeAction(){  
 	var _this = $(".Resume .con")
 	var _AddAttr = $(".Resume .AddAttr")
-	_this.find(".AddBtn").click(function(event){
+	_this.find(".AddBtn").click(function(){
 		$(this).hide();
 		$(this).siblings(".EditBtn").show();
 		$(this).parent().siblings(".EditBox").removeClass("dn");

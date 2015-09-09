@@ -1,20 +1,22 @@
 {yun:}include file="$comstyle/cnewhead.htm"{/yun}
+<script type="text/javascript">var weburl="{yun:}$config.sy_weburl{/yun}"</script>
 <script src="{yun:}$config.sy_weburl{/yun}/js/class.public.js" type="text/javascript"></script>
+<script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/js/member_public.js"></script>
 <div class="qyzx_fbzl w1000">
     <div class="l left_all">
-        <div class="j_top"><a href="#">发布新职位+</a></div>
-        <p class="p1"><a href="#">已发布的职位</a></p>
+        <div class="j_top"><a href="index.php?c=jobadd">发布新职位+</a></div>
+        <p class="p1"><a href="index.php?c=search">已发布的职位</a></p>
         <ul>
-            <li><a href="#">在招职位</a></li>
-            <li><a href="#">已下线职位</a></li>
+            <li><a href="index.php?c=job&w=1">在招职位</a></li>
+            <li><a href="index.php?c=job&w=2">已下线职位</a></li>
         </ul>
         <p class="p1 p2"><a href="#">简历管理</a></p>
         <ul>
-            <li><a href="#">收到的简历</a></li>
+            <li><a href="index.php?c=hr">收到的简历</a></li>
             <li><a href="#">推荐的简历</a></li>
-            <li><a href="#">下载的简历</a></li>
-            <li><a href="#">简历收藏夹</a></li>
-            <li><a href="#">发出的面试邀请</a></li>
+            <li><a href="index.php?c=down">下载的简历</a></li>
+            <li><a href="index.php?c=talent_pool">简历收藏夹</a></li>
+            <li><a href="index.php?c=invite">发出的面试邀请</a></li>
         </ul>
         <p class="p1 p2"><a href="#"><em></em>简历管理</a></p>
         <div class="j_bottom">
@@ -50,11 +52,11 @@
                     <dt class="dt2">请选择</dt>
                     <dd>
                         <ul>
-                            <li myselect="1">互诺科技1</li>
-                            <li myselect="2">互诺科技2</li>
-                            <li myselect="3">互诺科技3</li>
+                            {yun:}foreach item=v from=$job_class{/yun}
+                            <li myselect="{yun:}$v.id{/yun}">{yun:}$v.name{/yun}</li>
+                            {yun:}/foreach{/yun}
                         </ul>
-                        <input type="hidden" class="select_hidden" value=""/>
+                        <input type="hidden" class="select_hidden"/>
                     </dd>
                 </dl>
                 <div class="clear"></div>
@@ -70,9 +72,9 @@
                     <dt class="dt2">请选择</dt>
                     <dd>
                         <ul>
-                            <li myselect="1">互诺科技1</li>
-                            <li myselect="2">互诺科技2</li>
-                            <li myselect="3">互诺科技3</li>
+                            {yun:}foreach from=$comdata.job_salary key=j item=v{/yun}
+                            <li myselect="{yun:}$v{/yun}">{yun:}$comclass_name[$v]{/yun}</li>
+                            {yun:}/foreach{/yun}
                         </ul>
                         <input type="hidden" class="select_hidden"/>
                     </dd>
@@ -85,9 +87,9 @@
                     <dt class="dt2">请选择</dt>
                     <dd>
                         <ul>
-                            <li myselect="1">互诺科技1</li>
-                            <li myselect="2">互诺科技2</li>
-                            <li myselect="3">互诺科技3</li>
+                            {yun:}foreach from=$city_index key=j item=v{/yun}
+                            <li myselect="1"><a href="javascript:;" onclick="select_city('{yun:}$v{/yun}','province','{yun:}$city_name[$v]{/yun}','citys','city');"> {yun:}$city_name[$v]{/yun}</a></li>
+                            {yun:}/foreach{/yun}
                         </ul>
                         <input type="hidden" class="select_hidden"/>
                     </dd>
@@ -95,11 +97,6 @@
                 <dl class="select l" id="select0">
                     <dt class="dt2">请选择</dt>
                     <dd>
-                        <ul>
-                            <li myselect="1">互诺科技1</li>
-                            <li myselect="2">互诺科技2</li>
-                            <li myselect="3">互诺科技3</li>
-                        </ul>
                         <input type="hidden" class="select_hidden"/>
                     </dd>
                 </dl>
@@ -129,9 +126,9 @@
                     <dt class="dt2">请选择</dt>
                     <dd>
                         <ul>
-                            <li myselect="1">互诺科技1</li>
-                            <li myselect="2">互诺科技2</li>
-                            <li myselect="3">互诺科技3</li>
+                            {yun:}foreach from=$comdata.job_edu key=j item=v{/yun}
+                            <li><a href="javascript:;" onclick="selects('{yun:}$v{/yun}','edu','{yun:}$comclass_name[$v]{/yun}');">{yun:}$comclass_name[$v]{/yun}</a></li>
+                            {yun:}/foreach{/yun}
                         </ul>
                         <input type="hidden" class="select_hidden"/>
                     </dd>
@@ -144,9 +141,9 @@
                     <dt class="dt2">请选择</dt>
                     <dd>
                         <ul>
-                            <li myselect="1">互诺科技1</li>
-                            <li myselect="2">互诺科技2</li>
-                            <li myselect="3">互诺科技3</li>
+                            {yun:}foreach from=$comdata.job_exp key=j item=v{/yun}
+                            <li><a href="javascript:;" onclick="selects('{yun:}$v{/yun}','exp','{yun:}$comclass_name[$v]{/yun}');">{yun:}$comclass_name[$v]{/yun}</a></li>
+                            {yun:}/foreach{/yun}
                         </ul>
                         <input type="hidden" class="select_hidden"/>
                     </dd>
@@ -207,5 +204,6 @@
             <div id="backToTop"><a class="wh fh rdh" href="javascript:;" onfocus="this.blur();"><img src="images/pic32.png" /></a></div>
         </div>
     </div>
+</div>
 
 {yun:}include file="$comstyle/cnewfoot.htm"{/yun}

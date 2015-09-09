@@ -16,7 +16,7 @@ class jobadd_controller extends company
 		$statics = $this->company_satic();
 		if( $statics['addjobnum'] == 2){
 			if(intval($statics['integral']) < intval($this->config['integral_job'])){
-				$this->ACT_msg("index.php?c=pay","你的".$this->config['integral_pricename']."不够发布职位！",8);
+				//$this->ACT_msg("index.php?c=pay","你的".$this->config['integral_pricename']."不够发布职位！",8);
 			}
 		}
 		$this->getJob();

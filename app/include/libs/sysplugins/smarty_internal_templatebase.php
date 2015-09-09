@@ -302,7 +302,7 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
             }
             catch (Exception $e) {
                 ob_get_clean();
-                throw $e;
+                //throw $e;
             }
             if ($this->smarty->debugging) {
                 Smarty_Internal_Debug::end_cache($_template);

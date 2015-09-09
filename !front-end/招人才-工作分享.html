@@ -58,7 +58,7 @@
         <div class="clear"></div>
     </div>
 </div>
-<div id="main" class="zrczgz" style="background:url(images/ysd_106.jpg) top center no-repeat;">
+<div id="main" class="zrczgz" style="background:url(images/ysd_106.jpg) top center fixed;">
     <div class="main">
     	<div class="blank2"></div>
     	<div class="l w750">
@@ -176,8 +176,16 @@
                     <input type="text" class="text" placeholder="我也来说一句">
                     <div class="blank2"></div>
                 </div>
-            </div>
-            <div class="more"><a href="#"><img src="images/ysd_101.png" width="100%"></a></div>
+            </div>           
+            <div id="content"></div>
+            <div class="more get_more"><a href="javascript:void(0)"><img src="images/ysd_101.png" width="100%"></a></div>
+            <script type="text/javascript">
+            $(function() {
+                $(".get_more").click(function(){
+                    $("#content").load("data1.html");
+                });
+            });
+            </script>
             <div class="blank2"></div>
         </div>
         <div class="r w240">

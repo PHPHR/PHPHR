@@ -77,13 +77,15 @@ class company extends common
 	}
 
     /**
-     * @param $type
-     * @param array $statis
+     *
+     *  工作分类信息
      */
     public function getJob()
     {
-        $jobClass=$this->obj->DB_select_all("job_class","keyid!=0");
-
+        $job_class=$this->obj->DB_select_all("job_class","keyid=0");
+        $job_info=$this->obj->DB_select_all("job_class","keyid!=0");
+        $this->yunset('job_class',$job_class);
+        $this->yunset('job_info',$job_info);
     }
 	
 	function get_com($type,$statis=array())
