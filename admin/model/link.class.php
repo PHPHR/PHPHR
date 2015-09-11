@@ -11,8 +11,11 @@
 class link_controller extends common
 {
 	function set_search(){
-		include(PLUS_PATH."domain_cache.php");
+		if(file_exists(PLUS_PATH."domain_cache.php")){
+			include(PLUS_PATH."domain_cache.php");
+		}
 		$domain=array();
+		if(!empty($site_domain) && is_array($site_domain))
 		foreach($site_domain as $val){
 			$domain[$val['id']]=$val['cityname'];
 		}

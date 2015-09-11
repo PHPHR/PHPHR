@@ -41,9 +41,10 @@ class Smarty_Internal_Compile_Qrecom extends Smarty_Internal_CompileBase{
 					$attention[$key][\'is_atn\']=\'2\';
 				}
 				foreach($q_class as $q_v){
-					if(in_array($q_v[\'id\'],$cid)){
-						$class_name[]=$q_v[\'name\'];
-					}
+
+						if(in_array($q_v[\'id\'],$cid) && is_array($cid)){
+							$class_name[]=$q_v[\'name\'];
+						}
 				}
 				foreach($member as $m_val){
 					if($val[\'uid\']==$m_val[\'uid\']){

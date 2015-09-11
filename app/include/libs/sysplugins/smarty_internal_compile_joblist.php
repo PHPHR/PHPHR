@@ -245,7 +245,7 @@ class Smarty_Internal_Compile_Joblist extends Smarty_Internal_CompileBase{
                     $salary = "10000ртио";
                 }
                 '.$name.'[$key]["str_salary"] = $salary;
-				'.$name.'[$key][yyzz_status] =$r_uid[$value[\'uid\']][\'yyzz_status\'] ? $r_uid[$value[\'uid\']][\'yyzz_status\'] : \' \'  ;
+				'.$name.'[$key][yyzz_status] = !empty($r_uid[$value[\'uid\']][\'yyzz_status\']) ? $r_uid[$value[\'uid\']][\'yyzz_status\'] : \' \'  ;
 				$time=time()-$value[\'lastupdate\'];
 
 				if($time>86400 && $time<604800){

@@ -68,7 +68,7 @@ class Smarty_Internal_Compile_Qclass extends Smarty_Internal_CompileBase{
 			} 
 			foreach($Count as $value){
 				$QclassInfo=array();
-				if(in_array($value,$ids)){
+				if(in_array($value,$ids) && is_array($ids)){
 					$QclassInfo[\'isatn\']=\'1\';
 				}
 				$QclassInfo[\'id\'] = $value;

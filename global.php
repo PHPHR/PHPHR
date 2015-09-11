@@ -15,13 +15,13 @@ error_reporting(7);
 //…Ë÷√cookie”Ú
 const COOKIE_DOMAIN='.phphr.com';
 
-define('APP_PATH',dirname(__FILE__).'/'); 
-define('CONFIG_PATH',APP_PATH.'/config/'); 
-define('DATA_PATH',APP_PATH.'/data/'); 
-define('LIB_PATH',APP_PATH.'/app/include/'); 
-define('TPL_PATH',APP_PATH.'/app/template/'); 
-define('MODEL_PATH',APP_PATH.'/model/');
-define('PLUS_PATH',DATA_PATH.'/plus/');
+define('APP_PATH',dirname(__FILE__).'/');
+define('CONFIG_PATH',APP_PATH.'/config/');
+define('DATA_PATH',APP_PATH.'data/');
+define('LIB_PATH',APP_PATH.'app/include/');
+define('TPL_PATH',APP_PATH.'app/template/');
+define('MODEL_PATH',APP_PATH.'model/');
+define('PLUS_PATH',DATA_PATH.'plus/');
 define('ALL_PS','conn');
 ini_set('session.gc_maxlifetime',900);
 ini_set('session.gc_probability',10);
