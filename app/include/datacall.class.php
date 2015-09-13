@@ -423,7 +423,7 @@ class datacall{
 		if($row['byorder']){
 			$order="order by ".$row['byorder'];
 		}
-		$limit_num=$row[num]?$row[num]:10;
+		$limit_num=$row['num']?$row['num']:10;
 		$limit=" limit ".$limit_num;
 		$rows = $this->obj->DB_select_all("resume_tiny","$where $order $limit");
 		if(is_array($rows)){
