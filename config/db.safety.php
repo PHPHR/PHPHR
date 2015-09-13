@@ -99,7 +99,7 @@ function safesql($StrFiltKey,$StrFiltValue,$type){
 		 exit(safe_pape());
 	}
 }
-function common_htmlspecialchars($key,$str,$str2,$config){
+function common_htmlspecialchars($key='',$str='',$str2='',$config=array()){
 	
 	if(is_array($str))
 	{
@@ -218,16 +218,27 @@ foreach($_GET  as $id=>$v){
 }
 
 foreach($_COOKIE  as $id=>$v){
-	
-	$str = html_entity_decode($v,ENT_QUOTES,"GB2312");
-	
-	$v = common_htmlspecialchars($id,$v,$str,$config);
-	safesql($id,$v,"COOKIE",$config);
-	$id = sfkeyword($id,$config);
-	$v = sfkeyword($v,$config);
-	$v=substr(strip_tags($v),0,52);
-	$_COOKIE[$id]=$v;
+	if(is_array($v)){
+		foreach($v as $key=>$value){
+			$str = html_entity_decode($value,ENT_QUOTES,"GB2312");
+			$value = common_htmlspecialchars($id,$value,$str,$config);
+			safesql($id,$value,'COOKIE',$config);
+			$id = sfkeyword($id,$config);
+			$value = sfkeyword($value,$config);
+			$value =substr(strip_tags($value),0,52);
+			$_COOKIE[$id]=$value;
+		}
+	}else{
+		$str = html_entity_decode($v,ENT_QUOTES,"GB2312");
+		$v = common_htmlspecialchars($id,$v,$str,$config);
+		safesql($id,$v,"COOKIE",$config);
+		$id = sfkeyword($id,$config);
+		$v = sfkeyword($v,$config);
+		$v=substr(strip_tags($v),0,52);
+		$_COOKIE[$id]=$v;
+	}
 }
+
 
 function safe_pape(){
   $pape=<<<HTML
