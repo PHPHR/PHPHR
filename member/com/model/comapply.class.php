@@ -70,7 +70,6 @@ class comapply_controller extends company
 						$look_msg1="您不是个人用户，不能申请职位！";
 						$looktype="2";
 					}
-
 				}
 			}else if($_COOKIE["usertype"]!="1"){
 				$look_msg1="您不是个人用户，不能申请职位！";

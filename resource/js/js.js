@@ -25,6 +25,26 @@ $(function(){
 			opacity: "0"
 		}, 1)
 	});
+	
+	$(".qyzl,.rck").find(".m_btn0").click(function(){
+		var x = ($(window).width()-$(".m_popup").width())/2
+		var y = ($(window).height()-$(".m_popup").height())/2
+		$(".m_popup").css({"left":x,"top":y});
+		$(".m_body,.m_popup").fadeIn();	
+	});
+	$(".qyzl,.rck").find(".m_popup .close").click(function(){
+		$(".m_body,.m_popup").fadeOut();	
+	});
+	
+	$(".qyzl").find(".m_btn1").toggle(function(){
+		$(this).html("保存");
+		$(".editbox").show();
+	},function(){
+		$(this).html("编辑");
+		$(".editbox").hide();
+	});
+	
+	ResumeAction();
 })
 
 $(document).ready(function(e) {
@@ -34,6 +54,7 @@ $(document).ready(function(e) {
 		});
 	});
 });
+ 
 //
 //$(function(){
 //	$(".select").each(function(){
@@ -97,21 +118,6 @@ $(window).load(function(){
         $(this).parents('.t_pic').hide();
     });
 
-
-
-    $('.colsebut').click(function(){
-        $(this).parents('.inputbox').hide().siblings('.infobox').show();
-    });
-
-
-
-    $('.open_but').click(function(){
-        $(this).parents('.p1').siblings('.box1').find('.zb').find('.inputbox').show().siblings('.infobox').hide();
-    });
-
-
-
-
     $('.model_box .close').click(function(){
         $(this).parents('.model_box').removeClass('on');
     });
@@ -148,9 +154,38 @@ $(window).load(function(){
 
 });
 
+function selectAll(){  
+	$(".SelectAll").each(function(){
+		if ($(this).attr("checked")) {  
+			$(":checkbox").attr("checked", true);  
+		} else {  
+			$(":checkbox").attr("checked", false);  
+		} 
+	});    
+} 
 
-
-
+function ResumeAction(){  
+	var _this = $(".Resume .con")
+	var _AddAttr = $(".Resume .AddAttr")
+	_this.find(".AddBtn").click(function(){
+		$(this).hide();
+		$(this).siblings(".EditBtn").show();
+		$(this).parent().siblings(".EditBox").removeClass("dn");
+	});
+	_this.find(".EditBtn").click(function(){
+		$(this).parent().siblings(".SaveBox").addClass("dn");
+		$(this).parent().siblings(".EditBox").removeClass("dn");		
+	});
+	_this.find(".SaveBtn,.CloseBtn").click(function(){
+		$(this).parent().parent().addClass("dn");
+		$(this).parent().parent().siblings(".SaveBox").removeClass("dn");
+	});	  
+	_AddAttr.find("li").click(function(){
+		var i = _AddAttr.find("li").index(this);
+		_this.eq(i).removeClass("dn");	
+		$(this).find("i").removeClass("cha");
+	}); 
+}
 
 
 
