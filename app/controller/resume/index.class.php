@@ -20,6 +20,8 @@ class index_controller extends resume_controller
 
     function usersearch()
     {
+        $username = $_SESSION['username'];
+
         $uptime = array(1 => '今天', 3 => '最近3天', 7 => '最近7天', 30 => '最近一个月', 90 => '最近三个月');
         $this->yunset("uptime", $uptime);
         $FinderParams = array('keyword', 'hy', 'job1', 'job1_son', 'job_post', 'provinceid', 'cityid', 'three_cityid', 'salary', 'edu', 'exp', 'sex', 'type', 'report', 'adtime', 'uptime');
@@ -49,7 +51,7 @@ class index_controller extends resume_controller
                 foreach ($finder as $key => $val) {
                     $para[] = $key . "=" . $val;
                 }
-                $paras = @implode('##', $para);
+                $paras = implode('##', $para);
                 $this->yunset("paras", $paras);
             }
             if ($_COOKIE['lookresume'] || $_COOKIE['talentpool'] || $_COOKIE['useridmsg']) {
@@ -79,7 +81,7 @@ class index_controller extends resume_controller
                     SetCookie("useridmsg", $useridmsg, time() + 86400, "/");
                 }
 
-                $this->yunset(array('lookresume' => @explode(',', $lookResume), 'talentpool' => @explode(',', $talentpool), 'useridmsg' => @explode(',', $useridmsg)));
+                $this->yunset(array('lookresume' => explode(',', $lookResume), 'talentpool' => explode(',', $talentpool), 'useridmsg' => explode(',', $useridmsg)));
             }
         }
         if ($_GET['order'] == '') {
@@ -115,24 +117,32 @@ class index_controller extends resume_controller
             }
             $this->yunset("zpjob1son", $zpjob1son);
         }
+        $this->yunset('username',$username);
         $this->seo("user_search");
 //        $this->yun_tpl(array('search')); // 旧模板
-		$this->yun_tpl(['search_gj']); // 新模板
+        $this->yun_tpl(['search_gj']); // 新模板
 
     }
 
     function index_action()
     {
+        $username = $_COOKIE['username'];
 //        if ($this->config['sy_default_userclass'] == '1' || $_GET['zrc']) {
-            $resumeclassurl = $this->config['sy_resumedir'] != "" ? $this->config['sy_weburl'] . "/resume/?c=search&" : $resumeclassurl = $this->config['sy_weburl'] . "/index.php?m=resume&c=search&";
-            $this->yunset("resumeclassurl", $resumeclassurl);
-            $CacheM = $this->MODEL('cache');
-            $CacheList = $CacheM->GetCache(array('job', 'city', 'hy'));
-            $this->yunset($CacheList);
-            $this->yunset(array('gettype' => $_SERVER["QUERY_STRING"], 'getinfo' => $_GET));
-            $this->seo("user");
-			$this->yun_tpl(array('index_gj'));
-//            $this->yun_tpl(array('index'));
+        $resumeclassurl = $this->config['sy_resumedir'] != "" ? $this->config['sy_weburl'] . "/resume/?c=search&" : $resumeclassurl = $this->config['sy_weburl'] . "/index.php?m=resume&c=search&";
+        $this->yunset("resumeclassurl", $resumeclassurl);
+        $CacheM = $this->MODEL('cache');
+        $CacheList = $CacheM->GetCache(array('job', 'city', 'hy'));
+        $this->yunset($CacheList);
+        $this->yunset('username',$username);
+
+        $CacheM = $this->MODEL('cache');
+        $CacheList = $CacheM->GetCache(array('job', 'city', 'user', 'hy'));
+        $this->yunset($CacheList);
+
+        $this->yunset(array('gettype' => $_SERVER["QUERY_STRING"], 'getinfo' => $_GET));
+        $this->seo("user");
+//			$this->yun_tpl(array('index'));
+        $this->yun_tpl(array('index_gj'));
 //        } else {
 //            $this->usersearch();
 //        }

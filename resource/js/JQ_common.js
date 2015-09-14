@@ -81,7 +81,11 @@ var $search = (function(){
 	});
 
 	$(".searchTab li").click(function(){
-		$(".searchSelected").html($(this).html());
+		var v = $(this).html();
+		var s = $(this).attr("i");
+		$(".searchSelected").html(v);
+		$(".searchMenu .hidden").attr("value",v);
+		$(".searchMenu .hid").attr("value",s);
 		$(".searchTab").hide();
 		$(".searchSelected").removeClass("searchOpen");
 	});

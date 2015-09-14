@@ -9,7 +9,7 @@
       'charset'=>'GBK',
       'timezone'=>'PRC',
       'coding'=>'6ea2f8bae0259047ecb6200ce3b216cf', //生成cookie加密
-      'version'=>'4.0 Beta',//版本号
+      'version'=>'1.0',//版本号
     );
     
 ?>

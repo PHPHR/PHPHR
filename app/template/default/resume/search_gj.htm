@@ -31,9 +31,9 @@
                             <div class="radius" style="top:259px;"></div>
                             <div class="radius" style="top:259px;left:59px;"></div>
                             <ul>
-                                <li class="">城市</li>
-                                <li>城市</li>
-                                <li>城市</li>
+                                <li i="1" class="">城市1</li>
+                                <li i="2">城市2</li>
+                                <li i="3">城市3</li>
                             </ul>
                         </div>                                
                     </div>
@@ -178,8 +178,8 @@
                     <dl class=" listIndex" attr="terminal_activity_s">
                         <dt>工作经验：</dt>
                         <dd>
-                            {yun:}foreach from=$userdata.user_word item=v key=key{/yun} <a
-                                href="{yun:}searchurl m=resume c=search exp=$v untype='exp'{/yun}"
+                            {yun:}foreach from=$userdata.user_word item=v key=key{/yun}
+                            <a href="{yun:}searchurl m=resume c=search exp=$v untype='exp'{/yun}"
                                 class="Search_jobs_sub_a {yun:}if $smarty.get.exp==$v{/yun}Search_jobs_sub_cur{yun:}/if{/yun}">{yun:}$userclass_name[$v]{/yun}</a>
                             {yun:}/foreach{/yun}
                         </dd>
@@ -326,7 +326,7 @@
 			版权所有   粤ICP备11016031号-4</div>  
         </li>
         <li class="last">
-        	<div class="p6"><a href="#"><p>新浪微博</p><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_7.jpg"></a></div>      
+        	<div class="p6"><a href="://weibo.com"><p>新浪微博</p><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_7.jpg"></a></div>
             <div class="p6"><a href="#"><p>微信</p><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_8.jpg"></a></div>
             <div class="clear"></div>
         </li>

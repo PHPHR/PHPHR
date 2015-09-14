@@ -132,7 +132,7 @@ $(window).load(function(){
 
         $(this).parents('.model_box').siblings('.myopenbut').html(x);
         $(this).parents('ul').siblings('.model_input').attr('value',y);
-        $(this).parents('.model_box').removeClass('on');
+        $(this).parents('.model_box').removeClass('on');	
     });
 
     $('.zy_js li').click(function(){
