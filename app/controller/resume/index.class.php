@@ -117,7 +117,7 @@ class index_controller extends resume_controller
             }
             $this->yunset("zpjob1son", $zpjob1son);
         }
-        $this->yunset('username',$username);
+        $this->yunset('username',$_COOKIE['username']);
         $this->seo("user_search");
 //        $this->yun_tpl(array('search')); // ¾ÉÄ£°å
         $this->yun_tpl(['search_gj']); // ÐÂÄ£°å
@@ -126,14 +126,14 @@ class index_controller extends resume_controller
 
     function index_action()
     {
-        $username = $_COOKIE['username'];
-//        if ($this->config['sy_default_userclass'] == '1' || $_GET['zrc']) {
+
+//        if ($this->config['sy_default_userclass'] == '1') {
         $resumeclassurl = $this->config['sy_resumedir'] != "" ? $this->config['sy_weburl'] . "/resume/?c=search&" : $resumeclassurl = $this->config['sy_weburl'] . "/index.php?m=resume&c=search&";
         $this->yunset("resumeclassurl", $resumeclassurl);
         $CacheM = $this->MODEL('cache');
         $CacheList = $CacheM->GetCache(array('job', 'city', 'hy'));
         $this->yunset($CacheList);
-        $this->yunset('username',$username);
+        $this->yunset('username',$_COOKIE['username']);
 
         $CacheM = $this->MODEL('cache');
         $CacheList = $CacheM->GetCache(array('job', 'city', 'user', 'hy'));

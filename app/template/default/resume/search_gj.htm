@@ -26,16 +26,18 @@
         	<form method="get" name="" action="" target="_blank">
                 <div id="searchTxt" class="searchTxt" onMouseOver="this.className='searchTxt searchTxtHover';" onMouseOut="this.className='searchTxt';">
                     <div class="searchMenu">
-                        <div class="searchSelected" id="searchSelected">城市</div>
+                        <input type="hidden" value="search" name="c"/>
+                        <input type="hidden" value="{yun:}if $smarty.get.provinceid{/yun}{yun:}$smarty.get.provinceid{/yun}{yun:}/if{/yun}" name="provinceid" class="hid"/>
+                        <div class="searchSelected" id="searchSelected">{yun:}if $smarty.get.provinceid{/yun}{yun:}$city_name[$smarty.get.provinceid]{/yun}{yun:}else{/yun}选择{yun:}/if{/yun}</div>
                         <div style="display:none;" class="searchTab" id="searchTab">
                             <div class="radius" style="top:259px;"></div>
                             <div class="radius" style="top:259px;left:59px;"></div>
                             <ul>
-                                <li i="1" class="">城市1</li>
-                                <li i="2">城市2</li>
-                                <li i="3">城市3</li>
+                                {yun:}foreach item=v from=$city_index{/yun}
+                                <li i="{yun:}$v{/yun}">{yun:}$city_name[$v]{/yun}</li>
+                                {yun:}/foreach{/yun}
                             </ul>
-                        </div>                                
+                        </div>
                     </div>
                     <input name="w" type="text" /> 
                 </div>        
@@ -43,15 +45,21 @@
                     <button id="searchBtn" type="submit" value=""></button>
                 </div>
                 <div class="clear"></div>
-                <div class="hot">热门搜索：<a href="#">会计</a><a href="#">司机</a><a href="#">销售</a><a href="#">猎头</a><a href="#">文员</a><a href="#">java</a><a href="#">日语</a><a href="#">兼职</a><a href="#">采购</a></div>
+                <div class="hot">热门搜索：
+                    <a href="{yun:}$resumeclassurl{/yun}keyword=会计">会计</a>
+                    <a href="{yun:}$resumeclassurl{/yun}keyword=司机">司机</a>
+                    <a href="{yun:}$resumeclassurl{/yun}keyword=销售">销售</a>
+                    <a href="{yun:}$resumeclassurl{/yun}keyword=猎头">猎头</a>
+                    <a href="{yun:}$resumeclassurl{/yun}keyword=文员">文员</a>
+                    <a href="{yun:}$resumeclassurl{/yun}keyword=java">java</a>
+                    <a href="{yun:}$resumeclassurl{/yun}keyword=日语">日语</a>
+                    <a href="{yun:}$resumeclassurl{/yun}keyword=兼职">兼职</a>
+                    <a href="{yun:}$resumeclassurl{/yun}keyword=采购">采购</a>
+                </div>
             </form>
         </dd>
         </dl>
         <ul class="nav l">
-        <!--<li><a href="#" class="hover">人才首页</a></li>-->
-        <!--<li><a href="#">招人才</a></li>-->
-        <!--<li><a href="#">工作分享</a></li>-->
-        <!--<li><a href="#">委托招聘</a></li>-->
             {yun:}nav item=navlist hovclass=nav_list_hover nid=1{/yun}
             <li>
                 <a class="{yun:}if $navlist.navclass{/yun}hover{yun:}/if{/yun}"
@@ -60,7 +68,10 @@
             </li>
             {yun:}/nav{/yun}
         </ul>
-        <div class="h_btn1 r"><a href="#">登录</a> / <a href="#">注册</a></div>
+        <div class="h_btn1 r">{yun:}if $username{/yun}<a href="{yun:}$config.sy_weburl{/yun}/member">{yun:}$username{/yun}</a>{yun:}else{/yun}
+            <a href="{yun:}$config.sy_weburl{/yun}/index.php?m=login">登录</a> / <a
+                    href="{yun:}$config.sy_weburl{/yun}/index.php?m=register">注册</a>{yun:}/if{/yun}
+        </div>
         <div class="clear"></div>
     </div>
 </div>
