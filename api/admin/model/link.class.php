@@ -48,7 +48,7 @@ class link_controller extends appadmin
 			include(PLUS_PATH."domain_cache.php");
 			foreach($rows as $k=>$v)
 			{
-				if(is_array($site_domain))
+				if(!empty($site_domain) && is_array($site_domain))
 				{
 					foreach($site_domain as $val)
 					{
@@ -132,6 +132,7 @@ class link_controller extends appadmin
 		$data['error']=1;
 		echo json_encode($data);die;
 	}
+
 	function save_action()//Ìí¼Ó
 	{
 		if(!$_POST['link_name']||!$_POST['link_url']||!$_POST['link_type']||!$_POST['tem_type'])

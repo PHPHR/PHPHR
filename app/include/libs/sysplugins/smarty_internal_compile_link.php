@@ -30,7 +30,9 @@ class Smarty_Internal_Compile_Link extends Smarty_Internal_CompileBase{
 		}';
 		//站内使用范围   1=全站 2=首页使用 3=猎头页使用
         $OutputStr.='$tem_type = '.(is_numeric($tem_type)?$tem_type:1).';
-        include PLUS_PATH."/link.cache.php";
+        if(file_exist(PLUS_PATH."/link.cache.php")){
+        	include PLUS_PATH."/link.cache.php";
+        }
 		if(is_array($link)){$linkList=array();
 			$i=0;
 			foreach($link as $key=>$value)

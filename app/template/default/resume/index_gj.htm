@@ -33,6 +33,7 @@
                         <div class="searchMenu">
                             <input type="hidden" value="search" name="c"/>
                             <input type="hidden" value="" name="provinceid" class="hid"/>
+
                             <div class="searchSelected" id="searchSelected">选择</div>
                             <div style="display:none;" class="searchTab" id="searchTab">
                                 <div class="radius" style="top:259px;"></div>
@@ -91,6 +92,13 @@
         <div class="l w235">
             <div class="m_nav">
                 <dl>
+                    <dt><i class="ico8"></i>项目经验</dt>
+                    <dd>
+                        <a href="#">GMP认证</a><a href="#">GSP认证</a><a href="#">药品注册</a><a href="#">GMP认证</a><a href="#">GSP认证</a><a
+                            href="#">药品注册</a><a href="#">GMP认证</a>
+                    </dd>
+                </dl>
+                <dl>
                     <dt><i class="ico1"></i>工作性质</dt>
                     <dd>
                         {yun:}foreach from=$userdata.user_type item=v key=key{/yun}
@@ -100,7 +108,8 @@
                     <dd class="popup">
                         <div class="sub">
                             <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85"><a href="#">网页设计师</a>
+                            <div class="l w85">
+                                <a href="#">网页设计师</a>
                                 <em>|</em>
                                 <a href="#">Flash设计师</a>
                                 <em>|</em>
@@ -127,7 +136,8 @@
                         </div>
                         <div class="sub">
                             <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85"><a href="#">网页设计师</a>
+                            <div class="l w85">
+                                <a href="#">网页设计师</a>
                                 <em>|</em>
                                 <a href="#">Flash设计师</a>
                                 <em>|</em>
@@ -160,7 +170,8 @@
                     <dd class="popup">
                         <div class="sub">
                             <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85"><a href="#">网页设计师</a>
+                            <div class="l w85">
+                                <a href="#">网页设计师</a>
                                 <em>|</em>
                                 <a href="#">Flash设计师</a>
                                 <em>|</em>
@@ -187,7 +198,8 @@
                         </div>
                         <div class="sub">
                             <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85"><a href="#">网页设计师</a>
+                            <div class="l w85">
+                                <a href="#">网页设计师</a>
                                 <em>|</em>
                                 <a href="#">Flash设计师</a>
                                 <em>|</em>
@@ -223,7 +235,8 @@
                     <dd class="popup">
                         <div class="sub">
                             <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85"><a href="#">网页设计师</a>
+                            <div class="l w85">
+                                <a href="#">网页设计师</a>
                                 <em>|</em>
                                 <a href="#">Flash设计师</a>
                                 <em>|</em>
@@ -250,7 +263,8 @@
                         </div>
                         <div class="sub">
                             <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85"><a href="#">网页设计师</a>
+                            <div class="l w85">
+                                <a href="#">网页设计师</a>
                                 <em>|</em>
                                 <a href="#">Flash设计师</a>
                                 <em>|</em>
@@ -283,7 +297,8 @@
                     <dd class="popup">
                         <div class="sub">
                             <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85"><a href="#">网页设计师</a>
+                            <div class="l w85">
+                                <a href="#">网页设计师</a>
                                 <em>|</em>
                                 <a href="#">Flash设计师</a>
                                 <em>|</em>
@@ -310,7 +325,8 @@
                         </div>
                         <div class="sub">
                             <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85"><a href="#">网页设计师</a>
+                            <div class="l w85">
+                                <a href="#">网页设计师</a>
                                 <em>|</em>
                                 <a href="#">Flash设计师</a>
                                 <em>|</em>
@@ -345,7 +361,8 @@
                     <dd class="popup">
                         <div class="sub">
                             <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85"><a href="#">网页设计师</a>
+                            <div class="l w85">
+                                <a href="#">网页设计师</a>
                                 <em>|</em>
                                 <a href="#">Flash设计师</a>
                                 <em>|</em>
@@ -372,7 +389,8 @@
                         </div>
                         <div class="sub">
                             <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85"><a href="#">网页设计师</a>
+                            <div class="l w85">
+                                <a href="#">网页设计师</a>
                                 <em>|</em>
                                 <a href="#">Flash设计师</a>
                                 <em>|</em>
@@ -462,61 +480,30 @@
                 <a href="javascript:void(0)" class="hover">推荐简历</a><a href="javascript:void(0)">最新简历</a>
                 </dt>
                 <dd>
+                    {yun:}userlist pic=0 post_len=20 limit=5 item=userlist{/yun}
                     <div class="none" style="display:block;">
-                        <div class="list">
-                            <div class="w225 l">
-                                <p class="p1">刘先生<span>[广州]</span></p>
+                        <a href="{yun:}$userlist.user_url{/yun}">
+                            <div class="list">
+                                <div class="w225 l">
+                                    <p class="p1">{yun:}$userlist.username_n{/yun}<span>[{yun:}$userlist.job_city_two{/yun}]</span></p>
 
-                                <p class="p2">有2次GSP认证经验</p>
-                            </div>
-                            <div class="w225 l">
-                                <p class="p1">本科 / 药学</p>
+                                    <!--<p class="p2">有2次GSP认证经验</p>-->
+                                </div>
+                                <div class="w225 l">
+                                    <p class="p1">{yun:}$userlist.edu_n{/yun} / 药学专业</p>
 
-                                <p class="p2">毕业院校：沈阳药科大学</p>
-                            </div>
-                            <div class="w225 l">
-                                <p class="p3">5年经验 / 职业药师</p>
+                                    <!--<p class="p2">毕业院校：沈阳药科大学</p>-->
+                                </div>
+                                <div class="w225 l">
+                                    <p class="p3">{yun:}$userlist.exp_n{/yun} / {yun:}$userlist.job_post_n{/yun}</p>
 
-                                <p class="p2">工作经历： 质管员、验收员、养护员</p>
+                                    <p class="p2">{yun:}$userlist.time{/yun}更新</p>
+                                </div>
+                                <div class="clear"></div>
                             </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="list">
-                            <div class="w225 l">
-                                <p class="p1">刘先生<span>[广州]</span></p>
-
-                                <p class="p2">有2次GSP认证经验</p>
-                            </div>
-                            <div class="w225 l">
-                                <p class="p1">本科 / 药学</p>
-
-                                <p class="p2">毕业院校：沈阳药科大学</p>
-                            </div>
-                            <div class="w225 l">
-                                <p class="p3">5年经验 / 职业药师</p>
-
-                                <p class="p2">工作经历： 质管员、验收员、养护员</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="list">
-                            <div class="w225 l">
-                                <p class="p1">刘先生<span>[广州]</span></p>
-
-                                <p class="p2">有2次GSP认证经验</p>
-                            </div>
-                            <div class="w225 l">
-                                <p class="p1">本科 / 药学</p>
-
-                                <p class="p2">毕业院校：沈阳药科大学</p>
-                            </div>
-                            <div class="w225 l">
-                                <p class="p3">5年经验 / 职业药师</p>
-
-                                <p class="p2">工作经历： 质管员、验收员、养护员</p>
-                            </div>
-                            <div class="clear"></div>
-                        </div>
+                        </a>
+                        {yun:}/userlist{/yun}
+                        <!--分页代码-->
                         <div class="page2">
                             <a href="#"> << </a>
                             <a href="#" class="hover">1</a>
@@ -533,10 +520,9 @@
             <dl class="m_link">
                 <dt>友情链接</dt>
                 <dd>
-                    <a href="#">hao123网址导航</a><a href="#">360网址导航</a><a href="#">2345网址导航</a><a href="#">互联网招聘</a><a
-                        href="#">电子商务人才</a><a href="#">广州招聘</a><a href="#">1616上网导航</a><a href="#">中国土木英才网</a><a
-                        href="#">厦门B2C协会</a><a href="#">电信上网导航</a><a href="#">宾果求职网</a><a href="#">114网址大全</a><a
-                        href="#">淘网址</a><a href="#">726网址导航 </a>
+                    {yun:}foreach item=v from=$LinkList{/yun}
+                    <a href="{yun:}$v['link_url']{/yun}">{yun:}$v['link_name']{/yun}</a>
+                    {yun:}/foreach{/yun}
                 </dd>
             </dl>
         </div>

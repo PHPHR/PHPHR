@@ -17,16 +17,15 @@ $(function(){
 		$(".zrczgz .m_wrap1 dd .none").hide(); 
 		$(".zrczgz .m_wrap1 dd .none").eq(i).show(); 
 	});
-	
+
 	$(".zrczgz .m_nav dl").hover(function(){
 		var i = $(".zrczgz .m_nav dl").index(this);
-		$(".zrczgz .m_nav dl").removeClass("hover");
+		$(this).removeClass("hover");
 		$(this).addClass("hover");
-		$(".zrczgz .m_nav dl").find("dd.popup").hide();
-		$(".zrczgz .m_nav dl").find("dd.popup").eq(i).show();
+		$(this).find("dd.popup").show();
 	},function(){
-		$(".zrczgz .m_nav dl").removeClass("hover");
-		$(".zrczgz .m_nav dl").find("dd.popup").hide();
+		$(this).removeClass("hover");
+		$(this).find("dd.popup").hide();
 	});
 	
 	$('.jbxx .m_wrap1 dt').click(function(){

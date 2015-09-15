@@ -134,6 +134,11 @@ $(window).load(function(){
         $(this).parents('ul').siblings('.model_input').attr('value',y);
         $(this).parents('.model_box').removeClass('on');	
     });
+	
+	$(".m_wrap1 .hd li").click(function(){
+		var v =$(this).html();
+		$(".m_wrap1 .hidden").attr("value",v)	
+	});
 
     $('.zy_js li').click(function(){
         $(this).addClass('on').siblings('li').removeClass('on').find('.zy_input').attr('checked',false);

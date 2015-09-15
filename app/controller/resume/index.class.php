@@ -117,7 +117,7 @@ class index_controller extends resume_controller
             }
             $this->yunset("zpjob1son", $zpjob1son);
         }
-        $this->yunset('username',$_COOKIE['username']);
+        $this->yunset('username', $_COOKIE['username']);
         $this->seo("user_search");
 //        $this->yun_tpl(array('search')); // 旧模板
         $this->yun_tpl(['search_gj']); // 新模板
@@ -133,15 +133,24 @@ class index_controller extends resume_controller
         $CacheM = $this->MODEL('cache');
         $CacheList = $CacheM->GetCache(array('job', 'city', 'hy'));
         $this->yunset($CacheList);
-        $this->yunset('username',$_COOKIE['username']);
+        $this->yunset('username', $_COOKIE['username']);
 
         $CacheM = $this->MODEL('cache');
         $CacheList = $CacheM->GetCache(array('job', 'city', 'user', 'hy'));
         $this->yunset($CacheList);
 
+        //友情链接
+        $linkModel = $this->MODEL('link');
+        $LinkList = [];
+        foreach($linkModel->GetLinks() as $k=>$v ){
+            $LinkList['LinkList'][$k]['link_name'] = $v['link_name'];
+            $LinkList['LinkList'][$k]['link_url'] = $v['link_url'];
+        }
+        $this->yunset($LinkList);
+
         $this->yunset(array('gettype' => $_SERVER["QUERY_STRING"], 'getinfo' => $_GET));
         $this->seo("user");
-//			$this->yun_tpl(array('index'));
+//        $this->yun_tpl(array('index'));
         $this->yun_tpl(array('index_gj'));
 //        } else {
 //            $this->usersearch();

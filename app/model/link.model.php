@@ -13,5 +13,11 @@ class link_model extends model{
     {
         return $this->insert_into('admin_link',$Values);
     }
+
+    function GetLinks(){
+        return $this->DB_select_all('admin_link');
+    }
+
+
 }
 ?>

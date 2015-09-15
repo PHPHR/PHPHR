@@ -50,8 +50,9 @@ input[type="submit"],input[type="button"]{ cursor:pointer;}
 .head1 .searchTxt .searchMenu{float:left;}
 .head1 .searchTxt .searchMenu .searchSelected{color:#000;cursor:pointer;font-size:16px;height:40px;line-height:40px;width:105px; text-indent:20px;}
 .head1 .searchTxt .searchMenu .searchOpen{background-position:0px -104px;}
-.head1 .searchTxt .searchMenu .searchTab{display:none; position:absolute;top:40px;left:0;width:90px;background:#fff;z-index:20;}
-.head1 .searchTxt .searchMenu .searchTab li{width:90px;height:30px;line-height:30px;color:#a8a8a8;font-size:14px;font-weight:bold;text-indent:20px;cursor:pointer;}
+.head1 .searchTxt .searchMenu .searchTab{display:none; position:absolute;top:40px;left:0;width:445px;background:#fff;z-index:20;}
+.head1 .searchTxt .searchMenu .searchTab ul{ width:445px;}
+.head1 .searchTxt .searchMenu .searchTab li{width:89px;height:30px;line-height:30px;color:#a8a8a8;font-size:14px;font-weight:bold;text-indent:20px;cursor:pointer; float:left;}
 .head1 .searchTxt .searchMenu .searchTab li.selected{background:#edf3fc;color:#6994c1;}
 .head1 .searchTxt input{float:left;border:0;background:#fff;color:#333;width:340px;height:36px; line-height:36px; margin:2px 0;outline:medium none;}
 .head1 .searchBtn{float:left;}
@@ -511,7 +512,7 @@ input[type="submit"],input[type="button"]{ cursor:pointer;}
 .zrczgz .m_wrap13 .con .p3 img{ margin-right:10px;}
 .zrczgz .m_nav{ border-bottom:0; background:#FFF; position:relative; z-index:99;}
 .zrczgz .m_nav dl{ border:#e7e7e7 1px solid; position:relative;}
-.zrczgz .m_nav dl.hover{ border:#3b8bce 1px solid; border-right:0;}
+.zrczgz .m_nav dl.hover{ border:#3b8bce 1px solid;}
 .zrczgz .m_nav dl.hover dt{ border-right:#FFF 1px solid; z-index:3; position:relative;}
 .zrczgz .m_nav dl.hover dd{ border-right:#FFF 1px solid; z-index:3; position:relative;}
 .zrczgz .m_nav dl dt{ padding:7px 18px; font-size:18px; color:#333; background:url(../images/ysd_91.jpg) 95% center no-repeat; cursor:pointer; }
