@@ -235,9 +235,9 @@ class ajax_controller extends common{
 				$data.="<ul>";
 				foreach($city_type[$_POST['id']] as $v){
 					if($_POST['gettype']=="citys"){
-						$data.='<li><a href="javascript:;" onclick="select_city(\''.$v.'\',\'citys\',\''.$city_name[$v].'\',\'three_city\',\'city\');">'.$city_name[$v].'</a></li>';
+						$data.='<li myselect='.$v.'><a href="javascript:;" >'.$city_name[$v].'</a></li>';
 					}else{
-						$data.='<li><a href="javascript:;" onclick="selects(\''.$v.'\',\'three_city\',\''.$city_name[$v].'\');">'.$city_name[$v].'</a></li>';
+						$data.='<li myselect='.$v.'><a href="javascript:;" >'.$city_name[$v].'</a></li>';
 					}
 				}
 				$data.="</ul>";
@@ -248,9 +248,9 @@ class ajax_controller extends common{
 				$data.="<ul>";
 				foreach($job_type[$_POST['id']] as $v){
 					if($_POST['gettype']=="job1_son"){
-						$data.='<li><a href="javascript:;" onclick="select_city(\''.$v.'\',\'job1_son\',\''.$job_name[$v].'\',\'job_post\',\'job\');">'.$job_name[$v].'</a></li>';
+						$data.='<li><a href="javascript:;" >'.$job_name[$v].'</a></li>';
 					}else{
-						$data.='<li><a href="javascript:;" onclick="selects(\''.$v.'\',\'job_post\',\''.$job_name[$v].'\');">'.$job_name[$v].'</a></li>';
+						$data.='<li><a href="javascript:;" >'.$job_name[$v].'</a></li>';
 					}
 				}
 				$data.="</ul>";

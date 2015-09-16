@@ -6,8 +6,8 @@ $(function(){
 		var i = $(".index .m_wrap1 .hd li").index(this);
 		$(".index .m_wrap1 .hd li").removeClass("on");
 		$(this).addClass("on");
-		$(".index .m_wrap1 .bd .none").hide(); 
-		$(".index .m_wrap1 .bd .none").eq(i).show(); 
+		//$(".index .m_wrap1 .bd .none").hide();
+		//$(".index .m_wrap1 .bd .none").eq(i).show();
 	});
 	                     
 	$(".zrczgz .m_wrap1 dt a").click(function(){

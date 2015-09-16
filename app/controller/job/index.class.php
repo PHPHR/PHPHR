@@ -9,12 +9,16 @@ class index_controller extends job_controller
     function index_action()
     {
         if ($this->config['sy_default_comclass'] == '1') {
-            $CacheM = $this->MODEL('cache');
-            $CacheList = $CacheM->GetCache(array('job', 'city', 'hy'));
-            $this->yunset($CacheList);
-            $this->seo("com");
+        $CacheM = $this->MODEL('cache');
+        $CacheList = $CacheM->GetCache(array('job', 'city', 'hy'));
+        $this->yunset($CacheList);
+
+        $joburl = $this->config['sy_jobdir'] != "" ? $this->config['sy_weburl'] . "/job/?c=search&" : $joburl = $this->config['sy_weburl'] . "/index.php?m=job&c=search&";
+        $this->yunset('jobclassurl',$joburl);
+
+        $this->seo("com");
             $this->yun_tpl(array('index'));
-            $this->yun_tpl(array('index_job'));
+//        $this->yun_tpl(array('index_job'));
         } else {
             $this->comsearch();
         }
@@ -22,7 +26,6 @@ class index_controller extends job_controller
 
     function comsearch()
     {
-
         if ($this->config['cityid']) {
             $_GET['cityid'] = $this->config['cityid'];
         }
@@ -111,7 +114,7 @@ class index_controller extends job_controller
         }
         $this->seo("com_search");
         $this->yun_tpl(array('search'));
-        $this->yun_tpl(array('search_job'));
+//        $this->yun_tpl(array('search_job'));
     }
 
     function search_action()

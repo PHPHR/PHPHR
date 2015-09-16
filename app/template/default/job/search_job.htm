@@ -1,0 +1,348 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="gbk"/>
+    <meta name="keywords" content="{yun:}$keywords{/yun}"/>
+    <meta name="description" content="{yun:}$description{/yun}"/>
+    <title>{yun:}$title{/yun}</title>
+    <link rel="stylesheet" type="text/css" href="{yun:}$config.sy_weburl{/yun}/resource/css/style.css"/>
+    <!--[if lte IE 6]>
+    <script src="{yun:}$config.sy_weburl{/yun}/resource/js/DD_belatedPNG_0.0.8a-min.js" type="text/javascript"></script>
+    <script type="text/javascript">DD_belatedPNG.fix('*');</script><![endif]-->
+    <!-- 加载jQuery1.7.2版本-->
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/JQ_common.js"></script>
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery.SuperSlide.2.1.js"></script>
+</head>
+
+<body>
+<div id="header" style="background:url({yun:}$config.sy_weburl{/yun}/resource/images/ysd_63.jpg) repeat-x;">
+    <div class="header head1">
+        <dl class="h_top">
+            <dt>
+                <a href="{yun:}$config.sy_weburl{/yun}">
+                    <img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_64.jpg" class="logo">
+                </a>
+                <a href="{yun:}$config.sy_weburl{/yun}/job">
+                    <img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_65.jpg" class="h_btn">
+                </a>
+            </dt>
+            <dd>
+                <div style="height:33px;"></div>
+                <form method="get" name="" action="{yun:}$config.sy_weburl{/yun}/job/" target="_blank">
+                    <div id="searchTxt" class="searchTxt" onMouseOver="this.className='searchTxt searchTxtHover';"
+                         onMouseOut="this.className='searchTxt';">
+                        <div class="searchMenu">
+                            <input type="hidden" value="search" name="c"/>
+                            <input type="hidden" value="" name="provinceid" class="hid"/>
+
+                            <div class="searchSelected" id="searchSelected">选择</div>
+                            <div style="display:none;" class="searchTab" id="searchTab">
+                                <div class="radius" style="top:259px;"></div>
+                                <div class="radius" style="top:259px;left:59px;"></div>
+                                <ul>
+                                    {yun:}foreach item=v from=$city_index{/yun}
+                                    <li i="{yun:}$v{/yun}">{yun:}$city_name[$v]{/yun}</li>
+                                    {yun:}/foreach{/yun}
+                                </ul>
+                            </div>
+                        </div>
+                        <input name="keyword" type="text"/>
+                    </div>
+                    <div class="searchBtn">
+                        <button id="searchBtn" type="submit" value=""></button>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="hot">热门搜索：
+                        <a href="{yun:}$jobclassurl{/yun}keyword=会计">会计</a>
+                        <a href="{yun:}$jobclassurl{/yun}keyword=司机">司机</a>
+                        <a href="{yun:}$jobclassurl{/yun}keyword=销售">销售</a>
+                        <a href="{yun:}$jobclassurl{/yun}keyword=猎头">猎头</a>
+                        <a href="{yun:}$jobclassurl{/yun}keyword=文员">文员</a>
+                        <a href="{yun:}$jobclassurl{/yun}keyword=java">java</a>
+                        <a href="{yun:}$jobclassurl{/yun}keyword=日语">日语</a>
+                        <a href="{yun:}$jobclassurl{/yun}keyword=兼职">兼职</a>
+                        <a href="{yun:}$jobclassurl{/yun}keyword=采购">采购</a>
+                    </div>
+                </form>
+            </dd>
+        </dl>
+        <ul class="nav l">
+            {yun:}nav item=navlist hovclass=nav_list_hover nid=1{/yun}
+            <li>
+                <a class="{yun:}if $navlist.navclass{/yun}hover{yun:}/if{/yun}"
+                   href="{yun:}$navlist.url{/yun}" {yun:}if $navlist.eject {/yun} target="_blank"{yun:}/if{/yun}
+                class="png"> {yun:}$navlist.name{/yun}</a>
+                <div class="nav_icon"> {yun:}if $navlist.model=="new"{/yun} <img
+                        src="{yun:}$style{/yun}/images/new.gif"> {yun:}elseif $navlist.model=="hot"{/yun} <img
+                        src="{yun:}$style{/yun}/images/hotn.gif"> {yun:}/if{/yun}
+                </div>
+            </li>
+            {yun:}/nav{/yun}
+        </ul>
+        <div class="h_btn1 r">{yun:}if $username{/yun}<a href="{yun:}$config.sy_weburl{/yun}/member">{yun:}$cookie['username']{/yun}</a>{yun:}else{/yun}
+            <a href="{yun:}$config.sy_weburl{/yun}/index.php?m=login">登录</a> / <a
+                    href="{yun:}$config.sy_weburl{/yun}/index.php?m=register">注册</a>{yun:}/if{/yun}
+        </div>
+        <div class="h_btn2 r"><a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=jobadd">发布职位</a></div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div id="main" class="zrczgz">
+    <div style="background:#f7f7f7;">
+        <div class="main">
+            <div class="blank4"></div>
+            <div class="selectNumberScreen">
+                <div class="hasBeenSelected">
+                    <dl>
+                        <dt>已选条件：</dt>
+                        <dd style="display:none" class="clearDd">
+                            <div class="clearList"></div>
+                            <div style="display:none;" class="eliminateCriteria"><img src="images/ysd_71.jpg"></div>
+                        </dd>
+                    </dl>
+                </div>
+                <div id="selectList" class="screenBox screenBackground">
+                    <dl class="listIndex" attr="terminal_brand_s">
+                        <dt>热门人才：</dt>
+                        <dd>
+                            <a href="javascript:void(0)">研发总监</a>
+                            <a href="javascript:void(0)">质量负责人</a>
+                            <a href="javascript:void(0)">注册专员</a>
+                            <a href="javascript:void(0)">质管部经理</a>
+                            <a href="javascript:void(0)">产品经理</a>
+                            <a href="javascript:void(0)">销售总监</a>
+                        </dd>
+                    </dl>
+                    <dl class="listIndex" attr="价格范围">
+                        <dt>意向职位：</dt>
+                        <dd>
+                            <a href="javascript:void(0)">研发总监</a>
+                            <a href="javascript:void(0)">质量负责人</a>
+                            <a href="javascript:void(0)">注册专员</a>
+                            <a href="javascript:void(0)">质管部经理</a>
+                            <a href="javascript:void(0)">产品经理</a>
+                            <a href="javascript:void(0)">销售总监</a>
+                        </dd>
+                    </dl>
+                    <dl class=" listIndex" attr="terminal_os_s">
+                        <dt>意向地区：</dt>
+                        <dd style="height:25px;">
+                            <i class="more"></i>
+                            <a href="javascript:void(0)">北京</a>
+                            <a href="javascript:void(0)">广州</a>
+                            <a href="javascript:void(0)">上海</a>
+                            <a href="javascript:void(0)">重庆</a>
+                            <a href="javascript:void(0)">天津</a>
+                            <a href="javascript:void(0)">香港</a>
+                            <a href="javascript:void(0)">澳门</a>
+                            <a href="javascript:void(0)">河北</a>
+                            <a href="javascript:void(0)">石家庄</a>
+                            <a href="javascript:void(0)">保定</a>
+                            <a href="javascript:void(0)">黑龙江</a>
+                            <a href="javascript:void(0)">哈尔滨</a>
+                            <a href="javascript:void(0)">吉林</a>
+                            <a href="javascript:void(0)">长春</a>
+                            <a href="javascript:void(0)">吉林</a>
+                            <a href="javascript:void(0)">辽宁</a>
+                            <a href="javascript:void(0)">保定</a>
+                            <a href="javascript:void(0)">黑龙江</a>
+                            <a href="javascript:void(0)">哈尔滨</a>
+                            <a href="javascript:void(0)">吉林</a>
+                            <a href="javascript:void(0)">长春</a>
+                            <a href="javascript:void(0)">吉林</a>
+                            <a href="javascript:void(0)">辽宁</a>
+                            <a href="javascript:void(0)">黑龙江</a>
+                            <a href="javascript:void(0)">哈尔滨</a>
+                            <a href="javascript:void(0)">吉林</a>
+                            <a href="javascript:void(0)">长春</a>
+                            <a href="javascript:void(0)">吉林</a>
+                            <a href="javascript:void(0)">辽宁</a>
+                        </dd>
+                    </dl>
+                    <dl class=" listIndex" attr="terminal_activity_s">
+                        <dt>工作年限：</dt>
+                        <dd>
+                            <a href="javascript:void(0)">不限</a>
+                            <a href="javascript:void(0)">药学</a>
+                            <a href="javascript:void(0)">中药学</a>
+                            <a href="javascript:void(0)">药物制剂</a>
+                            <a href="javascript:void(0)">临床医学</a>
+                            <a href="javascript:void(0)">制药工程</a>
+                        </dd>
+                    </dl>
+                    <dl class="noBorder listIndex" attr="terminal_sellFeature_s">
+                        <dt>工作经历：</dt>
+                        <dd>
+                            <a href="javascript:void(0)">生产/研发：</a>
+                            <a href="javascript:void(0)">+质量管理 </a>
+                            <a href="javascript:void(0)">+药品生产</a>
+                            <a href="javascript:void(0)">+药品研发</a>
+                            <a href="javascript:void(0)">+器械研发</a>
+                        </dd>
+                    </dl>
+                    <dl class="noBorder listIndex" attr="terminal_sellFeature_s">
+                        <dt>项目经验：</dt>
+                        <dd>
+                            <a href="javascript:void(0)">GMP认证</a>
+                            <a href="javascript:void(0)">GSP认证</a>
+                            <a href="javascript:void(0)">药品注册</a>
+                            <a href="javascript:void(0)">其他</a>
+                        </dd>
+                    </dl>
+                    <dl class="noBorder listIndex" attr="terminal_sellFeature_s">
+                        <dt>最高学历：</dt>
+                        <dd>
+                            <a href="javascript:void(0)">初中</a>
+                            <a href="javascript:void(0)">高中</a>
+                            <a href="javascript:void(0)">中专</a>
+                            <a href="javascript:void(0)">大专</a>
+                            <a href="javascript:void(0)">本科</a>
+                            <a href="javascript:void(0)">MBA</a>
+                            <a href="javascript:void(0)">硕士</a>
+                            <a href="javascript:void(0)">博士</a>
+                            <a href="javascript:void(0)">其他</a>
+                        </dd>
+                    </dl>
+                    <dl class="noBorder listIndex" attr="terminal_sellFeature_s">
+                        <dt>专    业：</dt>
+                        <dd>
+                            <a href="javascript:void(0)">药学</a>
+                            <a href="javascript:void(0)">中药学</a>
+                            <a href="javascript:void(0)">药物制剂</a>
+                            <a href="javascript:void(0)">药事管理</a>
+                            <a href="javascript:void(0)">药物制剂</a>
+                            <a href="javascript:void(0)">应用药学</a>
+                            <a href="javascript:void(0)">临床药学</a>
+                            <a href="javascript:void(0)">海洋药学</a>
+                        </dd>
+                    </dl>
+                    <dl class="noBorder listIndex" attr="terminal_sellFeature_s">
+                        <dt>毕业院校：</dt>
+                        <dd>
+                            <a href="javascript:void(0)">中国药科大学</a>
+                            <a href="javascript:void(0)">北京大学</a>
+                            <a href="javascript:void(0)">沈阳药科大学</a>
+                            <a href="javascript:void(0)">四川大学</a>
+                            <a href="javascript:void(0)">浙江大学</a>
+                        </dd>
+                    </dl>
+                    <dl class="noBorder listIndex" attr="terminal_sellFeature_s">
+                        <dt>职称/执业：</dt>
+                        <dd>
+                            <a href="javascript:void(0)">初级中药师</a>
+                            <a href="javascript:void(0)">初级西药师</a>
+                            <a href="javascript:void(0)">主管中药师</a>
+                            <a href="javascript:void(0)">主管西药师</a>
+                            <a href="javascript:void(0)">制药工程师</a>
+                            <a href="javascript:void(0)">中级药师</a>
+                        </dd>
+                    </dl>
+                    <dl class="noBorder listIndex" attr="terminal_sellFeature_s">
+                        <dt>目前工作状态：</dt>
+                        <dd>
+                            <a href="javascript:void(0)">目前稳定在岗</a>
+                            <a href="javascript:void(0)">计划离职</a>
+                            <a href="javascript:void(0)">已离职</a>
+                            <a href="javascript:void(0)">应届生</a>
+                        </dd>
+                    </dl>
+                    <dl class="noBorder listIndex last" attr="terminal_sellFeature_s">
+                        <dt>更新时间：</dt>
+                        <dd>
+                            <a href="javascript:void(0)">不限</a>
+                            <a href="javascript:void(0)">今天</a>
+                            <a href="javascript:void(0)">三天内</a>
+                            <a href="javascript:void(0)">一周内</a>
+                            <a href="javascript:void(0)">一月内</a>
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+            <div><img src="images/ysd_79.jpg"></div>
+            <div class="blank2" ></div>
+            <div class="m_tit"><div class="page"><a href="#" class="prev"></a><a href="#" class="next"></a></div><span>职位列表</span></div>
+            <div class="blank"></div>
+            <div class="m_wrap">
+                <div class="list2">
+                    <div class="img"><img src="images/ysd_134.jpg"></div>
+                    <div class="con">
+                        <div class="p1">网站应用开发工程师<span class="c1">成都<em>|</em>全职</span></div>
+                        <div class="p2"><span>7k-14k</span>全职  / 广州  / 本科</div>
+                        <div class="p2">管理规范、待遇丰厚、帅哥美女多</div>
+                    </div>
+                    <div class="con">
+                        <div class="p1"><span class="r c2">14:24发布</span>成都西可</div>
+                        <div class="p2">民营企业  /  150-500人  / 移动互联网   / 上市公司</div>
+                        <div class="p3"><img src="images/ysd_121.jpg"><img src="images/ysd_122.jpg"><img src="images/ysd_123.jpg"><img src="images/ysd_124.jpg"><img src="images/ysd_133.jpg"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="list2">
+                    <div class="img"><img src="images/ysd_134.jpg"></div>
+                    <div class="con">
+                        <div class="p1">网站应用开发工程师<span class="c1">成都<em>|</em>全职</span></div>
+                        <div class="p2"><span>7k-14k</span>全职  / 广州  / 本科</div>
+                        <div class="p2">管理规范、待遇丰厚、帅哥美女多</div>
+                    </div>
+                    <div class="con">
+                        <div class="p1"><span class="r c2">14:24发布</span>成都西可</div>
+                        <div class="p2">民营企业  /  150-500人  / 移动互联网   / 上市公司</div>
+                        <div class="p3"><img src="images/ysd_121.jpg"><img src="images/ysd_122.jpg"><img src="images/ysd_123.jpg"><img src="images/ysd_124.jpg"><img src="images/ysd_133.jpg"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="list2">
+                    <div class="img"><img src="images/ysd_134.jpg"></div>
+                    <div class="con">
+                        <div class="p1">网站应用开发工程师<span class="c1">成都<em>|</em>全职</span></div>
+                        <div class="p2"><span>7k-14k</span>全职  / 广州  / 本科</div>
+                        <div class="p2">管理规范、待遇丰厚、帅哥美女多</div>
+                    </div>
+                    <div class="con">
+                        <div class="p1"><span class="r c2">14:24发布</span>成都西可</div>
+                        <div class="p2">民营企业  /  150-500人  / 移动互联网   / 上市公司</div>
+                        <div class="p3"><img src="images/ysd_121.jpg"><img src="images/ysd_122.jpg"><img src="images/ysd_123.jpg"><img src="images/ysd_124.jpg"><img src="images/ysd_133.jpg"></div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="page1">
+                    <a href="#">上一页</a>
+                    <a href="#" class="hover">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">下一页</a>
+                </div>
+            </div>
+            <div><img src="images/ysd_78.jpg"></div>
+        </div>
+        <div style="height:75px;"></div>
+    </div>
+</div>
+<div id="footer">
+    <div class="footer">
+        <ul class="f_box">
+            <li>
+                <div class="p1">全国统一服务热线：</div>
+                <div class="p2">400-067-3800</div>
+                <div class="p3">工作日：9：00 ~ 18：00</div>
+            </li>
+            <li style="margin-right:0;">
+                <div class="p4"><a href="#">关于我们</a><a href="#">常见问题</a><a href="#">网站地图</a><a href="#">联系我们</a><a href="#">企业入驻</a><a href="#">意见反馈</a></div>
+                <div class="p5">Copyright 2015 广州国健医药咨询服务有限公司<br>
+                    版权所有   粤ICP备11016031号-4</div>
+            </li>
+            <li class="last">
+                <div class="p6"><a href="#"><p>新浪微博</p><img src="images/ysd_7.jpg"></a></div>
+                <div class="p6"><a href="#"><p>微信</p><img src="images/ysd_8.jpg"></a></div>
+                <div class="clear"></div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -136,7 +136,7 @@ $(window).load(function(){
     });
 	
 	$(".m_wrap1 .hd li").click(function(){
-		var v =$(this).html();
+		var v =$(this).data("value");
 		$(".m_wrap1 .hidden").attr("value",v)	
 	});
 

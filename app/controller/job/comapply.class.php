@@ -12,6 +12,9 @@
 
 class comapply_controller extends job_controller
 {
+    /**
+     * @TODO 查看工作详情
+     */
     function index_action()
     {
         $id = (int)$_GET['id'];
@@ -61,7 +64,8 @@ class comapply_controller extends job_controller
         }
 
         if ($JobInfo['r_status'] <> '2') {
-            $ComInfo = $UserinfoM->GetUserinfoOne(array('uid' => $JobInfo['uid']), array('field' => "`ant_num`,`linkqq`,`logo`,`address`,`linktel`,`linkman`,`linkphone`,`email_status`,`moblie_status`,`yyzz_status`,`content`,`x`,`y`", 'usertype' => 2));
+            $ComInfo = $UserinfoM->GetUserinfoOne(array('uid' => $JobInfo['uid']), array('field' => "`website`,`ant_num`,`linkmail`,`linkqq`,`logo`,`address`,`linktel`,`linkman`,`linkphone`,`email_status`,`moblie_status`,`yyzz_status`,`content`,`x`,`y`", 'usertype' => 2));
+
             $JobInfo['jobname'] = $JobInfo['name'];
             unset($JobInfo['name']);
             $JobInfo['jobrec'] = $JobInfo['rec'];
@@ -110,7 +114,8 @@ class comapply_controller extends job_controller
         $this->yunset("Info", $Job);
         $this->seo("comapply");
 
-        $this->yun_tpl(array('comapply'));
+//        $this->yun_tpl(array('comapply'));
+        $this->yun_tpl(array('comapply_job'));
     }
 
     function qrcode_action()

@@ -843,6 +843,7 @@ function select_city(id,type,name,gettype,ptype){
 		$("#job_postid").val('');
 	}
 	$.post(weburl+"/member/index.php?m=ajax&c=ajax_city",{id:id,gettype:gettype,ptype:ptype},function(data){
+        $("#city_name").html(data);
 		var jobaddtype=$("#jobaddtype").val();
 		if(jobaddtype=="lietou"){
 			data='<div class="m_post_job01">'+data+'</div>';

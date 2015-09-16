@@ -32,15 +32,15 @@
                 <ul class="zy zy_js">
                     <li class="qz on">
                         <i>全职</i>
-                        <input type="hidden" class="zy_input" checked="checked"/>
+                        <input type="hidden" name="type" class="zy_input" checked="checked"/>
                     </li>
                     <li class="jz">
                         <i>兼职</i>
-                        <input type="hidden" class="zy_input" />
+                        <input type="hidden" name="type" class="zy_input" />
                     </li>
                     <li class="sx">
                         <i>实习</i>
-                        <input type="hidden" class="zy_input"/>
+                        <input type="hidden" name="type" class="zy_input"/>
                     </li>
                     <div class="clear"></div>
                 </ul>
@@ -56,14 +56,14 @@
                             <li myselect="{yun:}$v.id{/yun}">{yun:}$v.name{/yun}</li>
                             {yun:}/foreach{/yun}
                         </ul>
-                        <input type="hidden" class="select_hidden"/>
+                        <input type="hidden" name="job_post" class="select_hidden"/>
                     </dd>
                 </dl>
                 <div class="clear"></div>
             </div>
             <div class="list">
                 <span>职位名称：</span>
-                <input type="text" class="l text" placeholder="请选择" />
+                <input type="text" name="name" class="l text" placeholder="请选择" />
                 <div class="clear"></div>
             </div>
             <div class="list">
@@ -76,7 +76,7 @@
                             <li myselect="{yun:}$v{/yun}">{yun:}$comclass_name[$v]{/yun}</li>
                             {yun:}/foreach{/yun}
                         </ul>
-                        <input type="hidden" class="select_hidden"/>
+                        <input name="salary" type="hidden" class="select_hidden"/>
                     </dd>
                 </dl>
                 <div class="clear"></div>
@@ -88,7 +88,7 @@
                     <dd>
                         <ul>
                             {yun:}foreach from=$city_index key=j item=v{/yun}
-                            <li myselect="1"><a href="javascript:;" onclick="select_city('{yun:}$v{/yun}','province','{yun:}$city_name[$v]{/yun}','citys','city');"> {yun:}$city_name[$v]{/yun}</a></li>
+                            <li myselect="{yun:}$v{/yun}" onclick="select_city('{yun:}$v{/yun}','province','{yun:}$city_name[$v]{/yun}','citys','city');"><a href="javascript:;"> {yun:}$city_name[$v]{/yun}</a></li>
                             {yun:}/foreach{/yun}
                         </ul>
                         <input type="hidden" class="select_hidden"/>
@@ -97,6 +97,9 @@
                 <dl class="select l" id="select0">
                     <dt class="dt2">请选择</dt>
                     <dd>
+                        <div id="city_name">
+
+                        </div>
                         <input type="hidden" class="select_hidden"/>
                     </dd>
                 </dl>
