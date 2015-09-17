@@ -15,7 +15,7 @@ class link_model extends model{
     }
 
     function GetLinks(){
-        return $this->DB_select_all('admin_link');
+        return $this->DB_select_all('admin_link','');
     }
 
 

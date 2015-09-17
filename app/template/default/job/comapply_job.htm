@@ -87,7 +87,7 @@
             <div class="w700 l">
                 <div class="m_wrap6">
                     <div class="p1"><div class="r" style="padding-top:40px;"><a href="#"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_116.jpg"></a><span class="collect"><em>收藏</em> <input
-                            type="hidden"/></span></div><span class="c1">平面设计师</span><span class="c2">( 2名 )</span></div>
+                            type="hidden"/></span></div><span class="c1">{yun:}$Info.jobname{/yun}</span><span class="c2">( 2名 )</span></div>
                     <div class="p2"><span class="c1">月薪：</span><span class="c2">{yun:}if $Info.job_salary{/yun}{yun:}$Info.job_salary{/yun}{yun:}/if{/yun}</span></div>
                     <div class="p3"> {yun:}if $Info.job_city_one||$Info.job_city_two||$Info.job_city_three{/yun}{yun:}$Info.job_city_one{/yun}-{yun:}$Info.job_city_two{/yun}{yun:}$Info.job_city_three{/yun}</span> {yun:}/if{/yun}  /  {yun:}$Info.job_type{/yun}  /  学历{yun:}$Info.job_edu{/yun}  /  经验{yun:}$Info.job_exp{/yun}      {yun:}$Info.lastupdate|date_format:"%Y-%m-%d"{/yun}  更新</div>
                     <a href="#" class="btn"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_118.jpg"></a>
@@ -130,7 +130,7 @@
                     <!--图片未做大小限制-->
                     <div class="img"><img src="{yun:}if $Info.logo{/yun}{yun:}$config.sy_weburl{/yun}/{yun:}$Info.logo{/yun}{yun:}else{/yun}{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}{yun:}/if{/yun}"></div>
                     <!--<div class="p1">NicUp</div>-->
-                    <div class="p2">{yun:}$Info.com_name|mb_substr:0:14:'gbk'{/yun}</a></div>
+                    <div class="p2"><a href="{yun:}$Info.com_url{/yun}">{yun:}$Info.com_name|mb_substr:0:14:'gbk'{/yun}</a></div>
                     <div class="p3">企业官网：<a href="#">{yun:}$Info.website{/yun}</a></div>
                 </div>
                 <ul class="m_wrap9">

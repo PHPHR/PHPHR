@@ -1,0 +1,239 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="gbk"/>
+    <meta name="keywords" content="{yun:}$keywords{/yun}"/>
+    <meta name="description" content="{yun:}$description{/yun}"/>
+    <title>{yun:}$title{/yun}</title>
+    <link rel="stylesheet" type="text/css" href="{yun:}$config.sy_weburl{/yun}/resource/css/style.css"/>
+    <!--[if lte IE 6]>
+    <script src="{yun:}$config.sy_weburl{/yun}/resource/js/DD_belatedPNG_0.0.8a-min.js" type="text/javascript"></script>
+    <script type="text/javascript">    DD_belatedPNG.fix('*');</script><![endif]-->
+    <!-- 加载jQuery1.7.2版本-->
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/JQ_common.js"></script>
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery.SuperSlide.2.1.js"></script>
+</head>
+
+<body>
+<div id="header" style="background:url({yun:}$config.sy_weburl{/yun}/resource/images/ysd_63.jpg) repeat-x;">
+    <div class="header head1">
+        <dl class="h_top">
+            <dt>
+                <a href="{yun:}$config.sy_weburl{/yun}"><img
+                        src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_64.jpg" class="logo"></a>
+                <a href="{yun:}$config.sy_weburl{/yun}/resume"><img
+                        src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_137.jpg" class="h_btn"></a>
+            </dt>
+            <dd>
+                <div style="height:33px;"></div>
+                <form method="get" name="" action="{yun:}$config.sy_weburl{/yun}/job/" target="_blank">
+                    <div id="searchTxt" class="searchTxt" onMouseOver="this.className='searchTxt searchTxtHover';"
+                         onMouseOut="this.className='searchTxt';">
+                        <div class="searchMenu">
+                            <input type="hidden" value="search" name="c"/>
+                            <input type="hidden" value="0" name="" class="hid"/>
+
+                            <div class="searchSelected" id="searchSelected">选择</div>
+                            <div style="display:none;" class="searchTab" id="searchTab">
+                                <div class="radius" style="top:259px;"></div>
+                                <div class="radius" style="top:259px;left:59px;"></div>
+                                <ul>
+                                    {yun:}foreach item=v from=$citylist{/yun}
+                                    <li i="{yun:}$v['id']{/yun}">{yun:}$v['name']{/yun}</li>
+                                    {yun:}/foreach{/yun}
+                                </ul>
+                            </div>
+                        </div>
+                        <input name="keyword" type="text"/>
+                    </div>
+                    <div class="searchBtn">
+                        <button id="searchBtn" type="submit" value=""></button>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="hot">热门搜索：
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=会计">会计</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=司机">司机</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=销售">销售</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=猎头">猎头</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=文员">文员</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=java">java</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=日语">日语</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=兼职">兼职</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=采购">采购</a>
+                    </div>
+                </form>
+            </dd>
+        </dl>
+        <ul class="nav l">
+            {yun:}nav item=navlist hovclass=nav_list_hover nid=1{/yun}
+            <li>
+                <a class="{yun:}if $navlist.navclass{/yun}hover{yun:}/if{/yun}"
+                   href="{yun:}$navlist.url{/yun}" {yun:}if $navlist.eject {/yun} target="_blank"{yun:}/if{/yun}
+                class="png"> {yun:}$navlist.name{/yun}</a>
+                <div class="nav_icon"> {yun:}if $navlist.model=="new"{/yun} <img
+                        src="{yun:}$style{/yun}/images/new.gif"> {yun:}elseif $navlist.model=="hot"{/yun} <img
+                        src="{yun:}$style{/yun}/images/hotn.gif"> {yun:}/if{/yun}
+                </div>
+            </li>
+            {yun:}/nav{/yun}
+        </ul>
+        <div class="h_btn1 r">{yun:}if $cookie['username']{/yun}<a href="{yun:}$config.sy_weburl{/yun}/member">{yun:}$cookie['username']{/yun}</a>{yun:}else{/yun}
+            <a href="{yun:}$config.sy_weburl{/yun}/?m=login">登录</a> / <a
+                    href="{yun:}$config.sy_weburl{/yun}/?m=register">注册</a>{yun:}/if{/yun}
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<div id="main" class="zrczgz" style="background:#f7f7f7;">
+    <div class="m_wrap13">
+        <div class="main">
+            <div class="img"><img
+                    src="{yun:}if $com.logo{/yun}{yun:}$com.logo{/yun}{yun:}else{/yun}{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}{yun:}/if{/yun}"
+                    width="180" height="180"></div>
+            <div class="con">
+                <div class="p1">{yun:}$com.name|mb_substr:0:20:'gbk'{/yun}<i></i></div>
+                <div class="p2">{yun:}if !empty($ProductList){/yun}{yun:}foreach from=$ProductList
+                    item=row{/yun}{yun:}$row.title{/yun}{yun:}/foreach{/yun}{yun:}else{/yun}暂无简介{yun:}/if{/yun}
+                </div>
+                <!--福利-->
+                <!--<div class="p3"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_121.jpg"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_122.jpg"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_123.jpg"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_124.jpg"></div>-->
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="blank2"></div>
+        <div class="blank2"></div>
+        <div class="m_b">
+            <div class="w700 l" style="padding:0 32px;">
+                <dl class="m_wrap7">
+                    <dt>公司介绍</dt>
+                    <dd>
+                        <div class="con">
+                            <p>{yun:}$com.content{/yun}</p>
+                        </div>
+                    </dd>
+                    <dt>办公环境</dt>
+                    <dd>
+                        {yun:}show{/yun}
+                        {yun:}if !empty($show){/yun}
+                        <div class="picScroll-left">
+                            <div class="hd">
+                                <a class="next"></a>
+                                <a class="prev"></a>
+                            </div>
+                            <div class="bd">
+                                <ul class="picList">
+                                    {yun:}foreach from=$show item=row{/yun}
+                                    <li><img src="{yun:}$config.sy_weburl{/yun}/{yun:}$row.picurl{/yun}"></li>
+                                    {yun:}/foreach{/yun}
+                                </ul>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(".picScroll-left").slide({
+                                titCell: ".hd ul",
+                                mainCell: ".bd ul",
+                                autoPage: true,
+                                effect: "left",
+                                autoPlay: true,
+                                vis: 3,
+                                trigger: "click"
+                            });
+                        </script>
+                        {yun:}else{/yun}
+                        该企业还没有上传环境信息!
+                        {yun:}/if{/yun}
+                    </dd>
+
+                    <dt>
+                    <div class="txt">该公司近一个月共发布{yun:}$num{/yun}个招聘职位</div>
+                    招聘职位</dt>
+                    <dd>
+                        {yun:}if $num=='0'{/yun}
+                        <div>该企业现在暂时没有提供任何岗位</div>
+                        {yun:}else{/yun}
+                        {yun:}joblist item=jlist uid='auto.id'{/yun}
+                        <div class="list">
+                            <a href="{yun:}url m=job c=comapply id=$jlist.id{/yun}">
+                            <div class="p1">
+                                <span class="c2">{yun:}$jlist.lastupdate|date_format:"%Y-%m-%d"{/yun}</span>{yun:}$jlist.name{/yun}<span
+                                    class="c1">[{yun:}$jlist.job_city_two{/yun}]</span></div>
+                            <div class="p2">{yun:}$jlist.job_salary{/yun}<em>|</em>{yun:}$jlist.job_exp{/yun}<em>|</em>{yun:}$jlist.job_edu{/yun}
+                            </div>
+                            </a>
+                        </div>
+                        {yun:}/joblist{/yun}
+                        {yun:}/if{/yun}
+                    </dd>
+                </dl>
+            </div>
+            <div class="w234 l">
+                <dl class="m_wrap7">
+                    <dt>公司信息</dt>
+                    <dd>
+                        <div class="con1">
+                            {yun:}if $com.hy_info{/yun}<p>领域：{yun:}$com.hy_info{/yun}</p>{yun:}/if{/yun}
+                            {yun:}if $com.mun_info{/yun}<p>规模：{yun:}$com.mun_info{/yun} </p>{yun:}/if{/yun}
+                            {yun:}if $com.pr_info{/yun}<p>性质：{yun:}$com.pr_info{/yun} </p>{yun:}/if{/yun}
+                            {yun:}if $com.website{/yun} <p>官网：{yun:}$com.website{/yun}</p>{yun:}/if{/yun}
+                            {yun:}if $com.linkphone{/yun}<p>手机：{yun:}$com.linkphone{/yun}</p>{yun:}/if{/yun}
+                            {yun:}if $com.linktel{/yun}<p>固定电话：{yun:}$com.linktel{/yun}</p>{yun:}/if{/yun}
+                            {yun:}if $com.linkman{/yun}<p>联系人：{yun:}$com.linkman{/yun}</p>{yun:}/if{/yun}
+                            {yun:}if $com.linkmail{/yun}<p>邮箱：{yun:}$com.linkmail{/yun}</p>{yun:}/if{/yun}
+                            {yun:}if $com.address{/yun}<p>地址：{yun:}$com.address{/yun} </p>{yun:}/if{/yun}
+                        </div>
+                    </dd>
+                </dl>
+                <dl class="m_wrap7">
+                    <dt>企业最新分享</dt>
+                    <dd>
+                        {yun:}if !empty($NewsList){/yun}
+                        {yun:}foreach from=$NewsList item=row{/yun}
+                        <div class="con2">
+                            <p class="p1">{yun:}$row.title{/yun}</p>
+                            <!--<p class="p2">评论（544）  赞（54）</p>-->
+                            <!--<div class="btn"><a href="#"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_132.jpg"></a></div>-->
+                        </div>
+                        {yun:}/foreach{/yun}
+                        {yun:}else{/yun}
+                        <div class="con2">暂无企业分享
+                        </div>
+                        {yun:}/if{/yun}
+                    </dd>
+                </dl>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div style="height:105px;"></div>
+    </div>
+</div>
+<div id="footer">
+    <div class="footer">
+        <ul class="f_box">
+            <li>
+                <div class="p1">全国统一服务热线：</div>
+                <div class="p2">400-067-3800</div>
+                <div class="p3">工作日：9：00 ~ 18：00</div>
+            </li>
+            <li style="margin-right:0;">
+                <div class="p4"><a href="#">关于我们</a><a href="#">常见问题</a><a href="#">网站地图</a><a href="#">联系我们</a><a
+                        href="#">企业入驻</a><a href="#">意见反馈</a></div>
+                <div class="p5">Copyright 2015 广州国健医药咨询服务有限公司<br>
+                    版权所有 粤ICP备11016031号-4
+                </div>
+            </li>
+            <li class="last">
+                <div class="p6"><a href="#"><p>新浪微博</p><img
+                        src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_7.jpg"></a></div>
+                <div class="p6"><a href="#"><p>微信</p><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_8.jpg"></a>
+                </div>
+                <div class="clear"></div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

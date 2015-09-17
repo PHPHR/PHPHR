@@ -23,7 +23,8 @@ class index_controller extends common{
 		$this->yunset($CacheList);
 		$this->seo("firm");
 		$this->yunset(array("gettype"=>$_SERVER["QUERY_STRING"],"getinfo"=>$_GET));
-		$this->yun_tpl(array('index'));
+//		$this->yun_tpl(array('index'));
+		$this->yun_tpl(array('index_company'));
 	}
 	function public_action(){
 		$M=$this->MODEL("job");
@@ -67,6 +68,10 @@ class index_controller extends common{
 		$data['company_name_desc']=$row['content'];
 		return $data;
 	}
+
+	/**
+	 * @TODO 显示公司信息
+	 */
     function show_action(){
     	$UserinfoM=$this->MODEL('userinfo');
     	$AskM=$this->MODEL('ask');
@@ -115,7 +120,7 @@ class index_controller extends common{
 			$isatn=$AskM->GetAtnOne(array("uid"=>$this->uid,"sc_uid"=>(int)$_GET['id']));
 			$this->yunset("isatn",$isatn);
 		}
-
+		$this->yunset('citylist', $this->getCityInfo());
         $this->yunset("num",$num);
         $this->yunset("look_msg",$look_msg);
         $this->yunset("looktype",$looktype);
@@ -125,6 +130,13 @@ class index_controller extends common{
 		$this->seo("company_index");
     	$this->comtpl("index");
     }
+
+	function getCityInfo(){
+		$cityModel = $this->MODEL('city');
+		return $cityModel->GetProvinceList();
+	}
+
+
 	function compl_action(){
 		$M=$this->MODEL('job');
 		$CompanyM=$this->MODEL('company');
@@ -163,7 +175,7 @@ class index_controller extends common{
         $UserinfoM=$this->MODEL('userinfo');
         $statis=$UserinfoM->GetUserstatisOne(array("uid"=>(int)$_GET['id']),array('usertype'=>2));
         if($statis['comtpl'] && $statis['comtpl']!="default" && !$_GET['style']){
-            $tplurl=$statis[comtpl];
+            $tplurl=$statis['comtpl'];
         }else{
             $tplurl="default";
         }
@@ -172,8 +184,11 @@ class index_controller extends common{
         }
 		$this->yunset(array("com_style"=>$this->config['sy_weburl']."/app/template/company/".$tplurl."/","comstyle"=>TPL_PATH."company/".$tplurl."/"));
 
-		$this->yuntpl(array('company/'.$tplurl."/".$tpl));
+//		$this->yuntpl(array('company/'.$tplurl."/".$tpl));
+		$this->yuntpl(array('company/default/index_company'));
 	}
+
+
 	function productshow_action(){
 		$CompanyM=$this->MODEL("company");
 		$AskM=$this->MODEL('ask');

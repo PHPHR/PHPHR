@@ -9,6 +9,7 @@
 * 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
  */
 class company_controller extends common{
+
 	function index_action(){
 		$this->rightinfo();
 		$this->get_moblie(); 
@@ -29,6 +30,10 @@ class company_controller extends common{
 		$this->yunset("headertitle","公司搜索");
 		$this->yuntpl(array('wap/company'));
 	}
+
+	/**
+	 * @TODO 显示公司信息
+	 */
 	function show_action(){
 		$this->rightinfo();
 		$this->get_moblie(); 

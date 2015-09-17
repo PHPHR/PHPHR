@@ -14,11 +14,12 @@ class index_controller extends job_controller
         $this->yunset($CacheList);
 
         $joburl = $this->config['sy_jobdir'] != "" ? $this->config['sy_weburl'] . "/job/?c=search&" : $joburl = $this->config['sy_weburl'] . "/index.php?m=job&c=search&";
+
         $this->yunset('jobclassurl',$joburl);
 
         $this->seo("com");
-            $this->yun_tpl(array('index'));
-//        $this->yun_tpl(array('index_job'));
+//            $this->yun_tpl(array('index'));
+        $this->yun_tpl(array('index_job'));
         } else {
             $this->comsearch();
         }
@@ -113,8 +114,8 @@ class index_controller extends job_controller
             $this->yunset("zpjob1son", $zpjob1son);
         }
         $this->seo("com_search");
-        $this->yun_tpl(array('search'));
-//        $this->yun_tpl(array('search_job'));
+//        $this->yun_tpl(array('search'));
+        $this->yun_tpl(array('search_job'));
     }
 
     function search_action()
