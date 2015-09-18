@@ -114,6 +114,10 @@ class comapply_controller extends job_controller
         $this->yunset("Info", $Job);
         $this->seo("comapply");
 
+        $ResumeM=$this->MODEL("resume");
+        $rows=$ResumeM->GetResumeExpectList(array("uid"=>$this->uid),array("field"=>"`id`,`name`"));
+        $this->yunset('eid', $rows[0]['id']);
+
 //        $this->yun_tpl(array('comapply'));
         $this->yun_tpl(array('comapply_job'));
     }

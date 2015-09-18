@@ -1,12 +1,14 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta charset="gbk" />
-    <meta name="keywords" content="{yun:}$keywords{/yun}" />
-    <meta name="description" content="{yun:}$description{/yun}" />
+    <meta charset="gbk"/>
+    <meta name="keywords" content="{yun:}$keywords{/yun}"/>
+    <meta name="description" content="{yun:}$description{/yun}"/>
     <title>{yun:}$title{/yun}</title>
-    <link rel="stylesheet" type="text/css" href="{yun:}$config.sy_weburl{/yun}/resource/css/style.css" />
-    <!--[if lte IE 6]><script src="{yun:}$config.sy_weburl{/yun}/resource/js/DD_belatedPNG_0.0.8a-min.js" type="text/javascript"></script><script type="text/javascript">	DD_belatedPNG.fix('*');</script><![endif]-->
+    <link rel="stylesheet" type="text/css" href="{yun:}$config.sy_weburl{/yun}/resource/css/style.css"/>
+    <!--[if lte IE 6]>
+    <script src="{yun:}$config.sy_weburl{/yun}/resource/js/DD_belatedPNG_0.0.8a-min.js" type="text/javascript"></script>
+    <script type="text/javascript">    DD_belatedPNG.fix('*');</script><![endif]-->
     <!-- 加载jQuery1.7.2版本-->
     <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/JQ_common.js"></script>
@@ -53,29 +55,35 @@
                     </div>
                     <div class="clear"></div>
                     <div class="hot">热门搜索：
-                        <a href="{yun:}$jobclassurl{/yun}keyword=会计">会计</a>
-                        <a href="{yun:}$jobclassurl{/yun}keyword=司机">司机</a>
-                        <a href="{yun:}$jobclassurl{/yun}keyword=销售">销售</a>
-                        <a href="{yun:}$jobclassurl{/yun}keyword=猎头">猎头</a>
-                        <a href="{yun:}$jobclassurl{/yun}keyword=文员">文员</a>
-                        <a href="{yun:}$jobclassurl{/yun}keyword=java">java</a>
-                        <a href="{yun:}$jobclassurl{/yun}keyword=日语">日语</a>
-                        <a href="{yun:}$jobclassurl{/yun}keyword=兼职">兼职</a>
-                        <a href="{yun:}$jobclassurl{/yun}keyword=采购">采购</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=会计">会计</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=司机">司机</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=销售">销售</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=猎头">猎头</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=文员">文员</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=java">java</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=日语">日语</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=兼职">兼职</a>
+                        <a href="{yun:}$config.sy_weburl{/yun}/job/?keyword=采购">采购</a>
                     </div>
                 </form>
             </dd>
         </dl>
         <ul class="nav l">
-            <li><a href="#" class="hover">职位首页</a></li>
-            <li><a href="#">找职位</a></li>
-            <li><a href="#">找企业</a></li>
-            <li><a href="#">企业分享</a></li>
-            <li><a href="#">委托求职</a></li>
-            <li><a href="#">我的简历</a></li>
+            {yun:}nav item=navlist hovclass=nav_list_hover nid=1{/yun}
+            <li>
+                <a class="{yun:}if $navlist.navclass{/yun}hover{yun:}/if{/yun}"
+                   href="{yun:}$navlist.url{/yun}" {yun:}if $navlist.eject {/yun} target="_blank"{yun:}/if{/yun}
+                class="png"> {yun:}$navlist.name{/yun}</a>
+                <div class="nav_icon"> {yun:}if $navlist.model=="new"{/yun} <img
+                        src="{yun:}$style{/yun}/images/new.gif"> {yun:}elseif $navlist.model=="hot"{/yun} <img
+                        src="{yun:}$style{/yun}/images/hotn.gif"> {yun:}/if{/yun}
+                </div>
+            </li>
+            {yun:}/nav{/yun}
         </ul>
         <div class="h_btn1 r">{yun:}if $cookie['username']{/yun}<a href="{yun:}$config.sy_weburl{/yun}/member">{yun:}$cookie['username']{/yun}</a>{yun:}else{/yun}
-            <a href="{yun:}$config.sy_weburl{/yun}/?m=login">登录</a> / <a href="{yun:}$config.sy_weburl{/yun}/?m=register">注册</a>{yun:}/if{/yun}
+            <a href="{yun:}$config.sy_weburl{/yun}/?m=login">登录</a> / <a
+                    href="{yun:}$config.sy_weburl{/yun}/?m=register">注册</a>{yun:}/if{/yun}
         </div>
         <div class="clear"></div>
     </div>
@@ -86,85 +94,148 @@
         <div class="m_b">
             <div class="w700 l">
                 <div class="m_wrap6">
-                    <div class="p1"><div class="r" style="padding-top:40px;"><a href="#"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_116.jpg"></a><span class="collect"><em>收藏</em> <input
-                            type="hidden"/></span></div><span class="c1">{yun:}$Info.jobname{/yun}</span><span class="c2">( 2名 )</span></div>
-                    <div class="p2"><span class="c1">月薪：</span><span class="c2">{yun:}if $Info.job_salary{/yun}{yun:}$Info.job_salary{/yun}{yun:}/if{/yun}</span></div>
-                    <div class="p3"> {yun:}if $Info.job_city_one||$Info.job_city_two||$Info.job_city_three{/yun}{yun:}$Info.job_city_one{/yun}-{yun:}$Info.job_city_two{/yun}{yun:}$Info.job_city_three{/yun}</span> {yun:}/if{/yun}  /  {yun:}$Info.job_type{/yun}  /  学历{yun:}$Info.job_edu{/yun}  /  经验{yun:}$Info.job_exp{/yun}      {yun:}$Info.lastupdate|date_format:"%Y-%m-%d"{/yun}  更新</div>
-                    <a href="#" class="btn"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_118.jpg"></a>
-                </div>
-                <dl class="m_wrap7">
-                    <dt>职位描述</dt>
-                    <dd>
-                        <div class="con">
-                            {yun:}$Info.description{/yun}
-                        </div>
-                    </dd>
-                    <dt>联系方式</dt>
-                    <dd>
-                        <div class="con">
-                            <p>公司地址：{yun:}$Info.address{/yun}</p>
-                            <p>邮箱：{yun:}$Info.linktel{/yun}</p>
-                            <p>电话：{yun:}$Info.linktel{/yun}</p>
-                            <p>手机：{yun:}$Info.linkphone{/yun}</p>
-                            <p>联系人：{yun:}$Info.linkman{/yun}</p>
-                            <p>网址：www.baidu.com</p>
-                        </div>
-                    </dd>
-                    <dt>相似职位</dt>
-                    {yun:}joblist limit=4 order=rec  noid='@Info.id' jobids='@Info.job1' namelen=6  item=job_jia key=key{/yun}
-
-                    <dd>
-                        <div class="list">
-                            <div class="p1"><span class="c2">{yun:}$job_jia.time{/yun}</span>{yun:}$job_jia.name{/yun}<span class="c1">[{yun:}$job_jia.job_city_two{/yun}]</span></div>
-                            <div class="p2">{yun:}$job_jia.job_salary{/yun}<em>|</em>经验{yun:}$job_jia.job_exp{/yun}<em>|</em>学历{yun:}$job_jia.job_edu{/yun}</div>
-                        </div>
-                    </dd>
-                    {yun:}/joblist{/yun}
-                    {yun:}if !$job_jia{/yun}
-                    <dd><div class="list">暂无相似职位</div></dd>
+                    <div class="p1">
+                        <div class="r" style="padding-top:40px;"><a href="#"><img
+                                src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_116.jpg"></a><span
+                                class="collect"><em>收藏</em> <input
+                                type="hidden"/></span></div>
+                        <span class="c1">{yun:}$Info.jobname{/yun}</span><span class="c2">( {yun:}$Info.job_number{/yun}名 )</span>
+                    </div>
+                    <div class="p2"><span class="c1">月薪：</span><span class="c2">{yun:}if !$Info.job_salary || $Info.job_salary=='不限' {/yun}面议{yun:}else{/yun}{yun:}$Info.job_salary{/yun}{yun:}/if{/yun}</span>
+                    </div>
+                    <div class="p3">
+                        {yun:}if
+                        $Info.job_city_one||$Info.job_city_two||$Info.job_city_three{/yun}{yun:}$Info.job_city_two{/yun}</span>
+                        {yun:}/if{/yun} / {yun:}$Info.job_type{/yun} / 学历{yun:}$Info.job_edu{/yun} /
+                        经验{yun:}$Info.job_exp{/yun} {yun:}$Info.lastupdate|date_format:"%Y-%m-%d"{/yun} 更新
+                    </div>
+                    <div class="p4">
+                    <!--点击申请 start-->
+                    {yun:}if $stop!='1'&& $entype!='1'{/yun}
+                    {yun:}if $usertype==1{/yun}
+                    {yun:}if $userid_job{/yun}
+                    <a href="javascript:;" class="btn" id="sq_job">投递简历</a>
+                    {yun:}else{/yun}
+                    <a id="sq_job" href="javascript:;">申请此职位</a>
                     {yun:}/if{/yun}
-                </dl>
-            </div>
-            <div class="w200 l">
-                <div class="m_wrap8">
-                    <!--图片未做大小限制-->
-                    <div class="img"><img src="{yun:}if $Info.logo{/yun}{yun:}$config.sy_weburl{/yun}/{yun:}$Info.logo{/yun}{yun:}else{/yun}{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}{yun:}/if{/yun}"></div>
-                    <!--<div class="p1">NicUp</div>-->
-                    <div class="p2"><a href="{yun:}$Info.com_url{/yun}">{yun:}$Info.com_name|mb_substr:0:14:'gbk'{/yun}</a></div>
-                    <div class="p3">企业官网：<a href="#">{yun:}$Info.website{/yun}</a></div>
-                </div>
-                <ul class="m_wrap9">
-                    <li>行业属性：{yun:}$Info.job_hy{/yun}</li>
-                    <li>企业规模：{yun:}$Info.job_mun{/yun}人</li>
-                    <li>企业性质：{yun:}$Info.job_pr{/yun}</li>
-                    <!--<li><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_121.jpg">-->
-                        <!--<img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_122.jpg">-->
-                        <!--<img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_123.jpg">-->
-                        <!--<img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_124.jpg">-->
-                    <!--</li>-->
-                </ul>
-                <dl class="m_wrap10">
-                    <dt>其他职位</dt>
-                    <dd>
-                        {yun:}joblist uid='@Info.uid' noid='@Info.id' namelen=9 limit=3 item=job{/yun}
-                        <div class="list">
-                            <div class="p1">{yun:}$job.name{/yun} <span>[{yun:}$job.job_city_one{/yun}{yun:}$job.job_city_two{/yun}]</span></div>
-                            <div class="p2">{yun:}$job.job_salary{/yun} |{yun:}$job.job_exp{/yun}经验</div>
+                    {yun:}else{/yun}
+                    {yun:}if $uid{/yun}
+                    <a onclick="javascript:alert('只有个人用户才能申请');" href="javascript:;">申请此职位</a>
+                    {yun:}else{/yun}
+                    <a onclick="javascript:alert('请登录');" href="javascript:;" class="comapply_sq_submit">申请此职位</a>
+                    {yun:}/if{/yun}
+                    {yun:}/if{/yun}
+                    {yun:}if $usertype==1{/yun}
+                    <a href="javascript:void(0);" onclick="fav_job('{yun:}$Info.id{/yun}','2');">收藏此职位</a>
+                    {yun:}else{/yun}
+                    {yun:}if $uid{/yun}
+                    <a href="javascript:void(0);" onclick="alert('只有个人用户才能收藏', 2, 8)">收藏此职位</a>
+                    {yun:}else{/yun}
+                    <a href="javascript:void(0);" onclick="showlogin('1');" class="comapply_sq_sc">收藏此职位</a>
+                    {yun:}/if{/yun}
+                    {yun:}/if{/yun}
+                    <a href="javascript:;" onclick="$('#getwapurl').toggle();"
+                       class="comapply_sq_cy">手机浏览</a>
+                    <div class="comapply_sq_r_cy" id="getwapurl" style="display:none">
+                        <div class="comapply_sq_r_cont"><i class="comapply_sq_r_cont_icon"></i>
+                            <img src="{yun:}url m=job c=comapply a=qrcode id=$Info.id{/yun}" width="130"
+                                 height="130"/>
                         </div>
-                        {yun:}/joblist{/yun}
-                        <!--查看其它职位-->
-                        <!--<div class="btn"><a href="#"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_125.jpg"></a></div>-->
-                        {yun:}if !$job{/yun}
-                        <div class="Company_other_no_msg">暂无其他职位</div>
-                        {yun:}/if{/yun}
+                    </div>
 
-                    </dd>
-                </dl>
+                </div>
+                {yun:}/if{/yun}
+                <!--点击申请结束-->
+
+
             </div>
-            <div class="clear"></div>
+            <dl class="m_wrap7">
+                <dt>职位描述</dt>
+                <dd>
+                    <div class="con">
+                        {yun:}$Info.description{/yun}
+                    </div>
+                </dd>
+                <dt>联系方式</dt>
+                <dd>
+                    <div class="con">
+                        <p>公司地址：{yun:}$Info.address{/yun}</p>
+
+                        <p>邮箱：{yun:}$Info.linktel{/yun}</p>
+
+                        <p>电话：{yun:}$Info.linktel{/yun}</p>
+
+                        <p>手机：{yun:}$Info.linkphone{/yun}</p>
+
+                        <p>联系人：{yun:}$Info.linkman{/yun}</p>
+
+                        <p>网址：www.baidu.com</p>
+                    </div>
+                </dd>
+                <dt>相似职位</dt>
+                {yun:}joblist limit=4 order=rec noid='@Info.id' jobids='@Info.job1' namelen=6 item=job_jia key=key{/yun}
+
+                <dd>
+                    <div class="list">
+                        <div class="p1"><span class="c2">{yun:}$job_jia.time{/yun}</span>{yun:}$job_jia.name{/yun}<span
+                                class="c1">[{yun:}$job_jia.job_city_two{/yun}]</span></div>
+                        <div class="p2">
+                            {yun:}$job_jia.job_salary{/yun}<em>|</em>经验{yun:}$job_jia.job_exp{/yun}<em>|</em>学历{yun:}$job_jia.job_edu{/yun}
+                        </div>
+                    </div>
+                </dd>
+                {yun:}/joblist{/yun}
+                {yun:}if !$job_jia{/yun}
+                <dd>
+                    <div class="list">暂无相似职位</div>
+                </dd>
+                {yun:}/if{/yun}
+            </dl>
         </div>
-        <div style="height:105px;"></div>
+        <div class="w200 l">
+            <div class="m_wrap8">
+                <!--图片未做大小限制-->
+                <div class="img"><img width="146" height="146"
+                        src="{yun:}if $Info.logo{/yun}{yun:}$config.sy_weburl{/yun}/{yun:}$Info.logo{/yun}{yun:}else{/yun}{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}{yun:}/if{/yun}">
+                </div>
+                <!--<div class="p1">NicUp</div>-->
+                <div class="p2"><a href="{yun:}$Info.com_url{/yun}">{yun:}$Info.com_name|mb_substr:0:14:'gbk'{/yun}</a>
+                </div>
+                <div class="p3">企业官网：<a href="#">{yun:}$Info.website{/yun}</a></div>
+            </div>
+            <ul class="m_wrap9">
+                <li>行业属性：{yun:}$Info.job_hy{/yun}</li>
+                <li>企业规模：{yun:}$Info.job_mun{/yun}人</li>
+                <li>企业性质：{yun:}$Info.job_pr{/yun}</li>
+                <!--<li><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_121.jpg">-->
+                <!--<img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_122.jpg">-->
+                <!--<img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_123.jpg">-->
+                <!--<img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_124.jpg">-->
+                <!--</li>-->
+            </ul>
+            <dl class="m_wrap10">
+                <dt>其他职位</dt>
+                <dd>
+                    {yun:}joblist uid='@Info.uid' noid='@Info.id' namelen=9 limit=3 item=job{/yun}
+                    <a href="{yun:}$job.job_url{/yun}"><div class="list">
+                        <div class="p1">{yun:}$job.name{/yun}<span>[{yun:}$job.job_city_two{/yun}]</span>
+                        </div>
+                        <div class="p2">{yun:}$job.job_salary{/yun} |{yun:}$job.job_exp{/yun}经验</div>
+                    </div></a>
+                    {yun:}/joblist{/yun}
+                    <!--查看其它职位-->
+                    <!--<div class="btn"><a href="#"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_125.jpg"></a></div>-->
+                    {yun:}if !$job{/yun}
+                    <div class="Company_other_no_msg">暂无其他职位</div>
+                    {yun:}/if{/yun}
+
+                </dd>
+            </dl>
+        </div>
+        <div class="clear"></div>
     </div>
+    <div style="height:105px;"></div>
+</div>
 </div>
 <div id="footer">
     <div class="footer">
@@ -175,13 +246,17 @@
                 <div class="p3">工作日：9：00 ~ 18：00</div>
             </li>
             <li style="margin-right:0;">
-                <div class="p4"><a href="#">关于我们</a><a href="#">常见问题</a><a href="#">网站地图</a><a href="#">联系我们</a><a href="#">企业入驻</a><a href="#">意见反馈</a></div>
+                <div class="p4"><a href="#">关于我们</a><a href="#">常见问题</a><a href="#">网站地图</a><a href="#">联系我们</a><a
+                        href="#">企业入驻</a><a href="#">意见反馈</a></div>
                 <div class="p5">Copyright 2015 广州国健医药咨询服务有限公司<br>
-                    版权所有   粤ICP备11016031号-4</div>
+                    版权所有 粤ICP备11016031号-4
+                </div>
             </li>
             <li class="last">
-                <div class="p6"><a href="#"><p>新浪微博</p><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_7.jpg"></a></div>
-                <div class="p6"><a href="#"><p>微信</p><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_8.jpg"></a></div>
+                <div class="p6"><a href="#"><p>新浪微博</p><img
+                        src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_7.jpg"></a></div>
+                <div class="p6"><a href="#"><p>微信</p><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_8.jpg"></a>
+                </div>
                 <div class="clear"></div>
             </li>
             <div class="clear"></div>
@@ -190,3 +265,93 @@
 </div>
 </body>
 </html>
+
+<script>
+    var weburl = "{yun:}$config.sy_weburl{/yun}";
+    $("#sq_job").on("click", function () {
+        var _this = $(this);
+        $.post("{yun:}$config.sy_weburl{/yun}/index.php?m=ajax&c=sq_job",
+//        $.post("{yun:}$config.sy_weburl{/yun}/?m=ajax&c=index_ajaxjob",
+                {
+                    companyname: "{yun:}$Info.com_name{/yun}",
+                    jobname: "{yun:}$Info.jobname{/yun}",
+                    companyuid: "{yun:}$Info.uid{/yun}",
+                    jobid: "{yun:}$Info.id{/yun}",
+                    eid: "{yun:}$Info.id{/yun}", //简历ID
+                },
+                function (data, status) {
+                    if (data == 0) {
+                        alert('请先登录!');
+                    }
+                    if (data == 1) {
+                        alert('投递成功!');
+                        _this.text("已经投递")
+                    }
+                    if (data == 2) {
+                        alert('系统出错, 请稍后重试');
+                    }
+                    if (data == 3) {
+                        alert('你已经投递该职位, 请一周后再投递');
+                        _this.text("已经投递").off();
+
+                    }
+                    if (data == 4) {
+                        alert('你不符合该公司要求, 不能投递');
+                    }
+                    if (data == 5) {
+                        alert('职位已过期');
+                    }
+                    if (data == 6) {
+                        alert('该职位不存在');
+                    }
+                });
+    });
+
+
+    //    点击收藏
+    function fav_job(id, type) {
+        $.post(weburl + "/index.php?m=ajax&c=favjobuser", {id: id}, function (data) {
+            if (data == 1) {
+                var i = $.layer({
+                    area: ['auto', 'auto'],
+                    dialog: {
+                        msg: '收藏成功，是否返回个人中心？',
+                        btns: 2,
+                        type: 4,
+                        btn: ['查看收藏', '关闭'],
+                        yes: function () {
+                            window.location.href = weburl + "/member/index.php?c=favorite";
+                            window.event.returnValue = false;
+                            return false;
+                        },
+                        no: function () {
+//                            layer.close(i);
+                        }
+                    }
+                });
+            } else if (data == 2) {
+                alert('系统出错，请稍后再试！');
+                return false;
+            } else if (data == 3) {
+                alert('您已收藏过该职位！');
+                return false;
+            } else if (data == 0) {
+                if (type == 2) {
+                    $("#touch_lo").hide();
+                    $("#tologoin").show("1000");
+                } else {
+                    alert('请先登录！');
+                    return false;
+                }
+            } else if (data == 4) {
+                if (type == 2) {
+                    $("#touch_lo").hide();
+                    $("#tologoin").show("1000");
+                } else {
+                    alert('对不起，您不是个人用户，无法收藏职位！');
+                    return false;
+                }
+            }
+        });
+    }
+</script>

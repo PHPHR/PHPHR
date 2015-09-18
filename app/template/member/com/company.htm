@@ -30,21 +30,18 @@
             <div class="list">
                 <div class="l"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/pic10.jpg" /></div>
                 <div class="r zzz">
-                    <p class="p1">您好，<a href="#">广州国健医药咨询服务有限公司！</a>您有<em>5</em>条未读消息！</p>
-                    <p class="p2">我的多币：<em class="e1">1000</em><em>个</em><input type="button" class="button" value="立刻充值" /></p>
+                    <p class="p1">您好，<a href="#">{yun:}$company.name{/yun}</a>您有<em>5</em>条未读消息！</p>
+                    <p class="p2">我的多币：<em class="e1">{yun:}$statis.integral{/yun}</em><em>个</em><input type="button" class="button" value="立刻充值" /></p>
                 </div>
                 <div class="clear"></div>
             </div>
             <div class="tq">
                 <p class="p1">您的特权：</p>
-                <p class="p2">1. 每日可发布职位5个，今日剩5个。<a href="#">→发布职位</a></p>
-                <p class="p2">1. 每日可发布职位5个，今日剩5个。<a href="#">→发布职位</a></p>
-                <p class="p2">1. 每日可发布职位5个，今日剩5个。<a href="#">→发布职位</a></p>
-                <p class="p2">1. 每日可发布职位5个，今日剩5个。<a href="#">→发布职位</a></p>
+                <p class="p2">1. 每日可发布职位5个，今日剩{yun:}if $statis.vip_etime>time()||$statis.vip_etime=="0"{/yun}{yun:}if $statis.rating_type==1{/yun}{yun:}$statis.job_num{/yun}{yun:}else{/yun}无限{yun:}/if{/yun}{yun:}else{/yun}0{yun:}/if{/yun}个。<a href="#">→发布职位</a></p>
             </div>
         </div>
         <div class="box2">
-            <p>未处理的简历 （<em>1份</em>）</p>
+            <p>未处理的简历 （<em>{yun:}$de_resume{/yun}份</em>）</p>
             <table>
                 <tr class="tr1">
                     <td class="td1" width="115">姓名</td>
@@ -55,33 +52,19 @@
                     <td width="121">投递职位</td>
                     <td width="94">投递时间</td>
                 </tr>
+                {yun:}if $rows{/yun}
+                {yun:}foreach item=v from=$rows{/yun}
                 <tr class="tr2">
-                    <td class="td1">张小姐</td>
+                    <td class="td1">$v.name</td>
                     <td>广州</td>
-                    <td>大专</td>
+                    <td>$v.edu</td>
                     <td>药学</td>
-                    <td>3年经验</td>
-                    <td>执业药师</td>
+                    <td>$v.exp</td>
+                    <td>$v.jobname</td>
                     <td>2015-7-8</td>
                 </tr>
-                <tr class="tr2">
-                    <td class="td1">张小姐</td>
-                    <td>广州</td>
-                    <td>大专</td>
-                    <td>药学</td>
-                    <td>3年经验</td>
-                    <td>执业药师</td>
-                    <td>2015-7-8</td>
-                </tr>
-                <tr class="tr2">
-                    <td class="td1">张小姐</td>
-                    <td>广州</td>
-                    <td>大专</td>
-                    <td>药学</td>
-                    <td>3年经验</td>
-                    <td>执业药师</td>
-                    <td>2015-7-8</td>
-                </tr>
+                {yun:}/foreach{/yun}
+                {yun:}/if{/yun}
             </table>
         </div>
     </div>

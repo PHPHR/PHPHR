@@ -32,12 +32,11 @@ class index_controller extends company{
 			}
 			$this->yunset("company_rating",$company_rating);
 		}
-		
 		$_GET['cityid']=$company['cityid'];
 		$_GET['hy']=$company['hy'];
 		
 		$atn=$this->obj->DB_select_all("atn","`sc_uid`='".$this->uid."' and `usertype`='1' order by `id` desc");   
-		
+		$this->offerlist();
 		$normal_job_num=$this->obj->DB_select_num("company_job","`uid`='".$this->uid."' and `state`='1' and `edate`>'".time()."'");
 		$statis['integral']=number_format($statis['integral']);
  		$this->yunset("statis",$statis);
@@ -49,5 +48,85 @@ class index_controller extends company{
 		$this->yunset("js_def",1);
 		$this->com_tpl('company');
 	}
+
+    protected function offerlist()
+    {
+        $where='1';
+        if(!empty($_GET['keyword'])){
+            $resume=$this->obj->DB_select_all("resume","`r_status`<>'2' and `name` like '%".$_GET['keyword']."%'","`name`,`edu`,`uid`");
+            if(is_array($resume) && !empty($resume)){
+                foreach($resume as $v){
+                    $uid[]=$v['uid'];
+                }
+            }
+            $urlarr['keyword']=$_GET['keyword'];
+            $where.=" and uid in (".pylode(',',$uid).")  ";
+        }
+        if($_GET['jobid']){
+            $where.=" and `job_id`=".intval($_GET['jobid'])."  ";
+            $urlarr['jobid']=$_GET['jobid'];
+        }
+        if($_GET['state']){
+            $where.=" and `is_browse`=".intval($_GET['state'])."  ";
+            $urlarr['state']=$_GET['state'];
+        }
+        $urlarr['c']="hr";
+        $urlarr['page']="{{page}}";
+        $pageurl=Url('member',$urlarr);
+        $rows=$this->get_page("userid_job",$where." and `type`='1' and  `com_id`='".$this->uid."' order by id desc",$pageurl,"10");
+        $JobList=$this->obj->DB_select_all('company_job','`uid`='.$this->uid,"`id`,`name`");
+        if(is_array($rows) && !empty($rows)){
+            $uid=$eid=array();
+            foreach($rows as $val){
+                $eid[]=$val['eid'];
+                $uid[]=$val['uid'];
+            }
+            if(empty($resume)&&empty($_GET['keyword'])){
+                $resume=$this->obj->DB_select_all("resume","`r_status`<>'2'  and `uid` in (".pylode(",",$uid).")","`name`,`edu`,`uid`,`exp`");
+            }
+            $expect=$this->obj->DB_select_all("resume_expect","`id` in (".pylode(",",$eid).")","`id`,`job_classid`,`salary`");
+            $userid_msg=$this->obj->DB_select_all("userid_msg","`fid`='".$this->uid."' and `uid` in (".pylode(",",$uid).")","uid");
+            if(is_array($resume)){
+                include(PLUS_PATH."user.cache.php");
+                include(PLUS_PATH."job.cache.php");
+                $expectinfo=array();
+                foreach($expect as $key=>$val){
+                    $jobids=@explode(',',$val['job_classid']);
+                    $jobname=array();
+                    foreach($jobids as $v){
+                        $jobname[]=$job_name[$v];
+                    }
+                    $expectinfo[$val['id']]['jobname']=@implode('、',$jobname);
+                    $expectinfo[$val['id']]['salary']=$userclass_name[$val['salary']];
+                }
+                foreach($rows as $k=>$v){
+                    $rows[$k]['jobname']=$expectinfo[$v['eid']]['jobname'];
+                    $rows[$k]['salary']=$expectinfo[$v['eid']]['salary'];
+                    foreach($resume as $val){
+                        if($v['uid']==$val['uid']){
+                            $rows[$k]['name']=$val['name'];
+                            $rows[$k]['edu']=$userclass_name[$val['edu']];
+                            $rows[$k]['exp']=$userclass_name[$val['exp']];
+                        }
+                    }
+                    foreach($userid_msg as $val){
+                        if($v['uid']==$val['uid']){
+                            $rows[$k]['userid_msg']=1;
+                        }
+                    }
+                }
+            }
+        }
+        if($JobList&&is_array($JobList)&&$_GET['jobid']){
+            foreach($JobList as $val){
+                if($_GET['jobid']==$val['id']){
+                    $current=$val;
+                }
+            }
+        }
+        $this->yunset($this->MODEL('cache')->GetCache(array('hy','job','city','com')));
+        $this->yunset(array('current'=>$current,'rows'=>$rows,'JobList'=>$JobList,'StateList'=>array(array('id'=>1,'name'=>'未查看'),array('id'=>2,'name'=>'已查看'),array('id'=>3,'name'=>'等待通知'),array('id'=>4,'name'=>'条件不符'),array('id'=>5,'name'=>'无法联系'))));
+        $this->yunset("js_def",5);
+    }
 }
 ?>
