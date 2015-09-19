@@ -1,0 +1,81 @@
+{yun:}include file="$askstyle/header.htm"{/yun}
+<div class="answer_con">
+    <div class="content con_answer">
+        <div class="content_hot ">
+            <div class="left left_con">
+                <div class="answer_list hot_list">
+                    {yun:}include file="$askstyle/nav.htm"{/yun}
+                    <div class="wt_content">
+                        <div class="fl" id="message">
+                            {yun:}foreach from=$rows item=row{/yun}
+                            <div class="Personals_cont_dy">
+                                <div class="Personals_cont_dy_r">
+                                    <div class="Personals_cont_dy_ss">{yun:}$row.content{/yun}</div>
+                                    <div class="Personals_cont_dy_cz"><span>{yun:}$row.ctime{/yun}</span>
+                                        {yun:}if $cookie.uid==$info.uid{/yun}
+                                        <span class="friend_delect" style="float:right;"><a href="javascript:void(0)" onclick="layer_del('确定要删除该动态？', '{yun:}url m=ask c=friend a=delm id='`$row.id`'{/yun}');" title="删除">删除</a></span>
+                                        {yun:}/if{/yun}
+                                    </div>
+                                    <div id="commentlist_{yun:}$row.id{/yun}">
+                                        {yun:}if $row.commentnum{/yun}
+                                        {yun:}foreach from=$row.reply key=rkey item=rlist{/yun}
+                                        <div class="Personals_cont_dy_pl" {yun:}if $rkey>3{/yun}style="display:none" name='hide_{yun:}$row.id{/yun}'{yun:}/if{/yun}>
+                                            <div class="Personals_cont_dy_pl_tx"><img src="{yun:}$rlist.replypic{/yun}" width="28" height="35" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"></div>
+                                            <div class="Personals_cont_dy_pl_user">
+                                                <div class="Personals_cont_dy_pl_user_n"><a href="{yun:}$rlist.url{/yun}" title="{yun:}$rlist.replyname{/yun}" target="_blank">{yun:}$rlist.replyname{/yun}</a>: {yun:}$rlist.reply{/yun}</div>
+                                                <div class="Personals_cont_dy_pl_user_m">{yun:}$rlist.replyctime{/yun}</div>
+                                            </div>
+                                        </div>
+                                        {yun:}/foreach{/yun}
+                                        {yun:}/if{/yun}
+                                    </div>
+                                    {yun:}if $row.commentnum>3{/yun}
+                                    <div class="Personals_cont_dy_pl">
+                                        <div class="Personals_cont_dy_pl_user_2" id="onlyreply{yun:}$row.id{/yun}">
+                                            <span class="morereply" id='click_{yun:}$row.id{/yun}' onclick="get_allmsg('{yun:}$row.id{/yun}');">查看全部评论</span>
+                                        </div>
+                                    </div>
+                                    {yun:}/if{/yun}
+
+                                    <div class="Personals_cont_dy_pl" id="comment{yun:}$row.id{/yun}">
+                                        <div class="Personals_cont_dy_pl_user_1">
+                                            <div class="pf-bd textinput">
+                                                <input type="text" {yun:}if $cookie.uid{/yun}onfocus="clicktext({yun:}$row.id{/yun});"{yun:}else{/yun}onfocus="showlogin();"{yun:}/if{/yun} class="pl_textarea_1" value="评论..."/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Personals_cont_dy_pl" style="display:none;" id="comment_{yun:}$row.id{/yun}">
+                                        <div class="Personals_cont_dy_pl_tx"> <img src="{yun:}$member.pic{/yun}" width="28" height="35" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);" class="my_pic"/>  </div>
+                                        <div class="Personals_cont_dy_pl_user">
+                                            <div class="pf-bd textinput">
+                                                <textarea class="pl_textarea" id="reply_{yun:}$row.id{/yun}" onblur="onblurtext({yun:}$row.id{/yun});" onKeyUp="checkLength('66',{yun:}$row.id{/yun});" maxlength="88"></textarea>
+                                            </div>
+                                            <div class="Personals_fb"><span>已输入 <span id="colornum_{yun:}$row.id{/yun}">0</span>/66字</span><a href="javascript:;" onclick="submitreply('{yun:}$row.id{/yun}','$nid','{yun:}url m=ask c=friend a=friendreply{/yun}');" style="color:#ffffff;" title="回复">回复</a></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            {yun:}foreachelse{/yun}
+                            {yun:}if $cookie.uid==$info.uid{/yun}
+                            <div class="noresult png" style="width:475px;">您还没有任何动态，<a href="{yun:}url m=friend{/yun}" target="_blank">现在就写一个</a>吧！</div>
+                            {yun:}else{/yun}
+                            <div class="noresult png" style="width:475px;">他好懒，什么都木有写！</div>
+                            {yun:}/if{/yun}
+                            {yun:}/foreach{/yun}
+                        </div>
+                        <div class="clear"></div>
+                        <div class="pages">{yun:}$pagenav{/yun}</div>
+                    </div>
+                </div>
+            </div>
+            {yun:}include file="$askstyle/right.htm"{/yun}
+        </div>
+    </div>
+</div>
+<script>
+    var errorimg="{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}";
+</script>
+<iframe id="supportiframe" name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
+{yun:}include file="$askstyle/footer.htm"{/yun}
+{yun:}include file="$tplstyle/public_search/login.htm"{/yun} 

@@ -32,11 +32,12 @@
                     <div class="bd">
                         <div>
                             <ul class="box">
-                                <form action="{yun:}$config.sy_weburl{/yun}/?m=login&c=loginsave" method="post">
+                                <form>
                                 <li><input type="text" name="username" id="username" class="text" placeholder="用户名" value="{yun:}if $loginname{/yun}{yun:}$loginname{/yun}{yun:}/if{/yun}"></li>
                                 <li><input type="password" id="password2" name="password" class="text" placeholder="密码"></li>
                                 <li><input type="submit" class="submit" value=""></li>
-                                <li><a href="{yun:}url m=forgetpw{/yun}">忘记密码？</a><input type="checkbox" name="loginname" value="1" class="checkbox"><span>保持登录状态</span></li>
+                                <li><a href="{yun:}url m=forgetpw{/yun}">忘记密码？</a>
+                                    <input type="checkbox" name="loginname" value="7" class="checkbox"><span>保持登录状态</span></li>
                                 </form>
                             </ul>
                         </div>
@@ -79,3 +80,18 @@
 </div>
 </body>
 </html>
+
+
+<script>
+    $("form").on("submit", function () {
+        var d = $("form").serialize();
+        $.post("/?m=login&c=loginsave",d,
+                function (data,status) {
+                    alert(data.msg);
+                    if(data.url !=""){
+                        window.location.href=data.url;
+                    }
+                },'json');
+        return false;
+    });
+</script>

@@ -59,9 +59,9 @@ class index_controller extends common
         {
             if($_COOKIE['usertype']=='1')
             {
-                $this->ajaxlogin("1.您现在是个人会员登录状态！");
+                $this->ajaxlogin("1.您现在是个人会员登录状态！",Url("login",array("c"=>"utype")));
             }elseif($_COOKIE['usertype']=='2'){
-                $this->ajaxlogin("2.您现在是企业会员登录状态！");
+                $this->ajaxlogin("2.您现在是企业会员登录状态！",Url("login",array("c"=>"utype")));
             }
         }
 
@@ -106,7 +106,7 @@ class index_controller extends common
                     }
                 }else if($uid > 0) {
                     $ucsynlogin=uc_user_synlogin($uid);
-                    $msg =  '5.登录成功！';
+                    $msg =  '登录成功！';
                     $user = $Member->GetMemberOne(array("username"=>$username),array("field"=>"`uid`,`usertype`,`email_status`"));
                     if(!empty($user))
                     {
@@ -188,7 +188,7 @@ class index_controller extends common
                                 {
                                     $this->get_integral_action($user['uid'],"integral_login","会员登录");
                                 }
-                                $this->ajaxlogin('10.登录成功','','2');
+                                $this->ajaxlogin('10.登录成功',Url("login",array("c"=>"utype")),'2');
                             }else{
                                 $Member->UpdateMember(array("pw_repeat"=>"1"),array("uid"=>$user['uid']));
                             }
