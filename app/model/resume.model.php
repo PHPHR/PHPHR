@@ -411,5 +411,16 @@ class resume_model extends model{
     	$WhereStr=$this->FormatWhere($Where);
 		return $this->DB_select_once('talent_pool',$WhereStr,$field='*');
     }
+
+    function GetRecResume(){
+        $sql = 'SELECT * FROM `'.$this->def.'resume_expect` a , `'.$this->def.'resume_edu` b WHERE a.`uid` = b.`uid` AND a.`rec_resume` > 0 AND a.`defaults` = 1';
+        return $this->DB_query_all($sql,'all');
+    }
+
+    //随机选取推荐
+    function GetRandRecResume(){
+        $sql = 'SELECT * FROM `'.$this->def.'resume_expect` a , `'.$this->def.'resume_edu` b WHERE a.`uid` = b.`uid` AND a.`rec_resume` > 0 AND a.`defaults` = 1 ORDER BY rand() LIMIT 6';
+        return $this->DB_query_all($sql,'all');
+    }
 }
 ?>

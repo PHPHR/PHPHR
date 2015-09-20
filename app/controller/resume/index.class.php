@@ -13,6 +13,44 @@
 class index_controller extends resume_controller
 {
 
+    function index_action()
+    {
+
+//        if ($this->config['sy_default_userclass'] == '1') {
+        $resumeclassurl = $this->config['sy_resumedir'] != "" ? $this->config['sy_weburl'] . "/resume/?c=search&" : $resumeclassurl = $this->config['sy_weburl'] . "/index.php?m=resume&c=search&";
+        $this->yunset("resumeclassurl", $resumeclassurl);
+        $CacheM = $this->MODEL('cache');
+        $CacheList = $CacheM->GetCache(array('job', 'city', 'hy'));
+        $this->yunset($CacheList);
+        $this->yunset('username', $_COOKIE['username']);
+
+        $CacheM = $this->MODEL('cache');
+        $CacheList = $CacheM->GetCache(array('job', 'city', 'user', 'hy'));
+        $this->yunset($CacheList);
+
+        $ResumeM = $this->MODEL('resume');
+//        var_dump($ResumeM->GetRecResume());die;
+        $this->yunset('resumelist',$ResumeM->GetRandRecResume());
+
+
+        //友情链接
+        $linkModel = $this->MODEL('link');
+        $LinkList = [];
+        foreach($linkModel->GetLinks() as $k=>$v ){
+            $LinkList['LinkList'][$k]['link_name'] = $v['link_name'];
+            $LinkList['LinkList'][$k]['link_url'] = $v['link_url'];
+        }
+        $this->yunset($LinkList);
+
+        $this->yunset(array('gettype' => $_SERVER["QUERY_STRING"], 'getinfo' => $_GET));
+        $this->seo("user");
+//        $this->yun_tpl(array('index'));
+        $this->yun_tpl(array('index_gj'));
+//        } else {
+//            $this->usersearch();
+//        }
+    }
+
     function search_action()
     {
         $this->usersearch();
@@ -124,38 +162,6 @@ class index_controller extends resume_controller
 
     }
 
-    function index_action()
-    {
-
-//        if ($this->config['sy_default_userclass'] == '1') {
-        $resumeclassurl = $this->config['sy_resumedir'] != "" ? $this->config['sy_weburl'] . "/resume/?c=search&" : $resumeclassurl = $this->config['sy_weburl'] . "/index.php?m=resume&c=search&";
-        $this->yunset("resumeclassurl", $resumeclassurl);
-        $CacheM = $this->MODEL('cache');
-        $CacheList = $CacheM->GetCache(array('job', 'city', 'hy'));
-        $this->yunset($CacheList);
-        $this->yunset('username', $_COOKIE['username']);
-
-        $CacheM = $this->MODEL('cache');
-        $CacheList = $CacheM->GetCache(array('job', 'city', 'user', 'hy'));
-        $this->yunset($CacheList);
-
-        //友情链接
-        $linkModel = $this->MODEL('link');
-        $LinkList = [];
-        foreach($linkModel->GetLinks() as $k=>$v ){
-            $LinkList['LinkList'][$k]['link_name'] = $v['link_name'];
-            $LinkList['LinkList'][$k]['link_url'] = $v['link_url'];
-        }
-        $this->yunset($LinkList);
-
-        $this->yunset(array('gettype' => $_SERVER["QUERY_STRING"], 'getinfo' => $_GET));
-        $this->seo("user");
-//        $this->yun_tpl(array('index'));
-        $this->yun_tpl(array('index_gj'));
-//        } else {
-//            $this->usersearch();
-//        }
-    }
 }
 
 ?>

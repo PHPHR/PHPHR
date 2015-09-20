@@ -135,7 +135,8 @@ DD_belatedPNG.fix('.png');
         </div>
         <div class="Search_jobs_form_list search_more"  style="display:none">
           <div class="Search_jobs_name"> 工作经验：</div>
-          <div class="Search_jobs_sub"> <a href="{yun:}searchurl m=resume c=search untype='exp'{/yun}" class="Search_jobs_sub_a {yun:}if $smarty.get.exp==''{/yun}Search_jobs_sub_cur{yun:}/if{/yun}">全部</a> {yun:}foreach from=$userdata.user_word item=v key=key{/yun} <a href="{yun:}searchurl m=resume c=search exp=$v untype='exp'{/yun}" class="Search_jobs_sub_a {yun:}if $smarty.get.exp==$v{/yun}Search_jobs_sub_cur{yun:}/if{/yun}">{yun:}$userclass_name[$v]{/yun}</a> {yun:}/foreach{/yun}</div>
+          <div class="Search_jobs_sub">
+              <a href="{yun:}searchurl m=resume c=search untype='exp'{/yun}" class="Search_jobs_sub_a {yun:}if $smarty.get.exp==''{/yun}Search_jobs_sub_cur{yun:}/if{/yun}">全部</a> {yun:}foreach from=$userdata.user_word item=v key=key{/yun} <a href="{yun:}searchurl m=resume c=search exp=$v untype='exp'{/yun}" class="Search_jobs_sub_a {yun:}if $smarty.get.exp==$v{/yun}Search_jobs_sub_cur{yun:}/if{/yun}">{yun:}$userclass_name[$v]{/yun}</a> {yun:}/foreach{/yun}</div>
         </div>
         <div class="Search_jobs_form_list search_more" style="display:none">
           <div class="Search_jobs_name"> 性别要求：</div>

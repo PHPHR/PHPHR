@@ -77,7 +77,6 @@ class friend_controller extends ask_controller{
 		$this->yunset("navtype",'myquestion');
 		$this->yunset("uid",$uid);
 //		$this->ask_tpl('message');
-
 		$this->ask_tpl('message_friend');
 
 	}

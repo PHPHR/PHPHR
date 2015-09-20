@@ -92,10 +92,26 @@
         <div class="l w235">
             <div class="m_nav">
                 <dl>
-                    <dt><i class="ico8"></i>项目经验</dt>
+                    <dt><i class="ico9"></i>意向工作地</dt>
                     <dd>
-                        <a href="#">GMP认证</a><a href="#">GSP认证</a><a href="#">药品注册</a><a href="#">GMP认证</a><a href="#">GSP认证</a><a
-                            href="#">药品注册</a><a href="#">GMP认证</a>
+                        <a href="{yun:}searchurl m=resume c=search cityid=76{/yun}">广州</a>
+                        <a href="{yun:}searchurl m=resume c=search cityid=52{/yun}">北京</a>
+                        <a href="{yun:}searchurl m=resume c=search cityid=321{/yun}">上海</a>
+                        <a href="{yun:}searchurl m=resume c=search exp=77{/yun}">深圳</a>
+                    </dd>
+                    <dd class="popup">
+                        {yun:}foreach item=v from=$city_index{/yun}
+                        <div class="sub">
+                            <div class="l w15"><span>{yun:}$city_name[$v]{/yun}</span></div>
+                            <div class="l w85">
+                                {yun:}foreach item=val from=$city_type[$v]{/yun}
+                                <a href="{yun:}url m=resume c=search cityid=$val{/yun}">{yun:}$city_name[$val]{/yun}</a>
+                                <em>|</em>
+                                {yun:}/foreach{/yun}
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        {yun:}/foreach{/yun}
                     </dd>
                 </dl>
                 <dl>
@@ -105,194 +121,24 @@
                         <a href="{yun:}searchurl m=resume c=search type=$v untype='type'{/yun}">{yun:}$userclass_name[$v]{/yun}</a>
                         {yun:}/foreach{/yun}
                     </dd>
-                    <dd class="popup">
-                        <div class="sub">
-                            <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85">
-                                <a href="#">网页设计师</a>
-                                <em>|</em>
-                                <a href="#">Flash设计师</a>
-                                <em>|</em>
-                                <a href="#">APP设计师</a>
-                                <em>|</em>
-                                <a href="#">UI设计师</a>
-                                <em>|</em>
-                                <a href="#">平面设计师 美术设计师（2D/3D）</a>
-                                <em>|</em>
-                                <a href="#">广告设计师</a>
-                                <em>|</em>
-                                <a href="#">多媒体设计师</a>
-                                <em>|</em>
-                                <a href="#">原画师游戏特效</a>
-                                <em>|</em>
-                                <a href="#">游戏界面设计师</a>
-                                <em>|</em>
-                                <a href="#">视觉设计师</a>
-                                <em>|</em>
-                                <a href="#">游戏场景</a>
-                                <em>|</em>
-                                <a href="#">游戏角色 游戏动作</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="sub">
-                            <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85">
-                                <a href="#">网页设计师</a>
-                                <em>|</em>
-                                <a href="#">Flash设计师</a>
-                                <em>|</em>
-                                <a href="#">APP设计师</a>
-                                <em>|</em>
-                                <a href="#">UI设计师</a>
-                                <em>|</em>
-                                <a href="#">平面设计师 美术设计师（2D/3D）</a>
-                                <em>|</em>
-                                <a href="#">广告设计师</a>
-                                <em>|</em>
-                                <a href="#">多媒体设计师</a>
-                                <em>|</em>
-                                <a href="#">原画师游戏特效</a>
-                                <em>|</em>
-                                <a href="#">游戏界面设计师</a>
-                                <em>|</em>
-                                <a href="#">视觉设计师</a>
-                                <em>|</em>
-                                <a href="#">游戏场景</a>
-                                <em>|</em>
-                                <a href="#">游戏角色 游戏动作</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </dd>
                 </dl>
                 <dl>
                     <dt><i class="ico2"></i>最高学历</dt>
-                    <dd><a href="#">硕士</a><a href="#">本科</a><a href="#">大专</a><a href="#">中专</a></dd>
-                    <dd class="popup">
-                        <div class="sub">
-                            <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85">
-                                <a href="#">网页设计师</a>
-                                <em>|</em>
-                                <a href="#">Flash设计师</a>
-                                <em>|</em>
-                                <a href="#">APP设计师</a>
-                                <em>|</em>
-                                <a href="#">UI设计师</a>
-                                <em>|</em>
-                                <a href="#">平面设计师 美术设计师（2D/3D）</a>
-                                <em>|</em>
-                                <a href="#">广告设计师</a>
-                                <em>|</em>
-                                <a href="#">多媒体设计师</a>
-                                <em>|</em>
-                                <a href="#">原画师游戏特效</a>
-                                <em>|</em>
-                                <a href="#">游戏界面设计师</a>
-                                <em>|</em>
-                                <a href="#">视觉设计师</a>
-                                <em>|</em>
-                                <a href="#">游戏场景</a>
-                                <em>|</em>
-                                <a href="#">游戏角色 游戏动作</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="sub">
-                            <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85">
-                                <a href="#">网页设计师</a>
-                                <em>|</em>
-                                <a href="#">Flash设计师</a>
-                                <em>|</em>
-                                <a href="#">APP设计师</a>
-                                <em>|</em>
-                                <a href="#">UI设计师</a>
-                                <em>|</em>
-                                <a href="#">平面设计师 美术设计师（2D/3D）</a>
-                                <em>|</em>
-                                <a href="#">广告设计师</a>
-                                <em>|</em>
-                                <a href="#">多媒体设计师</a>
-                                <em>|</em>
-                                <a href="#">原画师游戏特效</a>
-                                <em>|</em>
-                                <a href="#">游戏界面设计师</a>
-                                <em>|</em>
-                                <a href="#">视觉设计师</a>
-                                <em>|</em>
-                                <a href="#">游戏场景</a>
-                                <em>|</em>
-                                <a href="#">游戏角色 游戏动作</a></div>
-                            <div class="clear"></div>
-                        </div>
+                    <dd>
+                        {yun:}foreach item=v from=$userdata.user_edu{/yun}
+                        <a href="{yun:}$config.sy_weburl{/yun}/resume/?c=search&edu={yun:}$v{/yun}">{yun:}$userclass_name[$v]{/yun}</a>
+                        {yun:}/foreach{/yun}
                     </dd>
                 </dl>
                 <dl>
-                    <dt><i class="ico3"></i>专业</dt>
+                    <dt><i class="ico3"></i>专业(暂无)</dt>
                     <dd>
                         <a href="#">药物制剂</a><a href="#">药学</a><a href="#">中药学</a><a href="#">临床医学</a><a
                             href="#">制药工程</a><a href="#">药学药学</a><a href="#">中药学</a><a href="#">药物制剂</a>
                     </dd>
-                    <dd class="popup">
-                        <div class="sub">
-                            <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85">
-                                <a href="#">网页设计师</a>
-                                <em>|</em>
-                                <a href="#">Flash设计师</a>
-                                <em>|</em>
-                                <a href="#">APP设计师</a>
-                                <em>|</em>
-                                <a href="#">UI设计师</a>
-                                <em>|</em>
-                                <a href="#">平面设计师 美术设计师（2D/3D）</a>
-                                <em>|</em>
-                                <a href="#">广告设计师</a>
-                                <em>|</em>
-                                <a href="#">多媒体设计师</a>
-                                <em>|</em>
-                                <a href="#">原画师游戏特效</a>
-                                <em>|</em>
-                                <a href="#">游戏界面设计师</a>
-                                <em>|</em>
-                                <a href="#">视觉设计师</a>
-                                <em>|</em>
-                                <a href="#">游戏场景</a>
-                                <em>|</em>
-                                <a href="#">游戏角色 游戏动作</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="sub">
-                            <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85">
-                                <a href="#">网页设计师</a>
-                                <em>|</em>
-                                <a href="#">Flash设计师</a>
-                                <em>|</em>
-                                <a href="#">APP设计师</a>
-                                <em>|</em>
-                                <a href="#">UI设计师</a>
-                                <em>|</em>
-                                <a href="#">平面设计师 美术设计师（2D/3D）</a>
-                                <em>|</em>
-                                <a href="#">广告设计师</a>
-                                <em>|</em>
-                                <a href="#">多媒体设计师</a>
-                                <em>|</em>
-                                <a href="#">原画师游戏特效</a>
-                                <em>|</em>
-                                <a href="#">游戏界面设计师</a>
-                                <em>|</em>
-                                <a href="#">视觉设计师</a>
-                                <em>|</em>
-                                <a href="#">游戏场景</a>
-                                <em>|</em>
-                                <a href="#">游戏角色 游戏动作</a></div>
-                            <div class="clear"></div>
-                        </div>
-                    </dd>
                 </dl>
                 <dl>
-                    <dt><i class="ico4"></i>毕业院校</dt>
+                    <dt><i class="ico4"></i>毕业院校(暂无)</dt>
                     <dd><a href="#">中国药科大学</a><a href="#">沈阳药科大学</a></dd>
                     <dd class="popup">
                         <div class="sub">
@@ -356,97 +202,37 @@
                 <dl>
                     <dt><i class="ico5"></i>工作年限</dt>
                     <dd>
-                        <a href="#">在校生</a><a href="#">应届毕业生</a><a href="#">在校生</a><a href="#">应届毕业生</a>
-                    </dd>
-                    <dd class="popup">
-                        <div class="sub">
-                            <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85">
-                                <a href="#">网页设计师</a>
-                                <em>|</em>
-                                <a href="#">Flash设计师</a>
-                                <em>|</em>
-                                <a href="#">APP设计师</a>
-                                <em>|</em>
-                                <a href="#">UI设计师</a>
-                                <em>|</em>
-                                <a href="#">平面设计师 美术设计师（2D/3D）</a>
-                                <em>|</em>
-                                <a href="#">广告设计师</a>
-                                <em>|</em>
-                                <a href="#">多媒体设计师</a>
-                                <em>|</em>
-                                <a href="#">原画师游戏特效</a>
-                                <em>|</em>
-                                <a href="#">游戏界面设计师</a>
-                                <em>|</em>
-                                <a href="#">视觉设计师</a>
-                                <em>|</em>
-                                <a href="#">游戏场景</a>
-                                <em>|</em>
-                                <a href="#">游戏角色 游戏动作</a></div>
-                            <div class="clear"></div>
-                        </div>
-                        <div class="sub">
-                            <div class="l w15"><span>视觉设计</span></div>
-                            <div class="l w85">
-                                <a href="#">网页设计师</a>
-                                <em>|</em>
-                                <a href="#">Flash设计师</a>
-                                <em>|</em>
-                                <a href="#">APP设计师</a>
-                                <em>|</em>
-                                <a href="#">UI设计师</a>
-                                <em>|</em>
-                                <a href="#">平面设计师 美术设计师（2D/3D）</a>
-                                <em>|</em>
-                                <a href="#">广告设计师</a>
-                                <em>|</em>
-                                <a href="#">多媒体设计师</a>
-                                <em>|</em>
-                                <a href="#">原画师游戏特效</a>
-                                <em>|</em>
-                                <a href="#">游戏界面设计师</a>
-                                <em>|</em>
-                                <a href="#">视觉设计师</a>
-                                <em>|</em>
-                                <a href="#">游戏场景</a>
-                                <em>|</em>
-                                <a href="#">游戏角色 游戏动作</a></div>
-                            <div class="clear"></div>
-                        </div>
+                        {yun:}foreach from=$userdata.user_word item=v key=key{/yun}
+                        <a href="{yun:}searchurl m=resume c=search exp=$v untype='exp'{/yun}">{yun:}$userclass_name[$v]{/yun}</a></a>
+                        {yun:}/foreach{/yun}
                     </dd>
                 </dl>
                 <dl>
-                    <dt><i class="ico6"></i>工作经历</dt>
+                    <dt><i class="ico6"></i>工作经历(暂无)</dt>
                     <dd>
                         <a href="#">研发总监</a><a href="#">质量负责人</a><a href="#">注册专员</a><a href="#">质管部经理</a><a href="#">产品经理</a><a
                             href="#">销售总监</a>
                     </dd>
                 </dl>
                 <dl>
-                    <dt><i class="ico7"></i>职称/执业资格</dt>
+                    <dt><i class="ico7"></i>职称/执业资格(暂无)</dt>
                     <dd>
                         <a href="#">执业中药师</a><a href="#">执业西药师</a>
                     </dd>
                 </dl>
                 <dl>
-                    <dt><i class="ico8"></i>项目经验</dt>
+                    <dt><i class="ico8"></i>项目经验(暂无)</dt>
                     <dd>
                         <a href="#">GMP认证</a><a href="#">GSP认证</a><a href="#">药品注册</a><a href="#">GMP认证</a><a href="#">GSP认证</a><a
                             href="#">药品注册</a><a href="#">GMP认证</a>
                     </dd>
                 </dl>
                 <dl>
-                    <dt><i class="ico9"></i>意向工作地</dt>
+                    <dt><i class="ico10"></i>到岗时间</dt>
                     <dd>
-                        <a href="#">广州</a><a href="#">北京</a><a href="#">上海</a><a href="#">深圳</a>
-                    </dd>
-                </dl>
-                <dl>
-                    <dt><i class="ico10"></i>目前工作状态</dt>
-                    <dd>
-                        <a href="#">计划离职</a><a href="#">已离职</a>
+                    {yun:}foreach from=$userdata.user_report item=v key=key{/yun}
+                    <a href="{yun:}searchurl m=resume c=search report=$v untype='report'{/yun}">{yun:}$userclass_name[$v]{/yun}</a>
+                    {yun:}/foreach{/yun}
                     </dd>
                 </dl>
             </div>
@@ -477,15 +263,17 @@
             <dl class="m_wrap1">
                 <dt>
                 <div class="txt">告诉我们<span>理想工作</span>或者<span>完善简历</span>，获得更精准推荐</div>
-                <a href="javascript:void(0)" class="hover">推荐简历</a><a href="javascript:void(0)">最新简历</a>
+                <a href="javascript:void(0)" class="hover">最新简历</a><a href="javascript:void(0)">推荐简历</a>
                 </dt>
                 <dd>
-                    {yun:}userlist pic=0 post_len=20 limit=5 item=userlist{/yun}
+
                     <div class="none" style="display:block;">
-                        <a href="{yun:}$userlist.user_url{/yun}">
+                        {yun:}userlist pic=0 post_len=20 limit=5 item=userlist{/yun}
+                        <a href="{yun:}$userlist.user_url{/yun}" target="_blank">
                             <div class="list">
                                 <div class="w225 l">
-                                    <p class="p1">{yun:}$userlist.username_n{/yun}<span>[{yun:}$userlist.job_city_two{/yun}]</span></p>
+                                    <p class="p1">{yun:}$userlist.username_n{/yun}<span>[{yun:}$userlist.job_city_two{/yun}]</span>
+                                    </p>
 
                                     <!--<p class="p2">有2次GSP认证经验</p>-->
                                 </div>
@@ -497,24 +285,56 @@
                                 <div class="w225 l">
                                     <p class="p3">{yun:}$userlist.exp_n{/yun} / {yun:}$userlist.job_post_n{/yun}</p>
 
-                                    <p class="p2">{yun:}$userlist.time{/yun}更新</p>
+                                    <p class="p2">{yun:}$userlist.time{/yun} 更新</p>
                                 </div>
                                 <div class="clear"></div>
                             </div>
                         </a>
                         {yun:}/userlist{/yun}
-                        <!--分页代码-->
-                        <div class="page2">
-                            <a href="#"> << </a>
-                            <a href="#" class="hover">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">5</a>
-                            <a href="#"> >> </a>
-                        </div>
                     </div>
-                    <div class="none">2</div>
+
+
+                    <div class="none">
+                        {yun:}foreach item=v from=$resumelist{/yun}
+                        <a href="{yun:}$userlist.user_url{/yun}" target="_blank">
+                            <div class="list">
+                                <div class="w225 l">
+                                    <p class="p1">
+                                        {yun:}mb_substr($v['uname'],0,1,'GBK'){/yun}{yun:}if $v['sex'] ==
+                                        6{/yun}先生{yun:}else{/yun}{yun:}mb_substr($v['uname'],0,1,'GBK'){/yun}小姐{yun:}/if{/yun}
+                                        <span>[{yun:}$city_name[$v['cityid']]{/yun}]</span>
+                                    </p>
+
+                                    <!--<p class="p2">有2次GSP认证经验</p>-->
+                                </div>
+                                <div class="w225 l">
+                                    <p class="p1">{yun:}$userclass_name[$v['edu']]{/yun} / 药学专业</p>
+
+                                    <!--<p class="p2">毕业院校：沈阳药科大学</p>-->
+                                </div>
+                                <div class="w225 l">
+                                    <p class="p3">{yun:}$userclass_name[$v['exp']]{/yun} /
+                                        {yun:}$v['specialty']{/yun}</p>
+
+                                    <p class="p2">{yun:}date('Y-m-d',$v['lastupdate']){/yun} 更新</p>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </a>
+                        {yun:}/foreach{/yun}
+                        <!--分页代码-->
+                        <!--<div class="page2">-->
+                        <!--<a href="#"> << </a>-->
+                        <!--<a href="#" class="hover">1</a>-->
+                        <!--<a href="#">2</a>-->
+                        <!--<a href="#">3</a>-->
+                        <!--<a href="#">4</a>-->
+                        <!--<a href="#">5</a>-->
+                        <!--<a href="#"> >> </a>-->
+                        <!--</div>-->
+                    </div>
+
+
                 </dd>
             </dl>
             <dl class="m_link">

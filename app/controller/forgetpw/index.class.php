@@ -13,7 +13,7 @@ class index_controller extends common
 	function index_action()
 	{
 		$this->seo("forgetpw");
-		$this->yun_tpl(array('index'));
+		$this->yun_tpl(array('index_forgetpw'));
 	}
 	function half_replace($str,$encoding='utf-8'){
         if(strtolower($encoding)=='gbk'){

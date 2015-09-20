@@ -1,73 +1,73 @@
 $(function(){
-	$(".rdh").hover(function() {
-		$(this).children(".zypop").show();
-		$(this).children(".zypop").stop().animate({
-			left: "-104px",
-			opacity: "1"
-		}, 400)
-	}, function() {
-		$(this).children(".zypop").hide();
-		$(this).children(".zypop").stop().animate({
-			left: "-124px",
-			opacity: "0"
-		}, 1)
-	});
-	$(".rdh2").hover(function() {
-		$(this).children(".ewm").show();
-		$(this).children(".ewm").stop().animate({
-			left: "-92px",
-			opacity: "1"
-		}, 400)
-	}, function() {
-		$(this).children(".ewm").hide();
-		$(this).children(".ewm").stop().animate({
-			left: "-150px",
-			opacity: "0"
-		}, 1)
-	});
-	
-	$(".qyzl,.rck").find(".m_btn0").click(function(){
-		var x = ($(window).width()-$(".m_popup").width())/2
-		var y = ($(window).height()-$(".m_popup").height())/2
-		$(".m_popup").css({"left":x,"top":y});
-		$(".m_body,.m_popup").fadeIn();	
-	});
-	$(".qyzl,.rck").find(".m_popup .close").click(function(){
-		$(".m_body,.m_popup").fadeOut();	
-	});
-	
-	$(".qyzl").find(".m_btn1").toggle(function(){
-		$(this).html("保存");
-		$(".editbox").show();
-	},function(){
-		$(this).html("编辑");
-		$(".editbox").hide();
-	});
-	
-	ResumeAction();
+    $(".rdh").hover(function() {
+        $(this).children(".zypop").show();
+        $(this).children(".zypop").stop().animate({
+            left: "-104px",
+            opacity: "1"
+        }, 400)
+    }, function() {
+        $(this).children(".zypop").hide();
+        $(this).children(".zypop").stop().animate({
+            left: "-124px",
+            opacity: "0"
+        }, 1)
+    });
+    $(".rdh2").hover(function() {
+        $(this).children(".ewm").show();
+        $(this).children(".ewm").stop().animate({
+            left: "-92px",
+            opacity: "1"
+        }, 400)
+    }, function() {
+        $(this).children(".ewm").hide();
+        $(this).children(".ewm").stop().animate({
+            left: "-150px",
+            opacity: "0"
+        }, 1)
+    });
+    
+    $(".qyzl,.rck").find(".m_btn0").click(function(){
+        var x = ($(window).width()-$(".m_popup").width())/2
+        var y = ($(window).height()-$(".m_popup").height())/2
+        $(".m_popup").css({"left":x,"top":y});
+        $(".m_body,.m_popup").fadeIn();    
+    });
+    $(".qyzl,.rck").find(".m_popup .close").click(function(){
+        $(".m_body,.m_popup").fadeOut();    
+    });
+    
+    $(".qyzl").find(".m_btn1").toggle(function(){
+        $(this).html("保存");
+        $(".editbox").show();
+    },function(){
+        $(this).html("编辑");
+        $(".editbox").hide();
+    });
+    
+    ResumeAction();
 })
 
 $(document).ready(function(e) {
-	$("#backToTop").live("click", function(){
-		var _this = $(this);
-		$('html,body').animate({ scrollTop: 0 }, 500 ,function(){
-		});
-	});
+    $("#backToTop").live("click", function(){
+        var _this = $(this);
+        $('html,body').animate({ scrollTop: 0 }, 500 ,function(){
+        });
+    });
 });
  
 //
 //$(function(){
-//	$(".select").each(function(){
-//		var s=$(this);
-//		var z=parseInt(s.css("z-index"));
-//		var dt=$(this).children("dt");
-//		var dd=$(this).children("dd");
-//		var _show=function(){dd.slideDown(200);dt.addClass("cur");s.css("z-index",z+1);};
-//		var _hide=function(){dd.slideUp(200);dt.removeClass("cur");s.css("z-index",z);};
-//		dt.click(function(){dd.is(":hidden")?_show():_hide();});
-//		dd.find("a").click(function(){dt.html($(this).html());_hide();});
-//		$("body").click(function(i){ !$(i.target).parents(".select").first().is(s) ? _hide():"";});
-//	})
+//    $(".select").each(function(){
+//        var s=$(this);
+//        var z=parseInt(s.css("z-index"));
+//        var dt=$(this).children("dt");
+//        var dd=$(this).children("dd");
+//        var _show=function(){dd.slideDown(200);dt.addClass("cur");s.css("z-index",z+1);};
+//        var _hide=function(){dd.slideUp(200);dt.removeClass("cur");s.css("z-index",z);};
+//        dt.click(function(){dd.is(":hidden")?_show():_hide();});
+//        dd.find("a").click(function(){dt.html($(this).html());_hide();});
+//        $("body").click(function(i){ !$(i.target).parents(".select").first().is(s) ? _hide():"";});
+//    })
 //})
 
 
@@ -132,13 +132,18 @@ $(window).load(function(){
 
         $(this).parents('.model_box').siblings('.myopenbut').html(x);
         $(this).parents('ul').siblings('.model_input').attr('value',y);
-        $(this).parents('.model_box').removeClass('on');	
+        $(this).parents('.model_box').removeClass('on');    
     });
-	
-	$(".m_wrap1 .hd li").click(function(){
-		var v =$(this).data("value");
-		$(".m_wrap1 .hidden").attr("value",v)	
-	});
+
+    $(".m_wrap1 .hd li").click(function(){
+        var v =$(this).data("value");
+        $(".m_wrap1 .hidden").attr("action",v)
+        if($(this).data("name") == "enterprise"){
+            $(".m_wrap1 .preremove").attr("name","");
+        }else{
+            $(".m_wrap1 .preremove").attr("name","c");
+        }
+    });
 
     $('.zy_js li').click(function(){
         $(this).addClass('on').siblings('li').removeClass('on').find('.zy_input').attr('checked',false);
@@ -160,36 +165,36 @@ $(window).load(function(){
 });
 
 function selectAll(){  
-	$(".SelectAll").each(function(){
-		if ($(this).attr("checked")) {  
-			$(":checkbox").attr("checked", true);  
-		} else {  
-			$(":checkbox").attr("checked", false);  
-		} 
-	});    
+    $(".SelectAll").each(function(){
+        if ($(this).attr("checked")) {  
+            $(":checkbox").attr("checked", true);  
+        } else {  
+            $(":checkbox").attr("checked", false);  
+        } 
+    });    
 } 
 
 function ResumeAction(){  
-	var _this = $(".Resume .con")
-	var _AddAttr = $(".Resume .AddAttr")
-	_this.find(".AddBtn").click(function(){
-		$(this).hide();
-		$(this).siblings(".EditBtn").show();
-		$(this).parent().siblings(".EditBox").removeClass("dn");
-	});
-	_this.find(".EditBtn").click(function(){
-		$(this).parent().siblings(".SaveBox").addClass("dn");
-		$(this).parent().siblings(".EditBox").removeClass("dn");		
-	});
-	_this.find(".SaveBtn,.CloseBtn").click(function(){
-		$(this).parent().parent().addClass("dn");
-		$(this).parent().parent().siblings(".SaveBox").removeClass("dn");
-	});	  
-	_AddAttr.find("li").click(function(){
-		var i = _AddAttr.find("li").index(this);
-		_this.eq(i).removeClass("dn");	
-		$(this).find("i").removeClass("cha");
-	}); 
+    var _this = $(".Resume .con")
+    var _AddAttr = $(".Resume .AddAttr")
+    _this.find(".AddBtn").click(function(){
+        $(this).hide();
+        $(this).siblings(".EditBtn").show();
+        $(this).parent().siblings(".EditBox").removeClass("dn");
+    });
+    _this.find(".EditBtn").click(function(){
+        $(this).parent().siblings(".SaveBox").addClass("dn");
+        $(this).parent().siblings(".EditBox").removeClass("dn");        
+    });
+    _this.find(".SaveBtn,.CloseBtn").click(function(){
+        $(this).parent().parent().addClass("dn");
+        $(this).parent().parent().siblings(".SaveBox").removeClass("dn");
+    });      
+    _AddAttr.find("li").click(function(){
+        var i = _AddAttr.find("li").index(this);
+        _this.eq(i).removeClass("dn");    
+        $(this).find("i").removeClass("cha");
+    }); 
 }
 
 
