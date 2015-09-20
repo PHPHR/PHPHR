@@ -8,8 +8,9 @@
 *
 * 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
 */
-class xin_controller extends user{	
+class sendmess_controller extends user{
 	function index_action(){
+
         /******获取发送总数*****/
 
         $where_num.= " `uid`='".$this->uid."' order by ctime desc";
@@ -34,7 +35,7 @@ class xin_controller extends user{
         /*****************end****************/
 
 		//$where.= "`uid`='".$this->uid."' or (`fid`='".$this->uid."' and `status`<>'1') order by ctime desc";
-		$where.= " `fid`='".$this->uid."' and `status`<>'1' order by ctime desc";//收件
+		$where.= " `uid`='".$this->uid."' order by ctime desc";//收件
 		$urlarr["c"] = $_GET["c"];
 		$urlarr["page"] = "{{page}}";
 		$pageurl = Url('member',$urlarr);
@@ -57,13 +58,14 @@ class xin_controller extends user{
 				}
 			}
 		}
+
+		$this->yunset("rows",$rows);
         $this->yunset('shounum',$shounum_count);
         $this->yunset('fanum',$fanum_count);
-		$this->yunset("rows",$rows);
 		$this->public_action();		
 		$this->obj->DB_update_all("friend_message","`remind_status`='1'","`fid`='".$this->uid."' and `remind_status`='0'");
 		$this->unset_remind("friend_message1","1");
-		$this->user_tpl('xin');
+		$this->user_tpl('sendmess');
 	}
 	function reply_action(){
 		if($_POST['submit']){

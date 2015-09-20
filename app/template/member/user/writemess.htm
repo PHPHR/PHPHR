@@ -13,7 +13,7 @@
                         <p>网站公告</p>
                     </a>
                 </li>
-                <li class="on">
+                <li>
                     <a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=xin">
                         <div class="tb">
                             <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic121.png" />
@@ -33,7 +33,7 @@
                         <div class="num">{yun:}$fanum{/yun}</div>
                     </a>
                 </li>
-                <li>
+                <li class="on">
                     <a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=writemess">
                         <div class="tb">
                             <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic123.png" />
@@ -45,12 +45,12 @@
                 <div class="clear"></div>
             </ul>
             <div id="tab_bd">
-                <div class="li" style="display:block">
+                <div class="li" style="display:none">
                     <div class="huan">
-                        <p><em>时间</em><em>发件人</em>内容</p>
+                        <p><em>时间</em><em>收件人</em>内容</p>
                         <ul>
                             {yun:}foreach  from=$rows item=v{/yun}
-                            <li><i>{yun:}$v.ctime|date_format:'%Y-%m-%d %H:%M:%S'{/yun}</i><i>{yun:}$v.nickname{/yun}</i>{yun:}$v.content{/yun}</li>
+                            <li><i>{yun:}$v.ctime|date_format:'%Y-%m-%d %H:%M:%S'{/yun}</i><i>{yun:}$v.name{/yun}</i>{yun:}$v.content{/yun}</li>
                             {yun:}/foreach{/yun}
                       </ul>
                         <div class="j_page">
@@ -60,66 +60,23 @@
                         </div>
                     </div>
                 </div>
-                <!--<div class="li">-->
-                    <!--<div class="huan">-->
-                        <!--<p><em>时间</em>标题</p>-->
-                        <!--<ul>-->
-                            <!--<li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>-->
-                            <!--<li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>-->
-                            <!--<li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>-->
-                            <!--<li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>-->
-                        <!--</ul>-->
-                        <!--<div class="j_page">-->
-                            <!--<div class="page1">-->
-                                <!--<a href="#">上一页</a>-->
-                                <!--<a href="#">1</a>-->
-                                <!--<a href="#">2</a>-->
-                                <!--<a href="#">3</a>-->
-                                <!--<a href="#">4</a>-->
-                                <!--<a href="#">5</a>-->
-                                <!--<a href="#">6</a>-->
-                                <!--<a href="#">下一页</a>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="li">-->
-                    <!--<div class="huan">-->
-                        <!--<p><em>时间</em>标题</p>-->
-                        <!--<ul>-->
-                            <!--<li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>-->
-                            <!--<li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>-->
-                            <!--<li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>-->
-                            <!--<li><i>2000-01-01</i><a href="#">恭喜您已成功注册成为测聘网会员！</a></li>-->
-                        <!--</ul>-->
-                        <!--<div class="j_page">-->
-                            <!--<div class="page1">-->
-                                <!--<a href="#">上一页</a>-->
-                                <!--<a href="#">1</a>-->
-                                <!--<a href="#">2</a>-->
-                                <!--<a href="#">3</a>-->
-                                <!--<a href="#">4</a>-->
-                                <!--<a href="#">5</a>-->
-                                <!--<a href="#">6</a>-->
-                                <!--<a href="#">下一页</a>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <div class="li">
+
+                <div class="li" style="display: block">
                     <ul class="write">
-                        <li><span>收件人：</span><input type="text" class="text" /></li>
-                        <li><span>主题：</span><input type="text" class="text" /></li>
-                        <li><span class="l">正文：</span><textarea class="textarea"></textarea></li>
+                        <form method="post" action="{yun:}$config.sy_weburl{/yun}/member/index.php?c=writemess&act=save">
+                        <li><span>收件人：</span><input type="text" name="username" class="text" /></li>
+                        <li><span>主题：</span><input type="text" name="title" class="text" /></li>
+                        <li><span class="l">正文：</span><textarea name="content" class="textarea"></textarea></li>
+                            <input type="hidden" name="sub" value="1">
                         <li><span></span><input type="submit" class="submit" value="" /></li>
+                        </form>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    {yun:}include file="./newright.htm"{/yun}
-</div>
+{yun:}include file="./newright.htm"{/yun}
 <div id="footer">
     <div class="footer">
         <ul class="f_box">

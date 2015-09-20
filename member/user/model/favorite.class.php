@@ -17,21 +17,36 @@ class favorite_controller extends user{
 		$urlarr=array("c"=>"favorite","page"=>"{{page}}");
         $StateNameList=array('0'=>'等待审核','1'=>'招聘中','2'=>'已结束','3'=>'未通过');
 		$pageurl=Url('member',$urlarr);
-		$rows=$this->get_page("fav_job","`uid`='".$this->uid."' order by id desc",$pageurl,"20");
+		$rows=$this->get_page("fav_job","`uid`='".$this->uid."' order by id desc",$pageurl,"10");
+
 		$fnum=$this->obj->DB_select_num("fav_job","`uid`='".$this->uid."'","`id`");
 		if($rows&&is_array($rows)){
 			foreach($rows as $val){
 				$jobids[]=$val['job_id'];
 			}
-			$company_job=$this->obj->DB_select_all("company_job","`id` in(".pylode(',',$jobids).")","`id`,`salary`,`provinceid`,`cityid`,`state`");
+			$company_job=$this->obj->DB_select_all("company_job","`id` in(".pylode(',',$jobids).")","`id`,`salary`,`provinceid`,`cityid`,`state`,`type`,`exp`,`edu`,`sdate`");
 			foreach($rows as $key=>$val){
+                $onecompany = $this->obj->DB_select_once('company',"`uid` = '".$val['com_id']."'");
+
+
+                $rows[$key]['companylog'] = $onecompany['logo'];
                 $rows[$key]['statename']='已关闭';
 				foreach($company_job as $v){
 					if($val['job_id']==$v['id']){
+                        $rows[$key]['sdate'] = $v['sdate'];
 						$rows[$key]['salary']=$v['salary'];
 						$rows[$key]['provinceid']=$v['provinceid'];
 						$rows[$key]['cityid']=$v['cityid'];
                         $rows[$key]['statename']=$StateNameList[$v['state']];
+                        $jobtype = $this->obj->DB_select_once('comclass',"`id` = '".$v['type']."'");
+                        $salary = $this->obj->DB_select_once('comclass',"`id` = '".$v['salary']."'");
+                        $exp = $this->obj->DB_select_once('comclass',"`id` = '".$v['exp']."'");
+                        $edu = $this->obj->DB_select_once('comclass',"`id` = '".$v['edu']."'");
+                        $rows[$key]['jobtype'] = $jobtype['name'];
+                        $rows[$key]['salary'] = $salary['name'];
+                        $rows[$key]['exp'] = $exp['name'];
+                        $rows[$key]['edu'] = $edu['name'];
+
 					}
 				}
 			}
@@ -39,7 +54,7 @@ class favorite_controller extends user{
 		$num=$this->obj->DB_select_num("fav_job","`uid`='".$this->uid."'");
 		$this->obj->DB_update_all("member_statis","fav_jobnum='".$num."'","`uid`='".$this->uid."'");
 		$this->yunset(array("rows"=>$rows,"fnum"=>$fnum));
-		$this->yunset();
+//		$this->yunset();
 		$this->user_tpl('favorite');
 	}
 	function del_action(){
