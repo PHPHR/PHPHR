@@ -8,7 +8,7 @@ class index_controller extends job_controller
 {
     function index_action()
     {
-        if ($this->config['sy_default_comclass'] == '1') {
+//        if ($this->config['sy_default_comclass'] == '1') {
         $CacheM = $this->MODEL('cache');
         $CacheList = $CacheM->GetCache(array('job', 'city', 'hy'));
         $this->yunset($CacheList);
@@ -20,9 +20,9 @@ class index_controller extends job_controller
         $this->seo("com");
 //            $this->yun_tpl(array('index'));
         $this->yun_tpl(array('index_job'));
-        } else {
-            $this->comsearch();
-        }
+//        } else {
+//            $this->comsearch();
+//        }
     }
 
     function comsearch()

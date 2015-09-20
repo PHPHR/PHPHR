@@ -266,7 +266,6 @@
                 <a href="javascript:void(0)" class="hover">最新简历</a><a href="javascript:void(0)">推荐简历</a>
                 </dt>
                 <dd>
-
                     <div class="none" style="display:block;">
                         {yun:}userlist pic=0 post_len=20 limit=5 item=userlist{/yun}
                         <a href="{yun:}$userlist.user_url{/yun}" target="_blank">
@@ -278,12 +277,12 @@
                                     <!--<p class="p2">有2次GSP认证经验</p>-->
                                 </div>
                                 <div class="w225 l">
-                                    <p class="p1">{yun:}$userlist.edu_n{/yun} / 药学专业</p>
+                                    <p class="p1">{yun:}$userlist.edu_n{/yun} / {yun:}$userlist.job_post_n{/yun}</p>
 
                                     <!--<p class="p2">毕业院校：沈阳药科大学</p>-->
                                 </div>
                                 <div class="w225 l">
-                                    <p class="p3">{yun:}$userlist.exp_n{/yun} / {yun:}$userlist.job_post_n{/yun}</p>
+                                    <p class="p3">{yun:}$userlist.exp_n{/yun} / {yun:}$userlist.salary_n{/yun}</p>
 
                                     <p class="p2">{yun:}$userlist.time{/yun} 更新</p>
                                 </div>
@@ -295,33 +294,27 @@
 
 
                     <div class="none">
-                        {yun:}foreach item=v from=$resumelist{/yun}
+                        {yun:}userlist limit=10 post_len=7 rec_resume=1 item=userrec{/yun}
                         <a href="{yun:}$userlist.user_url{/yun}" target="_blank">
                             <div class="list">
                                 <div class="w225 l">
-                                    <p class="p1">
-                                        {yun:}mb_substr($v['uname'],0,1,'GBK'){/yun}{yun:}if $v['sex'] ==
-                                        6{/yun}先生{yun:}else{/yun}{yun:}mb_substr($v['uname'],0,1,'GBK'){/yun}小姐{yun:}/if{/yun}
-                                        <span>[{yun:}$city_name[$v['cityid']]{/yun}]</span>
-                                    </p>
-
+                                    <p class="p1">{yun:}$userrec.username_n{/yun}<span>[{yun:}$city_name[$userrec.cityid]{/yun}]</span></p>
                                     <!--<p class="p2">有2次GSP认证经验</p>-->
                                 </div>
                                 <div class="w225 l">
-                                    <p class="p1">{yun:}$userclass_name[$v['edu']]{/yun} / 药学专业</p>
-
+                                    <p class="p1">{yun:}$userrec.edu_n{/yun} / {yun:}$userrec.job_post_n{/yun}</p>
                                     <!--<p class="p2">毕业院校：沈阳药科大学</p>-->
                                 </div>
                                 <div class="w225 l">
-                                    <p class="p3">{yun:}$userclass_name[$v['exp']]{/yun} /
-                                        {yun:}$v['specialty']{/yun}</p>
+                                    <p class="p3">{yun:}$userrec.exp_n{/yun} /
+                                        {yun:}$userrec.salary_n{/yun}</p>
 
-                                    <p class="p2">{yun:}date('Y-m-d',$v['lastupdate']){/yun} 更新</p>
+                                    <p class="p2">{yun:}$userrec.lastupdate{/yun} 更新</p>
                                 </div>
                                 <div class="clear"></div>
                             </div>
                         </a>
-                        {yun:}/foreach{/yun}
+                        {yun:}/userlist{/yun}
                         <!--分页代码-->
                         <!--<div class="page2">-->
                         <!--<a href="#"> << </a>-->
@@ -333,8 +326,6 @@
                         <!--<a href="#"> >> </a>-->
                         <!--</div>-->
                     </div>
-
-
                 </dd>
             </dl>
             <dl class="m_link">
