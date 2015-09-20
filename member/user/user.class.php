@@ -10,11 +10,16 @@
  */
 class user extends common{
 	function public_action(){
+
+
+
+
 		$user=$this->obj->DB_select_once("resume","`uid`='".$this->uid."'","`photo`,`resume_photo`,`idcard_pic`,`idcard_status`");
 		$this->yunset("user_photo",$user['photo']);
 		$this->yunset("resume_photo",$user['resume_photo']);
 		$this->yunset("idcard_pic",$user['idcard_pic']);
 		$this->yunset("idcard_status",$user['idcard_status']);
+
 		$now_url=@explode("/",$_SERVER['REQUEST_URI']);
 		$now_url=$now_url[count($now_url)-1];
 		$this->yunset("now_url",$now_url);

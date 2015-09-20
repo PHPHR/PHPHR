@@ -1,11 +1,11 @@
-{yun:}include file="./newheader.htm"{/yun}
 
+{yun:}include file="./newheader.htm"{/yun}
 <div class="wdxx w1000">
     <div class="l left">
         <div class="j_tab">
-            <ul class="hd" id="">
-                <li class="on">
-                    <a href="#">
+            <ul class="hd" id="tab_hd">
+                <li>
+                    <a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=sysnews">
                         <div class="tb">
                             <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic120.png" />
                             <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic120_2.png" />
@@ -20,17 +20,17 @@
                             <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic121_2.png" />
                         </div>
                         <p>收件箱</p>
-                        <div class="num">{yun:}$fanum{/yun}</div>
+                        <div class="num">{yun:}$shounum{/yun}</div>
                     </a>
                 </li>
-                <li>
+                <li class="on">
                     <a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=sendmess">
                         <div class="tb">
                             <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic122.png" />
                             <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic122_2.png" />
                         </div>
                         <p>发件箱</p>
-                        <div class="num">{yun:}$shounum{/yun}</div>
+                        <div class="num">{yun:}$fanum{/yun}</div>
                     </a>
                 </li>
                 <li>
@@ -47,26 +47,54 @@
             <div id="tab_bd">
                 <div class="li" style="display:block">
                     <div class="huan">
-                        <p><em>操作</em><em>时间</em>内容</p>
+                        <p><em>时间</em><em>收件人</em>内容</p>
                         <ul>
-                            {yun:}foreach from=$rows item=item{/yun}
-                            <li><i><a href="javascript:void(0)" onclick="layer_del('确定要删除？','index.php?c=sysnews&act=del&id={yun:}$item.id{/yun}');" class="List_dete  cblue">删除</a></i><i>{yun:}$item.ctime|date_format:"%Y-%m-%d %H:%M"{/yun}</i><a href="#">{yun:}$item.content{/yun}</a></li>
-                            {yun:}foreachelse{/yun}
-                            <li>暂无系统消息</li>
+                            {yun:}foreach  from=$rows item=v{/yun}
+                            <li><i>{yun:}$v.ctime|date_format:'%Y-%m-%d %H:%M:%S'{/yun}</i><i>{yun:}$v.name{/yun}</i>{yun:}$v.content{/yun}</li>
                             {yun:}/foreach{/yun}
-                        </ul>
+                      </ul>
                         <div class="j_page">
                             <div class="page1">
-                                {yun:}$pagenav{/yun}
+                            {yun:}$pagenav{/yun}
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <div class="li">
+                    <ul class="write">
+                        <li><span>收件人：</span><input type="text" class="text" /></li>
+                        <li><span>主题：</span><input type="text" class="text" /></li>
+                        <li><span class="l">正文：</span><textarea class="textarea"></textarea></li>
+                        <li><span></span><input type="submit" class="submit" value="" /></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-    {yun:}include file="./newright.htm"{/yun}
+   {yun:}include file="./newright.htm"{/yun}
+</div>
+<div id="footer">
+    <div class="footer">
+        <ul class="f_box">
+            <li>
+                <div class="p1">全国统一服务热线：</div>
+                <div class="p2">400-067-3800</div>
+                <div class="p3">工作日：9：00 ~ 18：00</div>
+            </li>
+            <li style="margin-right:0;">
+                <div class="p4"><a href="#">关于我们</a><a href="#">常见问题</a><a href="#">网站地图</a><a href="#">联系我们</a><a href="#">企业入驻</a><a href="#">意见反馈</a></div>
+                <div class="p5">Copyright 2015 广州国健医药咨询服务有限公司<br>
+                    版权所有   粤ICP备11016031号-4</div>
+            </li>
+            <li class="last">
+                <div class="p6"><a href="#"><p>新浪微博</p><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_7.jpg"></a></div>
+                <div class="p6"><a href="#"><p>微信</p><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_8.jpg"></a></div>
+                <div class="clear"></div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
 </div>
 </body>
 </html>

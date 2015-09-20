@@ -10,6 +10,31 @@
 */
 class sysnews_controller extends user{
 	function index_action(){
+
+        /******获取发送总数*****/
+
+        $where_num.= " `uid`='".$this->uid."' order by ctime desc";
+        $num = $this->obj->DB_select_all("friend_message",$where_num);
+        $fanum_count = 0;
+        if(is_array($num)) {
+            foreach($num as $v) {
+                $fanum_count++;
+            }
+        }
+        /**********end****************************/
+
+        /*************获取收件总数***********/
+        $xin_where_num .= "`fid`='".$this->uid."' and `status`<>'1' order by ctime desc";
+        $shou_num = $this->obj->DB_select_all("friend_message",$xin_where_num);
+        $shounum_count = 0;
+        if(is_array($shou_num)) {
+            foreach($shou_num as $v) {
+                $shounum_count++;
+            }
+        }
+        /*****************end****************/
+
+        $where = '';
 		$where.= "`fa_uid`='".$this->uid."' order by id desc";
 		$urlarr["c"] = $_GET["c"];
 		$urlarr["page"] = "{{page}}";
@@ -18,6 +43,8 @@ class sysnews_controller extends user{
 		$this->obj->DB_update_all("sysmsg","`remind_status`='1'","`fa_uid`='".$this->uid."' and `remind_status`='0'");
 		$this->unset_remind("sysmsg1",'1');
 		$this->public_action();
+        $this->yunset('shounum',$shounum_count);
+        $this->yunset('fanum',$fanum_count);
 		$this->user_tpl('sysnews');
 	}
 	function del_action(){
