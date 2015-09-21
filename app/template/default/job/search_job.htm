@@ -366,55 +366,12 @@
                 </div>
                 {yun:}/joblist{/yun}
                 <!--end-->
-
-                <!--prepare start-->
-                {yun:}joblist namelen=30 comlen=30 isshow=1 ispage=1 rec='auto.rec' hy='auto.hy' job1='auto.job1' job1_son='auto.job1_son' job_post='auto.job_post' jobids='auto.jobids' pr='auto.pr' mun='auto.mun' provinceid='auto.provinceid' cityid='auto.cityid' ltype='auto.ltype' three_cityid='auto.three_cityid' type='auto.type' edu='auto.edu' exp='auto.exp' sex='auto.sex' salary='auto.salary' keyword='auto.keyword' key=key sdate='auto.sdate' cert='auto.cert' urgent='auto.urgent'  uptime='auto.uptime' order='auto.order' limit=16 item=job_list name=joblist1{/yun}
-                <div class="search_job_list {yun:}if $key%2!='0'{/yun}{yun:}/if{/yun}">
-                    <div class="search_user_list_neme search_user_list_w240">
-                        <div class="checkbox_job" pid="{yun:}$job_list.id{/yun}"><i></i>
-                            <input type="checkbox" name="checkbox_job" style="display:none;" id="checkbox{yun:}$job_list.id{/yun}" value="{yun:}$job_list.id{/yun}"/>
-                        </div>
-                        <a href="{yun:}$job_list.job_url{/yun}" class="search_job_jobs_name" target="_blank">{yun:}$job_list.name_n{/yun}</a> {yun:}if $job_list.rec_time>time(){/yun}<img width="15" height="15" src="{yun:}$style{/yun}/images/tui.png" title="站长推荐" class="co_zztj png"/>{yun:}/if{/yun}
-                        {yun:}if is_array($lookjob) && in_array($job_list.id,$lookjob){/yun}<span class="co_fav"><i></i><em>已浏览</em></span>{yun:}/if{/yun}
-                        {yun:}if is_array($favjob) &&in_array($job_list.id,$favjob){/yun}<span class="co_fav"><i></i><em>已收藏</em></span>{yun:}/if{/yun}
-                        {yun:}if is_array($useridjob) &&in_array($job_list.id,$useridjob){/yun}<span class="co_fav"><i></i><em>已申请</em></span>{yun:}/if{/yun}
-                    </div>
-                    <div class="disc_pay">&nbsp;{yun:}$job_list.job_salary{/yun} </div>
-                    <div class=" clear"></div>
-                    <div class="company_det"> <a href="{yun:}$job_list.com_url{/yun}" target="_blank" class="search_job_com_name">{yun:}$job_list.com_n{/yun}</a>
-                        {yun:}if $job_list.ratlogo!=""{/yun}<img src="{yun:}$config.sy_weburl{/yun}/{yun:}$job_list.ratlogo{/yun}" title="{yun:}$job_list.ratname{/yun}" width="16" height="16" />
-                        {yun:}/if{/yun}
-                        {yun:}if $job_list.yyzz_status=='1'{/yun} <img src="{yun:}$style{/yun}/images/disc_icon10.png" title="营业执照已审核" class="png"> {yun:}/if{/yun}
-                        <span class="search_job_list_box_line">|</span><span class="search_job_list_box_s">经验：<em class="com_search_job_em">{yun:}$job_list.job_exp{/yun}</em>
-                        </span><span class="search_job_list_box_line">|</span><span class="search_job_list_box_s">学历：<em class="com_search_job_em">{yun:}$job_list.job_edu{/yun} </em></span><span class="search_job_list_box_line">|</span><span class="search_job_data">更新：{yun:}$job_list.time{/yun}</span> </div>
-                    <div class="search_job_Apply_a">
-                        {yun:}if $usertype==1{/yun}
-                        <a href="javascript:fav_job('{yun:}$job_list.id{/yun}','1');" class="search_job_Apply_sc">收藏</a>
-                        {yun:}else{/yun}
-                        {yun:}if $uid{/yun}
-                        <a href="javascript:void(0);" onclick="layer.msg('只有个人用户才能收藏', 2, 8)" class="search_job_Apply_sc">收藏</a>
-                        {yun:}else{/yun}
-                        <a href="javascript:void(0);" onclick="showlogin('1');" class="search_job_Apply_sc">收藏</a>
-                        {yun:}/if{/yun}
-                        {yun:}/if{/yun}
-                        <a href="{yun:}url m=job c=search c=comapply id='`$job_list.id`'{/yun}" target="_blank" class="search_job_Apply_fast">申请职位</a> </div>
-                </div>
-                {yun:}/joblist{/yun}
-                <!--prepare end-->
-
-
-
-
-
+                {yun:}if $total==0{/yun}
+                <div class="list2">很抱歉，没有找到满足条件的职位</div>
+                {yun:}/if{/yun}
+                <!--分页-->
                 <div class="page1">
-                    <a href="#">上一页</a>
-                    <a href="#" class="hover">1</a>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">下一页</a>
+                    {yun:}$pagenav{/yun}
                 </div>
             </div>
             <div><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_78.jpg"></div>
@@ -449,6 +406,4 @@
     </div>
 </div>
 </body>
-<pre>
-{yun:}print_r($job_list){/yun}
 </html>
