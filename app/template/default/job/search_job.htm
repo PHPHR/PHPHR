@@ -327,7 +327,7 @@
             <div><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_79.jpg"></div>
             <div class="blank2"></div>
             <div class="m_tit">
-                <div class="page"><a href="#" class="prev"></a><a href="#" class="next"></a></div>
+                <!--<div class="page"><a href="#" class="prev"></a><a href="#" class="next"></a></div>-->
                 <span>职位列表</span></div>
             <div class="blank"></div>
             <div class="m_wrap">
@@ -336,22 +336,32 @@
                 {yun:}joblist namelen=30 comlen=30 isshow=1 ispage=1 rec='auto.rec' hy='auto.hy' job1='auto.job1' job1_son='auto.job1_son' job_post='auto.job_post' jobids='auto.jobids' pr='auto.pr' mun='auto.mun' provinceid='auto.provinceid' cityid='auto.cityid' ltype='auto.ltype' three_cityid='auto.three_cityid' type='auto.type' edu='auto.edu' exp='auto.exp' sex='auto.sex' salary='auto.salary' keyword='auto.keyword' key=key sdate='auto.sdate' cert='auto.cert' urgent='auto.urgent'  uptime='auto.uptime' order='auto.order' limit=16 item=job_list name=joblist1{/yun}
                 <div class="list2">
                     <a href="{yun:}$job_list.job_url{/yun}">
-                    <div class="img">{yun:}if $job_list.ratlogo!=""{/yun}<img src="{yun:}$config.sy_weburl{/yun}/{yun:}$job_list.ratlogo{/yun}"/></div>
-                    <div class="con">
-                        <div class="p1">{yun:}$job_list.name_n{/yun}<span class="c1">成都<em>|</em>全职</span></div>
-                        <div class="p2"><span>{yun:}$job_list.job_salary{/yun}</span>{yun:}$job_list.exp_n{/yun} / 广州 / {yun:}$job_list.job_edu{/yun}</div>
-                        <div class="p2">{yun:}$job_list.job_exp{/yun}</div>
-                    </div>
-                    <div class="con">
-                        <div class="p1"><span class="r c2">14:24发布</span><a href="{yun:}$job_list.com_url{/yun}">{yun:}$job_list.com_n{/yun}</a></div>
-                        <div class="p2">民营企业 / 150-500人 / 移动互联网 / 上市公司</div>
-                        <div class="p3"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_121.jpg"><img
-                                src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_122.jpg"><img
-                                src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_123.jpg"><img
-                                src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_124.jpg"><img
-                                src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_133.jpg"></div>
-                    </div>
-                    <div class="clear"></div>
+                        <div class="img"><img width="98" height="98" src="{yun:}if $job_list.com_logo!=''{/yun}{yun:}$config.sy_weburl{/yun}/{yun:}$job_list.com_logo{/yun}{yun:}else{/yun}{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_unit_icon{/yun}{yun:}/if{/yun}"/></div>
+                        <div class="con">
+                            <div class="p1">{yun:}$job_list.name_n{/yun}<span class="c1">{yun:}$city_name[$job_list.cityid]{/yun} <em>|</em>{yun:}$job_list.job_type{/yun}</span></div>
+                            <div class="p2"><span>{yun:}if $job_list.job_salary == '不限'{/yun}面议{yun:}else{/yun}{yun:}$job_list.job_salary{/yun}{yun:}/if{/yun}</span>{yun:}$job_list.exp_n{/yun} / {yun:}$city_name[$job_list.cityid]{/yun} / {yun:}$job_list.job_edu{/yun}</div>
+                            <div class="p2">{yun:}$job_list.job_exp{/yun}</div>
+                        </div>
+                        <!--公司部分-->
+                        <div class="con">
+                            <div class="p1"><span class="r c2">{yun:}$job_list.time{/yun}发布</span><a href="{yun:}$job_list.com_url{/yun}">{yun:}$job_list.com_n{/yun}</a></div>
+                            <div class="p2">{yun:}$job_list.job_pr{/yun} / {yun:}$job_list.job_mun{/yun}  / {yun:}$job_list.job_hy{/yun} / {yun:}$job_list.com_city{/yun}</div>
+                            <div class="p3">
+                                {yun:}if $job_list.welfare['0'] !=''{/yun}
+                                    {yun:}foreach from=$job_list.welfare item=v {/yun}
+                                    {yun:}$comclass_name[$v]{/yun}
+                                    {yun:}/foreach{/yun}
+                                {yun:}else{/yun}
+                                     <p>待遇面议</p>
+                                {yun:}/if{/yun}
+                                <!--<img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_121.jpg">-->
+                                <!--<img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_122.jpg">-->
+                                <!--<img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_123.jpg">-->
+                                <!--<img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_124.jpg">-->
+                                <!--<img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_133.jpg">-->
+                            </div>
+                        </div>
+                        <div class="clear"></div>
                     </a>
                 </div>
                 {yun:}/joblist{/yun}
@@ -439,4 +449,6 @@
     </div>
 </div>
 </body>
+<pre>
+{yun:}print_r($job_list){/yun}
 </html>

@@ -37,7 +37,7 @@ class Smarty_Internal_Compile_Announcement extends Smarty_Internal_CompileBase{
 		}else{
 			$where.=" DESC";
 		}
-		if($paramer[limit]){
+		if($paramer[\'limit\']){
 			$limit=" LIMIT ".$paramer[limit];
 		}else{
 			$limit=" LIMIT 20";
