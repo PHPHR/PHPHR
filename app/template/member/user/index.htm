@@ -28,77 +28,15 @@
                 {yun:}/joblist{/yun}
 
             </table>
-            <div class="an"><input type="button" class="button" /></div>
+            <!--<div class="an"><input type="button" class="button" /></div>-->
+            <div class="j_page">
+                <div class="page1">
+                    {yun:}$pagenav{/yun}
+                </div>
+            </div>
         </div>
     </div>
-    <div class="r right_all">
-        <div class="bfb">
-            <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery.circliful.min.js"></script>
-            <script type="text/javascript">
-                $( document ).ready(function() {
-                    $('#myStat2').circliful();
-                });
-            </script>
-            <div id="myStat2" data-dimension="89" data-text="30%" data-info="New Clients" data-width="10" data-fontsize="20" data-percent="35" data-fgcolor="#fe960f" data-bgcolor="#efefef"></div>
-        </div>
-        <ul class="blj">
-            <li><a href="#">编辑简历</a></li>
-            <li><a class="a2" href="#">预览简历</a></li>
-            <div class="clear"></div>
-        </ul>
-        <ul class="f_nav">
-
-            <li>
-                <a href="#">
-                    <div class="pic">
-                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic75.png" />
-                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic75_2.png" />
-                    </div>
-                    <p>投递箱</p>
-                </a>
-            </li>
-            <li class="hover">
-                <a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=favorite">
-                    <div class="pic">
-                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic76.png" />
-                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic76_2.png" />
-                    </div>
-                    <p>收藏夹</p>
-                </a>
-            </li>
-            <li class="last">
-                <a href="#">
-                    <div class="pic">
-                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic77.png" />
-                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic77_2.png" />
-                    </div>
-                    <p>订阅栏</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="pic">
-                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic74.png" />
-                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic74_2.png" />
-                    </div>
-                    <p>邀请函</p>
-                </a>
-            </li>
-            <div class="clear"></div>
-        </ul>
-        <ul class="box2">
-            <li><a class="a1" href="#">增值中心</a></li>
-            <li><a class="a2" href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=xin">我的消息</a></li>
-            <li><a class="a3" href="#">增值中心</a></li>
-            <li><a class="a4" href="#">增值中心</a></li>
-            <li><a class="a5" href="#">增值中心</a></li>
-        </ul>
-        <div class="j_wechat">
-            <div class="pic"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/pic81.jpg" /></div>
-            <p>扫一扫，立即下载药师多APP求职信息随时掌握</p>
-        </div>
-    </div>
-    <div class="clear"></div>
+{yun:}include file="./newright.htm"{/yun}
 </div>
 </body>
 </html>

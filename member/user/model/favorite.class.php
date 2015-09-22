@@ -11,6 +11,7 @@
 class favorite_controller extends user{
 	
 	function index_action(){
+        $M = $this->MODEL('job');
 		$this->yunset($this->MODEL('cache')->GetCache(array('city','com')));
 		$this->public_action();
 		$this->member_satic();
@@ -33,7 +34,15 @@ class favorite_controller extends user{
                 $rows[$key]['statename']='已关闭';
 				foreach($company_job as $v){
 					if($val['job_id']==$v['id']){
+                        /**********获取已收藏**************/
+                        if ($_COOKIE['usertype'] == '1') {
+                            $userid_job = $M->GetUseridJobOne(array('uid' => $this->uid, 'job_id' => $v['id']), array('field' => 'id'));
+                            $rows[$key]['userid_job'] = $userid_job['id'];
+                        }
+                        /**********************/
+
                         $rows[$key]['sdate'] = $v['sdate'];
+                        $rows[$key]['jobid'] = $v['id'];
 						$rows[$key]['salary']=$v['salary'];
 						$rows[$key]['provinceid']=$v['provinceid'];
 						$rows[$key]['cityid']=$v['cityid'];

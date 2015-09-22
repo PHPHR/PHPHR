@@ -1,38 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
-    <title>邀请函</title>
-    <link href="{yun:}$config.sy_weburl{/yun}/resource/css/style.css" type="text/css" rel="stylesheet" />
-    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/js.js"></script>
-</head>
-
-<body class="j_body">
-<div class="j_header">
-    <div class="w1000">
-        <div class="l"><a href="#"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/pic02.png" /></a></div>
-        <ul class="l menu">
-            <li><a href="#">招聘中心</a></li>
-            <li><a href="#">发布职位</a></li>
-            <li><a href="#">简历管理</a></li>
-            <li><a href="#">企业信息</a></li>
-            <li><a href="#">招人才</a></li>
-            <div class="clear"></div>
-        </ul>
-        <dl class="r select">
-            <dt>互诺科技互诺科技互诺科技互诺科技</dt>
-            <dd>
-                <ul>
-                    <li><a href="#">互诺科技1</a></li>
-                    <li><a href="#">互诺科技2</a></li>
-                    <li><a href="#">互诺科技3</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <div class="clear"></div>
-    </div>
-</div>
+{yun:}include file="./newheader.htm"{/yun}
 
 <div class="yqh w1000">
     <div class="l left">
@@ -44,48 +10,47 @@
                             <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic121.png" />
                             <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic121_2.png" />
                         </div>
-                        <p>修改密码</p>
+                        <p>邀请函</p>
                     </a>
                     <div class="num">10</div>
                 </li>
                 <div class="clear"></div>
             </ul>
             <div class="huan">
+                <a style="display: none" id="agree" href="javascript:void(0);" onclick="layer_del('确定要同意面试邀请？', 'index.php?c=msg&act=inviteset&id={yun:}$log.id{/yun}&browse=3')" class="cblue">同意面试</a>
                 <table>
                     <tr class="tr1">
                         <td class="td1" width="360">邀请的职位</td>
                         <td class="td2" width="203">邀约时间</td>
                         <td class="td3" width="150">状态</td>
                     </tr>
+                    {yun:}if !empty($rows){/yun}
+                    {yun:}foreach item=log from=$myrows{/yun}
                     <tr class="tr2">
-                        <td class="td1"><p>质管员<em class="e1">全职  |  广州   |</em><em class="e2">3000元-5000元</em><br /><em class="e3">广州国健医药咨询服务有限公司</em></p></td>
-                        <td class="td2">2015-7-9  09：0:0</td>
+                        <td class="td1"><p>{yun:}$log.jobname{/yun}<em class="e1">{yun:}$log.type{/yun}  |  {yun:}$city_name[$log.cityid]{/yun}   |</em><em class="e2">{yun:}$log.money{/yun}</em><br /><em class="e3">{yun:}$log.fname{/yun}</em></p></td>
+                        <td class="td2">{yun:}$log.datetime|date_format:'%Y-%m-%d %H:%M'{/yun}</td>
                         <td>
+                            {yun:}if $log.is_browse <3 {/yun}
                             <input type="button" class="button" value="接受" />
                             <input type="button" class="button b2" value="拒绝" />
+                            {yun:}else{/yun}
+                            {yun:}if $log.is_browse == 3{/yun}
+                            agree
+                            {yun:}/if{/yun}
+                            {yun:}if $log.is_browse == 4{/yun}
+                            refuse
+                            {yun:}/if{/yun}
+                            {yun:}/if{/yun}
                         </td>
                     </tr>
-                    <tr class="tr2">
-                        <td class="td1"><p>质管员<em class="e1">全职  |  广州   |</em><em class="e2">3000元-5000元</em><br /><em class="e3">广州国健医药咨询服务有限公司</em></p></td>
-                        <td class="td2">2015-7-9  09：0:0</td>
-                        <td class="js"><span>已接受</span></td>
-                    </tr>
-                    <tr class="tr2">
-                        <td class="td1"><p>质管员<em class="e1">全职  |  广州   |</em><em class="e2">3000元-5000元</em><br /><em class="e3">广州国健医药咨询服务有限公司</em></p></td>
-                        <td class="td2">2015-7-9  09：0:0</td>
-                        <td class="jj"><span>拒绝</span></td>
-                    </tr>
+                    {yun:}/foreach{/yun}
+                    {yun:}else{/yun}
+                    <div class="msg_no">您还没有邀请信息。</div>
+                    {yun:}/if{/yun}
                 </table>
                 <div class="j_page j_page2">
                     <div class="page1">
-                        <a href="#">上一页</a>
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                        <a href="#">5</a>
-                        <a href="#">6</a>
-                        <a href="#">下一页</a>
+                    {yun:}$pagenav{/yun}
                     </div>
                 </div>
             </div>

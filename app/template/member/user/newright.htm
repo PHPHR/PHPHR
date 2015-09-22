@@ -11,13 +11,17 @@
         <div id="myStat2" data-dimension="89" data-text="30%" data-info="New Clients" data-width="10" data-fontsize="20" data-percent="35" data-fgcolor="#fe960f" data-bgcolor="#efefef"></div>
     </div>
     <ul class="blj">
-        <li><a href="#">±à¼­¼òÀú</a></li>
+        {yun:}if empty($resumeid){/yun}
+        <li><a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=expect&add=2">±à¼­¼òÀú</a></li>
+        {yun:}else{/yun}
+        <li><a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=expect&e={yun:}$resumeid{/yun}">±à¼­¼òÀú</a></li>
+        {yun:}/if{/yun}
         <li><a class="a2" href="#">Ô¤ÀÀ¼òÀú</a></li>
         <div class="clear"></div>
     </ul>
     <ul class="f_nav">
         <li>
-            <a href="#">
+            <a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=job">
                 <div class="pic">
                     <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic74.png" />
                     <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic74_2.png" />
@@ -45,7 +49,7 @@
             </a>
         </li>
         <li class="last">
-            <a href="#">
+            <a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=msg">
                 <div class="pic">
                     <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic77.png" />
                     <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic77_2.png" />

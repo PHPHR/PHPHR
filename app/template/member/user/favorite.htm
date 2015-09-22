@@ -1,5 +1,11 @@
 {yun:}include file="./newheader.htm"{/yun}
-
+<link rel="stylesheet" href="{yun:}$style{/yun}/style/comapply.css" type="text/css">
+<!--[if IE 6]>
+<script src="{yun:}$config.sy_weburl{/yun}/js/png.js"></script>
+<script>
+    DD_belatedPNG.fix('.png');
+</script>
+<![endif]-->
 <div class="scang w1000">
     <div class="l left">
         <div class="j_tab">
@@ -35,11 +41,18 @@
                         <p>发布时间：{yun:}$job.sdate|date_format:"%Y-%m-%d %H:%M"{/yun}</p>
                         <div class="aniu">
                             <input type="button" class="l button" onclick="layer_del('确定要删除？','index.php?c=favorite&act=del&id={yun:}$job.id{/yun}');" value="取消收藏" />
-                            <input type="button" class="l button" onclick="$('#sq_job').click()" value="投简历" />
-                            <a id="sq_job" href="javascript:;" class="comapply_sq_submit"></a>
+                            {yun:}if $job.userid_job{/yun}
+                            <input type="button" class="l button"  value="已投" />
+                            {yun:}else{/yun}
+                            <input type="button" class="l button" onclick='display("{yun:}$job.com_name{/yun}","{yun:}$job.job_name{/yun}","{yun:}$job.uid{/yun}","{yun:}$job.jobid{/yun}")' value="投简历" />
+                            {yun:}/if{/yun}
+                            <a id="sq_job2" href="javascript:;" class="comapply_sq_submit" jobid2="{yun:}$job.id{/yun}"></a>
                             <div class="clear"></div>
                         </div>
                     </div>
+
+
+
                     <div class="clear"></div>
                 </div>
                 {yun:}/foreach{/yun}
@@ -52,6 +65,7 @@
                 </div>
             </div>
         </div>
+
     </div>
 {yun:}include file="./newright.htm"{/yun}
 
@@ -78,5 +92,71 @@
         </ul>
     </div>
 </div>
+<script>
+
+    function display(companyname,jobname,companyuid,jobid){
+//        alert(companyname);alert(jobname);alert(companyuid);alert(jobid);
+//        var jobid = $(this).attr('jobid2');
+        $.post(weburl+"/index.php?m=ajax&c=index_ajaxjob",{jobid:jobid},function(data){
+            if(data==4){
+                layer.msg('您不符合该公司要求，无法提交申请！', 2, 8);
+            }else if(!data || data==0){
+                showcomlogin();
+            }else if(data==2){
+                layer.alert('您还没有简历，是否先添加简历？', 0, '提示',function(){window.location.href =weburl+"/member/index.php?c=expect&add=2";window.event.returnValue = false;return false; });
+            }else if(data==3){
+                layer.msg('您已申请过该职位！', 2, 3);
+            }else{
+                //申请简历
+
+
+
+                //var companyname=$("#companyname").val();(company_job 的 com_name)
+               // var jobname=$("#jobname").val();
+               // var companyuid=$("#companyuid").val();
+               // var jobid=$("#jobid").val(); (company_job 的 id)
+               // var eid=$("input[name=resume]:checked").val();
+                //$('#sqjob_show').hide();
+                //$('#bg').hide();
+               // layer.closeAll();
+                var loadi = layer.load('执行中，请稍候...',0);
+                $.post(weburl+"/index.php?m=ajax&c=sq_job",{companyname:companyname,jobname:jobname,companyuid:companyuid,jobid:jobid},function(data){
+                    layer.close(loadi);
+                    if(data==4){
+                        layer.msg('您不符合该公司要求，无法提交申请！', 2, 8);
+                    }else if(data==1){
+                        var i = $.layer({
+                            area:['auto','auto'],
+                            dialog:{
+                                msg:'申请成功，是否返回个人中心？',
+                                btns:2,
+                                type:4,
+                                btn:['个人中心','关闭'],
+                                yes:function(){window.location.href=weburl+"/member/index.php?c=job";window.event.returnValue = false;return false;},
+                                no:function(){layer.close(i);}
+                            }
+                        });
+                    }else if(data==2){
+                        layer.msg('系统出错，请稍后再试！', 2, 3);return false;
+                    }else if(data==3){
+                        layer.msg('您已申请过该职位！', 2, 0);return false;
+                    }else if(data==5){
+                        layer.msg('该职位已过期，不能申请该职位！', 2, 3);return false;
+                    }else if(data==6){
+                        layer.msg('该职位不存在！', 2, 8);return false;
+                    }else{
+                        layer.alert('请先登录！',0,'提示',function(){window.location.href="index.php?m=login&usertype=1";window.event.returnValue=false;return false;});
+                    }
+                });
+
+
+
+
+
+            }
+        });
+
+    };
+</script>
 </body>
 </html>

@@ -10,11 +10,17 @@
 */
 class msg_controller extends user{	
 	function index_action(){
+        $this->yunset($this->MODEL('cache')->GetCache(array('city','com')));
 		$this->public_action();
 		$urlarr=array("c"=>"msg","page"=>"{{page}}");
 		$pageurl=Url('member',$urlarr);
-		$this->get_page("userid_msg","`uid`='".$this->uid."' and `type`<>'1' order by id desc",$pageurl,"20");
+		$myrows = $this->get_page("userid_msg","`uid`='".$this->uid."' and `type`<>'1' order by id desc",$pageurl,"20");
+//        var_dump($myrows);die;
+        //获取招聘职位其他条件
+        $myrows = $this->findOther($myrows);
+        $this->yunset("myrows",$myrows);
  		$this->yunset("js_def",4);
+
 		$this->user_tpl('msg');
 	}
 	function shield_action(){
@@ -77,5 +83,23 @@ class msg_controller extends user{
 			$nid?$this->layer_msg("操作成功！",9,0,"index.php?c=msg"):$this->layer_msg("操作失败！",8,0,"index.php?c=msg");
 		}
 	}
+
+    public function findOther($param)
+    {
+        if(!empty($param) && is_array($param)){
+
+            foreach($param as $key=>$val) {
+                //获取发布职位信息
+                $company_job=$this->obj->DB_select_once("company_job","`id` = '".$val['jobid']."'","`id`,`salary`,`provinceid`,`cityid`,`state`,`type`,`exp`,`edu`,`sdate`");
+                $jobtype = $this->obj->DB_select_once('comclass',"`id` = '".$company_job['type']."'");
+                $salary = $this->obj->DB_select_once('comclass',"`id` = '".$company_job['salary']."'");
+                $param[$key]['type'] = $jobtype['name'];
+                $param[$key]['money'] = $salary['name'];
+                $param[$key]['cityid'] = $company_job['cityid'];
+            }
+        }
+
+        return $param;
+    }
 }
 ?>

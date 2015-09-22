@@ -43,7 +43,11 @@ function logout(url,redirecturl){
 	});
 }
 
-$(document).ready(function(){	
+$(document).ready(function(){
+
+
+
+
 	$("#sq_job").click(function(){
 		var jobid=$("#jobid").val();
 		$.post(weburl+"/index.php?m=ajax&c=index_ajaxjob",{jobid:jobid},function(data){
@@ -70,6 +74,37 @@ $(document).ready(function(){
 		});
 		
 	});
+
+    $("#sq_job2").click(function(){
+        var jobid = $(this).attr('jobid2');
+        $.post(weburl+"/index.php?m=ajax&c=index_ajaxjob",{jobid:jobid},function(data){
+            if(data==4){
+                layer.msg('您不符合该公司要求，无法提交申请！', 2, 8);
+            }else if(!data || data==0){
+                showcomlogin();
+            }else if(data==2){
+                layer.alert('您还没有简历，是否先添加简历？', 0, '提示',function(){window.location.href =weburl+"/member/index.php?c=expect&add=2";window.event.returnValue = false;return false; });
+            }else if(data==3){
+                layer.msg('您已申请过该职位！', 2, 3);
+            }else{
+                $(".POp_up_r").html('');
+                $(".POp_up_r").append(data);
+                $.layer({
+                    type : 1,
+                    title :'申请职位',
+                    closeBtn : [0 , true],
+                    border : [10 , 0.3 , '#000', true],
+                    area : ['380px','auto'],
+                    page : {dom :"#sqjob_show"}
+                });
+            }
+        });
+
+    });
+
+
+
+
 	$(".yun_topLogin").hover(function(){
 		$(this).find(".yun_More").attr("class","yun_More yun_Morecurrent");
 		$(this).find("ul").show();

@@ -12,7 +12,8 @@ class user extends common{
 	function public_action(){
 
 
-
+        //获取简历主键
+        $this->findResume();
 
 		$user=$this->obj->DB_select_once("resume","`uid`='".$this->uid."'","`photo`,`resume_photo`,`idcard_pic`,`idcard_status`");
 		$this->yunset("user_photo",$user['photo']);
@@ -26,6 +27,21 @@ class user extends common{
 		$myresumenum=$this->obj->DB_select_num("resume_expect","`uid`='".$this->uid."'");
 		$this->yunset("myresumenum",$myresumenum);
 	}
+
+    //获取简历信息
+    public function findResume()
+    {
+        $row=$this->obj->DB_select_once("resume_expect","defaults= 1 AND `uid`='".$this->uid."'");
+
+        if(!empty($row)) {
+            $resumeid = $row['id'];
+        }else{
+            $resumeid = false;
+        }
+
+        $this->yunset("resumeid",$resumeid);
+    }
+
 	
 	function member_satic(){
 		$statis=$this->obj->DB_select_once("member_statis","`uid`='".$this->uid."'");

@@ -122,6 +122,14 @@ class index_controller extends common{
         $JobM=$this->MODEL("job");
         $M=$this->MODEL("userinfo");
         $jobid=(int)$_POST['jobid'];
+        $eid = $_POST['eid'];
+
+        if(empty($eid)) {
+            $ResumeM=$this->MODEL("resume");
+            $rows=$ResumeM->GetResumeExpectList(array("uid"=>$this->uid),array("field"=>"`id`,`name`"));
+            $eid = $rows[0]['id'];
+        }
+
         $job=$JobM->GetComjobOne(array("id"=>$jobid,"`r_status`<>'2' and `status`<>'1'"),array("field"=>"`name`,`uid`,`edate`,`link_type`"));
         if(is_array($job)&&!empty($job)){
             if($job['edate']<time()){
@@ -140,7 +148,8 @@ class index_controller extends common{
             $value['job_name']=yun_iconv("utf-8","gbk",$_POST['jobname']);
             $value['com_id']=(int)$_POST['companyuid'];
             $value['uid']=$this->uid;
-            $value['eid']=(int)$_POST['eid'];
+            //$value['eid']=(int)$_POST['eid'];
+            $value['eid']=(int)$eid;
             $value['datetime']=mktime();
             $nid=$JobM->AddUseridJob($value);
             $historyM = $this->MODEL('history');
@@ -348,6 +357,8 @@ class index_controller extends common{
         }
         echo json_encode($arr);die;
     }
+
+    //企业邀请应聘者面试
     function sava_ajaxresume_action(){
 
         $_POST['uid'] = intval($_POST['uid']);
