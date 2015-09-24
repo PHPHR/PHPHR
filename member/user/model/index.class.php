@@ -9,6 +9,8 @@
 * 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
 */
 class index_controller extends user{
+
+    private $jobs = [];
 	
 	function index_action(){
 		$this->public_action();
@@ -71,7 +73,17 @@ class index_controller extends user{
 			$_GET['jobwhere']=$jobwhere;
 		}else{
 			$_GET['jobwhere']="1=2";
-		} 
+		}
+        /************************/
+        $rows = $this->findJobs();
+        $rows = $this->matching($rows);
+        $this->yunset('selljob',$rows);
+        $this->yunset($this->MODEL('cache')->GetCache('city','com'));
+        /***********************/
+
+
+
+
 		$this->yunset("rlist",$rlist);
 		$this->yunset("resume",$resume);
 		$this->user_tpl('index');
@@ -96,5 +108,72 @@ class index_controller extends user{
 			echo $html;die;
 		}
 	}
+
+    public function more_action()
+    {
+        $this->yunset($this->MODEL('cache')->GetCache(array('job','city','com','user')));
+
+//        //获取用户简历
+//        $user_resume = $this->obj->DB_select_once("resume_expect","`uid` ='".$this->uid."'");
+//        //获取意向职位id(全部id，三级)
+//        $job_class = explode(',',$user_resume['job_classid']);
+//
+//        if(!empty($job_class) && is_array($job_class)) {
+//            foreach($job_class as $val) {
+//                $this->findJobIds($val);
+//            }
+//        }
+//        $classes = implode(',',$this->jobs);
+//        //用户职位意向获取岗位
+//        $time = time();
+//        $urlarr=array("act"=>"more","page"=>"{{page}}");
+//        $pageurl=Url('member',$urlarr);
+//        $rows=$this->get_page("company_job","`job_post`in(".$classes.") and edate >{$time} order by id desc",$pageurl,"10");
+//       // $job_class = $this->obj->DB_select_all("company_job","`job_post` in (".$user_resume['job_classid'].") and edate >{$time}");
+        $rows = $this->findJobs();
+        $rows = $this->matching($rows);
+        $this->yunset("myrows",$rows);
+        $this->user_tpl("more");
+    }
+
+
+    public function findJobs()
+    {
+        //获取用户简历
+        $user_resume = $this->obj->DB_select_once("resume_expect","`uid` ='".$this->uid."'");
+        //获取意向职位id(全部id，三级)
+        $job_class = explode(',',$user_resume['job_classid']);
+
+        if(!empty($job_class) && is_array($job_class)) {
+            foreach($job_class as $val) {
+                $this->findJobIds($val);
+            }
+        }
+        $classes = implode(',',$this->jobs);
+        //用户职位意向获取岗位
+        $time = time();
+        $urlarr=array("act"=>"more","page"=>"{{page}}");
+        $pageurl=Url('member',$urlarr);
+        return $this->get_page("company_job","`job_post`in(".$classes.") and edate >{$time} order by id desc",$pageurl,"10");
+
+    }
+
+
+    public function findJobIds($jobid)
+    {
+
+        $job = $this->obj->DB_select_once('job_class',"id = '".$jobid."'");
+        $this->jobs[] = $jobid;
+        if($job['keyid']){
+            $this->findJobIds($job['keyid']);
+        }
+
+    }
+
+
 }
+
+
+
+
 ?>

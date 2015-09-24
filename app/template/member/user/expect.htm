@@ -1,30 +1,126 @@
 {yun:}include file = "./newheader.htm"{/yun}
+{yun:}include file="$tplstyle/public_search/index_search.htm"{/yun}
+<script src="{yun:}$config.sy_weburl{/yun}/data/plus/job.cache.js" type="text/javascript"></script>
+<link rel="stylesheet" href="{yun:}$style{/yun}/style/class.public.css" type="text/css">
+<script src="{yun:}$config.sy_weburl{/yun}/js/class.public.js" type="text/javascript"></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    body, div {
+        margin: 0;
+        padding: 0;
+    }
+    h1 {
+        width: 90%;
+        height: 40px;
+        display: block;
+        float: left;
+    }
+    .dom_m {
+        float: left;
+        width: 100%;
+    }
+    .dom_m .add {
+        height: 17px;
+    }
+    .dom_m .add a {
+        width: auto;
+        height: 17px;
+        text-align: center;
+    }
+</style>
 <script>
-    $(window).load(function(){
-        $("#sticker").sticky({ topSpacing: 0, center:true, className:"hey" });
-    });
+    function checkexpect(){
+//
+//        if($.trim($('#name').val())==''){
+//            layer.msg("请填写简历名称！",2,8);return false;
+//        }
+//        if($('#hyid').val()==''){
+//            layer.msg("请选择从事行业！",2,8);return false;
+//        }
+        if($('#job_class').val()==''){
+            layer.msg("请选择期望职位！",2,8);return false;
+        }
+//        if($('#salaryid').val()==''){
+//            layer.msg("请选择期望薪资！",2,8);return false;
+//        }
+//        if($('#provinceid').val()==''){
+//            layer.msg("请选择期望城市！",2,8);return false;
+//        }
+//        if($('#reportid').val()==''){
+//            layer.msg("请选择到岗时间！",2,8);return false;
+//        }
+//        if($('#typeid').val()==''){
+//            layer.msg("请选择工作性质！",2,8);return false;
+//        }
+//        if($('#statusid').val()==''){
+//            layer.msg("请选择求职状态！",2,8);return false;
+//        }
+//        if($.trim($('#uname').val())==''){
+//            layer.msg("请填写真实姓名！",2,8);return false;
+//        }
+//        if($('#sexid').val()==''){
+//            layer.msg("请选择性别！",2,8);return false;
+//        }
+//        if($('#birthday').val()==''){
+//            layer.msg("请选择出生年月！",2,8);return false;
+//        }
+//        if($('#eduid').val()==''){
+//            layer.msg("请选择最高学历！",2,8);return false;
+//        }
+//        if($('#expid').val()==''){
+//            layer.msg("请选择工作经验！",2,8);return false;
+//        }
+//        if($('#telphone').val()==''){
+//            layer.msg("请填写手机号码！",2,8);return false;
+//        }else{
+//            var reg= /^[1][34578]\d{9}$/; //验证手机号码
+//            if(!reg.test($('#telphone').val())){
+//                layer.msg("手机号码格式错误！",2,8);return false;
+//            }
+//        }
+//        if($('#email').val()==''){
+//            layer.msg("请填写联系邮箱！",2,8);return false;
+//        }else{
+//            var myreg = /^([a-zA-Z0-9\-]+[_|\_|\.]?)*[a-zA-Z0-9\-]+@([a-zA-Z0-9\-]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+//            if(!myreg.test($('#email').val())){
+//                layer.msg("邮箱格式错误！",2,8);return false;
+//                return false;
+//            }
+//        }
+//        if($.trim($('#living').val())==''){
+//            layer.msg("请输入现居住地！",2,8);return false;
+//        }
+    }
 </script>
-<script>
-    KindEditor.ready(function(K) {
-        var editor = K.editor({
-            allowFileManager : true
-        });
-        K('#EditIcon').click(function() {
-            editor.loadPlugin('image', function() {
-                editor.plugin.imageDialog({
-                    imageUrl : K('#url').val(),
-                    clickFn : function(url, title, width, height, border, align) {
-                        K('#url').val(url);
-                        editor.hideDialog();
-                    }
-                });
-            });
-        });
-    });
-</script>
-<script src="{yun:}$config.sy_weburl{/yun}/resource/data/plus/job.cache.js" type="text/javascript"></script>
-<link rel="stylesheet" href="{yun:}$style{/yun}/resource/style/class.public.css" type="text/css">
-<script src="{yun:}$config.sy_weburl{/yun}/resource/js/class.public.js" type="text/javascript"></script>
+<!--<script>-->
+    <!--$(window).load(function(){-->
+        <!--$("#sticker").sticky({ topSpacing: 0, center:true, className:"hey" });-->
+    <!--});-->
+<!--</script>-->
+<!--<script>-->
+    <!--KindEditor.ready(function(K) {-->
+        <!--var editor = K.editor({-->
+            <!--allowFileManager : true-->
+        <!--});-->
+        <!--K('#EditIcon').click(function() {-->
+            <!--editor.loadPlugin('image', function() {-->
+                <!--editor.plugin.imageDialog({-->
+                    <!--imageUrl : K('#url').val(),-->
+                    <!--clickFn : function(url, title, width, height, border, align) {-->
+                        <!--K('#url').val(url);-->
+                        <!--editor.hideDialog();-->
+                    <!--}-->
+                <!--});-->
+            <!--});-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
+<script src="{yun:}$config.sy_weburl{/yun}/data/plus/job.cache.js" type="text/javascript"></script>
+<link rel="stylesheet" href="{yun:}$style{/yun}/style/class.public.css" type="text/css">
+<script src="{yun:}$config.sy_weburl{/yun}/js/class.public.js" type="text/javascript"></script>
 
 <div class="Resume jlgl w1000">
     <div class="l left">
@@ -173,31 +269,109 @@
 
         <div class="con">
             <div class="tit">意向职位</div>
-            <p class="p1"><span class="a2 AddBtn">添加</span><span class="EditBtn" style="display:none;">编辑</span></p>
+            <p class="p1"><span class="EditBtn" style="display:block;">编辑</span></p>
             <!--<p class="p1"><span>编辑</span></p>-->
             <div class="EditBox box4 box1 dn">
                 <div class="list">
                     <div class="l bg">
                         <span class="l">职位：</span>
-                        <input type="text" class="l text" />
+                        <input type="button" value=" 请选择 "  class="l text" onclick="index_job(5,'#workadds_job','#job_class','left:100px;top:100px; position:absolute;');" id="workadds_job" >
+
+                        <input name='job_class' id='job_class'  value="" type='hidden' />
                         <div class="clear"></div>
                     </div>
                     <div class="l bg" style="margin-left:40px;">
-                        <span class="l">工作性质：</span>
-                        <input type="text" class="l text" />
+
+                        <dl class="l select">
+                            <dt>工作性质：</dt>
+                            <dd>
+                                <input class="news_expect_bth_button" type="button" value="请选择工作性质" id="type" onclick="search_show('job_type');">
+                                <input type="hidden" id="typeid" name="type" value="" />
+                                <ul>
+                                    {yun:}foreach from=$userdata.user_type key=j item=v{/yun}
+                                    <li><a href="javascript:;" onclick="selects('{yun:}$v{/yun}', 'type', '{yun:}$userclass_name[$v]{/yun}');">{yun:}$userclass_name[$v]{/yun}</a></li>
+                                    {yun:}/foreach{/yun}
+                                </ul>
+                            </dd>
+                        </dl>
+
+
+
+                        <!--<span class="l">工作性质：</span>-->
+                        <!--<input type="text" class="l text" />-->
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
                 </div>
                 <div class="list">
                     <div class="l bg">
-                        <span class="l">工作区域：</span>
-                        <input type="text" class="l text" />
+
+
+                        <dl class="l select">
+                            <dt>工作区域：</dt>
+                            <div class="news_expect_text_w130  news_expect_text_re7">
+                                <input class="news_expect_bth_w130" type="button" value="请选择省份" id="province" onclick="search_show('job_province');">
+                                <input type="hidden" id="provinceid" name="provinceid" value="" />
+
+                                <div class="news_expect_text_box news_expect_text_box_130" id="job_province" style="display:none;">
+                                    <ul class="news_expect_text_box_list">
+                                        {yun:}foreach from=$city_index key=j item=v{/yun}
+                                        <li>
+                                            <a href="javascript:;" onclick="select_city('{yun:}$v{/yun}','province','{yun:}$city_name[$v]{/yun}','citys','city');">{yun:}$city_name[$v]{/yun}</a>
+                                        </li>
+                                        {yun:}/foreach{/yun}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="news_expect_text_w130  news_expect_text_re7">
+                                <input class="news_expect_bth_w130" type="button" value="请选择城市" id="citys" onclick="search_show('job_citys');">
+                                <input type="hidden" id="citysid" name="citysid" value="" />
+
+                                <div class="news_expect_text_box news_expect_text_box_city  news_expect_text_box_130" id="job_citys" style="display:none;">
+                                    <ul class="news_expect_text_box_list">
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="news_expect_text_w130  news_expect_text_re7" id="cityshowth">
+                                <input class="news_expect_bth_w130" type="button" value="请选择区县" id="three_city" onclick="search_show('job_three_city');">
+
+                                <input type="hidden" id="three_cityid" name="three_cityid" value="{yun:}$row.three_cityid{/yun}" />
+
+                                <div class="news_expect_text_box news_expect_text_box_city news_expect_text_box_130" id="job_three_city" style="display:none;">
+                                    <ul class="news_expect_text_box_list">
+
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </dl>
+
+
+                        <!--<span class="l">工作区域：</span>-->
+                        <!--<input type="text" class="l text" />-->
+                        <!---->
                         <div class="clear"></div>
                     </div>
                     <div class="l bg" style="margin-left:40px;">
-                        <span class="l">薪金范围：</span>
-                        <input type="text" class="l text" />
+
+
+                        <dl class="l select">
+                            <dt>期望薪资：</dt>
+                            <dd>
+                                <ul>
+                                    <input type="hidden" id="salaryid" name="salary" value="" />
+                                    {yun:}foreach from=$userdata.user_salary key=j item=v{/yun}
+                                    <li>
+                                        <a href="javascript:;" onclick="selects('{yun:}$v{/yun}','salary','{yun:}$userclass_name[$v]{/yun}');"> {yun:}$userclass_name[$v]{/yun}</a>
+                                    </li>
+                                    {yun:}/foreach{/yun}
+                                </ul>
+                            </dd>
+                        </dl>
+
+                        <!--<span class="l">薪金范围：</span>-->
+                        <!--<input type="text" class="l text" />-->
                         <div class="clear"></div>
                     </div>
                     <div class="clear"></div>
@@ -208,11 +382,12 @@
                     <div class="clear"></div>
                 </div>
             </div>
-            <div class="SaveBox box2 dn">
-                <span class="l s1">网建技术项目总监</span>
-                <span class="l s2">全职</span>
-                <span class="l s3">广州</span>
-                <span class="l s4">10k-15k</span>
+
+            <div class="SaveBox box2">
+                <span class="l s1">{yun:}$job_classname{/yun}</span>
+                <span class="l s2">{yun:}$userclass_name[$row.type]{/yun}</span>
+                <span class="l s3">{yun:}$city_name[$row.cityid]{/yun}</span>
+                <span class="l s4">{yun:}$userclass_name[$row.salary]{/yun}</span>
                 <div class="clear"></div>
             </div>
         </div>

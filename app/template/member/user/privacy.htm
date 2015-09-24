@@ -1,40 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
-    <title>隐私公开设置</title>
-    <link href="{yun:}$config.sy_weburl{/yun}/resource/css/style.css" type="text/css" rel="stylesheet" />
-    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery.SuperSlide.2.1.js"></script>
-    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/js.js"></script>
-</head>
-
-<body class="j_body">
-<div class="j_header">
-    <div class="w1000">
-        <div class="l"><a href="#"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/pic02.png" /></a></div>
-        <ul class="l menu">
-            <li><a href="#">招聘中心</a></li>
-            <li><a href="#">发布职位</a></li>
-            <li><a href="#">简历管理</a></li>
-            <li><a href="#">企业信息</a></li>
-            <li><a href="#">招人才</a></li>
-            <div class="clear"></div>
-        </ul>
-        <dl class="r select">
-            <dt>互诺科技互诺科技互诺科技互诺科技</dt>
-            <dd>
-                <ul>
-                    <li><a href="#">互诺科技1</a></li>
-                    <li><a href="#">互诺科技2</a></li>
-                    <li><a href="#">互诺科技3</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <div class="clear"></div>
-    </div>
-</div>
-
+{yun:}include file="./newheader.htm"{/yun}
+<script>
+    function changesta(status, type) {
+        $.post("index.php?c=privacy", { status: status, type: type }, function (data) {
+            layer.msg('设置成功', 2, 9);
+        });
+    }
+</script>
 <div class="w1000 jlgksz">
     <div class="l left">
         <div class="j_tab">
@@ -44,7 +15,7 @@
                         <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic97.png" />
                         <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic97_2.png" />
                     </div>
-                    <p>账号绑定</p>
+                    <a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=binding"><p>账号绑定</p></a>
                 </li>
                 <li>
                     <div class="tb">
@@ -58,7 +29,7 @@
                         <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic99.png" />
                         <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic99_2.png" />
                     </div>
-                    <p>简历公开设置</p>
+                    <a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=privacy"><p>简历公开设置</p></a>
                 </li>
                 <div class="clear"></div>
             </ul>
@@ -66,11 +37,11 @@
                 <li>
                     <div class="huan huan1">
                         <p class="tit">资料公开设置</p>
-                        <p class="p1"><input type="radio" />完全公开</p>
-                        <p class="p1"><input type="radio" />完全保密</p>
+                        <p class="p1"><input type="radio" name="status" {yun:}if $resume.status==1{/yun}checked ="checked"{yun:}/if{/yun} onclick="changesta('1','status');" />完全公开</p>
+                        <p class="p1"><input type="radio" name="status" {yun:}if $resume.status==2{/yun}checked ="checked"{yun:}/if{/yun} onclick="changesta('2','status');" />完全保密</p>
                         <p class="tit">联系方式公开设置</p>
-                        <p class="p1"><input type="radio" />公开我的联系方式</p>
-                        <p class="p1"><input type="radio" />不公开我的联系方式</p>
+                        <p class="p1"><input type="radio" name="info_status" {yun:}if $resume.info_status==1{/yun}checked ="checked"{yun:}/if{/yun} onclick="changesta('1','info_status');" />公开我的联系方式</p>
+                        <p class="p1"><input type="radio" name="info_status" {yun:}if $resume.info_status==2{/yun}checked ="checked"{yun:}/if{/yun} onclick="changesta('2','info_status');" />不公开我的联系方式</p>
                     </div>
                 </li>
                 <li></li>
@@ -79,73 +50,7 @@
 
         </div>
     </div>
-    <div class="r right_all">
-        <div class="bfb">
-            <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery.circliful.min.js"></script>
-            <script type="text/javascript">
-                $( document ).ready(function() {
-                    $('#myStat2').circliful();
-                });
-            </script>
-            <div id="myStat2" data-dimension="89" data-text="30%" data-info="New Clients" data-width="10" data-fontsize="20" data-percent="35" data-fgcolor="#fe960f" data-bgcolor="#efefef"></div>
-        </div>
-        <ul class="blj">
-            <li><a href="#">编辑简历</a></li>
-            <li><a class="a2" href="#">预览简历</a></li>
-            <div class="clear"></div>
-        </ul>
-        <ul class="f_nav">
-            <li>
-                <a href="#">
-                    <div class="pic">
-                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic74.png" />
-                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic74_2.png" />
-                    </div>
-                    <p>投递箱</p>
-                </a>
-                <div class="num">2</div>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="pic">
-                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic75.png" />
-                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic75_2.png" />
-                    </div>
-                    <p>投递箱</p>
-                </a>
-            </li>
-            <li class="hover">
-                <a href="#">
-                    <div class="pic">
-                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic76.png" />
-                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic76_2.png" />
-                    </div>
-                    <p>投递箱</p>
-                </a>
-            </li>
-            <li class="last">
-                <a href="#">
-                    <div class="pic">
-                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic77.png" />
-                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic77_2.png" />
-                    </div>
-                    <p>投递箱</p>
-                </a>
-            </li>
-            <div class="clear"></div>
-        </ul>
-        <ul class="box2">
-            <li><a class="a2" href="#">增值中心</a></li>
-            <li><a class="a3" href="#">增值中心</a></li>
-            <li><a class="a4" href="#">增值中心</a></li>
-            <li><a class="a5" href="#">增值中心</a></li>
-        </ul>
-        <div class="j_wechat">
-            <div class="pic"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/pic81.jpg" /></div>
-            <p>扫一扫，立即下载药师多APP求职信息随时掌握</p>
-        </div>
-    </div>
-    <div class="clear"></div>
+    {yun:}include file="./newright.htm"{/yun}
 </div>
 
 

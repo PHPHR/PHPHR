@@ -10,11 +10,15 @@
 */
 class msg_controller extends user{	
 	function index_action(){
+
+        $where = "`uid`='".$this->uid."' and `type`<>'1' order by id desc";
+        $yaoqingnum = $this->obj->DB_select_num("userid_msg",$where);
+        $this->yunset('yaoqingnum',$yaoqingnum);
         $this->yunset($this->MODEL('cache')->GetCache(array('city','com')));
 		$this->public_action();
 		$urlarr=array("c"=>"msg","page"=>"{{page}}");
 		$pageurl=Url('member',$urlarr);
-		$myrows = $this->get_page("userid_msg","`uid`='".$this->uid."' and `type`<>'1' order by id desc",$pageurl,"20");
+		$myrows = $this->get_page("userid_msg",$where,$pageurl,"20");
 //        var_dump($myrows);die;
         //获取招聘职位其他条件
         $myrows = $this->findOther($myrows);

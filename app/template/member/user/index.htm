@@ -7,25 +7,22 @@
             <input type="button" class="button" />
         </div>
         <div class="box">
-            <p class="p1"><a href="#">更多</a><em>职位推荐</em></p>
+            <p class="p1"><a href="{yun:}$config.sy_weburl{/yun}/member/index.php?act=more">更多</a><em>职位推荐</em></p>
             <table>
                 <tr class="tr1">
                     <td width="462" class="td1">职位</td>
                     <td width="160">匹配度</td>
                     <td width="96">时间</td>
                 </tr>
-                {yun:}joblist namelen=30 comlen=30 isshow=1 ispage=1 rec='auto.rec' hy='auto.hy' job1='auto.job1' job1_son='auto.job1_son' job_post='auto.job_post'
-                jobids='auto.jobids' pr='auto.pr' mun='auto.mun' provinceid='auto.provinceid' cityid='auto.cityid' ltype='auto.ltype' three_cityid='auto.three_cityid'
-                type='auto.type' edu='auto.edu' exp='auto.exp' sex='auto.sex' salary='auto.salary' keyword='auto.keyword' key=key sdate='auto.sdate' cert='auto.cert'
-                urgent='auto.urgent'  uptime='auto.uptime' order='auto.order' limit=6 item=job_list name=joblist1{/yun}
+                {yun:}foreach item=job_list from=$selljob{/yun}
                 <tr class="tr2">
                     <td class="td1">
-                        <p>{yun:}$job_list.name_n{/yun}<em class="e1">{yun:}$job_list.city_name.name{/yun}  |  {yun:}$job_list.job_type{/yun}</em><em class="e2">{yun:}$job_list.str_salary{/yun}</em><br /><em class="e3">{yun:}$job_list.com_n{/yun}</em></p>
+                        <p>{yun:}$job_list.name{/yun}<em class="e1">{yun:}$city_name[$job_list.cityid]{/yun}  |  {yun:}$comclass_name[$job_list.type]{/yun}</em><em class="e2">{yun:}$comclass_name[$job_list.salary]{/yun}</em><br /><em class="e3">{yun:}$job_list.com_n{/yun}</em></p>
                     </td>
-                    <td class="td2">61%</td>
-                    <td class="td3">{yun:}$job_list.lastupdate{/yun}</td>
+                    <td class="td2">{yun:}$job_list.mat{/yun}0%</td>
+                    <td class="td3">{yun:}$job_list.lastupdate|date_format:"%Y-%m-%d %H:%M"{/yun}</td>
                 </tr>
-                {yun:}/joblist{/yun}
+                {yun:}/foreach{/yun}
 
             </table>
             <!--<div class="an"><input type="button" class="button" /></div>-->

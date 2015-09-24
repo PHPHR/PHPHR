@@ -197,5 +197,72 @@ class user extends common{
 		}
 		return $finder;
 	}
+
+
+    public function matching($joblist)
+    {
+        $cache = $this->MODEL('cache')->GetCache(array('com','user'));//var_dump($cache['userclass_name']);die;
+        $resume = $this->getResume();
+        if(!empty($joblist) && is_array($joblist)) {
+            $mat = 1;
+            foreach($joblist as $key=>$val) {
+                //匹配资料
+                foreach($val as $k=>$v){
+                    switch($k) {
+                        case 'cityid' :
+                            if($v == $resume['cityid']) $mat++;
+                            break;
+                        case 'salary':
+                            $a = similar_text($cache['comclass_name'][$v],$cache['userclass_name'][$resume['salary']]);
+                            if($a >0.6) $mat++;
+                            break;
+                        case 'type':
+                            $a = similar_text($cache['comclass_name'][$v],$cache['userclass_name'][$resume['type']]);
+                            if($a > 0.6) $mat++;
+                            break;
+                        case 'exp':
+                            $a = similar_text($cache['comclass_name'][$v],$cache['userclass_name'][$resume['exp']]);
+                            if($a > 0.6) $mat++;
+                            break;
+                        case 'report':
+                            $a = similar_text($cache['comclass_name'][$v],$cache['userclass_name'][$resume['report']]);
+                            if($a > 0.6) $mat++;
+                            break;
+                        case 'edu':
+                            $a = similar_text($cache['comclass_name'][$v],$cache['userclass_name'][$resume['edu']]);
+                            if($a > 0.6) $mat++;
+                            break;
+                        case 'age':
+                            $a = similar_text($cache['comclass_name'][$v],$cache['userclass_name'][$resume['age']]);
+                            if($a > 0.6) $mat++;
+                            break;
+                        case 'sex':
+                            $a = similar_text($cache['comclass_name'][$v],$cache['userclass_name'][$resume['sex']]);
+                            if($a > 0.6) $mat++;
+                            break;
+                        case 'marriage':
+                            $a = similar_text($cache['comclass_name'][$v],$cache['userclass_name'][$resume['marriage']]);
+                            if($a > 0.6) $mat++;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                $joblist[$key]['mat'] = $mat;
+                $mat = 1;
+            }
+
+
+            return $joblist;
+        }
+
+    }
+
+    //获取应聘者简历信息
+    public function getResume()
+    {
+        return $this->obj->DB_select_once("resume_expect","uid='".$this->uid."'");
+    }
+
 }
 ?>

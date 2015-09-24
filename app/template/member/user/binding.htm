@@ -1,39 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
-    <title>无标题文档</title>
-    <link href="{yun:}$config.sy_weburl{/yun}/resource/css/style.css" type="text/css" rel="stylesheet" />
-    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/js.js"></script>
-</head>
+{yun:}include file="./newheader.htm"{/yun}
+<script src="{yun:}$config.sy_weburl{/yun}/js/binding.js"></script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-<body class="j_body">
-<div class="j_header">
-    <div class="w1000">
-        <div class="l"><a href="#"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/pic02.png" /></a></div>
-        <ul class="l menu">
-            <li><a href="#">招聘中心</a></li>
-            <li><a href="#">发布职位</a></li>
-            <li><a href="#">简历管理</a></li>
-            <li><a href="#">企业信息</a></li>
-            <li><a href="#">招人才</a></li>
-            <div class="clear"></div>
-        </ul>
-        <dl class="r select">
-            <dt>互诺科技互诺科技互诺科技互诺科技</dt>
-            <dd>
-                <ul>
-                    <li><a href="#">互诺科技1</a></li>
-                    <li><a href="#">互诺科技2</a></li>
-                    <li><a href="#">互诺科技3</a></li>
-                </ul>
-            </dd>
-        </dl>
-        <div class="clear"></div>
-    </div>
-</div>
-
+    body, div {
+        margin: 0;
+        padding: 0;
+    }
+</style>
 <div class="zhsz w1000">
     <div class="l left">
         <div class="j_tab">
@@ -57,7 +34,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=privacy">
                         <div class="tb">
                             <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic99.png" />
                             <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic99_2.png" />
@@ -69,93 +46,117 @@
             </ul>
             <div class="huan">
                 <div class="box1">
+
+
+                    {yun:}if $resume.moblie_status==1{/yun}
+                    <div class="list">
+                        <span class="l s1">已绑定手机号：<em>{yun:}$resume.telphone{/yun}</em></span>
+                        <span class="l s2"><a href="javascript:void(0)" onclick="layer_del('确定要取消绑定？','index.php?c=binding&act=del&type=moblie');">解绑</a></span>
+                        <div class="clear"></div>
+                    </div>
+                    {yun:}else{/yun}
                     <div class="list">
                         <span class="l s1">手机号：<em>14645569854</em></span>
-                        <span class="l s2"><a href="#">修改手机号码</a></span>
+                        <span class="l s2"><a href="javascript:getshow('moblie','绑定手机号码');">绑定手机号</a></span>
                         <div class="clear"></div>
                     </div>
+                    {yun:}/if{/yun}
+                    {yun:}if $resume.email_status==1{/yun}
                     <div class="list">
-                        <span class="l s1">邮   箱：</span>
-                        <span class="l s2"><a href="#">绑定邮箱</a></span>
+                        <span class="l s1">当前邮箱已验证：</span>
+                        <span class="l s2"><a href="javascript:void(0)" onclick="layer_del('确定要取消绑定？','index.php?c=binding&act=del&type=email');">解除绑定</a></span>
                         <div class="clear"></div>
                     </div>
+                    {yun:}else{/yun}
+                    <div class="list">
+                        <span class="l s1">邮   箱：<em>{yun:}$resume.email{/yun}</em></span>
+                        <span class="l s2"><a href="javascript:getshow('email','绑定邮箱');">绑定邮箱</a></span>
+                        <div class="clear"></div>
+                    </div>
+                    {yun:}/if{/yun}
+
+
                     <p>绑定后，你可以同时使用以下方式登录药师多</p>
                 </div>
                 <div class="box2">
-                    <p class="p1">已绑定QQ账号<em>edon</em><a href="#">解除绑定</a></p>
-                    <p class="p2"><a href="#">绑定新浪微博帐号</a></p>
+                    {yun:}if $member.qqid!=""{/yun}
+                    <p class="p1">已绑定QQ账号<em>$member.qqid</em><a href="javascript:void(0)" onclick="layer_del('确定要取消绑定？','index.php?c=binding&act=del&type=qqid');">解除绑定</a></p>
+                    {yun:}else{/yun}
+                    {yun:}if $config.sy_qqlogin!='1'{/yun}
+                    <p class="p1"><a href="javascript:void(0)" onclick="layer.msg('对不起，QQ绑定已关闭！');return false;">绑定QQ帐号</a></p>
+                    {yun:}else{/yun}
+                    <p class="p1"><a href="{yun:}url m=qqconnect c=qqlogin login=1{/yun}">绑定QQ帐号</a></p>
+                    {yun:}/if{/yun}
+                    {yun:}/if{/yun}
+
+
+                    {yun:}if $member.sinaid!=""{/yun}
+                    <p class="p2">已绑定新浪微博帐号<a href="javascript:void(0)" onclick="layer_del('确定要取消绑定？','index.php?c=binding&act=del&type=sinaid');">解除绑定</a></p>
+
+                    {yun:}else{/yun}
+                    {yun:}if $config.sy_sinalogin!='1'{/yun}
+                    <p class="p2"><a href="javascript:void(0)" onclick="layer.msg('对不起，新浪绑定已关闭！');return false;">绑定新浪微博帐号</a></p>
+                    {yun:}else{/yun}
+                    <p class="p2"><a href="{yun:}url m=sinaconnect login=1{/yun}">绑定新浪微博帐号</a></p>
+                    {yun:}/if{/yun}
+                    {yun:}/if{/yun}
+
+                    <!--<p class="p2"><a href="#">绑定新浪微博帐号</a></p>-->
                     <p class="p3"><a href="#">绑定微信帐号</a></p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="r right_all">
-        <div class="bfb">
-            <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery.circliful.min.js"></script>
-            <script type="text/javascript">
-                $( document ).ready(function() {
-                    $('#myStat2').circliful();
-                });
-            </script>
-            <div id="myStat2" data-dimension="89" data-text="30%" data-info="New Clients" data-width="10" data-fontsize="20" data-percent="35" data-fgcolor="#fe960f" data-bgcolor="#efefef"></div>
-        </div>
-        <ul class="blj">
-            <li><a href="#">编辑简历</a></li>
-            <li><a class="a2" href="#">预览简历</a></li>
-            <div class="clear"></div>
-        </ul>
-        <ul class="f_nav">
-            <li>
-                <a href="#">
-                    <div class="pic">
-                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic74.png" />
-                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic74_2.png" />
-                    </div>
-                    <p>投递箱</p>
-                </a>
-                <div class="num">2</div>
-            </li>
-            <li>
-                <a href="#">
-                    <div class="pic">
-                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic75.png" />
-                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic75_2.png" />
-                    </div>
-                    <p>投递箱</p>
-                </a>
-            </li>
-            <li class="hover">
-                <a href="#">
-                    <div class="pic">
-                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic76.png" />
-                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic76_2.png" />
-                    </div>
-                    <p>投递箱</p>
-                </a>
-            </li>
-            <li class="last">
-                <a href="#">
-                    <div class="pic">
-                        <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic77.png" />
-                        <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic77_2.png" />
-                    </div>
-                    <p>投递箱</p>
-                </a>
-            </li>
-            <div class="clear"></div>
-        </ul>
-        <ul class="box2">
-            <li><a class="a2" href="#">增值中心</a></li>
-            <li><a class="a3" href="#">增值中心</a></li>
-            <li><a class="a4" href="#">增值中心</a></li>
-            <li><a class="a5" href="#">增值中心</a></li>
-        </ul>
-        <div class="j_wechat">
-            <div class="pic"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/pic81.jpg" /></div>
-            <p>扫一扫，立即下载药师多APP求职信息随时掌握</p>
+    <!--绑定邮箱弹出框-->
+    <div id="email" style="display:none;">
+        <div class="Binding_pop_box" style="padding:10px;width:480px;height:200px; background:#fff">
+            <div class="Binding_pop_box_msg">修改后的邮箱将作为新的登录账号</div>
+            <div>
+                <div class="Binding_pop_box_list">
+                    <span class="Binding_pop_box_list_left"><i class="Binding_pop_box_list_left_i">*</i>新的邮箱：</span>
+                    <input type="text" name="email" class="Binding_pop_box_list_text Binding_pop_box_list_textw200">
+                </div>
+                <div class="Binding_pop_box_list">
+                    <span class="Binding_pop_box_list_left"><i class="Binding_pop_box_list_left_i">*</i>验证码：</span>
+                    <input type="text" name="email_code" class="Binding_pop_box_list_text">
+                    <img id="vcode_img" src="{yun:}$config.sy_weburl{/yun}/app/include/authcode.inc.php" style=" margin:0 5px 5px 5px; vertical-align:middle;">
+                    <a href="javascript:check_code();">看不清</a>
+                </div>
+                <div class="Binding_pop_sub" style="margin-top:10px;">
+                    <span class="Binding_pop_box_list_left">&nbsp;</span>
+                    <input class=" com_pop_bth" type="button" onclick="check_email();" value="发送验证邮箱">
+                    <input class=" com_pop_bth_qx" type="button" value="取消" onclick="layer.closeAll();">
+                </div>
+            </div>
         </div>
     </div>
-    <div class="clear"></div>
-</div>
+    <!--弹出框 end-->
+    <!--绑定手机弹出框-->
+    <div id="moblie" style=" display:none;">
+        <div class="Binding_pop_box" style="padding:10px;width:480px;height:200px; background:#fff;">
+            <div class="Binding_pop_box_msg">绑定完成后，您可以使用该手机号码登录账号、找回密码</div>
+            <div>
+                <div class="Binding_pop_box_list">
+                    <span class="Binding_pop_box_list_left"><i class="Binding_pop_box_list_left_i">*</i>手机号码：</span>
+                    <input type="text" name="moblie" class="Binding_pop_box_list_text Binding_pop_box_list_textw200">
+                </div>
+                <div class="Binding_pop_box_list">
+                    <span class="Binding_pop_box_list_left"><i class="Binding_pop_box_list_left_i">*</i>短信验证码：</span>
+                    <input type="text" id="moblie_code" class="Binding_pop_box_list_text" style="width:90px;">
+                    <a href="javascript:;" onclick="sendmoblie();" class="Binding_pop_bth" id="time">免费发送验证码</a>
+                </div>
+                <div class="Binding_pop_sub" style="margin-top:10px;">
+                    <span class="Binding_pop_box_list_left">&nbsp;</span>
+                    <input class="com_pop_bth_qd" onclick="check_moblie();" type="button" value="保存">
+                    <input class="com_pop_bth_qx" type="button" value="取消" onclick="layer.closeAll();">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--弹出框 end-->
+    <input type="hidden" id="moblieval" value="{yun:}$resume.telphone{/yun}" />
+    <input type="hidden" id="emailval" value="{yun:}$resume.email{/yun}" />
+    <input type="hidden" id="send" value="0" />
+    {yun:}include file ="./newright.htm" {/yun}
 </body>
 </html>

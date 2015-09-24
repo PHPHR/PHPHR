@@ -87,6 +87,7 @@ class expect_controller extends user{
 		$this->yunset(array('resume'=>$resume,'row'=>$row,'ResumeList'=>$ResumeList));
 		$this->public_action();
 		$this->user_left();
+        //var_dump($this->MODEL('cache')->GetCache(array('job','city','hy','user')));die;
 		$this->yunset($this->MODEL('cache')->GetCache(array('job','city','hy','user')));
 		$this->yunset("js_def",2);
 		if($_GET['e'])

@@ -251,6 +251,7 @@ function confirm_selected_jobclass_items() {
     return true;
 }
 function index_job(allow_select_jobclass_count, target_jobclassin_names, target_jobclassin_ids, jobdiv_style, codeids, index_jobclass_callback) {
+    //alert(allow_select_jobclass_count);alert(target_jobclassin_names);alert(target_jobclassin_ids);alert(jobdiv_style);alert(index_jobclass_callback);
     if ($(target_jobclassin_names).length <= 0) { layer.msg('职位类别名称目标元素不存在！', 2, 8);return false; }
     if ($(target_jobclassin_ids).length <= 0) {layer.msg('职位类别编号目标元素不存在！', 2, 8);return false;}
     window.allow_select_jobclass_count = allow_select_jobclass_count;
