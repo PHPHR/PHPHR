@@ -1,7 +1,34 @@
 {yun:}include file="./newheader.htm"{/yun}
+<script language=javascript>
+    function CheckPost(){
+        var name=$.trim($("input[name='name']").val());
+        var living=$.trim($("input[name='living']").val());
+        var email=$.trim($("input[name='email']").val());
+        var idcard=$.trim($("input[name='idcard']").val());
+        var telphone=$.trim($("input[name='telphone']").val());
+        var sex=$.trim($("input[name='sex']").val());
+        var educid=$.trim($("#educid").val());
+        var expid=$.trim($("#expid").val());
+        var description=$.trim($("#description").val());
+//        var birthday = $.trim($('#birthday').val());
+//        ifemail = check_email(email);
+//        telphone = isjsMobile(telphone);
+        if(name==""){layer.msg($("#by_name").html(), 2, 8);return false;}
+        if(sex==''){layer.msg('请选择性别', 2, 8);return false; }
+//        if(birthday==''){layer.msg('请选择出生日期', 2, 8);return false; }
+        if(educid==""){layer.msg($("#by_educid").html(), 2, 8);return false;}
+        if(expid==""){layer.msg($("#by_expid").html(), 2, 8);return false;}
+//        if(telphone==false){layer.msg($("#by_telphone").html(), 2, 8);return false;}
+//        if(ifemail==false){layer.msg($("#by_email").html(), 2, 8);return false;}
+        if(living==""){layer.msg($("#by_living").html(), 2, 8);return false;}
 
+        layer.load('执行中，请稍候...',0);
+    }
+
+</script>
 <div class="jbxx">
 <dl class="m_wrap ">
+    <form name="MyForm" method="post" action=""  onsubmit="return CheckPost();">
     <dt>
     <div class="icons" style="background:url({yun:}$config.sy_weburl{/yun}/resource/images/ysd_40.jpg) no-repeat;"></div>
     <h1>基本信息</h1>
@@ -10,6 +37,7 @@
     <dd>
         <ul class="xbox">
             <li><input type="text" class="text l" name="name" value="{yun:}$row.name{/yun}" placeholder="姓名">
+                <span id="by_name" class="errordisplay" style="display: none">姓名不能为空</span>
                 <div class='diy_select r' id="select0">
                     <input type='hidden' name='sex' value="{yun:}$row.sex{/yun}" class='diy_select_input'/>
                     <div class='diy_select_txt'>
@@ -28,19 +56,24 @@
             </li>
             <li>
                 <div class='diy_select l' id="select0">
-                    <input type='hidden' name='' class='diy_select_input'/>
-                    <div class='diy_select_txt'>毕业院校</div>
+                    <input type='hidden' name='universty' value="{yun:}$row.universty{/yun}" class='diy_select_input'/>
+                    <div class='diy_select_txt'>
+                        {yun:}if $row.universty=='' {/yun} 毕业学院 {yun:}else{/yun}{yun:}$userclass_name[$row.universty]{/yun}{yun:}/if{/yun}
+                    </div>
                     <div class='diy_select_btn'></div>
                     <ul class='diy_select_list'>
-                        <li>毕业院校1</li>
-                        <li>毕业院校2</li>
+                        {yun:}foreach from=$userdata.user_universty key=j item=v{/yun}
+                        <li data-id="{yun:}$v{/yun}">{yun:}$userclass_name[$v]{/yun}</li>
+                        {yun:}/foreach{/yun}
+
                     </ul>
                 </div>
                 <div class='diy_select r' id="select0">
-                    <input type='hidden' name='edu' value="{yun:}$row.edu{/yun}" class='diy_select_input'/>
+                    <input type="hidden" class="diy_select_input" id="educid" name="edu" {yun:}if $row.edu{/yun} value="{yun:}$row.edu{/yun}" {yun:}/if{/yun} />
                     <div class='diy_select_txt'>
                         {yun:}if $row.edu=='' {/yun} 最高学历 {yun:}else{/yun}{yun:}$userclass_name[$row.edu]{/yun}{yun:}/if{/yun}
                     </div>
+                    <span id="by_educid" style="display: none" class="errordisplay">请选择教育程度</span>
                     <div class='diy_select_btn'></div>
                     <ul class='diy_select_list'>
                         {yun:}foreach from=$userdata.user_edu key=j item=v{/yun}
@@ -52,41 +85,44 @@
             </li>
             <li>
                 <div class='diy_select l' id="select0">
-                    <input type='hidden' name='' class='diy_select_input'/>
-                    <div class='diy_select_txt'>专业</div>
+                    <input type='hidden' name='project' value="{yun:}$row.project{/yun}" class='diy_select_input'/>
+                    <div class='diy_select_txt'>
+                        {yun:}if $row.project=='' {/yun} 专业 {yun:}else{/yun}{yun:}$userclass_name[$row.project]{/yun}{yun:}/if{/yun}
+                    </div>
                     <div class='diy_select_btn'></div>
                     <ul class='diy_select_list'>
-                        <li>专业</li>
-                        <li>专业</li>
+                        {yun:}foreach from=$userdata.user_project key=j item=v{/yun}
+                        <li data-id="{yun:}$v{/yun}">{yun:}$userclass_name[$v]{/yun}</li>
+                        {yun:}/foreach{/yun}
+
                     </ul>
+
                 </div>
                 <div class='diy_select r' id="select0">
-                    <input type='hidden' name='' class='diy_select_input'/>
-                    <div class='diy_select_txt'>职称</div>
+                    <input type='hidden' name='level' value="{yun:}$row.level{/yun}" class='diy_select_input'/>
+                    <div class='diy_select_txt'>
+                        {yun:}if $row.level =='' {/yun} 职称 {yun:}else{/yun}{yun:}$userclass_name[$row.level]{/yun}{yun:}/if{/yun}
+                    </div>
                     <div class='diy_select_btn'></div>
                     <ul class='diy_select_list'>
-                        <li>职称</li>
-                        <li>职称</li>
+                        {yun:}foreach from=$userdata.user_level key=j item=v{/yun}
+                        <li data-id="{yun:}$v{/yun}">{yun:}$userclass_name[$v]{/yun}</li>
+                        {yun:}/foreach{/yun}
+
                     </ul>
                 </div>
             </li>
             <li>
-                <div class='diy_select l' id="select1">
-                    <input type='hidden' name='' class='diy_select_input'/>
-                    <div class='diy_select_txt'>目前工作状态：</div>
-                    <div class='diy_select_btn'></div>
-                    <ul class='diy_select_list'>
-                        <li>目前工作状态：</li>
-                        <li>目前工作状态：</li>
-                    </ul>
-                </div>
+                <input type="text" class="text l" name="living" value="{yun:}$row.living{/yun}" placeholder="现居住地">
+               <span id="by_living" class="errordisplay" style="display: none">请填写现居住地</span>
             </li>
             <li>
                 <div class='diy_select l' id="select0">
-                    <input type='hidden' name='edu' value="{yun:}$row.exp{/yun}" class='diy_select_input'/>
+                    <input type='hidden' id="expid" name='exp' value="{yun:}$row.exp{/yun}" class='diy_select_input'/>
                     <div class='diy_select_txt'>
                         {yun:}if $row.exp=='' {/yun}请选择工作经验{yun:}else{/yun}{yun:}$userclass_name[$row.exp]{/yun} {yun:}/if{/yun}
                     </div>
+                    <span id="by_expid" class="errordisplay" style="display: none;">请选择工作经验</span>
                     <div class='diy_select_btn'></div>
                     <ul class='diy_select_list'>
                         {yun:}foreach from=$userdata.user_word key=j item=v{/yun}
@@ -94,34 +130,34 @@
                         {yun:}/foreach{/yun}
                     </ul>
                 </div>
-                <div class='diy_select r' id="select2">
-                    <input type='hidden' name='' class='diy_select_input'/>
-                    <div class='diy_select_txt'>所在地区</div>
-                    <div class='diy_select_btn' ></div>
-                    <ul class='diy_select_list' id="city_name">
-
-                    </ul>
-                </div>
-                <div class='diy_select r' id="select2">
-                    <input type='hidden' name='' class='diy_select_input'/>
-                    <div class='diy_select_txt'>所在地区</div>
+                <div class='diy_select l' id="select0">
+                    <input type='hidden' name='type' value="{yun:}$row.type{/yun}" class='diy_select_input'/>
+                    <div class='diy_select_txt'>
+                        {yun:}if $row.type=='' {/yun}目前工作状态{yun:}else{/yun}{yun:}$userclass_name[$row.type]{/yun} {yun:}/if{/yun}
+                    </div>
                     <div class='diy_select_btn'></div>
                     <ul class='diy_select_list'>
-                        {yun:}foreach from=$city_index key=j item=v{/yun}
-                        <li myselect="{yun:}$v{/yun}" onclick="alert('sdfsf')"> {yun:}$city_name[$v]{/yun} </li>
+                        {yun:}foreach from=$userdata.user_type key=j item=v{/yun}
+                        <li data-id="{yun:}$v{/yun}">{yun:}$userclass_name[$v]{/yun}</li>
                         {yun:}/foreach{/yun}
                     </ul>
+
+
                 </div>
+
             </li>
             <li>
+                <input type="hidden" name="submitBtn1" value="fuck">
                 <input type="text" name="telphone" class="text l" value="{yun:}$row.telphone{/yun}" onkeyup="this.value=this.value.replace(/[^0-9.]/g,'')" placeholder="联系电话">
                 <input type="text" name="email" class="text r" value="{yun:}$row.email{/yun}" placeholder="联系邮箱">
             </li>
-            <li><input type="text" class="text1" value="{yun:}$row.description{/yun}" placeholder="一句话介绍自己"></li>
+            <li><input type="text" name="description" class="text1" value="{yun:}$row.description{/yun}" placeholder="一句话介绍自己"></li>
             <li><input type="submit" class="submit" value=""></li>
         </ul>
         <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/select.js"></script>
-        <a href="#" class="m_btn"></a>
+        <a href="{yun:}$config.sy_weburl{/yun}/member"><input type="text" name="submitBtn" value="" class="m_btn" /></a>
+        <!--<a href="#" class="m_btn"></a>-->
+    </form>
     </dd>
 </dl>
 <div class="m_line"></div>

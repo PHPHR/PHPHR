@@ -17,7 +17,7 @@
                 {yun:}foreach item=job_list from=$selljob{/yun}
                 <tr class="tr2">
                     <td class="td1">
-                        <p>{yun:}$job_list.name{/yun}<em class="e1">{yun:}$city_name[$job_list.cityid]{/yun}  |  {yun:}$comclass_name[$job_list.type]{/yun}</em><em class="e2">{yun:}$comclass_name[$job_list.salary]{/yun}</em><br /><em class="e3">{yun:}$job_list.com_n{/yun}</em></p>
+                        <p><a href="{yun:}$config.sy_weburl{/yun}/job/index.php?c=comapply&id={yun:}$job_list.id{/yun}">{yun:}$job_list.name{/yun}</a><em class="e1">{yun:}$city_name[$job_list.cityid]{/yun}  |  {yun:}$comclass_name[$job_list.type]{/yun}</em><em class="e2">{yun:}$comclass_name[$job_list.salary]{/yun}</em><br /><em class="e3">{yun:}$job_list.com_name{/yun}</em></p>
                     </td>
                     <td class="td2">{yun:}$job_list.mat{/yun}0%</td>
                     <td class="td3">{yun:}$job_list.lastupdate|date_format:"%Y-%m-%d %H:%M"{/yun}</td>

@@ -78,7 +78,7 @@ class index_controller extends user{
         $rows = $this->findJobs();
         $rows = $this->matching($rows);
         $this->yunset('selljob',$rows);
-        $this->yunset($this->MODEL('cache')->GetCache('city','com'));
+        $this->yunset($this->MODEL('cache')->GetCache(['city','com']));
         /***********************/
 
 
@@ -111,25 +111,15 @@ class index_controller extends user{
 
     public function more_action()
     {
+        //获取推荐的数量，客服推荐的数量
+        $wherestr = "`job_post`in(".$classes.") and edate >{$time}";
+        if($_GET['rec_resume']) {
+            $wherestr.=" and rec_resume = '".intval($_GET['rec_resume'])."'";
+        }
+
+
         $this->yunset($this->MODEL('cache')->GetCache(array('job','city','com','user')));
 
-//        //获取用户简历
-//        $user_resume = $this->obj->DB_select_once("resume_expect","`uid` ='".$this->uid."'");
-//        //获取意向职位id(全部id，三级)
-//        $job_class = explode(',',$user_resume['job_classid']);
-//
-//        if(!empty($job_class) && is_array($job_class)) {
-//            foreach($job_class as $val) {
-//                $this->findJobIds($val);
-//            }
-//        }
-//        $classes = implode(',',$this->jobs);
-//        //用户职位意向获取岗位
-//        $time = time();
-//        $urlarr=array("act"=>"more","page"=>"{{page}}");
-//        $pageurl=Url('member',$urlarr);
-//        $rows=$this->get_page("company_job","`job_post`in(".$classes.") and edate >{$time} order by id desc",$pageurl,"10");
-//       // $job_class = $this->obj->DB_select_all("company_job","`job_post` in (".$user_resume['job_classid'].") and edate >{$time}");
         $rows = $this->findJobs();
         $rows = $this->matching($rows);
         $this->yunset("myrows",$rows);
@@ -139,6 +129,29 @@ class index_controller extends user{
 
     public function findJobs()
     {
+        //获取用户意向职业
+        $this->getClass();
+
+        $classes = implode(',',$this->jobs);
+        //用户职位意向获取岗位
+        $time = time();
+        $wherestr = "`job_post`in(".$classes.") and edate >{$time}";
+        if($_GET['rec_resume']) {
+            $wherestr.=" and rec = '".intval($_GET['rec_resume'])."'";
+        }
+        $wherestr .=" order by id desc";
+
+        $urlarr=array("act"=>"more","page"=>"{{page}}");
+        $pageurl=Url('member',$urlarr);
+        return $this->get_page("company_job",$wherestr,$pageurl,"10");
+
+    }
+
+
+
+    public function getClass()
+    {
+
         //获取用户简历
         $user_resume = $this->obj->DB_select_once("resume_expect","`uid` ='".$this->uid."'");
         //获取意向职位id(全部id，三级)
@@ -149,12 +162,7 @@ class index_controller extends user{
                 $this->findJobIds($val);
             }
         }
-        $classes = implode(',',$this->jobs);
-        //用户职位意向获取岗位
-        $time = time();
-        $urlarr=array("act"=>"more","page"=>"{{page}}");
-        $pageurl=Url('member',$urlarr);
-        return $this->get_page("company_job","`job_post`in(".$classes.") and edate >{$time} order by id desc",$pageurl,"10");
+
 
     }
 

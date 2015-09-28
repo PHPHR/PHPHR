@@ -1,0 +1,86 @@
+{yun:}include file="./newheader.htm"{/yun}
+
+<div class="zwtj w1000">
+    <div class="l left">
+        <div class="j_tab">
+            <ul class="hd">
+                <li class="on">
+                    <a href="#">
+                        <div class="tb">
+                            <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic120.png" />
+                            <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic120_2.png" />
+                        </div>
+                        <p><a href="{yun:}$config.sy_weburl{/yun}/member/index.php?act=more">系统推荐</a></p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{yun:}$config.sy_weburl{/yun}/member/index.php?act=more&rec_resume=1">
+                        <div class="tb">
+                            <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic129.png" />
+                            <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic129_2.png" />
+                        </div>
+                        <p>客服推荐</p>
+                    </a>
+                    <div class="num">10</div>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="huan">
+                <table>
+                    <tr class="tr1">
+                        <td width="462" class="td1">职位</td>
+                        <td width="160">匹配度</td>
+                        <td width="96">时间</td>
+                    </tr>
+
+
+                    {yun:}foreach item=job from=$myrows{/yun}
+
+                    <tr class="tr2">
+                        <td class="td1">
+                            <p><a href="{yun:}$config.sy_weburl{/yun}/job/index.php?c=comapply&id={yun:}$job.id{/yun}">{yun:}$job.name{/yun}</a><em class="e1">{yun:}$city_name[$job.cityid]{/yun}  |  {yun:}$comclass_name[$job.type]{/yun}</em><em class="e2">{yun:}$comclass_name[$job.salary]{/yun}</em><br /><em class="e3">{yun:}$job.com_name{/yun}</em></p>
+                        </td>
+                        <td class="td2">{yun:}$job.mat{/yun}0%</td>
+                        <td class="td3">{yun:}$job.sdate|date_format:"%Y-%m-%d %H:%M"{/yun}</td>
+                    </tr>
+
+                    {yun:}/foreach{/yun}
+
+
+
+
+                </table>
+                <div class="j_page">
+                    <div class="page1">
+                        {yun:}$pagenav{/yun}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   {yun:}include file="./newright.htm"{/yun}
+</div>
+<div id="footer">
+    <div class="footer">
+        <ul class="f_box">
+            <li>
+                <div class="p1">全国统一服务热线：</div>
+                <div class="p2">400-067-3800</div>
+                <div class="p3">工作日：9：00 ~ 18：00</div>
+            </li>
+            <li style="margin-right:0;">
+                <div class="p4"><a href="#">关于我们</a><a href="#">常见问题</a><a href="#">网站地图</a><a href="#">联系我们</a><a href="#">企业入驻</a><a href="#">意见反馈</a></div>
+                <div class="p5">Copyright 2015 广州国健医药咨询服务有限公司<br>
+                    版权所有   粤ICP备11016031号-4</div>
+            </li>
+            <li class="last">
+                <div class="p6"><a href="#"><p>新浪微博</p><img src="images/ysd_7.jpg"></a></div>
+                <div class="p6"><a href="#"><p>微信</p><img src="images/ysd_8.jpg"></a></div>
+                <div class="clear"></div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

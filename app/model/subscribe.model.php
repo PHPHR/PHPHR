@@ -17,9 +17,11 @@ class subscribe_model extends model{
     function UpdateSubscribe($Values=array(),$Where=array()){
         $WhereStr=$this->FormatWhere($Where);
         $ValuesStr=$this->FormatValues($Values);
+        $this->DB_update_all('resume_tiny',$ValuesStr,$WhereStr);
         return $this->DB_update_all('subscribe',$ValuesStr,$WhereStr);
     }
     function AddSubscribe($Values=array()){
+        $this->insert_into('subscribe',$Values);
         return $this->insert_into('subscribe',$Values);
     }
 }

@@ -11,9 +11,12 @@
 class info_controller extends user{
 	
 	function index_action(){
+//        echo '<pre>';var_dump($_POST);die;
 		$row=$this->obj->DB_select_once("resume","`uid`='".$this->uid."'");
+        $row_expect = $this->obj->DB_select_once("resume_expect","`uid`='".$this->uid."'");
+        $row['type'] = $row_expect['type'];
 		$this->yunset("row",$row);
-		if($_POST['submitBtn']){
+		if($_POST['submitBtn1']){//echo '<pre>';var_dump($_POST);die;
 			$_POST=$this->post_trim($_POST);
 			$is_exist_email=$this->obj->DB_select_num("member","`uid`<>'".$this->uid."' and `email`='".$_POST['email']."'","`uid`");
 			if($is_exist_email){
@@ -37,7 +40,7 @@ class info_controller extends user{
 			delfiledir("../data/upload/tel/".$this->uid);
 			$where['uid']=$this->uid;
 			$nid=$this->obj->update_once('resume',$_POST,$where);
-			$this->obj->update_once("resume_expect",array("edu"=>$_POST['edu'],"exp"=>$_POST['exp'],"uname"=>$_POST['name'],"sex"=>$_POST['sex'],"birthday"=>$_POST['birthday']),$where);
+			$this->obj->update_once("resume_expect",array("type"=>$_POST['type'],"edu"=>$_POST['edu'],"exp"=>$_POST['exp'],"uname"=>$_POST['name'],"sex"=>$_POST['sex'],"birthday"=>$_POST['birthday']),$where);
 
 			$this->obj->update_once('member',array('email'=>$_POST['email'],'moblie'=>$_POST['telphone']),$where);
 
@@ -54,7 +57,8 @@ class info_controller extends user{
 					
 					$this->company_invtal($this->uid,$this->config['integral_userinfo'],true,"首次填写基本资料",true,2,'integral',25);
 				}
-				$this->ACT_layer_msg("信息更新成功！",9,$url);
+                header("location:".$url);
+//				$this->ACT_layer_msg("信息更新成功！",9,$url);
 			}else{
 				$this->ACT_layer_msg("信息更新失败！",8,$url);
 			}
