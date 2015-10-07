@@ -13,6 +13,8 @@
 //        var birthday = $.trim($('#birthday').val());
 //        ifemail = check_email(email);
 //        telphone = isjsMobile(telphone);
+        if(telphone==""){layer.msg('手机不能为空', 2, 8);return false; }
+        if(email==""){layer.msg('邮箱不能为空', 2, 8);return false; }
         if(name==""){layer.msg($("#by_name").html(), 2, 8);return false;}
         if(sex==''){layer.msg('请选择性别', 2, 8);return false; }
 //        if(birthday==''){layer.msg('请选择出生日期', 2, 8);return false; }

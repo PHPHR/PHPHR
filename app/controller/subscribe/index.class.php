@@ -12,6 +12,7 @@ class index_controller extends common
 {
 	function index_action()
 	{
+
 		if($_POST['submit'])
 		{
 			if(!$this->CheckRegEmail($_POST['email']))
@@ -34,17 +35,21 @@ class index_controller extends common
 				$status=$this->send_msg_email($data);
 				$_POST['code']=$code;
 				$_POST['ctime']=time();
+                unset($_POST['submit']);
 				if($info['status']=="0")
 				{
 					$where['email']=$_POST['email'];
-					$where['type']=$_POST['type'];
+					$where[' type']=$_POST['type'];
 					$Subscribe->UpdateSubscribe($_POST,$where);
-				}else{
-					$Subscribe->AddSubscribe($_POST);
-				}
-				$this->ACT_layer_msg("订阅设置成功，请认证邮箱！",9,"index.php?m=subscribe&c=cert&email=".$_POST['email']);
+				}else{//var_dump($_POST);die;
+                    $Subscribe->AddSubscribe($_POST);
+                }
+//				$this->ACT_layer_msg("订阅设置成功，请认证邮箱！",9,"index.php?m=subscribe&c=cert&email=".$_POST['email']);3
+                header("location:index.php?m=subscribe&c=cert&email=".$_POST['email']);
 			}
 		}
+        $this->yunset('username',$this->username);
+        $this->findResume();
         $this->yunset($this->MODEL('cache')->GetCache(array('com','job','user','city')));
 		if($this->uid){
 			$Member=$this->MODEL("userinfo");
@@ -91,4 +96,17 @@ class index_controller extends common
 			echo 1;die;
 		}
 	}
+    //获取简历信息
+    public function findResume()
+    {
+        $row=$this->obj->DB_select_once("resume_expect","defaults= 1 AND `uid`='".$this->uid."'");
+
+        if(!empty($row)) {
+            $resumeid = $row['id'];
+        }else{
+            $resumeid = false;
+        }
+
+        $this->yunset("resumeid",$resumeid);
+    }
 }

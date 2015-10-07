@@ -21,7 +21,7 @@ class subscribe_model extends model{
         return $this->DB_update_all('subscribe',$ValuesStr,$WhereStr);
     }
     function AddSubscribe($Values=array()){
-        $this->insert_into('subscribe',$Values);
+        $this->insert_into('resume_tiny',$Values);
         return $this->insert_into('subscribe',$Values);
     }
 }

@@ -84,7 +84,7 @@ class index_controller extends common{
         $Member=$this->MODEL("userinfo");
         $nid = $Member->GetMemberNum(array("username"=>$userName));
         if($nid){
-            echo 'false';die;
+            echo 'false';
         }else{
             echo 'true';die;
         }
@@ -95,14 +95,17 @@ class index_controller extends common{
     public function savereg_action() {
         $Member=$this->MODEL("userinfo");
         $userName = trim($_POST['username']);
-        $password = trim($_POST['password']);
+        $password = trim($_POST['passsword']);
         $salt=substr(uniqid(),-6);
+
+
+
         if($_SESSION['uid']=$Member->AddMember([
             'username'=>$userName,
             'password'=>md5(md5($password).$salt),
             'salt'=>$salt,
-            'usertype'=>$_COOKIE['regtype'],
-            'reg_time'=>time(),
+            'usertype'=>$_COOKIE['regtype'] ? $_COOKIE['regtype'] : 1,
+            'reg_date'=>time(),
         ])){
             $_SESSION['is_login']=1;
             $_SESSION['username']=$userName;
@@ -110,6 +113,7 @@ class index_controller extends common{
             echo json_encode(array('status'=>'succ'));
             die;
         }
+
     }
 
     /**

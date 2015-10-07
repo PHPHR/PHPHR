@@ -46,6 +46,51 @@ function check_input(id,name,type){
 		$("#job_post").html('');
 	}
 }
+function check_input_new(id,name,type){
+	$("#button_"+type).val(name);
+	$("input[name="+type+"]").val(id);
+	$("#"+type).hide();
+	if(type=="provinceid"){
+		$.post("index.php?m=ajax&c=getcity_subscribe",{id:id,type:'cityid'},function(data){
+			$("#cityid").html(data);
+			$("#cityid_list").show();
+		})
+		$("input[name=cityid]").val('');
+		$("input[name=three_cityid]").val('');
+		$("#button_cityid").val('«Î—°‘Ò');
+		$("#button_three_cityid").val('«Î—°‘Ò');
+		$("#cityid").html('');
+		$("#three_cityid").html('');
+	}else if(type=="cityid"){
+		$.post("index.php?m=ajax&c=getcity_subscribe",{id:id,type:'three_cityid'},function(data){
+			$("#three_cityid").html(data);
+			$("#three_cityid_list").show();
+		})
+		$("input[name=three_cityid]").val('');
+		$("#button_three_cityid").val('«Î—°‘Ò');
+		$("#three_cityid").html('');
+	}else if(type=="job1"){
+		$.post("index.php?m=ajax&c=getjob_subscribe",{id:id,type:'job1_son'},function(data){
+            alert($("#job1_son").val());
+			$("#job1_son").html(data);
+			$("#job1_sonlist").show();
+		})
+		$("input[name=job1_son]").val('');
+		$("input[name=job_post]").val('');
+		$("#button_job1_son").val('«Î—°‘Ò');
+		$("#button_job_post").val('«Î—°‘Ò');
+		$("#cityid").html('');
+		$("#job_post").html('');
+	}else if(type=="job1_son"){
+		$.post("index.php?m=ajax&c=getjob_subscribe",{id:id,type:'job_post'},function(data){
+			$("#job_post").html(data);
+			$("#job_post_list").show();
+		})
+		$("input[name=job_post]").val('');
+		$("#button_job_post").val('«Î—°‘Ò');
+		$("#job_post").html('');
+	}
+}
 function checktype(type){
 	$.post("index.php?m=ajax&c=getsalary_subscribe",{type:type},function(data){
 		$("#salary").html(data);

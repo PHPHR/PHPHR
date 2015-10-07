@@ -75,8 +75,10 @@ diy_select.prototype={
 				o[i].onclick=function()
 				{
 					var index=this.parentNode.index;//获得列表
-					This.t[index].innerHTML=This.ipt[index].value=this.innerHTML.replace(/^\s+/,'').replace(/\s+&/,'');
+					This.t[index].innerHTML = this.innerHTML.replace(/^\s+/,'').replace(/\s+&/,'');
+					This.ipt[index].value=this.getAttribute("data-id").replace(/^\s+/,'').replace(/\s+&/,'');
 					This.l[index].style.display='none';
+					console.log(This.ipt[index]);
 				}
 			}
 		}

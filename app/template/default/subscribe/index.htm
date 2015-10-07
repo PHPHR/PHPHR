@@ -1,161 +1,313 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>{yun:}$title{/yun}</title>
-<META name=keywords content="{yun:}$keywords{/yun}">
-<META name=description content="{yun:}$description{/yun}">
-<link rel="stylesheet" type="text/css" href="{yun:}$style{/yun}/style/css.css">
-<script src="{yun:}$config.sy_weburl{/yun}/js/jquery-1.8.0.min.js"></script>
-<script src="{yun:}$config.sy_weburl{/yun}/js/layer/layer.min.js" language="javascript"></script>
-<script src="{yun:}$style{/yun}/js/subscribe.js"></script>
-<script src="{yun:}$config.sy_weburl{/yun}/js/public.js"></script>
-<!--[if IE 6]>
-<script src="{yun:}$config.sy_weburl{/yun}/js/png.js"></script>
-<script>
-DD_belatedPNG.fix('.png');
-</script>
-<![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+    <title>药师多--人才中心订阅</title>
+    <link href="{yun:}$config.sy_weburl{/yun}/resource/css/style.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/setday.js"></script>
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/member_public.js"></script>
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/public.js"></script>
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/layer/layer.min.js"></script>
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery.SuperSlide.2.1.js"></script>
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/js.js"></script>
+    <script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/app/template/default/js/subscribe.js"></script>
+    <link href="{yun:}$user_style{/yun}/images/m_css.css" type="text/css" rel="stylesheet">
+    <link href="{yun:}$user_style{/yun}/images/m_header.css" type="text/css" rel="stylesheet">
+    <link href="{yun:}$user_style{/yun}/js/time/jscal2.css" type="text/css" rel="stylesheet">
+    <script src="{yun:}$user_style{/yun}/js/time/calendar.js" type="text/javascript"></script>
+    <script src="{yun:}$user_style{/yun}/js/time/en.js" type="text/javascript"></script>
+
+    <script>
+
+        var weburl = "{yun:}$config.sy_weburl{/yun}";
+    </script>
+
 </head>
-<body style="background:#f8f8f8">
-{yun:}include file="$tplstyle/header.htm"{/yun}
 
-<div class="container">
-<div class="current_Location com_current_Location png">
-      <div class="fl">您当前的位置：<a href="{yun:}$config.sy_weburl{/yun}">首页</a> &gt; <span>订阅</span> </div>
+<body class="j_body">
+{yun:}include file="$tplstyle/public_search/index_search.htm"{/yun}
+<script src="{yun:}$config.sy_weburl{/yun}/data/plus/job.cache.js" type="text/javascript"></script>
+<link rel="stylesheet" href="{yun:}$config.sy_weburl{/yun}/app/template/default/style/class.public.css" type="text/css">
+<script src="{yun:}$config.sy_weburl{/yun}/js/class.public.js" type="text/javascript"></script>
+
+<div class="j_header">
+    <div class="w1000">
+        <div class="l"><a href="#"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_150.png" /></a></div>
+        <ul class="l menu">
+            <li><a href="#">招聘中心</a></li>
+            <li><a href="#">发布职位</a></li>
+            <li><a href="#">简历管理</a></li>
+            <li><a href="#">企业信息</a></li>
+            <li><a href="#">招人才</a></li>
+            <div class="clear"></div>
+        </ul>
+        <dl class="r select">
+            <dt>{yun:}$username{/yun}</dt>
+            <dd>
+                <ul>
+                    <li><a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=expect&e=1">我的简历</a></li>
+                    <li><a href="{yun:}$config.sy_weburl{/yun}/member/index.php?c=info">个人资料</a></li>
+                    <li><a href="#">我的订阅</a></li>
+                    <li><a href="#">投递箱</a></li>
+                    <li><a href="#">退出</a></li>
+                </ul>
+            </dd>
+        </dl>
+        <div class="clear"></div>
     </div>
-    
-    <div class="subscribe_cont">
-    <div class="subscribe_cont_h1">
-    <span class="subscribe_cont_h1_p">筛选下面的订阅条件，实现精准匹配的个性化定制</span>我们帮你挑工作，挑人才！
-    
+</div>
+
+<div class="dingy w1000">
+    <div class="l left">
+        <div class="j_tab">
+
+            <form action="" method="post">
+            <input type="hidden" name="type" value="1"/>
+            <ul class="hd">
+                <li class="on">
+                    <a href="#">
+                        <div class="tb">
+                            <img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic62.png" />
+                            <img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic62_2.png" />
+                        </div>
+                        <p>职位订阅</p>
+                    </a>
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <div class="huan">
+                <div class="box">
+                    <p class="p1">筛选下面的职位订阅条件，实现精准匹配的个性化职位定制，我们帮你挑工作！</p>
+                    <p class="p2">接收邮箱   发送周期 （必填）</p>
+                    <input type="text" name="email" class="text" placeholder="diuabd@qq.com" />
+                    <ul class="day">
+                        <li><input type="radio" value="1" name="time" class="post_read_radio" checked="checked"><span>3天</span> </li>
+                        <li><input type="radio" value="7" name="time" class="post_read_radio"><span>7天</span>  </li>
+                        <li><input type="radio" value="15" name="time" class="post_read_radio"><span>15天</span>  </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <p class="p2"></p>
+                    <dl class="select">
+                        <!--<input type="hidden" name="secjobid" value="{yun:}if !empty($jobtypeid){/yun}{yun:}$jobtypeid{/yun}{yun:}/if{/yun}"/>-->
+                        <!--<dt>{yun:}if !empty($data['jobtypeid']){/yun}{yun:}$job_name[$data['jobtypeid']]{/yun} {yun:}else{/yun}请选择职业{yun:}/if{/yun}</dt>-->
+                        <!--<dd>-->
+                            <!--<ul>-->
+                                <!--{yun:}foreach item=v key=key from=$job_index{/yun}-->
+                                <!--<a href="{yun:}$config.sy_weburl{/yun}/index.php?m=subscribe&jobtypeid={yun:}$v{/yun}&strdata={yun:}$strdata{/yun}"><li myselect="1">{yun:}$job_name[$v]{/yun}</li></a>-->
+                                <!--{yun:}/foreach{/yun}-->
+                            <!--</ul>-->
+
+                            <!--<input type="hidden" class="select_hidden"/>-->
+                        <!--</dd>-->
+                        <dt><input type="button" value=" 请选择职业 " style=" float:left;" class="news_expect_bth_big" onclick="index_job(5,'#workadds_job','#job_class','left:100px;top:100px; position:absolute;');" id="workadds_job" /></dt>
+                        <input name='job_post' id='job_class'  value="" type='hidden' />
+
+                    </dl>
+
+
+
+
+                    <div class="news_expect_list"><span class="news_expect_list_span">期望城市：</span>
+                        <div class="news_expect_text_w130  news_expect_text_re7">
+                            <input class="news_expect_bth_w130" type="button" value="请选择省份" id="province" onclick="search_show('job_province');">
+                            <input type="hidden" id="provinceid" name="provinceid" value="" />
+
+                            <div class="news_expect_text_box news_expect_text_box_130" id="job_province" style="display:none;">
+                                <ul class="news_expect_text_box_list">
+                                    {yun:}foreach from=$city_index key=j item=v{/yun}
+                                    <li>
+                                        <a href="javascript:;" onclick="select_city('{yun:}$v{/yun}','province','{yun:}$city_name[$v]{/yun}','citys','city');">{yun:}$city_name[$v]{/yun}</a>
+                                    </li>
+                                    {yun:}/foreach{/yun}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="news_expect_text_w130  news_expect_text_re7">
+                            <input class="news_expect_bth_w130" type="button" value="请选择城市" id="citys" onclick="search_show('job_citys');">
+                            <input type="hidden" id="citysid" name="cityid" value="" />
+
+                            <div class="news_expect_text_box news_expect_text_box_city  news_expect_text_box_130" id="job_citys" style="display:none;">
+                                <ul class="news_expect_text_box_list">
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="news_expect_text_w130  news_expect_text_re7" id="cityshowth">
+                            <input class="news_expect_bth_w130" type="button" value="请选择区县" id="three_city" onclick="search_show('job_three_city');">
+
+                            <input type="hidden" id="three_cityid" name="three_cityid" value="{yun:}$row.three_cityid{/yun}" />
+
+                            <div class="news_expect_text_box news_expect_text_box_city news_expect_text_box_130" id="job_three_city" style="display:none;">
+                                <ul class="news_expect_text_box_list">
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <!--<dd>-->
+                            <!--<ul>-->
+                                <!--<li myselect="1">互诺科技1</li>-->
+                                <!--<li myselect="2">互诺科技2</li>-->
+                                <!--<li myselect="3">互诺科技3</li>-->
+                            <!--</ul>-->
+                            <!--<input type="hidden" class="select_hidden"/>-->
+                        <!--</dd>-->
+
+
+                    <!--<p class="p2">工作地点 （必填）</p>-->
+                    <!--<dl class="select">-->
+                        <!--<dt class="dt2">互诺科技互诺科技互诺科技互诺科技</dt>-->
+                        <!--&lt;!&ndash;<dd>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<ul>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li myselect="1">互诺科技1</li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li myselect="2">互诺科技2</li>&ndash;&gt;-->
+                                <!--&lt;!&ndash;<li myselect="3">互诺科技3</li>&ndash;&gt;-->
+                            <!--&lt;!&ndash;</ul>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<input type="hidden" class="select_hidden"/>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</dd>&ndash;&gt;-->
+                        <!--<div class="news_expect_text_w130  news_expect_text_re7">-->
+                            <!--<input class="news_expect_bth_w130" type="button" value="请选择省份" id="province" onclick="search_show('job_province');">-->
+                            <!--<input type="hidden" id="provinceid" name="provinceid" value="" />-->
+
+                            <!--<div class="news_expect_text_box news_expect_text_box_130" id="job_province" style="display:none;">-->
+                                <!--<ul class="news_expect_text_box_list">-->
+                                    <!--{yun:}foreach from=$city_index key=j item=v{/yun}-->
+                                    <!--<li>-->
+                                        <!--<a href="javascript:;" onclick="select_city('{yun:}$v{/yun}','province','{yun:}$city_name[$v]{/yun}','citys','city');">{yun:}$city_name[$v]{/yun}</a>-->
+                                    <!--</li>-->
+                                    <!--{yun:}/foreach{/yun}-->
+                                <!--</ul>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</dl>-->
+                    <p class="p2">薪资范围 （选填）</p>
+                    <dl class="select">
+                        <dt class="dt2">选择薪资范围</dt>
+                        <input type="hidden" id="salary" name="salary" value="" />
+                        <dd>
+                            <ul>
+                                {yun:}foreach item=v from=$comdata.job_salary{/yun}
+                                <li myselect="1" onclick="setdata({yun:}$v{/yun})" >{yun:}$comclass_name[$v]{/yun}</li>
+                                {yun:}/foreach{/yun}
+                            </ul>
+                            <input type="hidden" class="select_hidden"/>
+                        </dd>
+                    </dl>
+                </div>
+
+                    <input type="submit" name="submit" class="l button" value="保存" />
+                    <input type="button" class="l button button2" value="取消" />
+
+            </div>
+            </form>
+        </div>
     </div>
+    <!--<div class="r right_all">-->
+        <!--<div class="bfb">-->
+            <!--<script type="text/javascript" src="{yun:}$config.sy_weburl{/yun}/resource/js/jquery.circliful.min.js"></script>-->
+            <!--<script type="text/javascript">-->
+                <!--$( document ).ready(function() {-->
+                    <!--$('#myStat2').circliful();-->
+                <!--});-->
+            <!--</script>-->
+            <!--<div id="myStat2" data-dimension="89" data-text="30%" data-info="New Clients" data-width="10" data-fontsize="20" data-percent="35" data-fgcolor="#fe960f" data-bgcolor="#efefef"></div>-->
+        <!--</div>-->
+        <!--<ul class="blj">-->
+            <!--<li><a href="#">编辑简历</a></li>-->
+            <!--<li><a class="a2" href="#">预览简历</a></li>-->
+            <!--<div class="clear"></div>-->
+        <!--</ul>-->
+        <!--<ul class="f_nav">-->
+            <!--<li>-->
+                <!--<a href="#">-->
+                    <!--<div class="pic">-->
+                        <!--<img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic74.png" />-->
+                        <!--<img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic74_2.png" />-->
+                    <!--</div>-->
+                    <!--<p>投递箱</p>-->
+                <!--</a>-->
+                <!--<div class="num">2</div>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<a href="#">-->
+                    <!--<div class="pic">-->
+                        <!--<img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic75.png" />-->
+                        <!--<img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic75_2.png" />-->
+                    <!--</div>-->
+                    <!--<p>投递箱</p>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="hover">-->
+                <!--<a href="#">-->
+                    <!--<div class="pic">-->
+                        <!--<img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic76.png" />-->
+                        <!--<img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic76_2.png" />-->
+                    <!--</div>-->
+                    <!--<p>投递箱</p>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<li class="last">-->
+                <!--<a href="#">-->
+                    <!--<div class="pic">-->
+                        <!--<img class="img1" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic77.png" />-->
+                        <!--<img class="img2" src="{yun:}$config.sy_weburl{/yun}/resource/images/pic77_2.png" />-->
+                    <!--</div>-->
+                    <!--<p>投递箱</p>-->
+                <!--</a>-->
+            <!--</li>-->
+            <!--<div class="clear"></div>-->
+        <!--</ul>-->
+        <!--<ul class="box2">-->
+            <!--<li><a class="a2" href="#">增值中心</a></li>-->
+            <!--<li><a class="a3" href="#">增值中心</a></li>-->
+            <!--<li><a class="a4" href="#">增值中心</a></li>-->
+            <!--<li><a class="a5" href="#">增值中心</a></li>-->
+        <!--</ul>-->
+        <!--<div class="j_wechat">-->
+            <!--<div class="pic"><img src="{yun:}$config.sy_weburl{/yun}/resource/images/pic81.jpg" /></div>-->
+            <!--<p>扫一扫，立即下载药师多APP求职信息随时掌握</p>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<div class="clear"></div>-->
+<!--</div>-->
+    {yun:}$url=$config.sy_weburl{/yun}
+    {yun:}include file = "../../member/user/newright.htm"{/yun}
+<script>
 
-<iframe id="supportiframe"  name="supportiframe" onload="returnmessage('supportiframe');" style="display:none"></iframe>
-<form name="myform" id="myform" method="post" target="supportiframe"  action="" onsubmit="return checksub();">
+    function setdata(id)
+    {
+        $("#salary").val(id);
 
-<div class="subscribe_cont_list"><span class="subscribe_cont_list_name">订阅类型：</span>
-<span class="post_read_chose"><input type="radio" value="1" name="type" checked="checked" onclick="checktype('1')" class="post_read_radio" id="radio-worker"><label for="radio-worker">我是求职者我要订阅职位</label></span> 
-<span class="post_read_chose"><input type="radio" value="2" name="type" onclick="checktype('2')" class="post_read_radio"
-	id="radio-company"><label for="radio-company">我是招聘者我要订阅简历</label></span> 
-</div>
-<div class="subscribe_cont_list"><span class="subscribe_cont_list_name">职位类别：</span>
-<div class="post_read_text post_read_text_re10">
-<input type="button" value="请选择" class="post_read_button" id="button_job1" onclick="check_class('job1');">
-<input type="hidden" name="job1" value="" />
-<div class="post_read_text_box" style="display:none;" id="job1">
-<ul class="post_read_text_box_list">
-{yun:}foreach item=v key=key from=$job_index{/yun}
-<li><a href="javascript:check_input('{yun:}$v{/yun}','{yun:}$job_name[$v]{/yun}','job1');">{yun:}$job_name[$v]{/yun}</a></li>
-{yun:}/foreach{/yun}
-</ul>
-</div>
-</div>
-<div class="post_read_text post_read_text_re10" id="job1_son_list">
-<input type="button" value="请选择" class="post_read_button" id="button_job1_son" onclick="check_class('job1_son');">
-<input type="hidden" name="job1_son" value="" />
-<div class="post_read_text_box post_read_text_box_198" style="display:none;" id="job1_son">
-<ul class="post_read_text_box_list">
-</ul>
-</div>
-</div>
-<div class="post_read_text post_read_text_re10" id="job_post_list">
-<input type="button" value="请选择" class="post_read_button" id="button_job_post" onclick="check_class('job_post');">
-<input type="hidden" name="job_post" value="" />
-<div class="post_read_text_box post_read_text_box_395" style="display:none;" id="job_post">
-<ul class="post_read_text_box_list">
-</ul>
-</div>
+    }
+
+</script>
+
+<div id="footer">
+    <div class="footer">
+        <ul class="f_box">
+            <li>
+                <div class="p1">全国统一服务热线：</div>
+                <div class="p2">400-067-3800</div>
+                <div class="p3">工作日：9：00 ~ 18：00</div>
+            </li>
+            <li style="margin-right:0;">
+                <div class="p4"><a href="#">关于我们</a><a href="#">常见问题</a><a href="#">网站地图</a><a href="#">联系我们</a><a href="#">企业入驻</a><a href="#">意见反馈</a></div>
+                <div class="p5">Copyright 2015 广州国健医药咨询服务有限公司<br>
+                    版权所有   粤ICP备11016031号-4</div>
+            </li>
+            <li class="last">
+                <div class="p6"><a href="#"><p>新浪微博</p><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_7.jpg"></a></div>
+                <div class="p6"><a href="#"><p>微信</p><img src="{yun:}$config.sy_weburl{/yun}/resource/images/ysd_8.jpg"></a></div>
+                <div class="clear"></div>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
 </div>
 
-</div>
-<div class="subscribe_cont_list"><span class="subscribe_cont_list_name">所在城市：</span>
-<div class="post_read_text post_read_text_re9">
-<input type="button" value="请选择" class="post_read_button" id="button_provinceid" onclick="check_class('provinceid');">
-<input type="hidden" name="provinceid" value="" />
-<div class="post_read_text_box" style="display:none;" id="provinceid">
-<ul class="post_read_text_box_list">
-{yun:}foreach item=v key=key from=$city_index{/yun}
-<li><a href="javascript:check_input('{yun:}$v{/yun}','{yun:}$city_name[$v]{/yun}','provinceid');">{yun:}$city_name[$v]{/yun}</a></li>
-{yun:}/foreach{/yun}
-</ul>
-</div>
-</div>
-<div class="post_read_text post_read_text_re9" id="cityid_list">
-<input type="button" value="请选择" class="post_read_button" id="button_cityid" onclick="check_class('cityid');">
-<input type="hidden" name="cityid" value="" />
-<div class="post_read_text_box post_read_text_box_198" style="display:none;" id="cityid">
-<ul class="post_read_text_box_list">
-</ul>
-</div>
-</div>
-<div class="post_read_text post_read_text_re9" id="three_cityid_list">
-<input type="button" value="请选择" class="post_read_button" id="button_three_cityid" onclick="check_class('three_cityid');">
-<input type="hidden" name="three_cityid" value="" />
-<div class="post_read_text_box post_read_text_box_395" style="display:none;" id="three_cityid">
-<ul class="post_read_text_box_list">
-</ul>
-</div>
-</div>
-</div>
-<div class="subscribe_cont_list"><span class="subscribe_cont_list_name">月薪范围：</span>
-<div class="post_read_text_big  post_read_text_re4">
-<input type="button" value="请选择" class="post_read_button_big" id="button_salary" onclick="check_class('salary');">
-<input type="hidden" name="salary" value="" />
-<div class="post_read_text_box " style="display:none;" id="salary">
-<ul class="post_read_text_box_list">
-{yun:}foreach item=v from=$comdata.job_salary{/yun}
-<li><a href="javascript:check_input('{yun:}$v{/yun}','{yun:}$comclass_name[$v]{/yun}','salary');">{yun:}$comclass_name[$v]{/yun}</a></li>
-{yun:}/foreach{/yun}
-</ul>
-</div>
-</div>
-</div>
-<div class="subscribe_cont_list"><span class="subscribe_cont_list_name">更新时间：</span>
-<div class="post_read_text_big post_read_text_re3">
-<input type="button" value="请选择" class="post_read_button_big" id="button_cycle_time" onclick="check_class('cycle_time');">
-<input type="hidden" name="cycle_time" value="" />
-<div class="post_read_text_box" style="display:none;" id="cycle_time">
-<ul class="post_read_text_box_list">
-<li><a href="javascript:check_input('3','3天以内','cycle_time');">3天以内</a></li>
-<li><a href="javascript:check_input('7','1周以内','cycle_time');">1周以内</a></li>
-<li><a href="javascript:check_input('14','2周以内','cycle_time');">2周以内</a></li>
-<li><a href="javascript:check_input('21','3周以内','cycle_time');">3周以内</a></li>
-<li><a href="javascript:check_input('30','1月以内','cycle_time');">1月以内</a></li>
-<li><a href="javascript:check_input('90','3月以内','cycle_time');">3月以内</a></li>
-</ul>
-</div>
-</div>
-
-</div>
-<div class="subscribe_cont_list"><span class="subscribe_cont_list_name">接受邮箱：</span>
-<input  class="post_read_valid" type="text" value="请输入接收邮箱" name="email" onblur="if(this.value==''){this.value='请输入接收邮箱'}" onclick="if(this.value=='请输入接收邮箱'){this.value=''}">
-<div class="subscribe_cont_tips">
-我们会严格按照你订阅的条件给你发送邮件，并对你的个人信息绝对保密。</div></div>
-<div class="subscribe_cont_list"><span class="subscribe_cont_list_name">发送周期：</span>
-<span class="post_read_chose post_read_chose_w70"><input type="radio" value="1" name="time" class="post_read_radio" checked="checked">每天 </span> 
-<span class="post_read_chose  post_read_chose_w70"><input type="radio" value="3" name="time" class="post_read_radio">3天 </span> 
-<span class="post_read_chose  post_read_chose_w70"><input type="radio" value="7" name="time" class="post_read_radio">7天</span> 
-</div>
-<div class="subscribe_cont_bth">
-<div class="subscribe_cont_list"><span class="subscribe_cont_list_name">&nbsp;</span><input type="submit" name="submit" value="订阅"  class="post_read_bth1">
-<input type="button" value="重置" onclick="clear_form();" class="post_read_bth2"></div>
-
-</div>
-</form>
-
-</div>
-    
-</div>    
-    
-    
-    
-    
-<!--
-<div class="post_read_right">
-<div class="post_read_right_h1"><span class=" png">我们为什么强烈推荐你订阅?</span></div>
-<dl class="post_read_right_dl"><dt><img src="{yun:}$style{/yun}/images/yp_time.png"></dt><dd> 帮助你节省浏览和筛选时间，快速找到适合的职位信息。</dd></dl>
-<dl class="post_read_right_dl"><dt><img src="{yun:}$style{/yun}/images/yp_fj.png"></dt><dd>我们会严格按照你订阅的条件给你发送邮件，并对你的个人信息绝对保密。</dd></dl>
-
-</div>-->
-{yun:}include file="$tplstyle/footer.htm"{/yun} 
+</body>
+</html>

@@ -17,7 +17,7 @@ function CheckPost(){
 	//var description=$.trim($("#description").val()); 
 	if($.trim(name)==''){layer.msg($("#by_name").html(), 2, 8);return false;}
 	if(birthday==''){layer.msg($("#by_birthday").html(), 2, 8);return false;}
-	ifemail = check_email(email); 
+	ifemail = check_email(email);
 	ifmoblie = isjsMobile(telphone);
 	if(telphone==''){
 		layer.msg($("#by_telphone").html(), 2, 8);return false;
@@ -33,6 +33,34 @@ function CheckPost(){
 	if(edu==''){layer.msg($("#by_educid").html(), 2, 8);return false;} 
 	if(exp==''){layer.msg($("#by_expid").html(), 2, 8);return false;} 
 	//if(description==''){layer.msg($("#by_description").html(), 2, 8);return false;} 
+	layer.load('执行中，请稍候...',0);
+}
+function CheckPost_2(){
+
+	var name=$.trim($("input[name='name']").val());
+
+
+	var telphone=$.trim($("input[name='telphone']").val());
+	var email=$.trim($("input[name='email']").val());
+	var birthday=$.trim($("#birthday").val());
+	var edu=$.trim($("#educid").val());
+	var exp=$.trim($("#expid").val());
+	var living=$.trim($("#living").val());
+	//var description=$.trim($("#description").val());
+	if($.trim(name)==''){layer.msg($("#by_name").html(), 2, 8);return false;}
+	//if(birthday==''){layer.msg($("#by_birthday").html(), 2, 8);return false;}
+	//ifemail = check_email(email);
+	//ifmoblie = isjsMobile(telphone);
+	if(telphone==''){
+		layer.msg($("#by_telphone").html(), 2, 8);return false;
+	}
+	if(email==''){
+		layer.msg($("#by_email").html(), 2, 8);return false;
+	}
+	if(living==''){layer.msg($("#by_living").html(), 2, 8);return false;}
+	if(edu==''){layer.msg($("#by_educid").html(), 2, 8);return false;}
+	if(exp==''){layer.msg($("#by_expid").html(), 2, 8);return false;}
+	//if(description==''){layer.msg($("#by_description").html(), 2, 8);return false;}
 	layer.load('执行中，请稍候...',0);
 }
 function checkmore(type){
@@ -650,6 +678,7 @@ function shell(){
 		}
 	});
 }
+
 function saveexpect(){	
 	shell();
 	var name = $.trim($("#expect_name").val()); 
@@ -694,7 +723,42 @@ function saveexpect(){
 		}
 	});
 }
-function savedescription(){	
+
+function saveexpect_2(){
+	shell();
+	//var name = $.trim($("#expect_name").val());
+	//var hy = $.trim($("#hyid").val());
+	var job_classid = $.trim($("#job_class").val());
+	var provinceid = $.trim($("#provinceid").val());
+	var cityid = $.trim($("#citysid").val());
+	var three_cityid = $.trim($("#three_cityid").val());
+	var salary = $.trim($("#salaryid").val());
+	var type = $.trim($("#typeid").val());
+	//var report = $.trim($("#reportid").val());
+	var eid = $.trim($("#eid").val());
+	//var jobstatus = $.trim($("#statusid").val());
+	//if(name==""||name=="例如: 求销售员工作 2年工作经验"){layer.msg('请填写简历名称！', 2, 2);return false; }
+	//if(hy==""){layer.msg('请选择从事行业！', 2, 2);return false;}
+	if(three_cityid==""&&cityid==''){layer.msg('请选择工作地点！', 2, 2);return false;}
+	if(job_classid==""){layer.msg('请选择从事职位！', 2, 2);return false;}
+	if(salary==""){layer.msg('请选择期望薪资！', 2, 2);return false;}
+	if(type==""){layer.msg('请选择工作性质！', 2, 2);return false;}
+	//if (report == "") { layer.msg('请选择到岗时间！', 2, 2); return false; }
+	//if (jobstatus == "") { layer.msg('请选择求职状态！', 2, 2); return false; }
+	layer.load('执行中，请稍候...',0);
+	$.post("index.php?c=expect&act=saveexpect", { job_classid: job_classid, provinceid: provinceid, cityid: cityid, three_cityid: three_cityid, salary: salary, type: type, eid: eid, submit: "1" }, function (data) {
+		layer.closeAll();
+		if(data==0){
+			layer.msg('操作失败！', 2, 8);
+		}else if(data==1){
+			layer.msg('你的简历数已经超过系统设置的简历数了！', 2, 8);
+		}else{
+				layer.msg('操作成功！', 2,9,function(){ScrollTo("expect_botton");$(".resume_expect").addClass('state_done');});
+                window.history.go(0);
+		}
+	});
+}
+function savedescription(){
     shell();
 	var eid = $.trim($("#eid").val());
 	var description = $.trim($("#description").val()); 

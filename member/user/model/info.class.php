@@ -12,6 +12,8 @@ class info_controller extends user{
 	
 	function index_action(){
 //        echo '<pre>';var_dump($_POST);die;
+        include(PLUS_PATH."city.cache.php");
+        //var_dump($city_name);die;
 		$row=$this->obj->DB_select_once("resume","`uid`='".$this->uid."'");
         $row_expect = $this->obj->DB_select_once("resume_expect","`uid`='".$this->uid."'");
         $row['type'] = $row_expect['type'];
@@ -20,23 +22,33 @@ class info_controller extends user{
 			$_POST=$this->post_trim($_POST);
 			$is_exist_email=$this->obj->DB_select_num("member","`uid`<>'".$this->uid."' and `email`='".$_POST['email']."'","`uid`");
 			if($is_exist_email){
-				$this->ACT_layer_msg("邮箱已存在！",2);
+                echo "<script>alert('邮箱已存在');window.history.back(-1);</script>";
+//				$this->ACT_layer_msg("邮箱已存在！",2);
 			}
             $is_exist_mobile=$this->obj->DB_select_once("member","`uid`<>'".$this->uid."' and `moblie`='".$_POST['telphone']."'","`uid`");
 			if($is_exist_mobile){
-				$this->ACT_layer_msg("手机已存在！",2);
+                echo "<script>alert('手机已存在');window.history.back(-1);</script>";
+                return;
+//				$this->ACT_layer_msg("手机已存在！",2);
 			}
 			if($_POST['name']==""){
-				$this->ACT_layer_msg("姓名不能为空！",2);
+                echo "<script>alert('姓名不能为空');window.history.back(-1);</script>";
+                return;
+//				$this->ACT_layer_msg("姓名不能为空！",2);
 			}
 			if($_POST['sex']==""){
-				$this->ACT_layer_msg("性别不能为空！",2);
+                echo "<script>alert('性别不能为空');window.history.back(-1);</script>";
+                return;
+//				$this->ACT_layer_msg("性别不能为空！",2);
 			}
 			
 			if($_POST['living']==""){
-				$this->ACT_layer_msg("现居住地不能为空！",2);
+                echo "<script>alert('现居住地不能为空');window.history.back(-1);</script>";
+                return;
+//				$this->ACT_layer_msg("现居住地不能为空！",2);
 			}
 			unset($_POST['submitBtn']);
+            unset($_POST['submitBtn1']);
 			delfiledir("../data/upload/tel/".$this->uid);
 			$where['uid']=$this->uid;
 			$nid=$this->obj->update_once('resume',$_POST,$where);
@@ -57,6 +69,7 @@ class info_controller extends user{
 					
 					$this->company_invtal($this->uid,$this->config['integral_userinfo'],true,"首次填写基本资料",true,2,'integral',25);
 				}
+
                 header("location:".$url);
 //				$this->ACT_layer_msg("信息更新成功！",9,$url);
 			}else{
