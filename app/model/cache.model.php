@@ -10,7 +10,7 @@
  */
 class cache_model extends model{
 	function GetCache($CacheType,$Options=array('needreturn'=>true,'needassign'=>true)){
-        if(($Options['needreturn']!=true)&&($Options['needassign']!=true)){
+        if(isset($Options['needreturn']) && ($Options['needreturn']!=true)&&($Options['needassign']!=true)){
             return;
         }
         if(!is_array($CacheType)){
@@ -77,9 +77,10 @@ class cache_model extends model{
 	}
 	private function city_cache($Options=array('needreturn'=>false,'needassign'=>true)){
 		include(PLUS_PATH."city.cache.php");
-        if($Options['needreturn']==true){
+        if(isset($Options['needreturn']) && $Options['needreturn']==true){
             return array('city_type'=>$city_type,'city_index'=>$city_index,'city_name'=>$city_name);
         }
+        return array();
 	}
 	private function job_cache($Options=array('needreturn'=>false,'needassign'=>true)){
 		include(PLUS_PATH."job.cache.php");

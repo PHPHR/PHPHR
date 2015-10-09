@@ -17,7 +17,7 @@
 							{yun:}/if{/yun}
 							</div> 
 							<div id="commentlist_{yun:}$row.id{/yun}">
-							{yun:}if $row.commentnum{/yun} 
+							{yun:}if $row.commentnum{/yun}
 								{yun:}foreach from=$row.reply key=rkey item=rlist{/yun}
 								<div class="Personals_cont_dy_pl" {yun:}if $rkey>3{/yun}style="display:none" name='hide_{yun:}$row.id{/yun}'{yun:}/if{/yun}>
 								  <div class="Personals_cont_dy_pl_tx"><img src="{yun:}$rlist.replypic{/yun}" width="28" height="35" onerror="showImgDelay(this,'{yun:}$config.sy_weburl{/yun}/{yun:}$config.sy_friend_icon{/yun}',2);"></div>
@@ -50,7 +50,7 @@
 								<div class="pf-bd textinput">
 									<textarea class="pl_textarea" id="reply_{yun:}$row.id{/yun}" onblur="onblurtext({yun:}$row.id{/yun});" onKeyUp="checkLength('66',{yun:}$row.id{/yun});" maxlength="88"></textarea>
 								</div>
-								<div class="Personals_fb"><span>已输入 <span id="colornum_{yun:}$row.id{/yun}">0</span>/66字</span><a href="javascript:;" onclick="submitreply('{yun:}$row.id{/yun}','$nid','{yun:}url m=ask c=friend a=friendreply{/yun}');" style="color:#ffffff;" title="回复">回复</a></div>
+								<div class="Personals_fb"><span>已输入 <span id="colornum_{yun:}$row.id{/yun}">0</span>/66字</span><a href="javascript:;" onclick="submitreply('{yun:}$row.id{/yun}','{yun:}$nid{/yun}','{yun:}url m=ask c=friend a=friendreply{/yun}');" style="color:#ffffff;" title="回复">回复</a></div>
 							  </div> 
 							</div> 
 							

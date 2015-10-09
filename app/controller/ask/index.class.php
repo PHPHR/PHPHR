@@ -9,7 +9,8 @@
 * 软件声明：未经授权前提下，不得用于商业运营、二次开发以及任何形式的再次发布。
  */
 class index_controller extends ask_controller{
-	function index_action(){
+	//ask微博首页_备份
+	function Bak_index_action(){
 		$M=$this->MODEL('ask');
  		$hotuser=$M->GetHotUser(array("`add_time`>'".strtotime("-30 day")."'"),array('groupby'=>"uid","orderby"=>'num',"desc"=>'desc',"limit"=>10,"field"=>"uid,count(id) as num,sum(support) as support"));
 		$this->atnask($M);
@@ -18,6 +19,12 @@ class index_controller extends ask_controller{
 		$this->yunset("hotuser",$hotuser);
 		$this->ask_tpl('index');
 	}
+
+	//新微博首页
+	function index_action(){
+		header('Location:/ask/?c=friend');
+	}
+
 
 	function getcomment_action(){
 		$M=$this->MODEL('ask');
